@@ -1,0 +1,49 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/classify/index",
+    "pages/share/index",
+    "pages/my/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "颜选喵",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#a9b7b7",
+    "selectedColor": "#11cd6e",
+    "backgroundColor": "#FFF",
+    "borderStyle": "black",
+    "list": [
+      {
+        "selectedIconPath": "images/sy.png",
+        "iconPath": "images/sy.png",
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "selectedIconPath": "images/ss.png",
+        "iconPath": "images/ss.png",
+        "pagePath": "pages/classify/index",
+        "text": "分类"
+      },
+      {
+        "selectedIconPath": "images/ss.png",
+        "iconPath": "images/ss.png",
+        "pagePath": "pages/share/index",
+        "text": "省/赚"
+      },
+      {
+        "selectedIconPath": "images/yh.png",
+        "iconPath": "images/yh.png",
+        "pagePath": "pages/my/index",
+        "text": "我的"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}
