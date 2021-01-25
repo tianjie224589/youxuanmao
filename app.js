@@ -1,7 +1,10 @@
 // app.js
+var config = require("./config.js");
 App({
   onLaunch() {
     // 展示本地存储能力
+    wx.setStorageSync('config', config);
+
     const logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
@@ -10,6 +13,19 @@ App({
     wx.login({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
+        console.log('code',res.code);
+        if(res.code){
+          console.log(config)
+          wx.request({
+            url: config.getCode_url,
+            data:{"source":"wx","code":res.code},
+            method:"POST",
+            success:function(e){
+              console.log(e);
+              wx.setStorageSync('userinfo', e);
+            },
+          })
+        }
       }
     })
     // 获取用户信息

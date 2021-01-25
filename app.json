@@ -8,14 +8,14 @@
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
+    "navigationBarBackgroundColor": "#EA617B",
     "navigationBarTitleText": "颜选喵",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
-    "color": "#a9b7b7",
-    "selectedColor": "#11cd6e",
-    "backgroundColor": "#FFF",
+    "color": "#fff",
+    "selectedColor": "#fff",
+    "backgroundColor": "#EA617B",
     "borderStyle": "black",
     "list": [
       {
