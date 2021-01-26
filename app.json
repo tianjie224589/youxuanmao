@@ -19,26 +19,26 @@
     "borderStyle": "black",
     "list": [
       {
-        "selectedIconPath": "images/sy.png",
+        "selectedIconPath": "images/sy1.png",
         "iconPath": "images/sy.png",
         "pagePath": "pages/index/index",
         "text": "首页"
       },
       {
-        "selectedIconPath": "images/ss.png",
-        "iconPath": "images/ss.png",
+        "selectedIconPath": "images/fl1.png",
+        "iconPath": "images/fl.png",
         "pagePath": "pages/classify/index",
         "text": "分类"
       },
       {
-        "selectedIconPath": "images/ss.png",
-        "iconPath": "images/ss.png",
+        "selectedIconPath": "images/fy1.png",
+        "iconPath": "images/fy.png",
         "pagePath": "pages/share/index",
         "text": "省/赚"
       },
       {
-        "selectedIconPath": "images/yh.png",
-        "iconPath": "images/yh.png",
+        "selectedIconPath": "images/my1.png",
+        "iconPath": "images/my.png",
         "pagePath": "pages/my/index",
         "text": "我的"
       }
