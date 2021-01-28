@@ -1,4 +1,11 @@
 <!--index.wxml-->
 <view class="container">
- 
+  <view class="page">
+    <view class="page__bd">
+        <weui-search bindselectresult="selectResult" search="{{search}}"></weui-search>
+    </view>
+    <view>
+      <van-search></van-search>
+    </view>
+</view>
 </view>
