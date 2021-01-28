@@ -1,1 +1,23 @@
 /**index.wxss**/
+.top{height: 50px; width: 100%; background-color: #E8627B; display:flex;}
+.address{ height: 50px; width: 20%; color: white; line-height: 50px;font-size: 36rpx; text-align: center;}
+
+.page_bd{width: 80%; background-color: #E8627B;display:flex; overflow: hidden;}
+.search{width: 100%;}
+
+.swiper-img{width: 100%; display: flex;}
+.page-section{
+  background-color: #E8627B;
+  width: 100%;
+  padding-top: 20rpx;
+}
+.page-section-spacing{ box-sizing: border-box;}
+.swiper-item{width: 100%;}
+
+.optimization{width: 100%;}
+
+.optimization_ul{width:100%;background-color:#EA617B; display:flex;}
+.optimization_li{ width: 30%;}
+
+
+

@@ -1,11 +1,37 @@
 <!--index.wxml-->
 <view class="container">
-  <view class="page">
-    <view class="page__bd">
-        <weui-search bindselectresult="selectResult" search="{{search}}"></weui-search>
+  <view class="top">
+    <view class="address">
+      重庆 v
     </view>
-    <view>
-      <van-search></van-search>
+    <view class="page_bd">
+      <van-search class="search" background="#E8627B" placeholder="搜索" value="{{ searchvalue }}"></van-search>
     </view>
-</view>
+  </view>
+  
+  <view class="page-section page-section-spacing swiper">
+    <swiper class="swiper-img" indicator-dots="true" autoplay="true" interval="3000">
+      <block wx:for="{{background}}" wx:key="*this">
+        <swiper-item>
+          <image class="swiper-item" src="{{item}}"></image>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+
+  <van-notice-bar style="width:100%;" color="#242424" background="#E2E2E2" left-icon="volume-o" text="在代码阅读过程中人们说脏话的频率是衡量代码质量的唯一标准。"/>
+  
+  <van-notice-bar class="optimization" mode="link" color="#fff" background="#E8627B" scrollable="{{ false }}" text="为您优选" />
+  <view class="optimization_ul">
+    <view class="optimization_li"> <van-image radius="10" width="80" height="10rem" src="https://img.yzcdn.cn/vant/cat.jpeg"/></view>
+    <view class="optimization_li"> <van-image radius="10" width="80" height="10rem" src="https://img.yzcdn.cn/vant/cat.jpeg"/></view>
+    <view class="optimization_li"> <van-image radius="10" width="80" height="10rem" src="https://img.yzcdn.cn/vant/cat.jpeg"/></view>
+  </view>
+ 
+
+
+
+
+
+
 </view>

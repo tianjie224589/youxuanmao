@@ -1,7 +1,14 @@
 {
   "usingComponents": {
     "weui-search": "/weui-miniprogram/searchbar/searchbar",
-    "van-search": "/dist/search/index"
+    "van-search": "/dist/search/index",
+    "van-row": "/dist/row/index",
+    "van-col": "/dist/col/index",
+    "van-notice-bar": "/dist/notice-bar/index",
+    "van-panel": "/dist/panel/index",
+    "van-cell": "/dist/cell/index",
+    "van-cell-group": "/dist/cell-group/index",
+    "van-image": "/dist/image/index"
   },
   "navigationBarTitleText": "UI组件库"
 }

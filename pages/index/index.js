@@ -4,6 +4,13 @@ const app = getApp()
 
 Page({
   data: {
+    searchvalue:'',
+    background: [
+      '../../images/banner.jpg',
+      '../../images/banner1.jpg',
+      '../../images/banner2.jpg'
+    ],
+
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
