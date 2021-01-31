@@ -10,7 +10,7 @@
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#EA617B",
     "navigationBarTitleText": "颜选喵",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "white"
   },
   "tabBar": {
     "color": "#fff",

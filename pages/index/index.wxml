@@ -2,7 +2,7 @@
 <view class="container">
   <view class="top">
     <view class="address">
-      重庆 v
+      重庆<van-icon size="14px" name="arrow-down" />
     </view>
     <view class="page_bd">
       <van-search class="search" background="#E8627B" placeholder="搜索" value="{{ searchvalue }}"></van-search>
@@ -21,17 +21,76 @@
 
   <van-notice-bar style="width:100%;" color="#242424" background="#E2E2E2" left-icon="volume-o" text="在代码阅读过程中人们说脏话的频率是衡量代码质量的唯一标准。"/>
   
-  <van-notice-bar class="optimization" mode="link" color="#fff" background="#E8627B" scrollable="{{ false }}" text="为您优选" />
-  <view class="optimization_ul">
-    <view class="optimization_li"> <van-image radius="10" width="80" height="10rem" src="https://img.yzcdn.cn/vant/cat.jpeg"/></view>
-    <view class="optimization_li"> <van-image radius="10" width="80" height="10rem" src="https://img.yzcdn.cn/vant/cat.jpeg"/></view>
-    <view class="optimization_li"> <van-image radius="10" width="80" height="10rem" src="https://img.yzcdn.cn/vant/cat.jpeg"/></view>
+  <view class="youxuan">
+    <view class="youxuan_title">
+      <view class="youxuan_alt">为您优选</view>
+      <view class="youxuan_bq">
+        查看更多<van-icon size="10px" name="arrow" />
+      </view>
+    </view>
+    <view class="youxuan_body">
+      <view class="youxuan_sp">
+        <image class="yx_img" src="../../images/wnyx.png"></image>
+        <view class="yx_content">
+          <view>女人的没</view>
+          <view>在于优雅的姿态</view>
+          <view class="yx_content_jg">
+            <view class="yx_money"><text class="yx_money_fh">￥</text>780</view>
+            <view class="yx_yuanjia">￥1280</view>
+          </view>
+        </view>
+      </view>
+      <view class="youxuan_sp">
+        <image class="yx_img" src="../../images/wnyx.png"></image>
+        <view class="yx_content">
+          <view>女人的没</view>
+          <view>在于优雅的姿态</view>
+          <view class="yx_content_jg">
+            <view class="yx_money"><text class="yx_money_fh">￥</text>780</view>
+            <view class="yx_yuanjia">￥1280</view>
+          </view>
+        </view>
+      </view>
+      <view class="youxuan_sp">
+        <image class="yx_img" src="../../images/wnyx.png"></image>
+        <view class="yx_content">
+          <view>女人的没</view>
+          <view>在于优雅的姿态</view>
+          <view class="yx_content_jg">
+            <view class="yx_money"><text class="yx_money_fh">￥</text>780</view>
+            <view class="yx_yuanjia">￥1280</view>
+          </view>
+        </view>
+      </view>
+    </view>
   </view>
- 
 
+  <view class="content">
+    <view class="yyfy">
+      <view class="yyfy_title">
+        <view class="yyfy_alt">医院返佣榜单</view>
+        <view class="yyfy_bq">
+          查看更多<van-icon size="10px" name="arrow" />
+        </view>
+      </view>
+      <view class="yyfy_body">
+        <view class="yyfy_li">
+          <image class="yyfy_li_tb" src="../../images/1.png"></image>
+          <image class="yyfy_li_img" src="../../images/yiyuan.png"></image>
+          <view class="yyfy_li_content">
+            <view class="yyfy_li_content_title">韩美整形【优】医美连锁品牌,拥有四级整形资质,品质塑美,打造个性,告别同款.属于你的盛世美颜</view>
+            <view class="yyfy_li_content_money">
+              <view class="yyfy_money"><text class="yyfy_money_fh">￥</text>780</view>
+              <view class="yyfy_yuanjia">￥1280</view>
+              <van-button custom-style="width:200rpx" size="small" round type="info">圆形按钮</van-button>
+            </view>
+            <view class="yyfy_li_content_note"></view>
+          </view>
+        </view>
+        <view class="yyfy_li"></view>
+        <view class="yyfy_li"></view>
+      </view>
+    </view>
 
-
-
-
-
+  </view>
 </view>

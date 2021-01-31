@@ -1,6 +1,7 @@
 {
   "usingComponents": {
     "weui-search": "/weui-miniprogram/searchbar/searchbar",
+    "van-icon": "/dist/icon/index",
     "van-search": "/dist/search/index",
     "van-row": "/dist/row/index",
     "van-col": "/dist/col/index",
@@ -8,7 +9,8 @@
     "van-panel": "/dist/panel/index",
     "van-cell": "/dist/cell/index",
     "van-cell-group": "/dist/cell-group/index",
-    "van-image": "/dist/image/index"
+    "van-image": "/dist/image/index",
+    "van-button": "/dist/button/index"
   },
-  "navigationBarTitleText": "UI组件库"
+  "navigationBarTitleText": "颜选喵"
 }
