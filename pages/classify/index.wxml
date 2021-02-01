@@ -1,2 +1,14 @@
-<!--pages/classify/index.wxml-->
-<text>pages/classify/index.wxml</text>
+<van-tree-select
+  items="{{ items }}"
+  height="55vw"
+  main-active-index="{{ mainActiveIndex }}"
+  active-id="{{ activeId }}"
+  bind:click-nav="onClickNav"
+  bind:click-item="onClickItem"
+>
+  <view slot="content">
+    <view wx:for="{{goodslist}}" wx:key="index" wx:for-item="data">
+      <image style="width:200rpx;height:200rpx;" src="{{data.url}}" />
+    </view>
+  </view>
+</van-tree-select>

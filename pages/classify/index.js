@@ -5,8 +5,35 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    mainActiveIndex: 0,
+    activeId: [],
+    max: 2,
+    items: [{ text: '分组 1' }, { text: '分组 2' }],
+    goodslist:[
+      {id:1,url:'https://img.yzcdn.cn/vant/apple-1.jpg'},
+      {id:2,url:'https://img.yzcdn.cn/vant/apple-2.jpg'}
+    ]
   },
+
+  onClickNav({ detail = {} }) {
+    this.setData({
+      mainActiveIndex: detail.index || 0,
+    });console.log(detail.index)
+  },
+
+  onClickItem({ detail = {} }) {
+    const { activeId } = this.data;
+
+    const index = activeId.indexOf(detail.id);
+    if (index > -1) {
+      activeId.splice(index, 1);
+    } else {
+      activeId.push(detail.id);
+    }
+    
+    this.setData({ activeId });
+  },
+
 
   /**
    * 生命周期函数--监听页面加载

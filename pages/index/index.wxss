@@ -32,26 +32,28 @@ page{font-family: SimSun;}
 
 .content{width: 100%; padding: 20rpx 20rpx 20rpx 20rpx; box-sizing:border-box; background-color:#E2E2E2; }
 
-.yyfy{ width: 100%; padding-bottom: 1rpx; background-color:#fff; border-radius:10px; box-sizing:border-box;}
+.yyfy{ width: 100%; padding-bottom: 1rpx; background-color:#fff; border-radius:10px; box-sizing:border-box; margin-bottom: 20rpx;}
 .yyfy_title{ height: 100rpx; width: 100%; line-height: 100rpx; display:flex; justify-content: space-around;}
 .yyfy_alt{ width:300rpx; font-weight: 600; }
 .yyfy_bq{ width: 300rpx; text-align: right; font-size: 28rpx;}
 .yyfy_body{ width: 100%; padding:0 20rpx 0 20rpx; box-sizing:border-box;}
-.yyfy_li{ height: 240rpx; width: 100%; padding-top: 10rpx; margin-bottom: 20rpx; background-color:#EB607D; position: relative; display:flex; justify-content: space-around; }
+.yyfy_li{ height: 240rpx; width: 100%; padding-top: 10rpx; margin-bottom: 20rpx; position: relative; display:flex; justify-content: space-around; }
 .yyfy_li_tb{ height: 60rpx; width: 46rpx; position: absolute; top: 0;left: 0;}
+.yyfy_li_v{ height: 39rpx; width: 32rpx; position: absolute; top: 20rpx;right: 30rpx;}
 .yyfy_li_img{ height: 240rpx; width: 200rpx;border-radius:10px;}
-.yyfy_li_content{ height: 240rpx; width: 450rpx; padding: 10rpx; background-color:#E2E2E2; box-sizing:border-box;}
-.yyfy_li_content_title{ height: 100rpx; width: 360rpx; line-height: 50rpx; overflow: hidden;background-color:#EB607D;}
-.yyfy_li_content_money{height: 70rpx; width: 100%; line-height: 70rpx; display:flex; justify-content: space-around; background-color:#fff;}
-.yyfy_money{ color: #EB607D; font-size: 30rpx;}
-.yyfy_money_fh{font-size: 24rpx;}
-.yyfy_yuanjia{ color: #AAA7A6; font-size: 26rpx; text-decoration:line-through;}
-.yyfy_li_content_note{height: 60rpx;width: 100%; background-color:#AAA7A6;}
-
-
-
-
-
+.yyfy_li_content{ height: 240rpx; width: 450rpx; padding: 10rpx; box-sizing:border-box;}
+.yyfy_li_content_title{ height: 80rpx; width: 360rpx; line-height: 40rpx; overflow: hidden;}
+.yyfy_li_content_money{height: 80rpx; width: 100%; line-height: 80rpx; display:flex; justify-content: space-around; background-color:#fff;}
+.yyfy_money{ width: 140rpx; color: #EB607D; font-size: 30rpx;}
+.yyfy_money_fh{ font-size: 24rpx;}
+.yyfy_yuanjia{ width: 150rpx; color: #AAA7A6; font-size: 26rpx; text-decoration:line-through;}
+.yyfy_li_content_note{ height: 80rpx; width: 100%; line-height: 60rpx; display:flex; justify-content: space-around;}
+.yyfy_content_des{ width: 280rpx; font-size: 24rpx;}
+.yyfy_content_des_fy{ line-height: 40rpx; color: #EA617B;}
+.yyfy_content_des_ads{ line-height: 30rpx; color: #8D8B8C;}
+.yyfy_zx{ border-radius:20px; height: 60rpx; background-color: #EA617B; color: white; font-size: 24rpx; font-weight: 500;}
+.yyfy_content_zs{ line-height: 80rpx; width: 300rpx; font-size: 24rpx; color: #EA617B;}
+.yyfy_content_ys{ line-height: 80rpx; font-size: 24rpx; color: #8D8B8C;}
 
 
 
