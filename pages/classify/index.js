@@ -1,7 +1,9 @@
-const app = getApp()
+const app = getApp();
+var config = (wx.getStorageSync('config'));
 Page({
   data: {
     currentTab: '',
+    classify:{},
   },
   clickTab: function (e) {
     let that = this;
@@ -9,7 +11,20 @@ Page({
       currentTab: e.currentTarget.dataset.id,
       id: e.currentTarget.dataset.id
     })
+
+    console.log(that.data.id)
+    wx.request({
+      url: config.getGoodsList_url,
+      data:{"source":"wx","cid":that.data.id},
+      method: "post",
+      success: function (res) {
+        that.setData({
+          goodslist:res.data.result,
+        })
+      }
+    })
   },
+
   onLoad: function (options) {
     var that = this
     if (options.share_id) {
@@ -23,35 +38,34 @@ Page({
       });
     }
     wx.showLoading({ title: "加载中", mask: true });
+
+    //获取产品
     wx.request({
-      url: 'https://qingyuan.6art.cn/goods/lists',
+      url: config.getGoodsList_url,
+      data:{"source":"wx"},
       method: "post",
-      header: {
-        'Content-Type': 'application/json',
-      },
       success: function (res) {
-        console.log(res)
         that.setData({
-          share:res.data.share,
-          title: res.data.categories,
-          currentTab:res.data.categories[0].tid
+          goodslist:res.data.result,
         })
       }
     })
+
+    //获取分类栏目
     wx.request({
-      url: 'https://qingyuan.6art.cn/index/category',
+      url: config.getClassify_url,
+      data:{"source":"wx"},
       method: "post",
-      header: {
-        'Content-Type': 'application/json',
-      },
       success: function (res) {
         wx.stopPullDownRefresh();
         that.setData({
-          index_data: res.data.data
+          classify: res.data.result,
+          currentTab:res.data.result[0].id
         })
         wx.hideLoading();
       }
     })
+
   },
   onShow:function(){
    

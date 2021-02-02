@@ -1,29 +1,21 @@
 <view class="category">
   <view class="left_btn">
-    <block wx:for="{{title}}" wx:key="currentTab">
-      <view class="btn {{currentTab ==item.tid ? 'active' : ''}}" bindtap="clickTab" data-id="{{item.tid}}">{{item.name}}</view>
+    <block wx:for="{{classify}}" wx:for-item="vo" wx:key="currentTab">
+      <view class="btn {{currentTab ==vo.id ? 'active' : ''}}" bindtap="clickTab" data-id="{{vo.id}}">{{vo.name}}</view>
     </block>
   </view>
   <view class="right_value">
-    <block wx:for="{{index_data}}" wx:key="{{item.id}}">
-      <view wx:if="{{currentTab ==item.id}}">
-        <view wx:if="{{item.tags==undefined || ''}}" class='no-data'>
-          <image src='/image/icon/kong-img.png'></image>
-          什么也没有
+    <view class='no-data'>
+      <image src='{{vo.banner_img}}'></image>
+    </view>
+    <view class="liqueur_box" wx:for="{{goodslist}}" wx:key="{{item}}">
+      <navigator url="../pro_list?id={{item.id}}">
+        <view class="liqueur">
+          <image src="{{item.thumb_img}}" mode='aspectFill' lazy-load></image>
+          <view class="name">{{item.name}}</view>
         </view>
-        <block wx:for="{{item.tags}}" wx:key='{{item.id}}'>
-          <view class="liqueur_title"><text>{{item.name}}</text></view>
-          <view class="liqueur_box" wx:for="{{item.tags}}" wx:key="{{item.id}}">
-            <navigator url="../pro_list/pro_list?tid={{item.id}}">
-              <view class="liqueur">
-                <image src="{{item.icon}}" mode='aspectFill' lazy-load></image>
-                <view class="name">{{item.name}}</view>
-              </view>
-            </navigator>
-          </view>
-          <view class="clear"></view>
-        </block>
-      </view>
-    </block>
+      </navigator>
+    </view>
+    <view class="clear"></view>
   </view>
 </view>
