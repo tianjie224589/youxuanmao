@@ -1,4 +1,67 @@
 /* pages/classify/index.wxss */
+page{
+  background: #fff;
+}
+.category{
+  display: flex;
+}
+.left_btn{
+  width: 176rpx;
+  height: 100vh;
+  background: #f7f6f5;
+  text-align: center;
+  position: sticky;
+  top:0;
+}
+.btn{
+  height: 97rpx;
+  line-height: 97rpx;
+  font-size: 28rpx;
+}
+.active{
+  background: #fff;
+  border-left: 5rpx solid red
+}
+.right_value{
+  height: 100%;
+  width: 100%;
+  background: #fff;
+  margin-bottom: 40rpx;
+}
+.liqueur_title{
+  height: 82rpx;
+  font-size: 28rpx;
+  color:red;
+  margin-left: 44rpx;
+}
+.liqueur_title text{
+  display: inline-block;
+  margin-top: 48rpx;
+}
+.liqueur_box{
+  margin-right: 83rpx;
+}
+.liqueur{
+  width: 162rpx;
+  height: 200rpx;
+  text-align: center;
+  float: left;
+  margin-left: 97rpx;
+}
+.liqueur image{
+  width: 130rpx;
+  height: 130rpx;
+  margin-top: 26rpx;
+}
+.name{
+  color:#7f7f7f;
+  font-size: 24rpx;
+  margin-top: 14rpx;
+}
+.clear{
+  clear: both;
+}
+
 
 
 

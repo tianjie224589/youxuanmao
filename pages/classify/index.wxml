@@ -1,14 +1,29 @@
-<van-tree-select
-  items="{{ items }}"
-  height="55vw"
-  main-active-index="{{ mainActiveIndex }}"
-  active-id="{{ activeId }}"
-  bind:click-nav="onClickNav"
-  bind:click-item="onClickItem"
->
-  <view slot="content">
-    <view wx:for="{{goodslist}}" wx:key="index" wx:for-item="data">
-      <image style="width:200rpx;height:200rpx;" src="{{data.url}}" />
-    </view>
+<view class="category">
+  <view class="left_btn">
+    <block wx:for="{{title}}" wx:key="currentTab">
+      <view class="btn {{currentTab ==item.tid ? 'active' : ''}}" bindtap="clickTab" data-id="{{item.tid}}">{{item.name}}</view>
+    </block>
   </view>
-</van-tree-select>
+  <view class="right_value">
+    <block wx:for="{{index_data}}" wx:key="{{item.id}}">
+      <view wx:if="{{currentTab ==item.id}}">
+        <view wx:if="{{item.tags==undefined || ''}}" class='no-data'>
+          <image src='/image/icon/kong-img.png'></image>
+          什么也没有
+        </view>
+        <block wx:for="{{item.tags}}" wx:key='{{item.id}}'>
+          <view class="liqueur_title"><text>{{item.name}}</text></view>
+          <view class="liqueur_box" wx:for="{{item.tags}}" wx:key="{{item.id}}">
+            <navigator url="../pro_list/pro_list?tid={{item.id}}">
+              <view class="liqueur">
+                <image src="{{item.icon}}" mode='aspectFill' lazy-load></image>
+                <view class="name">{{item.name}}</view>
+              </view>
+            </navigator>
+          </view>
+          <view class="clear"></view>
+        </block>
+      </view>
+    </block>
+  </view>
+</view>
