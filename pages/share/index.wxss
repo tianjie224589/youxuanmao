@@ -1,1 +1,27 @@
 /* pages/share/index.wxss */
+page{
+  background: #fff;
+}
+.category{
+  display: grid;
+}
+.sousuo{width: 100%; display: grid;}
+.biaoqiao{width: 100%; display: flex; padding: 0 20rpx;box-sizing:border-box;padding-bottom: 20rpx;}
+.biaoqian_title{margin: 10rpx;}
+
+.fxcontent{
+  width: 100%;
+  background: #f7f6f5;
+  padding:20rpx;
+  box-sizing:border-box;
+}
+
+
+
+.fenxiang{height: 100rpx;width: 100%; line-height: 100rpx; position: fixed; bottom: 0; background-color:#E2E2E2;display:flex; justify-content: space-around; font-size: 28rpx;}
+.xuanzhe{ width: 400rpx;}
+
+
+
+
+

@@ -4,6 +4,24 @@ Page({
   data: {
     currentTab: '',
     classify:{},
+    images:{}
+  },
+  imageLoad: function(e) {console.log(e)
+    var $width=e.detail.width,    //获取图片真实宽度
+        $height=e.detail.height,
+        ratio=$width/$height;    //图片的真实宽高比例
+        console.log($width)
+    var viewWidth=718,           //设置图片显示宽度，左右留有16rpx边距
+        viewHeight=718/ratio;    //计算的高度值
+     var image=this.data.images; 
+     //将图片的datadata-index作为image对象的key,然后存储图片的宽高值
+     image[e.target.dataset.index]={
+        width:viewWidth,
+        height:viewHeight/2-94
+     }
+     this.setData({
+          images:image
+     })
   },
   clickTab: function (e) {
     let that = this;
@@ -39,18 +57,6 @@ Page({
     }
     wx.showLoading({ title: "加载中", mask: true });
 
-    //获取产品
-    wx.request({
-      url: config.getGoodsList_url,
-      data:{"source":"wx"},
-      method: "post",
-      success: function (res) {
-        that.setData({
-          goodslist:res.data.result,
-        })
-      }
-    })
-
     //获取分类栏目
     wx.request({
       url: config.getClassify_url,
@@ -63,6 +69,18 @@ Page({
           currentTab:res.data.result[0].id
         })
         wx.hideLoading();
+      }
+    })
+
+     //获取产品
+     wx.request({
+      url: config.getGoodsList_url,
+      data:{"source":"wx","cid":25},
+      method: "post",
+      success: function (res) {
+        that.setData({
+          goodslist:res.data.result,
+        })
       }
     })
 

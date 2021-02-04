@@ -1,2 +1,39 @@
-<!--pages/share/index.wxml-->
-<text>pages/share/index.wxml</text>
+<view class="category">
+  <view class="sousuo">
+    <van-search style="width:100%" value="{{ value }}" placeholder="请输入搜索关键词" />
+  </view>
+  <view class="biaoqiao">
+    <van-tag
+      wx:if="{{ show.primary }}"
+      closeable
+      round
+      color="#EB607D"
+      size="large"
+      type="primary"
+      id="primary"
+      bind:close="onClose"
+      custom-class="biaoqian_title"
+    >标签</van-tag>
+    <van-tag
+      wx:if="{{ show.success }}"
+      closeable
+      round
+      color="#EB607D"
+      size="large"
+      type="primary"
+      id="success"
+      bind:close="onClose"
+      custom-class="biaoqian_title"
+    >标签</van-tag>
+  </view>
+  <image src="../../images/fybanner.png" bindload="imageLoad" mode='aspectFill' style='width:{{ images.width*2 }}rpx;height:{{ images.height*2 }}rpx;'></image>
+
+  <view class="fxcontent">
+
+
+  </view>
+  <view class="fenxiang">
+    <view class="xuanzhe">已选择：2份 至少一款医美产品</view>
+    <van-button round size="small" type="info" color="#EB607D" custom-style="width:80px; font-size:28rpx;font-weight: 500;">确认</van-button>
+  </view>
+</view>

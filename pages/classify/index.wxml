@@ -5,14 +5,17 @@
     </block>
   </view>
   <view class="right_value">
-    <view class='no-data'>
-      <image src='{{vo.banner_img}}'></image>
-    </view>
-    <view class="liqueur_box" wx:for="{{goodslist}}" wx:key="{{item}}">
-      <navigator url="../pro_list?id={{item.id}}">
+    <view class="liqueur_box" wx:for="{{goodslist}}" wx:key="key" wx:for-item="val">
+      <navigator url="../pro_list?id={{val.id}}">
         <view class="liqueur">
-          <image src="{{item.thumb_img}}" mode='aspectFill' lazy-load></image>
-          <view class="name">{{item.name}}</view>
+          <image src="{{val.thumb_img}}" bindload="imageLoad" data-index="{{ index }}" mode='aspectFill' style='height:{{ images[index].height }}rpx;' lazy-load></image>
+          <view class="name">
+            <view class="name_title">{{val.name}}</view>
+            <view class="name_money">
+              <view class="name_price">￥1280</view>
+              <view class="name_advance">预约金:50</view>
+            </view>
+          </view>
         </view>
       </navigator>
     </view>
