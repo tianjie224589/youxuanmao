@@ -1,6 +1,6 @@
 /* pages/share/index.wxss */
 page{
-  background: #fff;
+  background-color: #fff;
 }
 .category{
   display: grid;
@@ -11,11 +11,90 @@ page{
 
 .fxcontent{
   width: 100%;
+  box-sizing: border-box;
   background: #f7f6f5;
   padding:20rpx;
-  box-sizing:border-box;
+  display: grid;
 }
 
+.list_fx{
+  width: 100%;
+  background: #fff;
+  margin-bottom:20rpx;
+  border-radius: 20rpx;
+  padding:20rpx;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.list_fx_fy{
+  width: 100%;
+  display:flex;
+  justify-content: space-around;
+  box-sizing: border-box;
+}
+
+.list_fx_img{
+  height: 220rpx;
+  width: 220rpx;
+  border-radius: 20rpx;
+}
+
+.list_fx_nr{
+  height: 220rpx;
+  width: 410rpx;
+  display:flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.fy_nr_left{
+  width: 260rpx;
+}
+.fy_nr_left_title{
+  height: 100rpx;
+  line-height: 50rpx;
+  font-size: 32rpx;
+  overflow: hidden;
+}
+.fy_nr_left_xl{
+  line-height: 120rpx;
+  font-size: 28rpx;
+  color: #7f7f7f;
+}
+
+.fy_nr_right{
+  width: 130rpx;
+  text-align: right;
+}
+
+.fy_nr_right_price{
+  line-height: 75rpx;
+  font-size: 28rpx;
+}
+.right_money{font-size: 40rpx; font-weight: 500;}
+
+.fy_nr_right_num{
+  line-height: 20rpx;
+  font-size: 28rpx;
+  color: #7f7f7f;
+  
+}
+
+.fy_nr_right_fy{
+  line-height: 120rpx;
+  font-size: 28rpx;
+  color: #E9607A;
+}
+
+.list_fx_an{
+  width: 100%;
+  height: 60rpx;
+  text-align: right;
+}
+
+.list_zx{ border-radius:20px; height: 60rpx; color: white; font-size: 24rpx; font-weight: 500; margin-left: 20rpx;}
+.list_bgc{ background-color: #EA617B;}
 
 
 .fenxiang{height: 100rpx;width: 100%; line-height: 100rpx; position: fixed; bottom: 0; background-color:#E2E2E2;display:flex; justify-content: space-around; font-size: 28rpx;}

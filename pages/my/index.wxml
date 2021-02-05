@@ -4,7 +4,20 @@
     <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
     <block wx:else>
       <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+      <view class="userinfo-top">
+        <view class="userinfo-duanwei">赚钱喵VIP1</view>
+        <view class="userinfo-nickname">{{userInfo.nickName}}</view>
+        <view class="userinfo-mobile">17783468186</view>
+      </view>
     </block>
   </view>
+  <view class="my-money">
+    <view class="my-money-bg"></view>
+    <view class="my-money-body">
+        <view class="my-money-content">
+
+        </view>
+    </view>
+  </view>
+
 </view>

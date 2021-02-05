@@ -18,6 +18,7 @@ Page({
         ratio=$width/$height;    //图片的真实宽高比例
     var viewWidth=wx.getSystemInfoSync().windowWidth,           //设置图片显示宽度为当前屏幕宽度，
         viewHeight=viewWidth/ratio;    //计算的高度值
+        
     var image=this.data.images; 
      //将图片的datadata-index作为image对象的key,然后存储图片的宽高值
     image={
