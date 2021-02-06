@@ -1,4 +1,8 @@
 /* pages/my/index.wxss */
+.getwxgrant{
+  margin: 100rpx;
+}
+
 .userinfo {
   width: 100%;
   background-color: #EA617B;
@@ -59,9 +63,20 @@
   height: 150rpx;
   background-color: #fff;
   border-radius: 20rpx;
+  display:flex; justify-content: space-around;
 }
 
+.my-money-x{
+  width: 10rpx;
+  height: 150rpx;
+  background-color: red;
+}
 
+.my-money-title{
+  width: 300rpx;
+  height: 150rpx;
+  background-color: #544;
+}
 
 
 

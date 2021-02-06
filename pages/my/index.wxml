@@ -1,23 +1,24 @@
 <!--pages/my/index.wxml-->
 <view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <view class="userinfo-top">
-        <view class="userinfo-duanwei">赚钱喵VIP1</view>
-        <view class="userinfo-nickname">{{userInfo.nickName}}</view>
-        <view class="userinfo-mobile">17783468186</view>
-      </view>
-    </block>
-  </view>
-  <view class="my-money">
-    <view class="my-money-bg"></view>
-    <view class="my-money-body">
-        <view class="my-money-content">
-
+  <button class="getwxgrant" wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+  <block wx:else>
+    <view class="userinfo">
+        <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+        <view class="userinfo-top">
+          <view class="userinfo-duanwei">赚钱喵VIP1</view>
+          <view class="userinfo-nickname">{{userInfo.nickName}}</view>
+          <view class="userinfo-mobile">17783468186</view>
         </view>
     </view>
-  </view>
-
+    <view class="my-money">
+      <view class="my-money-bg"></view>
+      <view class="my-money-body">
+          <view class="my-money-content">
+            <view class="my-money-title"></view>
+            <view class="my-money-x"></view>
+            <view class="my-money-title"></view>
+          </view>
+      </view>
+    </view>
+  </block>
 </view>
