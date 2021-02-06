@@ -1,6 +1,7 @@
 /* pages/classify/index.wxss */
 page{
-  background: #fff;
+  font-family: SimSun;
+  background-color: #EEEEEE;
 }
 .category{
   display: flex;
@@ -22,13 +23,13 @@ page{
 .active{
   font-weight: 600;
   color: #EB607D;
-  background: #f7f6f5;
+  background: #EEEEEE;
   border-left: 5rpx solid red
 }
 .right_value{
   height: 100%;
   width: 100%;
-  background: #f7f6f5;
+  background: #EEEEEE;
   margin-bottom: 40rpx;
   padding: 20rpx;
   box-sizing:border-box;display:flex; justify-content: space-around;

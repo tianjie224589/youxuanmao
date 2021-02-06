@@ -1,12 +1,20 @@
 /* pages/share/index.wxss */
 page{
-  background-color: #fff;
+  font-family: SimSun;
+  background-color: #EEEEEE;
 }
 .category{
   display: grid;
 }
 .sousuo{width: 100%; display: grid;}
-.biaoqiao{width: 100%; display: flex; padding: 0 20rpx;box-sizing:border-box;padding-bottom: 20rpx;}
+.biaoqiao{
+  width: 100%; 
+  display: flex; 
+  padding: 0 20rpx;
+  box-sizing:border-box;
+  padding-bottom: 20rpx;
+  background-color: #fff;
+}
 .biaoqian_title{margin: 10rpx;}
 
 .fxcontent{
@@ -15,6 +23,7 @@ page{
   background: #f7f6f5;
   padding:20rpx;
   display: grid;
+  margin-bottom: 100rpx;
 }
 
 .list_fx{

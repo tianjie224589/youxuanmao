@@ -1,6 +1,6 @@
 <view class="category">
   <view class="sousuo">
-    <van-search style="width:100%" value="{{ value }}" placeholder="请输入搜索关键词" />
+    <van-search style="width:100%" shape="round" value="{{ value }}" placeholder="请输入搜索关键词" />
   </view>
   <view class="biaoqiao">
     <van-tag

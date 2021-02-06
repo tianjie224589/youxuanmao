@@ -1,4 +1,10 @@
 /* pages/my/index.wxss */
+@import '/dist/common/index.wxss';
+
+page{
+  font-family: SimSun;
+  background-color: #EEEEEE;
+}
 .getwxgrant{
   margin: 100rpx;
 }
@@ -38,22 +44,21 @@
 
 .my-money{
   width: 100%;
-  height: 236rpx;
-  background-color: thistle;
+  height: 200rpx;
+  background-color: #EEEEEE;
   position: relative;
 }
 .my-money-bg{
   width: 100%;
-  height: 118rpx;
+  height: 90rpx;
   background-color: #EA617B;
 }
 .my-money-body{
-  height: 236rpx;
+  height: 200rpx;
   width: 100%;
   position: absolute;
   top: 0;
   left: 0;
-  background-color:rgba(0, 0, 0, 0.5);
   padding: 0 40rpx;
   box-sizing: border-box;
 }
@@ -61,7 +66,7 @@
 .my-money-content{
   width: 100%;
   height: 150rpx;
-  background-color: #fff;
+  background-color: #F9F9F9;
   border-radius: 20rpx;
   display:flex; justify-content: space-around;
 }
@@ -69,23 +74,97 @@
 .my-money-x{
   width: 10rpx;
   height: 150rpx;
-  background-color: red;
+}
+.my-money-xbg{
+  width: 5rpx;
+  height: 60rpx;
+  background-color: #E9E9E9;
+  margin-top: 40rpx;
 }
 
 .my-money-title{
   width: 300rpx;
-  height: 150rpx;
-  background-color: #544;
+  height: 130rpx;
+  text-align: center;
+  color: #434342;
+  padding-top: 20rpx;
 }
 
+.my-orders{
+  width: 100%;
+  height: 250rpx;
+  background-color: #EEEEEE;
+  padding: 0 40rpx;
+  box-sizing: border-box;
+  font-size: 28rpx;
+}
+.my-orders-body{
+  width: 100%;
+  height: 250rpx;
+  background-color: #F9F9F9;
+  border-radius: 20rpx;
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+.my-orders-title{
+  width: 100%;
+  height: 70rpx;
+  line-height: 70rpx;
+  border-bottom: 1px #DBDBDB solid;
+  display:flex; justify-content: space-between;
+}
+.my-orders-bt{
+  width: 180rpx;
+  text-align: center;
+}
+.my-orders-more{
+  font-size: 24rpx;
+}
+.my-order-tb{
+  width: 100%;
+  height: 128rpx;
+  display:flex;
+  justify-content: space-between;
+}
+.my-order-tbnav{
+  width: 128rpx;
+  height: 128rpx;
+  text-align: center;
+  color: #EB617B;
+}
+.my-order-img{
+  width: 36rpx;
+  height: 36rpx;
+  margin-top: 30rpx;
+}
 
+.my-set{
+  width: 100%;
+  background-color: #EEEEEE;
+  padding: 40rpx;
+  box-sizing: border-box;
+  font-size: 28rpx;
+  color: #535351;
+  display: grid;
+}
 
-
-
-
-
-
-
-
-
-
+.my-set-tr{
+  width: 100%;
+  height: 80rpx;
+  background-color: #F9F9F9;
+  margin-bottom: 2px;
+  display:flex;
+  justify-content: space-between;
+}
+.my-set-tr-title{
+  width: 250rpx;
+  line-height: 80rpx;
+  padding-left: 40rpx;
+}
+.my-set-tr-tb{
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+.my-set-tr-mb{
+  margin-bottom: 20rpx;
+}

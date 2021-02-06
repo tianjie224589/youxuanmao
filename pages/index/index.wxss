@@ -1,5 +1,8 @@
 /**index.wxss**/
-page{font-family: SimSun;}
+page{
+  font-family: SimSun;
+  background-color: #EEEEEE;
+}
 .top{height: 50px; width: 100%; background-color: #E8627B; display:flex;}
 .address{ height: 50px; width: 20%; color: white; line-height: 50px;font-size: 36rpx; text-align: center;}
 

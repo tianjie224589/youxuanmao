@@ -14,10 +14,98 @@
       <view class="my-money-bg"></view>
       <view class="my-money-body">
           <view class="my-money-content">
-            <view class="my-money-title"></view>
-            <view class="my-money-x"></view>
-            <view class="my-money-title"></view>
+            <view class="my-money-title">
+              <view>0:00</view>
+              <view>余额</view>
+            </view>
+            <view class="my-money-x">
+              <view class="my-money-xbg"></view>
+            </view>
+            <view class="my-money-title">
+              <view>0</view>
+              <view>优惠券</view>
+            </view>
           </view>
+      </view>
+    </view>
+    <view class="my-orders">
+      <view class="my-orders-body">
+        <view class="my-orders-title">
+          <view class="my-orders-bt">我的订单</view>
+          <view class="my-orders-more">查看全部订单></view>
+        </view>
+        <view class="my-order-tb">
+          <view class="my-order-tbnav">
+            <image class="my-order-img" src="../../images/my-order-dfk.jpg"></image>
+            <view>代付款</view>
+          </view>
+          <view class="my-order-tbnav">
+            <image class="my-order-img" src="../../images/my-order-dfh.jpg"></image>
+            <view>代发货</view>
+          </view>
+          <view class="my-order-tbnav">
+            <image class="my-order-img" src="../../images/my-order-dsh.jpg"></image>
+            <view>待收货</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="my-set">
+      <view class="my-set-tr my-set-tr-mb">
+        <view class="my-set-tr-title">
+          <van-icon name="qr" />
+          邀请注册码
+        </view>
+        <view class="my-set-tr-tb"><van-icon name="arrow" /></view>
+      </view>
+      <view class="my-set-tr">
+        <view class="my-set-tr-title">
+          <van-icon name="friends-o" />
+          客户管理
+        </view>
+        <view class="my-set-tr-tb"><van-icon name="arrow" /></view>
+      </view>
+      <view class="my-set-tr">
+        <view class="my-set-tr-title">
+          <van-icon name="orders-o" />
+          客户订单
+        </view>
+        <view class="my-set-tr-tb"><van-icon name="arrow" /></view>
+      </view>
+      <view class="my-set-tr">
+        <view class="my-set-tr-title">
+          <van-icon name="scan" />
+          商家核销
+        </view>
+        <view class="my-set-tr-tb"><van-icon name="arrow" /></view>
+      </view>
+      <view class="my-set-tr">
+        <view class="my-set-tr-title">
+          <van-icon name="scan" />
+          医院核销
+        </view>
+        <view class="my-set-tr-tb"><van-icon name="arrow" /></view>
+      </view>
+      <view class="my-set-tr">
+        <view class="my-set-tr-title">
+          <van-icon name="idcard" />
+          银行卡
+        </view>
+        <view class="my-set-tr-tb"><van-icon name="arrow" /></view>
+      </view>
+      <view class="my-set-tr">
+        <view class="my-set-tr-title">
+          <van-icon name="location-o" />
+          收货地址
+        </view>
+        <view class="my-set-tr-tb"><van-icon name="arrow" /></view>
+      </view>
+      <view class="my-set-tr">
+        <view class="my-set-tr-title">
+          <van-icon name="point-gift-o" />
+          活动中心
+        </view>
+        <view class="my-set-tr-tb"><van-icon name="arrow" /></view>
       </view>
     </view>
   </block>
