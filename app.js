@@ -13,16 +13,21 @@ App({
     wx.login({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
-        console.log('code',res.code);
+        console.log('登录-获取code',res.code);
         if(res.code){
-          console.log(config)
           wx.request({
             url: config.getCode_url,
             data:{"source":"wx","code":res.code},
             method:"POST",
             success:function(e){
-              console.log(e);
-              wx.setStorageSync('userinfo', e);
+              console.log('登录-成功返回',e);
+              wx.setStorageSync('userinfo', e.data.result);
+
+              //选择身份
+              wx.navigateTo({
+                url: '/pages/identity/index'
+              })
+
             },
           })
         }
@@ -31,6 +36,7 @@ App({
     // 获取用户信息
     wx.getSetting({
       success: res => {
+        console.log('获取用户信息',res);
         if (res.authSetting['scope.userInfo']) {
           // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
           wx.getUserInfo({

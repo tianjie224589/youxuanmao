@@ -4,7 +4,8 @@
     "pages/logs/logs",
     "pages/classify/index",
     "pages/share/index",
-    "pages/my/index"
+    "pages/my/index",
+    "pages/identity/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

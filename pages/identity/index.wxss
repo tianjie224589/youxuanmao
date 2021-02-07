@@ -1,0 +1,65 @@
+/* pages/identity/index.wxss */
+@import '/dist/common/index.wxss';
+
+page{
+  font-family: SimSun;
+}
+.container{
+  background-color: #FFFFFF;
+}
+
+.identity{
+  width: 100%;
+  padding: 0 40rpx;
+  box-sizing: border-box;
+  font-size: 28rpx;
+}
+
+.identity-title{
+  width: 100%;
+  line-height: 80rpx;
+}
+
+.identity-user{
+  width: 100%;
+  height: 200rpx;
+  background-color: #EA617B;
+  border-radius: 20rpx;
+  margin-bottom: 40rpx;
+  color: white;
+  padding: 40rpx;
+  box-sizing: border-box;
+  display:flex; justify-content: space-between;
+}
+
+.identity-shop{
+  width: 100%;
+  height: 200rpx;
+  background-color: #EEEEEE;
+  border-radius: 20rpx;
+  color: #000;
+  padding: 40rpx;
+  box-sizing: border-box;
+  display:flex; justify-content: space-between;
+}
+
+.identity-left{
+  width: 300rpx;
+}
+.identity-sf{
+  font-size: 32rpx;
+  font-weight: 600;
+  margin-top: 20rpx;
+}
+.identity-td{
+  font-size: 24rpx;
+}
+
+
+
+
+
+
+
+
+

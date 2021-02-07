@@ -1,5 +1,5 @@
 const app = getApp()
-
+var config = (wx.getStorageSync('config'));
 Page({
 
   /**
@@ -9,7 +9,6 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
-
   },
 
   /**
@@ -19,6 +18,15 @@ Page({
     var config = (wx.getStorageSync('config'));
     var that = this;
     console.log(config);
+
+    var loginUserinfo = (wx.getStorageSync('userinfo'));
+    console.log('loginUserinfo',loginUserinfo)
+    if(loginUserinfo.avatarUrl!=""){
+      this.setData({
+        userInfo: loginUserinfo,
+        hasUserInfo: true
+      })
+    }
 
     if (app.globalData.userInfo) {
       this.setData({
@@ -56,6 +64,18 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
+
+    //把头像昵称保存到数据库表
+    var loginUserinfo = (wx.getStorageSync('userinfo'));
+    wx.request({
+      url: config.setUserEdit_url,
+      data:{"source":"wx","token":loginUserinfo.token,"nickname":e.detail.userInfo.nickName,"imageUrl":e.detail.userInfo.avatarUrl},
+      method:"POST",
+      success:function(rs){
+        console.log('头像昵称保存-成功返回',rs);
+      },
+    })
+
   },
 
   /**

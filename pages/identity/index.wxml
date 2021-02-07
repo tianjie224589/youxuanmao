@@ -1,0 +1,19 @@
+<view class="container">
+  <view class="identity">
+    <view class="identity-title">请选择你的身份</view>
+    <view class="identity-user" data-hi="myuser" bindtap="myIdentity">
+      <view class="identity-left">
+        <view class="identity-sf">我是用户</view>
+        <view class="identity-td">“消费者专享通道”</view>
+      </view>
+      <van-icon size="30" name="manager" />
+    </view>
+    <view class="identity-shop" data-hi="myshop" bindtap="myIdentity">
+      <view class="identity-left">
+        <view class="identity-sf">我是商家</view>
+        <view class="identity-td">“美容机构专享通道”</view>
+      </view>
+      <van-icon size="30" name="shop" />
+    </view>
+  </view>
+</view>
