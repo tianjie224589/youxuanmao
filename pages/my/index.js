@@ -8,7 +8,8 @@ Page({
   data: {
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    shenfen:'',
   },
 
   /**
@@ -19,8 +20,16 @@ Page({
     var that = this;
     console.log(config);
 
+    var identity = wx.getStorageSync('identity');
+    console.log('身份 identity',identity)
+    if(identity!=""){
+      this.setData({
+        shenfen: identity
+      })
+    }
+
     var loginUserinfo = (wx.getStorageSync('userinfo'));
-    console.log('loginUserinfo',loginUserinfo)
+    console.log('登录信息 loginUserinfo',loginUserinfo)
     if(loginUserinfo.avatarUrl!=""){
       this.setData({
         userInfo: loginUserinfo,

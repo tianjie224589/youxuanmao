@@ -6,7 +6,7 @@
         <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
         <view class="userinfo-top">
           <view class="userinfo-duanwei">赚钱喵VIP1</view>
-          <view class="userinfo-nickname">{{userInfo.nickName}}</view>
+          <view class="userinfo-nickname">{{userInfo.nickName}} {{shenfen}}</view>
           <view class="userinfo-mobile">17783468186</view>
         </view>
     </view>
@@ -15,7 +15,7 @@
       <view class="my-money-body">
           <view class="my-money-content">
             <view class="my-money-title">
-              <view>0:00</view>
+              <view>56.37</view>
               <view>余额</view>
             </view>
             <view class="my-money-x">
