@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "van-search": "/dist/search/index",
+    "van-index-bar": "/dist/index-bar/index",
+    "van-index-anchor": "/dist/index-anchor/index",
+    "van-cell": "/dist/cell/index",
+    "van-tag": "/dist/tag/index"
+  }
+}

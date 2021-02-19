@@ -22,6 +22,12 @@ Page({
       url: '../logs/logs'
     })
   },
+  onSearch(){
+    console.log('搜索')
+    wx.navigateTo({
+      url: 'search'
+    })
+  },
   onLoad() {
     if (app.globalData.userInfo) {console.log('1')
       this.setData({

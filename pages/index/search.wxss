@@ -1,0 +1,12 @@
+/* pages/index/search.wxss */
+page{
+  font-family: SimSun;
+  background-color: #EEEEEE;
+}
+.category{
+  display: grid;
+}
+
+.sousuo_qx{color:#FFFFFF;}
+
+.list{width: 100%;}

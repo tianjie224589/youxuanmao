@@ -2,10 +2,10 @@
 <view class="container">
   <view class="top">
     <view class="address">
-      重庆<van-icon size="14px" name="arrow-down" />
+      <navigator url="map">重庆<van-icon size="14px" name="arrow-down" /></navigator>
     </view>
     <view class="page_bd">
-      <van-search class="search" background="#E8627B" placeholder="搜索" value="{{ searchvalue }}"></van-search>
+      <van-search class="search" background="#E8627B" placeholder="搜索" readonly="true" bindtap='onSearch' value="{{ searchvalue }}"></van-search>
     </view>
   </view>
   

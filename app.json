@@ -5,7 +5,9 @@
     "pages/classify/index",
     "pages/share/index",
     "pages/my/index",
-    "pages/identity/index"
+    "pages/identity/index",
+    "pages/index/map",
+    "pages/index/search"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -1,0 +1,24 @@
+<view class="category">
+  <van-search
+    shape="round" 
+    background="#EA617B"
+    value="{{ value }}"
+    placeholder="请输入搜索关键词"
+    use-action-slot
+    bind:change="onChange"
+    bind:search="onSearch"
+    bind:cancel="onCancel"
+    show-action="false"
+  >
+    <view style="color:#fff;" slot="action" bind:tap="onClick">搜索</view>
+  </van-search>
+  <van-tabs title-active-color="#EA617B" line-width="0" line-height="0" active="{{ active }}" bind:change="onTabChange">
+    <van-tab title="综合" name="a">综合</van-tab>
+    <van-tab title="销量" name="b">销量</van-tab>
+    <van-tab title="价格" name="c">价格</van-tab>
+    <van-tab title="上新" name="d">上新</van-tab>
+  </van-tabs>
+  <view class="list">
+
+  </view>
+</view>
