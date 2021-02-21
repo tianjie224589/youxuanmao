@@ -1,0 +1,24 @@
+/* pages/index/success.wxss */
+page{
+  font-family: SimSun;
+  background-color: #FFFFFF;
+}
+.category{
+  display: grid;
+}
+
+.pay-ico{width: 100%;height: 100rpx; text-align: center;margin: 100rpx 0;}
+.pay-ico-text{font-size: 32rpx; color: #E36786;}
+
+.pay-msg{width: 100%;height: 100rpx; text-align: center;margin: 100rpx 0;}
+.pay-msg-title{font-size: 32rpx; color: #EA6882;}
+.pay-msg-jg{font-size: 60rpx; color: #E86278;font-weight: 600;}
+.info-xj-money{font-size: 100rpx;}
+
+
+.pay-go{width: 100%; margin-top: 300rpx; text-align: center;}
+.pay-go-index{ width: 500rpx; color: white; background-color: #EB617B;}
+
+
+
+

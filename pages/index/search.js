@@ -6,7 +6,21 @@ Page({
    */
   data: {
     value: '',
-    active: '综合',
+    option1: [
+      { text: '全部商品', value: 0 },
+      { text: '医美商品', value: 1 },
+      { text: '生美商品', value: 2 },
+      { text: '普通商品', value: 2 },
+    ],
+    option2: [
+      { text: '默认排序', value: 'a' },
+      { text: '价格由低到高', value: 'b' },
+      { text: '价格由高到低', value: 'c' },
+      { text: '销量排序', value: 'd' },
+      { text: '最新排序', value: 'e' },
+    ],
+    value1: 0,
+    value2: 'a',
   },
 
   onChange(e) {

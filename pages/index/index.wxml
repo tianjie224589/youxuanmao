@@ -29,7 +29,7 @@
       </view>
     </view>
     <view class="youxuan_body">
-      <view class="youxuan_sp">
+      <view class="youxuan_sp" bindtap='onGetInfo' data-val="11">
         <image class="yx_img" src="../../images/wnyx.png"></image>
         <view class="yx_content">
           <view>女人的没</view>
@@ -40,7 +40,7 @@
           </view>
         </view>
       </view>
-      <view class="youxuan_sp">
+      <view class="youxuan_sp" bindtap='onGetInfo' data-val="12">
         <image class="yx_img" src="../../images/wnyx.png"></image>
         <view class="yx_content">
           <view>女人的没</view>
@@ -51,7 +51,7 @@
           </view>
         </view>
       </view>
-      <view class="youxuan_sp">
+      <view class="youxuan_sp" bindtap='onGetInfo' data-val="13">
         <image class="yx_img" src="../../images/wnyx.png"></image>
         <view class="yx_content">
           <view>女人的没</view>
@@ -70,7 +70,7 @@
       <view class="yyfy_title">
         <view class="yyfy_alt">医院返佣榜单</view>
         <view class="yyfy_bq">
-          查看更多<van-icon size="10px" name="arrow" />
+          <navigator url="../yiyuan/list">查看更多<van-icon size="10px" name="arrow" /></navigator>
         </view>
       </view>
       <view class="yyfy_body">
@@ -129,7 +129,7 @@
       <view class="yyfy_title">
         <view class="yyfy_alt">热销榜单</view>
         <view class="yyfy_bq">
-          查看更多<van-icon size="10px" name="arrow" />
+          <navigator url="../product/list">查看更多<van-icon size="10px" name="arrow" /></navigator>
         </view>
       </view>
       <view class="yyfy_body">
@@ -141,7 +141,7 @@
             <view class="yyfy_li_content_money">
               <view class="yyfy_money"><text class="yyfy_money_fh">￥</text>780</view>
               <view class="yyfy_yuanjia">￥1280</view>
-              <van-button custom-style="width:200rpx;font-weight:500;" color="#EA617B" size="small" round type="info">分享赚|自购省</van-button>
+              <van-button custom-style="width:200rpx;font-weight:500;" bindtap='onGetInfo' data-val="1" color="#EA617B" size="small" round type="info">分享赚|自购省</van-button>
             </view>
             <view class="yyfy_li_content_note">
               <view class="yyfy_content_zs">赚/省40%</view>
@@ -157,7 +157,7 @@
             <view class="yyfy_li_content_money">
               <view class="yyfy_money"><text class="yyfy_money_fh">￥</text>780</view>
               <view class="yyfy_yuanjia">￥1280</view>
-              <van-button custom-style="width:200rpx;font-weight:500;" color="#EA617B" size="small" round type="info">分享赚|自购省</van-button>
+              <van-button custom-style="width:200rpx;font-weight:500;" bindtap='onGetInfo' data-val="2" color="#EA617B" size="small" round type="info">分享赚|自购省</van-button>
             </view>
             <view class="yyfy_li_content_note">
               <view class="yyfy_content_zs">赚/省40%</view>
@@ -173,7 +173,7 @@
             <view class="yyfy_li_content_money">
               <view class="yyfy_money"><text class="yyfy_money_fh">￥</text>780</view>
               <view class="yyfy_yuanjia">￥1280</view>
-              <van-button custom-style="width:200rpx;font-weight:500;" color="#EA617B" size="small" round type="info">分享赚|自购省</van-button>
+              <van-button custom-style="width:200rpx;font-weight:500;" bindtap='onGetInfo' data-val="3" color="#EA617B" size="small" round type="info">分享赚|自购省</van-button>
             </view>
             <view class="yyfy_li_content_note">
               <view class="yyfy_content_zs">赚/省40%</view>

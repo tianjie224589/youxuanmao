@@ -1,0 +1,49 @@
+/* pages/product/info.wxss */
+page{
+  font-family: SimSun;
+  background-color: #EEEEEE;
+}
+.category{
+  display: grid;
+}
+
+swiper{height: auto;}
+.swiper-img{width: 100%; display: flex;}
+.page-section{
+  background-color: #E8627B;
+  width: 100%;
+  padding-top: 20rpx;
+}
+.page-section-spacing{ box-sizing: border-box;}
+.swiper-item{width: 100%;}
+
+
+.info{width: 100%; background-color: #ffffff; padding: 20rpx; box-sizing: border-box;}
+.info-xj{line-height: 100rpx;font-size: 28rpx;font-weight: 500;color: #D63135;}
+.info-xj-money{font-size: 60rpx;font-weight: 600;}
+.info-yj{line-height: 60rpx;font-size: 32rpx;color: #7A7A7A;}
+.info-yj-money{text-decoration:line-through;}
+.info-title{font-size: 40rpx;font-weight: 600;line-height: 44rpx;}
+.info-note{line-height: 60rpx;font-size: 32rpx;color: #7A7A7A; width: 100%; height: 60rpx; display:flex; justify-content: space-between;}
+
+.baozhang{width: 100%; height: 100rpx; background-color: #ffffff; padding: 20rpx; margin-top: 20rpx; box-sizing: border-box;}
+
+.content{ width: 100%; background-color: #ffffff; padding: 20rpx; margin-top: 20rpx; margin-bottom: 140rpx; box-sizing: border-box;}
+.content-title{ width: 100%; line-height: 50rpx; font-size: 36rpx; color: #0B0B0B; font-weight: 600;}
+.content-title-tb{width: 10rpx;height: 40rpx;background-color: #E9617D;display: flex;float: left;margin-right: 5rpx;}
+.content-info{ width: 100%; font-size: 24rpx;line-height: 26rpx; padding: 20rpx 0; box-sizing: border-box;}
+
+
+button{width: auto !important;}
+.van-button__text{width: 160rpx;}
+
+
+
+
+
+
+
+
+
+
+

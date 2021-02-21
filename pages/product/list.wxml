@@ -1,0 +1,94 @@
+<view class="category">
+  <view class="list">
+    <view class="yyfy_li">
+      <image class="yyfy_li_img" src="../../images/wnyx.png"></image>
+      <view class="yyfy_li_content">
+        <view class="yyfy_li_content_title">韩美整形【优】医美连锁品牌,拥有四级整形资质,品质塑美,打造个性,告别同款.属于你的盛世美颜</view>
+        <view class="yyfy_li_content_money">
+          <view class="yyfy_money"><text class="yyfy_money_fh">￥</text>780</view>
+          <view class="yyfy_yuanjia">￥1280</view>
+          <van-button custom-style="width:200rpx;font-weight:500;" color="#EA617B" size="small" round type="info">分享赚|自购省</van-button>
+        </view>
+        <view class="yyfy_li_content_note">
+          <view class="yyfy_content_zs">赚/省40%</view>
+          <view class="yyfy_content_ys">已售：32</view>
+        </view>
+      </view>
+    </view>
+    <view class="yyfy_li">
+      <image class="yyfy_li_img" src="../../images/wnyx.png"></image>
+      <view class="yyfy_li_content">
+        <view class="yyfy_li_content_title">韩美整形【优】医美连锁品牌,拥有四级整形资质,品质塑美,打造个性,告别同款.属于你的盛世美颜</view>
+        <view class="yyfy_li_content_money">
+          <view class="yyfy_money"><text class="yyfy_money_fh">￥</text>780</view>
+          <view class="yyfy_yuanjia">￥1280</view>
+          <van-button custom-style="width:200rpx;font-weight:500;" color="#EA617B" size="small" round type="info">分享赚|自购省</van-button>
+        </view>
+        <view class="yyfy_li_content_note">
+          <view class="yyfy_content_zs">赚/省40%</view>
+          <view class="yyfy_content_ys">已售：32</view>
+        </view>
+      </view>
+    </view>
+    <view class="yyfy_li">
+      <image class="yyfy_li_img" src="../../images/wnyx.png"></image>
+      <view class="yyfy_li_content">
+        <view class="yyfy_li_content_title">韩美整形【优】医美连锁品牌,拥有四级整形资质,品质塑美,打造个性,告别同款.属于你的盛世美颜</view>
+        <view class="yyfy_li_content_money">
+          <view class="yyfy_money"><text class="yyfy_money_fh">￥</text>780</view>
+          <view class="yyfy_yuanjia">￥1280</view>
+          <van-button custom-style="width:200rpx;font-weight:500;" color="#EA617B" size="small" round type="info">分享赚|自购省</van-button>
+        </view>
+        <view class="yyfy_li_content_note">
+          <view class="yyfy_content_zs">赚/省40%</view>
+          <view class="yyfy_content_ys">已售：32</view>
+        </view>
+      </view>
+    </view>
+    <view class="yyfy_li">
+      <image class="yyfy_li_img" src="../../images/wnyx.png"></image>
+      <view class="yyfy_li_content">
+        <view class="yyfy_li_content_title">韩美整形【优】医美连锁品牌,拥有四级整形资质,品质塑美,打造个性,告别同款.属于你的盛世美颜</view>
+        <view class="yyfy_li_content_money">
+          <view class="yyfy_money"><text class="yyfy_money_fh">￥</text>780</view>
+          <view class="yyfy_yuanjia">￥1280</view>
+          <van-button custom-style="width:200rpx;font-weight:500;" color="#EA617B" size="small" round type="info">分享赚|自购省</van-button>
+        </view>
+        <view class="yyfy_li_content_note">
+          <view class="yyfy_content_zs">赚/省40%</view>
+          <view class="yyfy_content_ys">已售：32</view>
+        </view>
+      </view>
+    </view>
+    <view class="yyfy_li">
+      <image class="yyfy_li_img" src="../../images/wnyx.png"></image>
+      <view class="yyfy_li_content">
+        <view class="yyfy_li_content_title">韩美整形【优】医美连锁品牌,拥有四级整形资质,品质塑美,打造个性,告别同款.属于你的盛世美颜</view>
+        <view class="yyfy_li_content_money">
+          <view class="yyfy_money"><text class="yyfy_money_fh">￥</text>780</view>
+          <view class="yyfy_yuanjia">￥1280</view>
+          <van-button custom-style="width:200rpx;font-weight:500;" color="#EA617B" size="small" round type="info">分享赚|自购省</van-button>
+        </view>
+        <view class="yyfy_li_content_note">
+          <view class="yyfy_content_zs">赚/省40%</view>
+          <view class="yyfy_content_ys">已售：32</view>
+        </view>
+      </view>
+    </view>
+    <view class="yyfy_li">
+      <image class="yyfy_li_img" src="../../images/wnyx.png"></image>
+      <view class="yyfy_li_content">
+        <view class="yyfy_li_content_title">韩美整形【优】医美连锁品牌,拥有四级整形资质,品质塑美,打造个性,告别同款.属于你的盛世美颜</view>
+        <view class="yyfy_li_content_money">
+          <view class="yyfy_money"><text class="yyfy_money_fh">￥</text>780</view>
+          <view class="yyfy_yuanjia">￥1280</view>
+          <van-button custom-style="width:200rpx;font-weight:500;" color="#EA617B" size="small" round type="info">分享赚|自购省</van-button>
+        </view>
+        <view class="yyfy_li_content_note">
+          <view class="yyfy_content_zs">赚/省40%</view>
+          <view class="yyfy_content_ys">已售：32</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

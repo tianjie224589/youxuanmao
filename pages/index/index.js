@@ -28,6 +28,13 @@ Page({
       url: 'search'
     })
   },
+  onGetInfo(e){
+    console.log('产品详情',e.currentTarget.dataset.val)
+    wx.navigateTo({
+      url: '../product/info?id='+e.currentTarget.dataset.val
+    })
+  },
+
   onLoad() {
     if (app.globalData.userInfo) {console.log('1')
       this.setData({

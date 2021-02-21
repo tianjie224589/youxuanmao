@@ -2,7 +2,10 @@
   "usingComponents": {
     "van-search": "/dist/search/index",
     "van-tab": "/dist/tab/index",
-    "van-tabs": "/dist/tabs/index"
+    "van-tabs": "/dist/tabs/index",
+    "van-button": "/dist/button/index",
+    "van-dropdown-menu": "/dist/dropdown-menu/index",
+    "van-dropdown-item": "/dist/dropdown-item/index"
   },
   "navigationBarTitleText": "搜索"
 }

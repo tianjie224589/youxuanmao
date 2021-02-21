@@ -7,7 +7,12 @@
     "pages/my/index",
     "pages/identity/index",
     "pages/index/map",
-    "pages/index/search"
+    "pages/index/search",
+    "pages/yiyuan/list",
+    "pages/product/list",
+    "pages/product/info",
+    "pages/product/submit",
+    "pages/index/success"
   ],
   "window": {
     "backgroundTextStyle": "light",

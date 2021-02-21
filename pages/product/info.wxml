@@ -1,0 +1,37 @@
+<view class="category">
+  <view class="page-section page-section-spacing swiper">
+    <swiper style="height:{{viewHeight}}px" class="swiper-img" indicator-dots="true" autoplay="true" interval="3000">
+      <block wx:for="{{background}}" wx:key="*this">
+        <swiper-item>
+          <image style="height:{{viewHeight}}px" class="swiper-item" src="{{item}}"></image>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <view class="info">
+    <view class="info-xj">￥<text class="info-xj-money">300</text></view>
+    <view class="info-yj">原价：<text class="info-yj-money">￥999</text></view>
+    <view class="info-title">韩美整形【优】医美连锁品牌,拥有四级整形资质,品质塑美,打造个性,告别同款.属于你的盛世美颜</view>
+    <view class="info-note">
+      <view class=""><text class="">省/赚</text>30%</view>
+      <view class="">已售:99</view>
+    </view>
+  </view>
+  <view class="baozhang">
+
+  </view>
+  <view class="content">
+    <view class="content-title"><text class="content-title-tb"></text>商品详情</view>
+    <view class="content-info">
+      <rich-text nodes="{{nodes}}"></rich-text>
+    </view>
+  </view>
+  <van-goods-action>
+    <view style="width:100%; display:flex;box-sizing: content-box;align-items: center;">
+      <van-goods-action-icon icon="chat-o" text="咨询" open-type="contact" style="width:120rpx;" />
+      <van-goods-action-icon icon="phone-o" text="电话" style="width:120rpx;" />
+      <van-goods-action-button color="#EB617B" text="分享赚" type="warning" style="text-align: right;" />
+      <van-goods-action-button color="#D23637" text="自购省" bind:click="onSubmit" data-val="1" />
+    </view>
+  </van-goods-action>
+</view>
