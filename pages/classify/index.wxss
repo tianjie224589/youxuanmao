@@ -82,6 +82,7 @@ page{
   color: #EB607D;
 }
 .name_advance{
+  font-size: 20rpx;
   color:#7f7f7f;
 }
 

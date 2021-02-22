@@ -1,4 +1,6 @@
 // pages/product/submit.js
+var config = (wx.getStorageSync('config'));
+
 Page({
 
   /**
@@ -7,24 +9,28 @@ Page({
   data: {
     id:0,
     num:1,
-    false:false
+    money:0,
+    false:false,
+    getGoodsInfo: {},
   },
 
   onSubmit(e){
     console.log('提交订单',e);
-    var id = e.currentTarget.dataset.id;
-    var money = e.currentTarget.dataset.val;
+    var id = this.data.id;
+    var money = this.data.money;
     var num = this.data.num;
 
     wx.navigateTo({
       url: '../index/success'
-    })
+    });
   },
 
   onChange(event) {
-    console.log(event.detail);
+    console.log(this.data.getGoodsInfo.price,event.detail);
+    var price = this.data.getGoodsInfo.price;
     this.setData({
-      num: event.detail
+      num: event.detail,
+      money: price * event.detail,
     });
   },
 
@@ -32,12 +38,30 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that = this;
+
     var id = options.id;
     console.log('id',id);
     this.setData({
       id: id
     });
     
+    //获取详情
+    wx.request({
+      url: config.getGoodsInfo_url,
+      data:{"source":"wx","id":id},
+      method: "post",
+      success: function (res) {
+        console.log(res)
+        wx.stopPullDownRefresh();
+        that.setData({
+          getGoodsInfo: res.data.result,
+          money: res.data.result.price,
+        });
+        wx.hideLoading();
+      }
+    });
+
   },
 
   /**

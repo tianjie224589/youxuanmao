@@ -7,23 +7,97 @@ Page({
    */
   data: {
     userInfo: {},
+    getUserInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     shenfen:'',
+  },
+
+  onBalance(){
+    console.log('余额');
+    wx.navigateTo({
+      url: 'balance/list'
+    })
+  },
+
+  orderList(){
+    console.log('订单列表');
+    wx.navigateTo({
+      url: 'orders/list'
+    })
+  },
+
+  onClickShow(event) {
+    console.log('邀请注册')
+    console.log(event.currentTarget.dataset.src)
+    var img = event.currentTarget.dataset.src;
+    this.setData({ show: true });
+    this.setData({ bigimg: img });
+  },
+  onClickHide() {
+    console.log('取消放大')
+    this.setData({ show: false });
+  },
+
+  customer(){
+    console.log('客户管理')
+    wx.navigateTo({
+      url: 'customer/index'
+    })
+  },
+
+  customerOrder(){
+    console.log('客户订单')
+    wx.navigateTo({
+      url: 'customer/orders'
+    })
+  },
+
+  shopList(){
+    console.log('商家核销')
+    wx.navigateTo({
+      url: 'shop/list'
+    })
+  },
+
+  hospitalList(){
+    console.log('医院核销')
+    wx.navigateTo({
+      url: 'yiyuan/list'
+    })
+  },
+
+  onBank(){
+    console.log('银行卡')
+    wx.navigateTo({
+      url: 'bank/list'
+    })
+  },
+
+  onAddress(){
+    console.log('收货地址')
+    wx.navigateTo({
+      url: 'address/list'
+    })
+  },
+
+  onActivity(){
+    console.log('活动中心')
+    wx.navigateTo({
+      url: 'activity/list'
+    })
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var config = (wx.getStorageSync('config'));
     var that = this;
-    console.log(config);
 
     var identity = wx.getStorageSync('identity');
     console.log('身份 identity',identity)
     if(identity!=""){
-      this.setData({
+      that.setData({
         shenfen: identity
       })
     }
@@ -31,7 +105,7 @@ Page({
     var loginUserinfo = (wx.getStorageSync('userinfo'));
     console.log('登录信息 loginUserinfo',loginUserinfo)
     if(loginUserinfo.avatarUrl!=""){
-      this.setData({
+      that.setData({
         userInfo: loginUserinfo,
         hasUserInfo: true
       })
@@ -64,6 +138,22 @@ Page({
       })
     }
 
+    //获取用户信息
+    console.log('token',this.data.userInfo.token)
+    wx.request({
+      url: config.getUserInfo_url,
+      data:{"source":"wx","token":that.data.userInfo.token},
+      method: "post",
+      success: function (res) {
+        console.log('userinfo-res',res)
+        wx.stopPullDownRefresh();
+        that.setData({
+          getUserInfo: res.data.result,
+        })
+        wx.hideLoading();
+      }
+    });
+
   },
 
   getUserInfo(e) {
@@ -72,7 +162,7 @@ Page({
     this.setData({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
-    })
+    });
 
     //把头像昵称保存到数据库表
     var loginUserinfo = (wx.getStorageSync('userinfo'));
@@ -83,7 +173,7 @@ Page({
       success:function(rs){
         console.log('头像昵称保存-成功返回',rs);
       },
-    })
+    });
 
   },
 

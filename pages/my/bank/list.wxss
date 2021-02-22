@@ -1,0 +1,30 @@
+/* pages/my/bank/list.wxss */
+page{
+  font-family: SimSun;
+  background-color: #EEEEEE;
+}
+.category{
+  display: grid;
+}
+
+
+.list{width: 100%; padding: 20rpx; box-sizing:border-box;}
+.list-li{width: 100%; height: 250rpx; margin-bottom: 20rpx; background-color: #FD6766; color: white; padding-top: 50rpx; padding-left: 100rpx;  box-sizing:border-box; position: relative;}
+.list-li-tb{width: 100rpx; height: 78rpx; position: absolute; top: 0; right: 0;}
+
+.addbank{
+  width: 100%;
+  padding: 20rpx;
+  text-align: center;
+  box-sizing:border-box;
+}
+
+.submit{
+  width: 100% !important;
+}
+
+
+
+
+
+

@@ -1,0 +1,41 @@
+<view class="category">
+  <view class="list">
+    <view class="list-li">
+      <view class="list-li-info">
+        <view class="title">
+          <text>张三 15826565656</text>
+          <van-button custom-class="default" round color="#EA617A" size="small" type="primary">默认</van-button>
+        </view>
+        <view class="address-info">重庆市渝北区冉家坝太阳城A区5栋18-2</view>
+      </view>
+      <view class="list-li-edit">
+        <van-icon name="edit" size="20px" />
+      </view>
+    </view>
+    <view class="list-li">
+      <view class="list-li-info">
+        <view class="title">
+          <text>张三 15826565656</text>
+        </view>
+        <view class="address-info">重庆市渝北区冉家坝太阳城A区5栋18-2</view>
+      </view>
+      <view class="list-li-edit">
+        <van-icon name="edit" size="20px" />
+      </view>
+    </view>
+    <view class="list-li">
+      <view class="list-li-info">
+        <view class="title">
+          <text>张三 15826565656</text>
+        </view>
+        <view class="address-info">重庆市渝北区冉家坝太阳城A区5栋18-2</view>
+      </view>
+      <view class="list-li-edit">
+        <van-icon name="edit" size="20px" />
+      </view>
+    </view>
+  </view>
+  <view class="addbank">
+    <van-button custom-class="submit" color="#EA617B" size="large" type="primary" bindtap="onAdd">添加地址</van-button>
+  </view>
+</view>

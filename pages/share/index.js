@@ -1,15 +1,60 @@
 // pages/share/index.js
+var config = (wx.getStorageSync('config'));
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    value: '',
+    getGoodsList: {},
+    fybanner: '',
     show: {
       primary: true,
       success: true,
     },
     images:{}
+  },
+
+  onChange(e) {
+    this.setData({
+      value: e.detail,
+    });
+  },
+  onSearch(event) {
+    console.log('键盘搜索', event.detail)
+    var that = this;
+    if(that.value != ''){
+      wx.request({
+        url: config.getGoodsList_url,
+        data:{"source":"wx","notype":"1","searchname":event.detail,"page":"1","num":"5"},
+        method: "post",
+        success: function (res) {
+          wx.stopPullDownRefresh();
+          that.setData({
+            getGoodsList: res.data.result,
+          })
+          wx.hideLoading();
+        }
+      });
+    }
+  },
+  onCancel(event) {
+    console.log('取消')
+    var that = this;
+    wx.request({
+      url: config.getGoodsList_url,
+      data:{"source":"wx","notype":"1","page":"1","num":"5"},
+      method: "post",
+      success: function (res) {
+        wx.stopPullDownRefresh();
+        that.setData({
+          getGoodsList: res.data.result,
+        })
+        wx.hideLoading();
+      }
+    });
   },
 
   imageLoad: function(e) {
@@ -40,7 +85,34 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that = this;
 
+    //获取banner
+    wx.request({
+      url: config.getAdvert_url,
+      data:{"source":"wx","pid":"5"},
+      method: "post",
+      success: function (res) {
+        wx.stopPullDownRefresh();
+        that.setData({
+          fybanner: res.data.result[0].imgUrl,
+        })
+        wx.hideLoading();
+      }
+    });
+
+    wx.request({
+      url: config.getGoodsList_url,
+      data:{"source":"wx","notype":"1","page":"1","num":"5"},
+      method: "post",
+      success: function (res) {
+        wx.stopPullDownRefresh();
+        that.setData({
+          getGoodsList: res.data.result,
+        })
+        wx.hideLoading();
+      }
+    });
   },
 
   /**

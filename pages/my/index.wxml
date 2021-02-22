@@ -14,8 +14,8 @@
       <view class="my-money-bg"></view>
       <view class="my-money-body">
           <view class="my-money-content">
-            <view class="my-money-title">
-              <view>56.37</view>
+            <view class="my-money-title" bindtap="onBalance">
+              <view>{{getUserInfo.capital.money}}</view>
               <view>余额</view>
             </view>
             <view class="my-money-x">
@@ -32,7 +32,7 @@
       <view class="my-orders-body">
         <view class="my-orders-title">
           <view class="my-orders-bt">我的订单</view>
-          <view class="my-orders-more">查看全部订单></view>
+          <view class="my-orders-more" bindtap="orderList">查看全部订单></view>
         </view>
         <view class="my-order-tb">
           <view class="my-order-tbnav">
@@ -51,56 +51,56 @@
       </view>
     </view>
     <view class="my-set">
-      <view class="my-set-tr my-set-tr-mb">
+      <view class="my-set-tr my-set-tr-mb" bindtap="onClickShow" data-src="../../images/ewm.jpg">
         <view class="my-set-tr-title">
           <van-icon name="qr" />
           邀请注册码
         </view>
         <view class="my-set-tr-tb"><van-icon name="arrow" /></view>
       </view>
-      <view class="my-set-tr">
+      <view class="my-set-tr" bindtap="customer">
         <view class="my-set-tr-title">
           <van-icon name="friends-o" />
           客户管理
         </view>
         <view class="my-set-tr-tb"><van-icon name="arrow" /></view>
       </view>
-      <view class="my-set-tr">
+      <view class="my-set-tr" bindtap="customerOrder">
         <view class="my-set-tr-title">
           <van-icon name="orders-o" />
           客户订单
         </view>
         <view class="my-set-tr-tb"><van-icon name="arrow" /></view>
       </view>
-      <view class="my-set-tr">
+      <view class="my-set-tr" bindtap="shopList">
         <view class="my-set-tr-title">
           <van-icon name="scan" />
           商家核销
         </view>
         <view class="my-set-tr-tb"><van-icon name="arrow" /></view>
       </view>
-      <view class="my-set-tr">
+      <view class="my-set-tr" bindtap="hospitalList">
         <view class="my-set-tr-title">
           <van-icon name="scan" />
           医院核销
         </view>
         <view class="my-set-tr-tb"><van-icon name="arrow" /></view>
       </view>
-      <view class="my-set-tr">
+      <view class="my-set-tr" bindtap="onBank">
         <view class="my-set-tr-title">
           <van-icon name="idcard" />
           银行卡
         </view>
         <view class="my-set-tr-tb"><van-icon name="arrow" /></view>
       </view>
-      <view class="my-set-tr">
+      <view class="my-set-tr" bindtap="onAddress">
         <view class="my-set-tr-title">
           <van-icon name="location-o" />
           收货地址
         </view>
         <view class="my-set-tr-tb"><van-icon name="arrow" /></view>
       </view>
-      <view class="my-set-tr">
+      <view class="my-set-tr" bindtap="onActivity">
         <view class="my-set-tr-title">
           <van-icon name="point-gift-o" />
           活动中心
@@ -109,4 +109,12 @@
       </view>
     </view>
   </block>
+  <van-overlay show="{{ show }}" bind:click="onClickHide">
+    <view class="wrapper">
+      <view class="block">
+        <view class="block-title">颜选喵</view>
+        <image class="block-img" src="{{bigimg}}"></image>
+      </view>
+    </view>
+  </van-overlay>
 </view>

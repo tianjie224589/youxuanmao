@@ -168,3 +168,34 @@ page{
 .my-set-tr-mb{
   margin-bottom: 20rpx;
 }
+
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+.block {
+  width: 60%;
+  padding: 20rpx; box-sizing:border-box;
+  background: #fff;
+  padding-bottom: 4rpx;
+  text-align: center;
+}
+.block-title{width: 100%; line-height: 50rpx; font-size: 28rpx;}
+.block-img{width: 300rpx;height: 300rpx;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,31 @@
+<view class="category">
+  <view class="top">
+    <view class="top-balance">
+      <view class="top-balance-title">总金额（元）</view>
+      <view class="top-balance-money">801.25</view>
+    </view>
+    <view class="cashout">
+      <van-button color="#EB617B" size="small" round type="info" bindtap="cashout">提现</van-button>
+    </view>
+  </view>
+  <van-tabs>
+    <van-tab title="全部">
+      <view class="order-list">
+        <van-cell title="用户提现" value="-30" label="2021-01-05" />
+        <van-cell title="购买拓客卡核销返利" value="+50.11" label="2021-01-06" />
+        <van-cell title="核销返利" value="+11.25" label="2121-02-11" />
+      </view>
+    </van-tab>
+    <van-tab title="收入">
+      <view class="order-list">
+        <van-cell title="购买拓客卡核销返利" value="+50.11" label="2021-01-06" />
+        <van-cell title="核销返利" value="+11.25" label="2121-02-11" />
+      </view>
+    </van-tab>
+    <van-tab title="已提金额">
+      <view class="order-list">
+        <van-cell title="用户提现" value="-30" label="2021-01-05" />
+      </view>
+    </van-tab>
+  </van-tabs>
+</view>

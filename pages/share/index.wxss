@@ -92,7 +92,7 @@ page{
 
 .fy_nr_right_fy{
   line-height: 120rpx;
-  font-size: 28rpx;
+  font-size: 22rpx;
   color: #E9607A;
 }
 

@@ -1,8 +1,14 @@
 <view class="category">
   <view class="sousuo">
-    <van-search style="width:100%" shape="round" value="{{ value }}" placeholder="请输入搜索关键词" />
+    <van-search style="width:100%" 
+    shape="round" 
+    value="{{ value }}" 
+    placeholder="请输入搜索关键词" 
+    bind:change="onChange"
+    bind:search="onSearch"
+    bind:clear="onCancel" />
   </view>
-  <view class="biaoqiao">
+  <!--<view class="biaoqiao">
     <van-tag
       wx:if="{{ show.primary }}"
       closeable
@@ -25,93 +31,32 @@
       bind:close="onClose"
       custom-class="biaoqian_title"
     >标签</van-tag>
-  </view>
-  <image src="../../images/fybanner.png" bindload="imageLoad" mode='aspectFill' style='width:100%;height:{{ images.height }}px;'></image>
+  </view>-->
+  <image src="{{fybanner}}" bindload="imageLoad" mode='aspectFill' style='width:100%;height:{{ images.height }}px;'></image>
 
   <view class="fxcontent">
-    <view class="list_fx">
-      <view class="list_fx_fy">
-        <image class="list_fx_img" src="../../images/mr.jpg"></image>
-        <view class="list_fx_nr">
-          <view class="fy_nr_left">
-            <view class="fy_nr_left_title">特效祛斑霜正品黄褐斑祛斑美白去班淡化色斑去斑脸部遗传雀斑补水</view>
-            <view class="fy_nr_left_xl">销量:35</view>
-          </view>
-          <view class="fy_nr_right">
-            <view class="fy_nr_right_price">￥<text class="right_money">128</text></view>
-            <vieW class="fy_nr_right_num">x1</vieW>
-            <vieW class="fy_nr_right_fy">返佣:40%</vieW>
-          </view>
-        </view>
-      </view>
-      <view class="list_fx_an">
-        <button class="list_zx list_bgc" style="padding:0 25rpx;line-height:60rpx;font-size:24rpx;" size="mini">选择服务机构</button>
-        <button class="list_zx list_bgc" style="padding:0 25rpx;line-height:60rpx;font-size:24rpx;" size="mini">加入分享专题</button>
-      </view>
-    </view>
-    
-    <view class="list_fx">
-      <view class="list_fx_fy">
-        <image class="list_fx_img" src="../../images/syp1.jpg"></image>
-        <view class="list_fx_nr">
-          <view class="fy_nr_left">
-            <view class="fy_nr_left_title">特效祛斑霜正品黄褐斑祛斑美白去班淡化色斑去斑脸部遗传雀斑补水</view>
-            <view class="fy_nr_left_xl">销量:35</view>
-          </view>
-          <view class="fy_nr_right">
-            <view class="fy_nr_right_price">￥<text class="right_money">500</text></view>
-            <vieW class="fy_nr_right_num">x1</vieW>
-            <vieW class="fy_nr_right_fy">返佣:40%</vieW>
+    <block wx:for="{{getGoodsList}}" wx:for-item="vo" wx:for-index="k">
+      <view class="list_fx">
+        <view class="list_fx_fy">
+          <image class="list_fx_img" src="{{vo.thumb_img}}"></image>
+          <view class="list_fx_nr">
+            <view class="fy_nr_left">
+              <view class="fy_nr_left_title">{{vo.name}}</view>
+              <view class="fy_nr_left_xl">销量:{{vo.sales}}</view>
+            </view>
+            <view class="fy_nr_right">
+              <view class="fy_nr_right_price">￥<text class="right_money">{{vo.price}}</text></view>
+              <vieW class="fy_nr_right_num">x1</vieW>
+              <vieW class="fy_nr_right_fy">返佣:{{vo.commission_b}}%</vieW>
+            </view>
           </view>
         </view>
-      </view>
-      <view class="list_fx_an">
-        <button class="list_zx list_bgc" style="padding:0 25rpx;line-height:60rpx;font-size:24rpx;" size="mini">选择服务机构</button>
-        <button class="list_zx list_bgc" style="padding:0 25rpx;line-height:60rpx;font-size:24rpx;" size="mini">加入分享专题</button>
-      </view>
-    </view>
-
-    <view class="list_fx">
-      <view class="list_fx_fy">
-        <image class="list_fx_img" src="../../images/mr2.jpg"></image>
-        <view class="list_fx_nr">
-          <view class="fy_nr_left">
-            <view class="fy_nr_left_title">【皮秒激光】【皮秒全面部体验价】 全脸祛斑,除皱,美白,...</view>
-            <view class="fy_nr_left_xl">销量:35</view>
-          </view>
-          <view class="fy_nr_right">
-            <view class="fy_nr_right_price">￥<text class="right_money">825</text></view>
-            <vieW class="fy_nr_right_num">x1</vieW>
-            <vieW class="fy_nr_right_fy">返佣:40%</vieW>
-          </view>
+        <view class="list_fx_an">
+          <button class="list_zx list_bgc" style="padding:0 25rpx;line-height:60rpx;font-size:24rpx;" size="mini">选择服务机构</button>
+          <button class="list_zx list_bgc" style="padding:0 25rpx;line-height:60rpx;font-size:24rpx;" size="mini">加入分享专题</button>
         </view>
       </view>
-      <view class="list_fx_an">
-        <button class="list_zx list_bgc" style="padding:0 25rpx;line-height:60rpx;font-size:24rpx;" size="mini">选择服务机构</button>
-        <button class="list_zx list_bgc" style="padding:0 25rpx;line-height:60rpx;font-size:24rpx;" size="mini">加入分享专题</button>
-      </view>
-    </view>
-
-    <view class="list_fx">
-      <view class="list_fx_fy">
-        <image class="list_fx_img" src="../../images/mr3.jpg"></image>
-        <view class="list_fx_nr">
-          <view class="fy_nr_left">
-            <view class="fy_nr_left_title">肉毒素去面部细纹 水电费地方...</view>
-            <view class="fy_nr_left_xl">销量:35</view>
-          </view>
-          <view class="fy_nr_right">
-            <view class="fy_nr_right_price">￥<text class="right_money">99</text></view>
-            <vieW class="fy_nr_right_num">x1</vieW>
-            <vieW class="fy_nr_right_fy">返佣:40%</vieW>
-          </view>
-        </view>
-      </view>
-      <view class="list_fx_an">
-        <button class="list_zx list_bgc" style="padding:0 25rpx;line-height:60rpx;font-size:24rpx;" size="mini">选择服务机构</button>
-        <button class="list_zx list_bgc" style="padding:0 25rpx;line-height:60rpx;font-size:24rpx;" size="mini">加入分享专题</button>
-      </view>
-    </view>
+    </block>
   </view>
   <view class="fenxiang">
     <view class="xuanzhe">已选择：2份 至少一款医美产品</view>

@@ -1,17 +1,40 @@
 // pages/product/list.js
+var config = (wx.getStorageSync('config'));
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    getGoodsList: {},
+  },
 
+  onGetInfo(e){
+    console.log('产品详情',e.currentTarget.dataset.val)
+    wx.navigateTo({
+      url: '../product/info?id='+e.currentTarget.dataset.val
+    })
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that = this;
+
+    wx.request({
+      url: config.getGoodsList_url,
+      data:{"source":"wx","page":"1","num":"5"},
+      method: "post",
+      success: function (res) {
+        wx.stopPullDownRefresh();
+        that.setData({
+          getGoodsList: res.data.result,
+        })
+        wx.hideLoading();
+      }
+    });
 
   },
 

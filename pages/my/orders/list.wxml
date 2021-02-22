@@ -1,0 +1,191 @@
+<view class="category">
+  <van-search
+    value="{{ value }}"
+    placeholder="请输入搜索订单"
+    background="#EA617B"
+    show-action
+    bind:search="onSearch"
+    bind:cancel="onCancel"
+  />
+  <van-tabs>
+    <van-tab title="全部">
+      <view class="order-list">
+        <view class="order-li">
+          <image class="order-li-img" src="../../../images/wnyx.png"></image>
+          <view class="order-li-content">
+            <view class="order-li-c-info">
+              <view class="order-li-c-info-title">韩美整形【优】医美连锁品牌,拥有四级整形资质,品质塑美</view>
+              <view class="order-li-c-info-money"><text class="order-li-c-info-ico">￥</text>780</view>
+            </view>
+            <view class="order-li-c-des">
+              <view class="order-li-c-des-note">
+                <view class="order-li-c-des-tel">电话:15826585954</view>
+                <view class="order-li-c-des-ads">地址:重庆渝北区大竹林</view>
+              </view>
+              <view class="order-li-c-des-s">
+                <van-button size="small" color="#EA617B" round type="info">等待核销</van-button>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="order-li">
+          <image class="order-li-img" src="../../../images/wnyx.png"></image>
+          <view class="order-li-content">
+            <view class="order-li-c-info">
+              <view class="order-li-c-info-title">韩美整形【优】医美连锁品牌,拥有四级整形资质,品质塑美</view>
+              <view class="order-li-c-info-money"><text class="order-li-c-info-ico">￥</text>780</view>
+            </view>
+            <view class="order-li-c-des">
+              <view class="order-li-c-des-note">
+                <view class="order-li-c-des-tel">电话:15826585954</view>
+                <view class="order-li-c-des-ads">地址:重庆渝北区大竹林</view>
+              </view>
+              <view class="order-li-c-des-s">
+                <van-button size="small" color="#EA617B" round type="info">等待核销</van-button>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="order-li">
+          <image class="order-li-img" src="../../../images/wnyx.png"></image>
+          <view class="order-li-content">
+            <view class="order-li-c-info">
+              <view class="order-li-c-info-title">韩美整形【优】医美连锁品牌,拥有四级整形资质,品质塑美</view>
+              <view class="order-li-c-info-money"><text class="order-li-c-info-ico">￥</text>780</view>
+            </view>
+            <view class="order-li-c-des">
+              <view class="order-li-c-des-note">
+                <view class="order-li-c-des-tel">电话:15826585954</view>
+                <view class="order-li-c-des-ads">地址:重庆渝北区大竹林</view>
+              </view>
+              <view class="order-li-c-des-s">
+                <van-button size="small" color="#EA617B" round type="info">等待核销</van-button>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </van-tab>
+    <van-tab title="已支付">
+      <view class="order-list">
+        <view class="order-li">
+          <image class="order-li-img" src="../../../images/wnyx.png"></image>
+          <view class="order-li-content">
+            <view class="order-li-c-info">
+              <view class="order-li-c-info-title">韩美整形【优】医美连锁品牌,拥有四级整形资质,品质塑美</view>
+              <view class="order-li-c-info-money"><text class="order-li-c-info-ico">￥</text>780</view>
+            </view>
+            <view class="order-li-c-des">
+              <view class="order-li-c-des-note">
+                <view class="order-li-c-des-tel">电话:15826585954</view>
+                <view class="order-li-c-des-ads">地址:重庆渝北区大竹林</view>
+              </view>
+              <view class="order-li-c-des-s">
+                <van-button size="small" color="#EA617B" round type="info">等待核销</van-button>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="order-li">
+          <image class="order-li-img" src="../../../images/wnyx.png"></image>
+          <view class="order-li-content">
+            <view class="order-li-c-info">
+              <view class="order-li-c-info-title">韩美整形【优】医美连锁品牌,拥有四级整形资质,品质塑美</view>
+              <view class="order-li-c-info-money"><text class="order-li-c-info-ico">￥</text>780</view>
+            </view>
+            <view class="order-li-c-des">
+              <view class="order-li-c-des-note">
+                <view class="order-li-c-des-tel">电话:15826585954</view>
+                <view class="order-li-c-des-ads">地址:重庆渝北区大竹林</view>
+              </view>
+              <view class="order-li-c-des-s">
+                <van-button size="small" color="#EA617B" round type="info">等待核销</van-button>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </van-tab>
+    <van-tab title="未核销">
+      <view class="order-list">
+        <view class="order-li">
+          <image class="order-li-img" src="../../../images/wnyx.png"></image>
+          <view class="order-li-content">
+            <view class="order-li-c-info">
+              <view class="order-li-c-info-title">韩美整形【优】医美连锁品牌,拥有四级整形资质,品质塑美</view>
+              <view class="order-li-c-info-money"><text class="order-li-c-info-ico">￥</text>780</view>
+            </view>
+            <view class="order-li-c-des">
+              <view class="order-li-c-des-note">
+                <view class="order-li-c-des-tel">电话:15826585954</view>
+                <view class="order-li-c-des-ads">地址:重庆渝北区大竹林</view>
+              </view>
+              <view class="order-li-c-des-s">
+                <van-button size="small" color="#EA617B" round type="info">等待核销</van-button>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </van-tab>
+    <van-tab title="已完成">
+      <view class="order-list">
+        <view class="order-li">
+          <image class="order-li-img" src="../../../images/wnyx.png"></image>
+          <view class="order-li-content">
+            <view class="order-li-c-info">
+              <view class="order-li-c-info-title">韩美整形【优】医美连锁品牌,拥有四级整形资质,品质塑美</view>
+              <view class="order-li-c-info-money"><text class="order-li-c-info-ico">￥</text>780</view>
+            </view>
+            <view class="order-li-c-des">
+              <view class="order-li-c-des-note">
+                <view class="order-li-c-des-tel">电话:15826585954</view>
+                <view class="order-li-c-des-ads">地址:重庆渝北区大竹林</view>
+              </view>
+              <view class="order-li-c-des-s">
+                <van-button size="small" color="#EA617B" round type="info">等待核销</van-button>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="order-li">
+          <image class="order-li-img" src="../../../images/wnyx.png"></image>
+          <view class="order-li-content">
+            <view class="order-li-c-info">
+              <view class="order-li-c-info-title">韩美整形【优】医美连锁品牌,拥有四级整形资质,品质塑美</view>
+              <view class="order-li-c-info-money"><text class="order-li-c-info-ico">￥</text>780</view>
+            </view>
+            <view class="order-li-c-des">
+              <view class="order-li-c-des-note">
+                <view class="order-li-c-des-tel">电话:15826585954</view>
+                <view class="order-li-c-des-ads">地址:重庆渝北区大竹林</view>
+              </view>
+              <view class="order-li-c-des-s">
+                <van-button size="small" color="#EA617B" round type="info">等待核销</van-button>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="order-li">
+          <image class="order-li-img" src="../../../images/wnyx.png"></image>
+          <view class="order-li-content">
+            <view class="order-li-c-info">
+              <view class="order-li-c-info-title">韩美整形【优】医美连锁品牌,拥有四级整形资质,品质塑美</view>
+              <view class="order-li-c-info-money"><text class="order-li-c-info-ico">￥</text>780</view>
+            </view>
+            <view class="order-li-c-des">
+              <view class="order-li-c-des-note">
+                <view class="order-li-c-des-tel">电话:15826585954</view>
+                <view class="order-li-c-des-ads">地址:重庆渝北区大竹林</view>
+              </view>
+              <view class="order-li-c-des-s">
+                <van-button size="small" color="#EA617B" round type="info">等待核销</van-button>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </van-tab>
+  </van-tabs>
+</view>
+<van-toast id="van-toast" />

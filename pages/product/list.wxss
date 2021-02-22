@@ -16,9 +16,9 @@ page{
 .yyfy_li_content_title{ height: 80rpx; width: 360rpx; line-height: 40rpx; overflow: hidden;}
 
 .yyfy_li_content_money{height: 80rpx; width: 100%; line-height: 80rpx; display:flex; justify-content: space-around; background-color:#fff;}
-.yyfy_money{ width: 140rpx; color: #EB607D; font-size: 30rpx;}
-.yyfy_money_fh{ font-size: 24rpx;}
-.yyfy_yuanjia{ width: 150rpx; color: #AAA7A6; font-size: 26rpx; text-decoration:line-through;}
+.yyfy_money{ width: 140rpx; color: #EB607D; font-size: 28rpx;}
+.yyfy_money_fh{ font-size: 20rpx;}
+.yyfy_yuanjia{ width: 150rpx; color: #AAA7A6; font-size: 22rpx; text-decoration:line-through;}
 
 .yyfy_li_content_note{ height: 80rpx; width: 100%; line-height: 60rpx; display:flex; justify-content: space-around;}
 .yyfy_content_zs{ line-height: 80rpx; width: 300rpx; font-size: 24rpx; color: #EA617B;}

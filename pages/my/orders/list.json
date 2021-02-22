@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "van-toast": "/dist/toast/index",
+    "van-search": "/dist/search/index",
+    "van-tab": "/dist/tab/index",
+    "van-tabs": "/dist/tabs/index",
+    "van-button": "/dist/button/index"
+  },
+  "navigationBarTitleText": "我的订单"
+}

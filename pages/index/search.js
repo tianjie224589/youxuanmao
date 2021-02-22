@@ -1,4 +1,6 @@
 // pages/index/search.js
+var config = (wx.getStorageSync('config'));
+
 Page({
 
   /**
@@ -21,6 +23,7 @@ Page({
     ],
     value1: 0,
     value2: 'a',
+    getGoodsList: {},
   },
 
   onChange(e) {
@@ -31,7 +34,21 @@ Page({
 
   onSearch(event) {
     console.log('键盘搜索', event.detail)
-    
+    var that = this;
+    if(this.data.value != ''){
+      wx.request({
+        url: config.getGoodsList_url,
+        data:{"source":"wx","searchname":event.detail,"page":"1","num":"5"},
+        method: "post",
+        success: function (res) {
+          wx.stopPullDownRefresh();
+          that.setData({
+            getGoodsList: res.data.result,
+          })
+          wx.hideLoading();
+        }
+      });
+    }
   },
 
   onCancel(event) {
@@ -41,10 +58,32 @@ Page({
 
   onClick() {
     console.log('按钮搜索', this.data.value);
+    var that = this;
+    if(this.data.value != ''){
+      wx.request({
+        url: config.getGoodsList_url,
+        data:{"source":"wx","searchname":this.data.value,"page":"1","num":"5"},
+        method: "post",
+        success: function (res) {
+          wx.stopPullDownRefresh();
+          that.setData({
+            getGoodsList: res.data.result,
+          })
+          wx.hideLoading();
+        }
+      });
+    }
   },
 
   onTabChange(event) {
     console.log(event.detail.name)
+  },
+
+  onGetInfo(e){
+    console.log('产品详情',e.currentTarget.dataset.val)
+    wx.navigateTo({
+      url: '../product/info?id='+e.currentTarget.dataset.val
+    })
   },
 
   /**

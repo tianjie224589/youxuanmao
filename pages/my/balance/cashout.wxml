@@ -1,0 +1,23 @@
+<view class="category">
+  <view class="content">
+    <view class="info">提现金额</view>
+    <van-field model:value="{{ value }}" placeholder="￥ 0.00" border="{{ false }}" />
+    <van-divider />
+    <view class="note">可提现金额 685.25</view>
+    <view class="cash">
+      <van-button custom-class="cash-submit" color="#EA617B" size="large" type="primary">提现</van-button>
+    </view>
+  </view>
+  <view class="tixian" bindtap="showPopup">提现规则</view>
+</view>
+<van-popup show="{{ show }}" position="bottom" bind:close="onClose">
+  <view class="txgz">
+    <view>提现规则</view>
+    <view>一、提现流程</view>
+    <view>1、登录淘客马夫；</view>
+    <view>2、进入推广中心-我的结算，点击我要提现按钮；</view>
+    <view>3、若未绑定银行账号则先填写绑定银行账号，在我的结算-修改提现账号可修改提现的银行卡号；</view>
+    <view>4、填写提现金额，点击确认提交审核；</view>
+    <view>5、通过审核打款到指定银行账户；</view>
+  </view>
+</van-popup>

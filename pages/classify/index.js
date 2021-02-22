@@ -1,5 +1,6 @@
 const app = getApp();
 var config = (wx.getStorageSync('config'));
+
 Page({
   data: {
     currentTab: '',
@@ -33,7 +34,7 @@ Page({
     console.log(that.data.id)
     wx.request({
       url: config.getGoodsList_url,
-      data:{"source":"wx","cid":that.data.id},
+      data:{"source":"wx","cid":that.data.id,"page":"1","num":"3"},
       method: "post",
       success: function (res) {
         that.setData({
@@ -75,7 +76,7 @@ Page({
      //获取产品
      wx.request({
       url: config.getGoodsList_url,
-      data:{"source":"wx","cid":25},
+      data:{"source":"wx","cid":25,"page":"1","num":"3"},
       method: "post",
       success: function (res) {
         that.setData({

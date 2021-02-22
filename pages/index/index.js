@@ -1,15 +1,16 @@
 // index.js
 // 获取应用实例
 const app = getApp()
+var config = (wx.getStorageSync('config'));
 
 Page({
   data: {
     searchvalue:'',
-    background: [
-      '../../images/banner.jpg',
-      '../../images/banner1.jpg',
-      '../../images/banner2.jpg'
-    ],
+    background: {},
+    notice:'',
+    qualityList: {},
+    shopList: {},
+    getGoodsHotList: {},
 
     motto: 'Hello World',
     userInfo: {},
@@ -36,6 +37,8 @@ Page({
   },
 
   onLoad() {
+    var that = this;
+
     if (app.globalData.userInfo) {console.log('1')
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -62,6 +65,77 @@ Page({
         }
       })
     }
+
+    //获取banner
+    wx.request({
+      url: config.getAdvert_url,
+      data:{"source":"wx","pid":"4"},
+      method: "post",
+      success: function (res) {
+        wx.stopPullDownRefresh();
+        that.setData({
+          background: res.data.result,
+        })
+        wx.hideLoading();
+      }
+    });
+
+    //获取系统配置
+    wx.request({
+      url: config.getConfig_url,
+      data:{"source":"wx","pid":"4"},
+      method: "post",
+      success: function (res) {
+        wx.stopPullDownRefresh();
+        that.setData({
+          notice: res.data.result.notice,
+        })
+        wx.hideLoading();
+      }
+    });
+
+    //为你优选 商品 精选
+    wx.request({
+      url: config.getGoodsList_url,
+      data:{"source":"wx","quality":"1","page":"1","num":"3"},
+      method: "post",
+      success: function (res) {
+        wx.stopPullDownRefresh();
+        that.setData({
+          qualityList: res.data.result,
+        })
+        wx.hideLoading();
+      }
+    });
+
+    //医院返佣榜单
+    wx.request({
+      url: config.getShopList_url,
+      data:{"source":"wx","hot":"1","page":"1","num":"3"},
+      method: "post",
+      success: function (res) {
+        wx.stopPullDownRefresh();
+        that.setData({
+          shopList: res.data.result,
+        })
+        wx.hideLoading();
+      }
+    });
+
+    //热销榜单 商品 推荐
+    wx.request({
+      url: config.getGoodsList_url,
+      data:{"source":"wx","hot":"1","page":"1","num":"3"},
+      method: "post",
+      success: function (res) {
+        wx.stopPullDownRefresh();
+        that.setData({
+          getGoodsHotList: res.data.result,
+        })
+        wx.hideLoading();
+      }
+    });
+
   },
   getUserInfo(e) {
     console.log('授权',e)

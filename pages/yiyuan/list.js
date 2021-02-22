@@ -1,10 +1,13 @@
 // pages/yiyuan/list.js
+var config = (wx.getStorageSync('config'));
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    shopList: {},
     show: false,
     bigimg:''
   },
@@ -26,6 +29,20 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that = this;
+    
+    wx.request({
+      url: config.getShopList_url,
+      data:{"source":"wx","page":"1","num":"5"},
+      method: "post",
+      success: function (res) {
+        wx.stopPullDownRefresh();
+        that.setData({
+          shopList: res.data.result,
+        })
+        wx.hideLoading();
+      }
+    });
 
   },
 

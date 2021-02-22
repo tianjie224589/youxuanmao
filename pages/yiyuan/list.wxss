@@ -14,7 +14,7 @@ page{
 .yyfy_li_img{ height: 240rpx; width: 200rpx;border-radius:10px;}
 .yyfy_li_content{ height: 240rpx; width: 450rpx; padding: 10rpx; box-sizing:border-box;}
 .yyfy_li_content_title{ height: 80rpx; width: 360rpx; line-height: 40rpx; overflow: hidden;}
-
+.yyfy_li_content_null{height: 30rpx; width: 100%; }
 .yyfy_li_content_money{height: 80rpx; width: 100%; line-height: 80rpx; display:flex; justify-content: space-around; background-color:#fff;}
 
 .yyfy_li_content_note{ height: 80rpx; width: 100%; line-height: 60rpx; display:flex; justify-content: space-around;}

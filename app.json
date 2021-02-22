@@ -12,7 +12,19 @@
     "pages/product/list",
     "pages/product/info",
     "pages/product/submit",
-    "pages/index/success"
+    "pages/index/success",
+    "pages/my/orders/list",
+    "pages/my/customer/index",
+    "pages/my/customer/orders",
+    "pages/my/shop/list",
+    "pages/my/yiyuan/list",
+    "pages/my/balance/list",
+    "pages/my/balance/cashout",
+    "pages/my/bank/list",
+    "pages/my/bank/addbank",
+    "pages/my/address/list",
+    "pages/my/address/add",
+    "pages/my/activity/list"
   ],
   "window": {
     "backgroundTextStyle": "light",
