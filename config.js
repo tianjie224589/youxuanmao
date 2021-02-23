@@ -14,7 +14,11 @@ var config = {
   getUserInfo_url:host+"api/User/getInfo",
   getCollectList_url:host+"api/User/getCollectList",
   getCollectInfo_url:host+"api/User/getCollectInfo",
+  setCollectEdit_url:host+"api/User/setCollect",
+  setCollectDef_url:host+"api/User/setCollectDef",
+  getCollectDel_url:host+"api/User/getCollectDel",
   setCollect_url:host+"api/User/setCollect",
+
   
 }
 module.exports = config;

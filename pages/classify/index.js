@@ -3,15 +3,18 @@ var config = (wx.getStorageSync('config'));
 
 Page({
   data: {
+    id:0,
     currentTab: '',
     classify:{},
-    images:{}
+    images:{},
+
+    page:1,
+    num:10,
   },
   imageLoad: function(e) {console.log(e)
     var $width=e.detail.width,    //获取图片真实宽度
         $height=e.detail.height,
         ratio=$width/$height;    //图片的真实宽高比例
-        console.log($width)
     var viewWidth=718,           //设置图片显示宽度，左右留有16rpx边距
         viewHeight=718/ratio;    //计算的高度值
      var image=this.data.images; 
@@ -31,10 +34,12 @@ Page({
       id: e.currentTarget.dataset.id
     })
 
-    console.log(that.data.id)
+    console.log('nav-id',that.data.id)
+    console.log('page',that.data.page)
+    console.log('num',that.data.num)
     wx.request({
       url: config.getGoodsList_url,
-      data:{"source":"wx","cid":that.data.id,"page":"1","num":"3"},
+      data:{"source":"wx","cid":that.data.id,"page":that.data.page,"num":that.data.num},
       method: "post",
       success: function (res) {
         that.setData({
@@ -46,6 +51,7 @@ Page({
 
   onLoad: function (options) {
     var that = this
+    
     if (options.share_id) {
       wx.setStorageSync('share_id', options.share_id);
       this.setData({
@@ -76,7 +82,7 @@ Page({
      //获取产品
      wx.request({
       url: config.getGoodsList_url,
-      data:{"source":"wx","cid":25,"page":"1","num":"3"},
+      data:{"source":"wx","cid":32,"page":that.data.page,"num":that.data.num},
       method: "post",
       success: function (res) {
         that.setData({

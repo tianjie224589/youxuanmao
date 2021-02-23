@@ -1,7 +1,9 @@
 {
   "usingComponents": {
     "van-button": "/dist/button/index",
-    "van-icon": "/dist/icon/index"
+    "van-icon": "/dist/icon/index",
+    "van-swipe-cell": "/dist/swipe-cell/index",
+    "van-dialog": "/dist/dialog/index"
   },
   "navigationBarTitleText": "收货地址"
 }

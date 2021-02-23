@@ -1,4 +1,5 @@
 /* pages/my/address/list.wxss */
+@import '/dist/common/index.wxss';
 page{
   font-family: SimSun;
   background-color: #F0F0F0;
@@ -39,3 +40,13 @@ page{
 .submit{
   width: 100% !important;
 }
+
+
+.van-swipe-cell__left{width: 65px; height: 200rpx; line-height: 200rpx; background-color: #07C160; color: white; text-align: center;}
+.van-swipe-cell__right{width: 65px;height: 200rpx; line-height: 200rpx; background-color: #EE0A24; color: white; text-align: center;}
+
+
+
+
+
+
