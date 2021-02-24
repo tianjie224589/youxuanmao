@@ -5,7 +5,7 @@
   </view>
   <vie class="pay-msg">
     <view class="pay-msg-title">严选喵平台商户</view>
-    <view class="pay-msg-jg">￥<text class="info-xj-money">300.00</text></view>
+    <view class="pay-msg-jg">￥<text class="info-xj-money">{{money}}</text></view>
   </vie>
   <view class="pay-go">
     <van-button type="warning" color="#EB617B" custom-style="color: white;" bindtap='onPayto'>返回首页</van-button>

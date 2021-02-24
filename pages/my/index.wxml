@@ -5,52 +5,57 @@
     <view class="userinfo">
         <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
         <view class="userinfo-top">
-          <view class="userinfo-duanwei">赚钱喵VIP1</view>
-          <view class="userinfo-nickname">{{userInfo.nickName}} {{shenfen}}</view>
-          <view class="userinfo-mobile">17783468186</view>
+          <block wx:if="{{shenfen == 'myuser'}}"><view class="userinfo-duanwei">赚钱喵VIP{{getUserInfo.vip}}</view></block>
+          <view class="userinfo-nickname">{{userInfo.nickName}}</view>
+          <view class="userinfo-mobile">{{userInfo.mobile}}</view>
         </view>
     </view>
-    <view class="my-money">
-      <view class="my-money-bg"></view>
-      <view class="my-money-body">
-          <view class="my-money-content">
-            <view class="my-money-title" bindtap="onBalance">
-              <view>{{getUserInfo.capital.money}}</view>
-              <view>余额</view>
+    <block wx:if="{{shenfen == 'myuser'}}">
+      <view class="my-money">
+        <view class="my-money-bg"></view>
+        <view class="my-money-body">
+            <view class="my-money-content">
+              <view class="my-money-title" bindtap="onBalance">
+                <view>{{getUserInfo.capital.money}}</view>
+                <view>余额</view>
+              </view>
+              <view class="my-money-x">
+                <view class="my-money-xbg"></view>
+              </view>
+              <view class="my-money-title">
+                <view>0</view>
+                <view>优惠券</view>
+              </view>
             </view>
-            <view class="my-money-x">
-              <view class="my-money-xbg"></view>
-            </view>
-            <view class="my-money-title">
-              <view>0</view>
-              <view>优惠券</view>
-            </view>
-          </view>
-      </view>
-    </view>
-    <view class="my-orders">
-      <view class="my-orders-body">
-        <view class="my-orders-title">
-          <view class="my-orders-bt">我的订单</view>
-          <view class="my-orders-more" bindtap="orderList">查看全部订单></view>
-        </view>
-        <view class="my-order-tb">
-          <view class="my-order-tbnav">
-            <image class="my-order-img" src="../../images/my-order-dfk.jpg"></image>
-            <view>代付款</view>
-          </view>
-          <view class="my-order-tbnav">
-            <image class="my-order-img" src="../../images/my-order-dfh.jpg"></image>
-            <view>代发货</view>
-          </view>
-          <view class="my-order-tbnav">
-            <image class="my-order-img" src="../../images/my-order-dsh.jpg"></image>
-            <view>待收货</view>
-          </view>
         </view>
       </view>
-    </view>
+      <view class="my-orders">
+        <view class="my-orders-body">
+          <view class="my-orders-title">
+            <view class="my-orders-bt">我的订单</view>
+            <view class="my-orders-more" bindtap="orderList">查看全部订单></view>
+          </view>
+          <view class="my-order-tb">
+            <view class="my-order-tbnav">
+              <image class="my-order-img" src="../../images/my-order-dfk.jpg"></image>
+              <view>代付款</view>
+            </view>
+            <view class="my-order-tbnav">
+              <image class="my-order-img" src="../../images/my-order-dfh.jpg"></image>
+              <view>代发货</view>
+            </view>
+            <view class="my-order-tbnav">
+              <image class="my-order-img" src="../../images/my-order-dsh.jpg"></image>
+              <view>待收货</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+
     <view class="my-set">
+
+      <block wx:if="{{shenfen == 'myuser' && getUserInfo.identity == 2}}">
       <view class="my-set-tr my-set-tr-mb" bindtap="onClickShow" data-src="../../images/ewm.jpg">
         <view class="my-set-tr-title">
           <van-icon name="qr" />
@@ -65,27 +70,37 @@
         </view>
         <view class="my-set-tr-tb"><van-icon name="arrow" /></view>
       </view>
-      <view class="my-set-tr" bindtap="customerOrder">
-        <view class="my-set-tr-title">
-          <van-icon name="orders-o" />
-          客户订单
+      </block>
+
+      <block wx:if="{{shenfen == 'myshop'}}">
+        <view class="my-set-tr" bindtap="customerOrder">
+          <view class="my-set-tr-title">
+            <van-icon name="orders-o" />
+            客户订单
+          </view>
+          <view class="my-set-tr-tb"><van-icon name="arrow" /></view>
         </view>
-        <view class="my-set-tr-tb"><van-icon name="arrow" /></view>
-      </view>
-      <view class="my-set-tr" bindtap="shopList">
-        <view class="my-set-tr-title">
-          <van-icon name="scan" />
-          商家核销
-        </view>
-        <view class="my-set-tr-tb"><van-icon name="arrow" /></view>
-      </view>
-      <view class="my-set-tr" bindtap="hospitalList">
-        <view class="my-set-tr-title">
-          <van-icon name="scan" />
-          医院核销
-        </view>
-        <view class="my-set-tr-tb"><van-icon name="arrow" /></view>
-      </view>
+        <block wx:if="{{getUserInfo.identity == '3'}}">
+          <view class="my-set-tr" bindtap="shopList">
+            <view class="my-set-tr-title">
+              <van-icon name="scan" />
+              商家核销
+            </view>
+            <view class="my-set-tr-tb"><van-icon name="arrow" /></view>
+          </view>
+        </block>
+        <block wx:if="{{getUserInfo.identity == '4'}}">
+          <view class="my-set-tr" bindtap="hospitalList">
+            <view class="my-set-tr-title">
+              <van-icon name="scan" />
+              医院核销
+            </view>
+            <view class="my-set-tr-tb"><van-icon name="arrow" /></view>
+          </view>
+        </block>
+      </block>
+
+      <block wx:if="{{shenfen == 'myuser'}}">
       <view class="my-set-tr" bindtap="onBank">
         <view class="my-set-tr-title">
           <van-icon name="idcard" />
@@ -107,6 +122,8 @@
         </view>
         <view class="my-set-tr-tb"><van-icon name="arrow" /></view>
       </view>
+      </block>
+
     </view>
   </block>
   <van-overlay show="{{ show }}" bind:click="onClickHide">

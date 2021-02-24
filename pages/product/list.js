@@ -8,6 +8,8 @@ Page({
    */
   data: {
     getGoodsList: {},
+    page: 1,
+    num: 20,
   },
 
   onGetInfo(e){
@@ -25,7 +27,7 @@ Page({
 
     wx.request({
       url: config.getGoodsList_url,
-      data:{"source":"wx","page":"1","num":"5"},
+      data:{"source":"wx","page":that.data.page,"num":that.data.num},
       method: "post",
       success: function (res) {
         wx.stopPullDownRefresh();

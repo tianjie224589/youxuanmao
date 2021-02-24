@@ -9,6 +9,8 @@ Page({
   data: {
     value: '',
     getGoodsList: {},
+    page: 1,
+    num: 20,
     fybanner: '',
     show: {
       primary: true,
@@ -28,7 +30,7 @@ Page({
     if(that.value != ''){
       wx.request({
         url: config.getGoodsList_url,
-        data:{"source":"wx","notype":"1","searchname":event.detail,"page":"1","num":"5"},
+        data:{"source":"wx","notype":"1","searchname":event.detail,"page":that.data.page,"num":that.data.num},
         method: "post",
         success: function (res) {
           wx.stopPullDownRefresh();
@@ -45,7 +47,7 @@ Page({
     var that = this;
     wx.request({
       url: config.getGoodsList_url,
-      data:{"source":"wx","notype":"1","page":"1","num":"5"},
+      data:{"source":"wx","notype":"1","page":that.data.page,"num":that.data.num},
       method: "post",
       success: function (res) {
         wx.stopPullDownRefresh();
@@ -103,7 +105,7 @@ Page({
 
     wx.request({
       url: config.getGoodsList_url,
-      data:{"source":"wx","notype":"1","page":"1","num":"5"},
+      data:{"source":"wx","notype":"1","page":that.data.page,"num":that.data.num},
       method: "post",
       success: function (res) {
         wx.stopPullDownRefresh();

@@ -94,6 +94,10 @@ Page({
   onLoad: function (options) {
     var that = this;
 
+    var loginUserinfo = (wx.getStorageSync('userinfo'));
+    console.log('token',loginUserinfo.token)
+
+    //身份
     var identity = wx.getStorageSync('identity');
     console.log('身份 identity',identity)
     if(identity!=""){
@@ -102,8 +106,7 @@ Page({
       })
     }
 
-    var loginUserinfo = (wx.getStorageSync('userinfo'));
-    console.log('登录信息 loginUserinfo',loginUserinfo)
+    //保存登录信息
     if(loginUserinfo.avatarUrl!=""){
       that.setData({
         userInfo: loginUserinfo,
@@ -139,10 +142,9 @@ Page({
     }
 
     //获取用户信息
-    console.log('token',this.data.userInfo.token)
     wx.request({
       url: config.getUserInfo_url,
-      data:{"source":"wx","token":that.data.userInfo.token},
+      data:{"source":"wx","token":loginUserinfo.token},
       method: "post",
       success: function (res) {
         console.log('userinfo-res',res)
@@ -188,7 +190,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    
   },
 
   /**
@@ -209,6 +211,44 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
+    console.log('下拉')
+    var that = this
+
+    var loginUserinfo = (wx.getStorageSync('userinfo'));
+    console.log('token',loginUserinfo.token)
+
+    //身份
+    var identity = wx.getStorageSync('identity');
+    console.log('身份 identity',identity)
+    if(identity!=""){
+      that.setData({
+        shenfen: identity
+      })
+    }
+
+    if(loginUserinfo.avatarUrl!=""){
+      that.setData({
+        userInfo: loginUserinfo,
+        hasUserInfo: true
+      })
+    }
+
+    //保存登录信息
+    //获取用户信息
+    wx.request({
+      url: config.getUserInfo_url,
+      data:{"source":"wx","token":loginUserinfo.token},
+      method: "post",
+      success: function (res) {
+        console.log('userinfo-res',res)
+        wx.stopPullDownRefresh();
+        that.setData({
+          getUserInfo: res.data.result,
+        })
+        wx.hideLoading();
+      }
+    });
+    
 
   },
 

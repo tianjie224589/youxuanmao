@@ -3,9 +3,9 @@
     <view class="info">提现金额</view>
     <van-field model:value="{{ value }}" placeholder="￥ 0.00" border="{{ false }}" />
     <van-divider />
-    <view class="note">可提现金额 685.25</view>
+    <view class="note">可提现金额 {{getUserInfo.capital.money}}</view>
     <view class="cash">
-      <van-button custom-class="cash-submit" color="#EA617B" size="large" type="primary">提现</van-button>
+      <van-button custom-class="cash-submit" color="#EA617B" size="large" type="primary" bindtap="cashout">提现</van-button>
     </view>
   </view>
   <view class="tixian" bindtap="showPopup">提现规则</view>
@@ -21,3 +21,4 @@
     <view>5、通过审核打款到指定银行账户；</view>
   </view>
 </van-popup>
+<van-toast id="van-toast" />

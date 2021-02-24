@@ -12,17 +12,36 @@ Page({
     money:0,
     false:false,
     getGoodsInfo: {},
+    getUserInfo: {},
+    getCollectInfo: {},
   },
 
   onSubmit(e){
     console.log('提交订单',e);
-    var id = this.data.id;
-    var money = this.data.money;
-    var num = this.data.num;
+    var that = this;
+    var id = that.data.id;
+    var money = that.data.money;
+    var num = that.data.num;
 
-    wx.navigateTo({
-      url: '../index/success'
+    var loginUserinfo = (wx.getStorageSync('userinfo'));
+
+    console.log(id);
+    console.log(money);
+    console.log(num);
+
+    //创建订单
+    wx.request({
+      url: config.setOrderAdd_url,
+      data:{"source":"wx","token":loginUserinfo.token,"gid":id,"num":num},
+      method: "post",
+      success: function (res) {
+        console.log(res)
+        wx.navigateTo({
+          url: '../index/success?money='+money
+        });
+      }
     });
+
   },
 
   onChange(event) {
@@ -39,6 +58,9 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
+
+    var loginUserinfo = (wx.getStorageSync('userinfo'));
+    console.log('loginUserinfo',loginUserinfo)
 
     var id = options.id;
     console.log('id',id);
@@ -61,6 +83,36 @@ Page({
         wx.hideLoading();
       }
     });
+
+     //获取用户信息
+     wx.request({
+      url: config.getUserInfo_url,
+      data:{"source":"wx","token":loginUserinfo.token},
+      method: "post",
+      success: function (res) {
+        console.log('userinfo-res',res)
+        wx.stopPullDownRefresh();
+        that.setData({
+          getUserInfo: res.data.result,
+        })
+
+        //获取默认收货地址
+        wx.request({
+          url: config.getCollectInfo_url,
+          data:{"source":"wx","token":loginUserinfo.token,'id':res.data.result.collectid},
+          method: "post",
+          success: function (resObj) {
+            console.log('CollectInfo-res',resObj)
+            that.setData({
+              getCollectInfo: resObj.data.result,
+            })
+          }
+        });
+
+        wx.hideLoading();
+      }
+    });
+    
 
   },
 

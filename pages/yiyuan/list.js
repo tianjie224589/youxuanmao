@@ -8,6 +8,8 @@ Page({
    */
   data: {
     shopList: {},
+    page: 1,
+    num: 20,
     show: false,
     bigimg:''
   },
@@ -33,7 +35,7 @@ Page({
     
     wx.request({
       url: config.getShopList_url,
-      data:{"source":"wx","page":"1","num":"5"},
+      data:{"source":"wx","page":that.data.page,"num":that.data.num},
       method: "post",
       success: function (res) {
         wx.stopPullDownRefresh();

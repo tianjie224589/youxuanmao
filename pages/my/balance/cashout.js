@@ -1,12 +1,38 @@
 // pages/my/balance/cashout.js
+import Toast from '../../../dist/toast/toast';
+var config = (wx.getStorageSync('config'));
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    getUserInfo: {},
     value: '',
     show: false,
+  },
+
+  cashout(){
+    var that = this;
+    var loginUserinfo = (wx.getStorageSync('userinfo'));
+
+    var value = that.data.value;
+    console.log('提现',value)
+
+    wx.request({
+      url: config.getCashOut_url,
+      data:{"source":"wx","token":loginUserinfo.token,"apply_money":value,"bankid":that.data.getUserInfo.bankid},
+      method: "post",
+      success: function (res) {
+        console.log('res',res)
+        if(res.data.status != 200){
+          Toast.fail(res.data.msg);
+        }else{
+          wx.navigateBack()
+        }
+      }
+    });
   },
 
   showPopup() {
@@ -21,7 +47,23 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that = this
+    var loginUserinfo = (wx.getStorageSync('userinfo'));
 
+    //获取用户信息
+    wx.request({
+      url: config.getUserInfo_url,
+      data:{"source":"wx","token":loginUserinfo.token},
+      method: "post",
+      success: function (res) {
+        console.log('userinfo-res',res)
+        wx.stopPullDownRefresh();
+        that.setData({
+          getUserInfo: res.data.result,
+        })
+        wx.hideLoading();
+      }
+    });
   },
 
   /**

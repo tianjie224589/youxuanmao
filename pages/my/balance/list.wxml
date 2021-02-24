@@ -2,30 +2,21 @@
   <view class="top">
     <view class="top-balance">
       <view class="top-balance-title">总金额（元）</view>
-      <view class="top-balance-money">801.25</view>
+      <view class="top-balance-money">{{getUserInfo.capital.money}}</view>
     </view>
     <view class="cashout">
       <van-button color="#EB617B" size="small" round type="info" bindtap="cashout">提现</van-button>
     </view>
   </view>
-  <van-tabs>
+  <van-tabs bind:click="onClick" data-type="{{pay_type}}">
     <van-tab title="全部">
-      <view class="order-list">
-        <van-cell title="用户提现" value="-30" label="2021-01-05" />
-        <van-cell title="购买拓客卡核销返利" value="+50.11" label="2021-01-06" />
-        <van-cell title="核销返利" value="+11.25" label="2121-02-11" />
-      </view>
     </van-tab>
     <van-tab title="收入">
-      <view class="order-list">
-        <van-cell title="购买拓客卡核销返利" value="+50.11" label="2021-01-06" />
-        <van-cell title="核销返利" value="+11.25" label="2121-02-11" />
-      </view>
     </van-tab>
     <van-tab title="已提金额">
-      <view class="order-list">
-        <van-cell title="用户提现" value="-30" label="2021-01-05" />
-      </view>
     </van-tab>
   </van-tabs>
+  <block wx:for="{{list}}" wx:for-item="vo" wx:for-index="k">
+    <van-cell title="{{vo.name}}" value="{{vo.money_str}}" label="{{vo.addtime_str}}" />
+  </block>
 </view>

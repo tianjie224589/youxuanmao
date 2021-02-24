@@ -1,6 +1,8 @@
 {
   "usingComponents": {
-    "van-button": "/dist/button/index"
+    "van-button": "/dist/button/index",
+    "van-swipe-cell": "/dist/swipe-cell/index",
+    "van-dialog": "/dist/dialog/index"
   },
   "navigationBarTitleText": "银行卡"
 }

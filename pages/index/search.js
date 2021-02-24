@@ -24,6 +24,8 @@ Page({
     value1: 0,
     value2: 'a',
     getGoodsList: {},
+    page: 1,
+    num: 20,
   },
 
   onChange(e) {
@@ -38,7 +40,7 @@ Page({
     if(this.data.value != ''){
       wx.request({
         url: config.getGoodsList_url,
-        data:{"source":"wx","searchname":event.detail,"page":"1","num":"5"},
+        data:{"source":"wx","searchname":event.detail,"page":that.data.page,"num":that.data.num},
         method: "post",
         success: function (res) {
           wx.stopPullDownRefresh();
@@ -62,7 +64,7 @@ Page({
     if(this.data.value != ''){
       wx.request({
         url: config.getGoodsList_url,
-        data:{"source":"wx","searchname":this.data.value,"page":"1","num":"5"},
+        data:{"source":"wx","searchname":this.data.value,"page":that.data.page,"num":that.data.num},
         method: "post",
         success: function (res) {
           wx.stopPullDownRefresh();

@@ -1,9 +1,12 @@
 <view class="category">
   <van-cell-group>
-    <van-field label="姓名" model:value="{{ value }}" placeholder="请输入姓名" error />
-    <van-field label="开户行" model:value="{{ value }}" placeholder="请输入开户行" error />
-    <van-field label="银行卡号" model:value="{{ value }}" placeholder="请输入银行卡号" error />
-    <van-field label="身份证号" model:value="{{ value }}" placeholder="请输入身份证号" border="{{ false }}" error />
+    <van-field label="姓名" model:value="{{ name }}" placeholder="请输入姓名" error />
+    <van-field label="开户行" model:value="{{ bank_name }}" placeholder="请输入开户行" error />
+    <van-field label="银行卡号" model:value="{{ bank_num }}" placeholder="请输入银行卡号" error />
+    <van-field label="身份证号" model:value="{{ card }}" placeholder="请输入身份证号" error />
+    <van-cell title="是否默认">
+      <van-switch slot="right-icon" size="24px" checked="{{ checked }}" bind:change="onChange" />
+    </van-cell>
   </van-cell-group>
   <view class="addbank">
     <van-button custom-class="submit" color="#EA617B" size="large" type="primary" bindtap="submit">保存</van-button>

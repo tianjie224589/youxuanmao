@@ -4,8 +4,8 @@
       <van-icon style="margin-top:10rpx;" name="location" color="#ffffff" />
     </view>
     <view class="address-ads">
-      <van-panel title="张三" desc="15865656563">
-        <view class="address-ads-info">重庆市渝北区互联网产业园</view>
+      <van-panel title="{{getCollectInfo.name}}" desc="{{getCollectInfo.phone}}">
+        <view class="address-ads-info">{{getCollectInfo.collect}}</view>
       </van-panel>
     </view>
   </view>

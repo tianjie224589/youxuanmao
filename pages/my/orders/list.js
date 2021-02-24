@@ -1,15 +1,21 @@
 // pages/my/orders/list.js
 import Toast from '../../../dist/toast/toast';
+var config = (wx.getStorageSync('config'));
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    value:''
+    value:'',
+    payment: 'all',
+    order_type: 'all',
+    order_state: 'all',
+    list: {},
+    page: 1,
+    num: 20,
   },
 
-  
   onChange(e) {
     this.setData({
       value: e.detail,
@@ -23,10 +29,68 @@ Page({
     Toast('取消');
   },
 
+  onClick(event) {
+    var that = this
+
+    console.log('点击标签',event.detail.index)
+    var type = event.detail.index
+    var payment = that.data.payment
+    var order_state = that.data.order_state
+    
+    if(type==1){
+      payment = '2'
+      order_state = 'all'
+    }
+    if(type==2){
+      payment = '2'
+      order_state = '3'
+    }
+    if(type==3){
+      payment = '2'
+      order_state = '5'
+    }
+
+    var loginUserinfo = (wx.getStorageSync('userinfo'));
+    wx.request({
+      url: config.getOrderList_url,
+      data:{"source":"wx","token":loginUserinfo.token,"payment":payment,"order_state":order_state,"page":that.data.page,"num":that.data.num},
+      method: "post",
+      success: function (res) {
+        console.log('onClick-res',res)
+        wx.stopPullDownRefresh();
+        that.setData({
+          list: res.data.result,
+        })
+        wx.hideLoading();
+      }
+    });
+    
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that = this
+
+    var loginUserinfo = (wx.getStorageSync('userinfo'));
+    console.log('token',loginUserinfo.token)
+
+    var payment = that.data.payment
+    var order_state = that.data.order_state
+    wx.request({
+      url: config.getOrderList_url,
+      data:{"source":"wx","token":loginUserinfo.token,"payment":payment,"order_state":order_state,"page":that.data.page,"num":that.data.num},
+      method: "post",
+      success: function (res) {
+        console.log('onLoad-res',res)
+        wx.stopPullDownRefresh();
+        that.setData({
+          list: res.data.result,
+        })
+        wx.hideLoading();
+      }
+    });
 
   },
 
