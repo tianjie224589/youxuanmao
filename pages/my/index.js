@@ -88,6 +88,35 @@ Page({
     })
   },
 
+  getPhoneNumber (e) {
+    console.log(e.detail.errMsg)
+    console.log(e.detail.iv)
+    console.log(e.detail.encryptedData)
+
+    console.log(e.detail.encryptedData)
+    console.log(e.detail.encryptedData)
+
+    var that = this;
+    console.log(e.detail.errMsg == "getPhoneNumber:ok");
+    if (e.detail.errMsg == "getPhoneNumber:ok") {
+      wx.request({
+        url: config.getUserInfoWx_url,
+        data: {
+          encryptedData: e.detail.encryptedData,
+          iv: e.detail.iv,
+          sessionKey: that.data.userInfo.session_key,
+          token: that.data.userInfo.token,
+          "source":"wx",
+        },
+        method: "post",
+        success: function (res) {
+          console.log(res);
+        }
+      })
+    }
+
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -95,6 +124,7 @@ Page({
     var that = this;
 
     var loginUserinfo = (wx.getStorageSync('userinfo'));
+    console.log('userinfo',loginUserinfo)
     console.log('token',loginUserinfo.token)
 
     //身份

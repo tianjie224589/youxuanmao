@@ -2,6 +2,8 @@ var host = "http://www.yiyoucha.com/";
 var config = {
   host,
   getCode_url:host+"v1/Weixin/getWxCode",
+  getUserInfoWx_url:host+"api/Weixin/getUserInfoWx",
+
   setUserEdit_url:host+"v1/Login/setUserEdit",
   getClassify_url:host+"v1/Classify/getCategoryList",
 
