@@ -1,8 +1,11 @@
 {
   "usingComponents": {
+    "van-icon": "/dist/icon/index",
+    "van-field": "/dist/field/index",
     "van-tab": "/dist/tab/index",
     "van-tabs": "/dist/tabs/index",
-    "van-button": "/dist/button/index"
+    "van-button": "/dist/button/index",
+    "van-toast": "/dist/toast/index"
   },
-  "navigationBarTitleText": "商家核销"
+  "navigationBarTitleText": "核销"
 }

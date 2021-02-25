@@ -32,6 +32,14 @@ var config = {
 
   getOrderList_url:host+"api/Order/getOrderList",
   setOrderAdd_url:host+"api/Order/setOrderAdd",
+  getOrderInfo_url:host+"api/Order/getOrderInfo",
+  setHexiaoma_url:host+"api/Order/setHexiaoma",
+
+
+
+
+
+  telephone:"12345678",
 
 }
 module.exports = config;

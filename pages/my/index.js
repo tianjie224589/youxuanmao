@@ -111,7 +111,7 @@ Page({
         method: "post",
         success: function (res) {
           console.log(res);
-
+          /*
           var loginUserinfo = (wx.getStorageSync('userinfo'));
           wx.request({
             url: config.getUserInfo_url,
@@ -125,11 +125,20 @@ Page({
               wx.hideLoading();
             }
           });
+          */
+         that.onPullDownRefresh();
 
         }
       })
     }
 
+  },
+
+  onIdentity(){
+    //选择身份
+    wx.navigateTo({
+      url: '/pages/identity/index'
+    })
   },
 
   /**
@@ -235,7 +244,14 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    
+    console.log('页面返回-渲染');
+    var that = this;
+    console.log(that.data);
+
+    if(that.data.istype=='identity-my'){
+      that.onPullDownRefresh();
+    }
+
   },
 
   /**

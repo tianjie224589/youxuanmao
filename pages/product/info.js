@@ -11,7 +11,7 @@ Page({
     viewHeight:0,
     nodes:'',
     getGoodsInfo: {},
-    phone: '1234567'
+    phone: '12345678'
   },
 
   onSubmit(e){
@@ -44,6 +44,10 @@ Page({
     console.log('id',id);
     this.setData({
       id: id
+    });
+
+    this.setData({
+      phone: config.telephone
     });
 
     //获取详情

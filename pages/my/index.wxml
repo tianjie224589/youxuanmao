@@ -95,7 +95,7 @@
           </view>
         </block>
         <block wx:if="{{getUserInfo.identity == '4'}}">
-          <view class="my-set-tr" bindtap="hospitalList">
+          <view class="my-set-tr" bindtap="shopList">
             <view class="my-set-tr-title">
               <van-icon name="scan" />
               医院核销
@@ -128,6 +128,14 @@
         <view class="my-set-tr-tb"><van-icon name="arrow" /></view>
       </view>
       </block>
+
+      <view class="my-set-tr" bindtap="onIdentity">
+        <view class="my-set-tr-title">
+          <van-icon name="friends-o" />
+          切换身份
+        </view>
+        <view class="my-set-tr-tb"><van-icon name="arrow" /></view>
+      </view>
 
     </view>
   </block>

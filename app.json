@@ -24,7 +24,8 @@
     "pages/my/bank/addbank",
     "pages/my/address/list",
     "pages/my/address/add",
-    "pages/my/activity/list"
+    "pages/my/activity/list",
+    "pages/my/shop/cheack"
   ],
   "window": {
     "backgroundTextStyle": "light",

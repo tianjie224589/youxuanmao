@@ -1,0 +1,19 @@
+<view class="category">
+  <block wx:if="{{getGoodsInfo.name}}">
+    <view class="content">
+      <image style="height:{{viewHeight}}px" class="order-img" src="{{getGoodsInfo.thumburl}}"></image>
+      <view class="content-info">
+        <rich-text nodes="{{nodes}}"></rich-text>
+      </view>
+    </view>
+    <view class="submit-button">
+      <van-button custom-class="submit" round color="#EA617B" size="large" type="primary" bindtap="onSubmit">提交</van-button>
+    </view>
+  </block>
+  <block wx:else>
+    <view class="submit-button">
+      <van-button custom-class="submit" round color="#EA617B" size="large" type="primary" bindtap="onGoback">返回</van-button>
+    </view>
+  </block>
+</view>
+<van-toast id="van-toast" />
