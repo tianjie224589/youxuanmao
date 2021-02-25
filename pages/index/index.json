@@ -1,6 +1,5 @@
 {
   "usingComponents": {
-    "weui-search": "/weui-miniprogram/searchbar/searchbar",
     "van-icon": "/dist/icon/index",
     "van-search": "/dist/search/index",
     "van-row": "/dist/row/index",

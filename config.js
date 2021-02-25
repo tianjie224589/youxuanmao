@@ -1,4 +1,4 @@
-var host = "http://www.yiyoucha.com/";
+var host = "https://www.yiyoucha.com/";
 var config = {
   host,
   getCode_url:host+"v1/Weixin/getWxCode",
