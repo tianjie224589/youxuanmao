@@ -111,6 +111,21 @@ Page({
         method: "post",
         success: function (res) {
           console.log(res);
+
+          var loginUserinfo = (wx.getStorageSync('userinfo'));
+          wx.request({
+            url: config.getUserInfo_url,
+            data:{"source":"wx","token":loginUserinfo.token},
+            method: "post",
+            success: function (res) {
+              wx.stopPullDownRefresh();
+              that.setData({
+                getUserInfo: res.data.result,
+              })
+              wx.hideLoading();
+            }
+          });
+
         }
       })
     }

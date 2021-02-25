@@ -8,7 +8,7 @@
           <block wx:if="{{shenfen == 'myuser'}}"><view class="userinfo-duanwei">赚钱喵VIP{{getUserInfo.vip}}</view></block>
           <view class="userinfo-nickname">{{userInfo.nickName}}</view>
           <block wx:if="{{userInfo.mobile == ''}}">
-            <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber"></button>
+            <button style="width: 250rpx;font-size: 28rpx;" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">获取手机号</button>
           </block>
           <block wx:else>
             <view class="userinfo-mobile">{{userInfo.mobile}}</view>

@@ -39,7 +39,7 @@ page{
 }
 
 .userinfo-mobile{
-  font-size: 24rpx;
+  font-size: 28rpx;
 }
 
 .my-money{
