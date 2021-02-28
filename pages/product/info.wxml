@@ -60,12 +60,20 @@
     <view class="fwjg">
       <view class="fwjg-title">服务机构</view>
       <view class="fwjg-list">
-        <view class="fwjg-list-li {{fwjg ==1 ? 'active' : ''}}" bindtap="onFwjg" id="1">腾美整形美容医院</view>
-        <view class="fwjg-list-li {{fwjg ==2 ? 'active' : ''}}" bindtap="onFwjg" id="2">腾美整形美容医院</view>
+        <block wx:for="{{getGoodsCheck}}" wx:for-item="vo" wx:for-index="k">
+          <view class="fwjg-list-li {{fwjg == vo.sid ? 'active' : ''}}" bindtap="onFwjg" id="{{vo.sid}}">{{vo.shop_name}}</view>
+        </block>
+        <!--<view class="fwjg-list-li {{fwjg ==1 ? 'active' : ''}}" bindtap="onFwjg" id="1">腾美整形美容医院</view>
+        <view class="fwjg-list-li {{fwjg ==2 ? 'active' : ''}}" bindtap="onFwjg" id="2">腾美整形美容医院</view>-->
       </view>
     </view>
     <view class="addbank">
-      <van-button custom-class="submit" round color="#EA617B" size="large" type="primary" open-type='share'>分享</van-button>
+      <block wx:if="{{fwjg == '0'}}">
+        <van-button custom-class="submit" disabled round color="#EA617B" size="large" type="primary">分享</van-button>
+      </block>
+      <block wx:else>
+        <van-button custom-class="submit" round color="#EA617B" size="large" type="primary" open-type='share'>分享</van-button>
+      </block>
     </view>
   </view>
 </van-action-sheet>

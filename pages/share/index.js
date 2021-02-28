@@ -7,16 +7,26 @@ Page({
    * 页面的初始数据
    */
   data: {
+    getUserInfo: {},
+    
     value: '',
-    getGoodsList: {},
-    page: 1,
-    num: 20,
-    fybanner: '',
     show: {
       primary: true,
       success: true,
     },
-    images:{}
+    fybanner: '',
+    images:{},
+
+    getGoodsList: {},
+    page: 1,
+    num: 20,
+
+    getShareList: {},
+    selectNum:0,
+    selectOverNum:3,
+    
+    
+    
   },
 
   onChange(e) {
@@ -43,7 +53,7 @@ Page({
     }
   },
   onCancel(event) {
-    console.log('取消')
+    console.log('搜索-取消')
     var that = this;
     wx.request({
       url: config.getGoodsList_url,
@@ -78,9 +88,22 @@ Page({
   },
 
   onClose(event) {
+    console.log('关闭标签')
     this.setData({
       [`show.${event.target.id}`]: false,
     });
+  },
+
+  onGetInfo(e){
+    console.log('产品详情',e.currentTarget.dataset.val)
+    wx.navigateTo({
+      url: '../product/info?id='+e.currentTarget.dataset.val
+    })
+  },
+
+  onShareAdd(e){
+    console.log('加入分享',e.currentTarget.id)
+    
   },
 
   /**
@@ -88,6 +111,23 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
+    var loginUserinfo = (wx.getStorageSync('userinfo'));
+    console.log('userinfo',loginUserinfo)
+
+    //获取用户信息
+    wx.request({
+      url: config.getUserInfo_url,
+      data:{"source":"wx","token":loginUserinfo.token},
+      method: "post",
+      success: function (res) {
+        console.log('userinfo-res',res)
+        wx.stopPullDownRefresh();
+        that.setData({
+          getUserInfo: res.data.result,
+        })
+        wx.hideLoading();
+      }
+    });
 
     //获取banner
     wx.request({
@@ -103,11 +143,13 @@ Page({
       }
     });
 
+    //获取商品 notype=3 排除普通商品
     wx.request({
       url: config.getGoodsList_url,
-      data:{"source":"wx","notype":"1","page":that.data.page,"num":that.data.num},
+      data:{"source":"wx","notype":"3","page":that.data.page,"num":that.data.num},
       method: "post",
       success: function (res) {
+        console.log('获取商品',res.data)
         wx.stopPullDownRefresh();
         that.setData({
           getGoodsList: res.data.result,
@@ -115,6 +157,23 @@ Page({
         wx.hideLoading();
       }
     });
+
+    //获取已选择分享商品列表
+    wx.request({
+      url: config.getShareList_url,
+      data:{"source":"wx","token":loginUserinfo.token},
+      method: "post",
+      success: function (res) {
+        console.log('获取分享列表',res.data)
+        wx.stopPullDownRefresh();
+        that.setData({
+          getShareList: res.data.result.list,
+          selectNum: res.data.result.count,
+        })
+        wx.hideLoading();
+      }
+    });
+
   },
 
   /**

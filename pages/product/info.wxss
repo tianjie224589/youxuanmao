@@ -38,7 +38,7 @@ swiper{height: auto;}
 button{width: auto !important;}
 .van-button__text{width: 160rpx;}
 
-.fenxiang{width: 100%; position: fixed; bottom: 100rpx; background-color:#FFFEA2; display:flex; justify-content: space-around; font-size: 24rpx; color: #A97E0D;}
+.fenxiang{width: 100%; position: fixed; bottom: 50px; background-color:#FFFEA2; display:flex; justify-content: space-around; font-size: 24rpx; color: #A97E0D;}
 .xuanzhe{ width: 100%; padding:0 20rpx; line-height: 60rpx; box-sizing: border-box;}
 .xuanzhe .note-money{color: #CD4C2F;}
 

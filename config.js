@@ -9,9 +9,13 @@ var config = {
 
   getAdvert_url:host+"v1/Common/getAdvert",
   getConfig_url:host+"v1/Common/getConfig",
+  
   getGoodsList_url:host+"v1/Goods/getList",
   getGoodsInfo_url:host+"v1/Goods/getInfo",
+  getGoodsCheck_url:host+"api/Goods/getGoodsCheck",
+
   getShopList_url:host+"v1/Shop/getList",
+  
 
   getUserInfo_url:host+"api/User/getInfo",
   
@@ -35,8 +39,8 @@ var config = {
   getOrderInfo_url:host+"api/Order/getOrderInfo",
   setHexiaoma_url:host+"api/Order/setHexiaoma",
 
-
-
+  getShareList_url:host+"api/Share/getShareList",
+  setShareAdd_url:host+"api/Share/setShareAdd",
 
 
   telephone:"12345678",
