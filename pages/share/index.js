@@ -103,7 +103,35 @@ Page({
 
   onShareAdd(e){
     console.log('加入分享',e.currentTarget.id)
-    
+    var that = this;
+    var loginUserinfo = (wx.getStorageSync('userinfo'));
+
+    //创建分享
+    wx.request({
+      url: config.setShareAdd_url,
+      data:{"source":"wx","token":loginUserinfo.token,"id":e.currentTarget.id},
+      method: "post",
+      success: function (res) {
+        console.log('分享-res',res.data.status)
+        if(res.data.status==200){
+          //获取已选择分享商品列表
+          wx.request({
+            url: config.getShareList_url,
+            data:{"source":"wx","token":loginUserinfo.token},
+            method: "post",
+            success: function (res) {
+              console.log('获取分享列表',res.data)
+              wx.stopPullDownRefresh();
+              that.setData({
+                getShareList: res.data.result.list,
+                selectNum: res.data.result.count,
+              })
+              wx.hideLoading();
+            }
+          });
+        }
+      }
+    });
   },
 
   /**
