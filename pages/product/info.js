@@ -11,7 +11,13 @@ Page({
     viewHeight:0,
     nodes:'',
     getGoodsInfo: {},
-    phone: '12345678'
+    phone: '12345678',
+
+    show: false,
+    fwjg:0,
+    
+    showPopup: false,
+
   },
 
   onSubmit(e){
@@ -26,6 +32,56 @@ Page({
     wx.makePhoneCall({
       phoneNumber: this.data.phone
     })
+  },
+
+  onShare(){
+    var that = this;
+    var getGoodsInfo = that.data.getGoodsInfo
+    console.log(getGoodsInfo.type)
+
+    if(getGoodsInfo.type==2){
+      //医院:选择匹配医院-直接分享
+      this.setData({ show: true });
+    }else{
+      //美容:加入分享库-跳转到省赚页面
+
+    }
+  },
+  onShowClose() {
+    this.setData({ show: false });
+  },
+
+  onFwjg(e){
+    console.log('服务机构',e.currentTarget.id)
+    this.setData({ fwjg: e.currentTarget.id });
+  },
+
+  onShareAppMessage: function () {
+    var that = this;
+    console.log('分享')
+    let url = encodeURIComponent('/pages/product/info?id=' + that.data.id);
+ 
+    return {
+      title: that.data.getGoodsInfo.name,
+      path:"/pages/index/index?url="+url,
+      imageUrl: that.data.getGoodsInfo.thumburl,
+      desc: that.data.getGoodsInfo.specs,
+      success: (res) => {
+        console.log("转发成功", res);
+        console.log("成功了")
+      },
+      fail: (res) => {
+        console.log("转发失败", res);
+      }
+    }
+ 
+  },
+
+  showPopup() {
+    this.setData({ showPopup: true });
+  },
+  onClosePopup() {
+    this.setData({ showPopup: false });
   },
 
   /**

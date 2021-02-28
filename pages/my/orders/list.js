@@ -32,14 +32,14 @@ Page({
   onClick(event) {
     var that = this
 
-    console.log('点击标签',event.detail.index)
+    
     var type = event.detail.index
     var payment = that.data.payment
     var order_state = that.data.order_state
     
     if(type==1){
-      payment = '2'
-      order_state = 'all'
+      payment = '1'
+      order_state = '1'
     }
     if(type==2){
       payment = '2'
@@ -49,6 +49,9 @@ Page({
       payment = '2'
       order_state = '5'
     }
+    console.log('点击标签-type',type)
+    console.log('点击标签-payment',payment)
+    console.log('点击标签-order_state',order_state)
 
     var loginUserinfo = (wx.getStorageSync('userinfo'));
     wx.request({

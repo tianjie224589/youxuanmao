@@ -36,7 +36,7 @@ Page({
     })
   },
 
-  onLoad() {
+  onLoad(options) {
     var that = this;
 
     if (app.globalData.userInfo) {console.log('1')
@@ -135,6 +135,16 @@ Page({
         wx.hideLoading();
       }
     });
+
+
+
+    //要想分享后的页面打开先进入首页再跳转到分享的页面
+    if(options.url){
+      let url = decodeURIComponent(options.url);
+      wx.navigateTo({
+        url
+      })
+    }
 
   },
   getUserInfo(e) {

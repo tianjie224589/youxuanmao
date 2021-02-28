@@ -10,7 +10,10 @@
   </view>
   <view class="info">
     <view class="info-xj">￥<text class="info-xj-money">{{getGoodsInfo.price}}</text></view>
-    <view class="info-yj">原价：<text class="info-yj-money">￥{{getGoodsInfo.original_price}}</text></view>
+    <view class="info-yj">
+      原价：<text class="info-yj-money">￥{{getGoodsInfo.original_price}}</text>
+      <text class="info-yyj">预约金:{{getGoodsInfo.advance}}</text>
+    </view>
     <view class="info-title">{{getGoodsInfo.name}}</view>
     <view class="info-note">
       <view class="">省{{getGoodsInfo.commission_b}}%/赚{{getGoodsInfo.commission_c}}%</view>
@@ -26,12 +29,46 @@
       <rich-text nodes="{{nodes}}"></rich-text>
     </view>
   </view>
+  <view class="fenxiang"  bindtap="showPopup">
+    <view class="xuanzhe"><van-icon custom-style="position:relative;left:0;top:3px" size="15px" name="warning-o" /> 在线预约金:<text class="note-money">￥{{getGoodsInfo.advance}}</text> 到院再付:<text class="note-money">￥{{getGoodsInfo.price - getGoodsInfo.advance}}</text></view>
+  </view>
   <van-goods-action>
     <view style="width:100%; display:flex;box-sizing: content-box;align-items: center;">
       <van-goods-action-icon icon="chat-o" text="咨询" open-type="contact" style="width:120rpx;" />
       <van-goods-action-icon icon="phone-o" text="电话" bind:click="onTel" style="width:120rpx;" />
-      <van-goods-action-button color="#EB617B" text="分享赚" type="warning" style="text-align: right;" />
+      <van-goods-action-button color="#EB617B" text="分享赚" bind:click="onShare" type="warning" style="text-align: right;" />
       <van-goods-action-button color="#D23637" text="自购省" bind:click="onSubmit" />
     </view>
   </van-goods-action>
 </view>
+<van-action-sheet show="{{ show }}" title="选择服务机构" bind:close="onShowClose">
+  <view class="share">
+    <view class="share-goods">
+      <image class="goods-img" src="{{getGoodsInfo.thumburl}}"></image>
+      <view class="goods-info">
+        <view class="info-money">
+          <view class="info-money-jg">
+            <text class="info-money-tb">￥</text>{{getGoodsInfo.price}}
+          </view>
+          <view class="info-money-jg">
+            <text class="info-money-tb">省</text>{{getGoodsInfo.commission_b}}<text class="info-money-tb">%</text>
+          </view>
+        </view>
+        <view class="info-yy">预约金：￥ {{getGoodsInfo.advance}}</view>
+      </view>
+    </view>
+    <view class="fwjg">
+      <view class="fwjg-title">服务机构</view>
+      <view class="fwjg-list">
+        <view class="fwjg-list-li {{fwjg ==1 ? 'active' : ''}}" bindtap="onFwjg" id="1">腾美整形美容医院</view>
+        <view class="fwjg-list-li {{fwjg ==2 ? 'active' : ''}}" bindtap="onFwjg" id="2">腾美整形美容医院</view>
+      </view>
+    </view>
+    <view class="addbank">
+      <van-button custom-class="submit" round color="#EA617B" size="large" type="primary" open-type='share'>分享</van-button>
+    </view>
+  </view>
+</van-action-sheet>
+<van-popup show="{{ showPopup }}" bind:close="onClosePopup">
+  <image style="width:300px;height:300px;" src="../../images/yyj.jpg"></image>
+</van-popup>

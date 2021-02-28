@@ -11,7 +11,7 @@
     <van-tab title="全部">
       
     </van-tab>
-    <van-tab title="已支付">
+    <van-tab title="待支付">
       
     </van-tab>
     <van-tab title="未核销">
@@ -47,7 +47,7 @@
                 <van-button size="small" color="#EA617B" round type="info">待核销</van-button>
               </block>
               <block wx:if="{{vo.order_state == '4'}}">
-                <van-button size="small" color="#EA617B" round type="info">代收货</van-button>
+                <van-button size="small" color="#EA617B" round type="info">待收货</van-button>
               </block>
               <block wx:if="{{vo.order_state == '5'}}">
                 <van-button size="small" color="#EA617B" round type="info">完成</van-button>
