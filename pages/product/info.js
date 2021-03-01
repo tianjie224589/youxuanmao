@@ -8,6 +8,7 @@ Page({
    */
   data: {
     id:0,
+    uid:0,
     viewHeight:0,
     nodes:'',
     getGoodsInfo: {},
@@ -109,8 +110,8 @@ Page({
     var that = this;
     var loginUserinfo = (wx.getStorageSync('userinfo'));
 
-    let url = encodeURIComponent('/pages/product/info?id=' + that.data.id);
- 
+    let url = encodeURIComponent('/pages/share/listshare?goods_id=' + that.data.id +'&uid=' + that.getUserInfo.id);
+    console.log('分享url',url);
     return {
       title: that.data.getGoodsInfo.name,
       path:"/pages/index/index?url="+url,

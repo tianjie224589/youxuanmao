@@ -25,7 +25,10 @@ Page({
     selectNum:0,
     selectOverNum:3,
     
-    
+    getGoodsCheck: {},
+    showsheet: false,
+    fwjg_gid:0,
+    radio: 0,
     
   },
 
@@ -112,7 +115,7 @@ Page({
       data:{"source":"wx","token":loginUserinfo.token,"id":e.currentTarget.id},
       method: "post",
       success: function (res) {
-        console.log('分享-res',res.data.status)
+        console.log('分享-res',res.data)
         if(res.data.status==200){
           //获取已选择分享商品列表
           wx.request({
@@ -132,6 +135,95 @@ Page({
         }
       }
     });
+  },
+
+  onSheet(e){
+    console.log('选择服务机构-打开,商品id:',e.currentTarget.id)
+    var that = this;
+    var loginUserinfo = (wx.getStorageSync('userinfo'));
+
+    //获取此商品的核销机构 列表
+    wx.request({
+      url: config.getGoodsCheck_url,
+      data:{"source":"wx","token":loginUserinfo.token,"id":e.currentTarget.id},
+      method: "post",
+      success: function (res) {
+        console.log('分享-res',res.data.status)
+        if(res.data.status==200){
+          that.setData({
+            getGoodsCheck: res.data.result,
+            fwjg_gid: e.currentTarget.id,
+          })
+        }
+      }
+    });
+
+    this.setData({ showsheet: true });
+  },
+  onShowClose() {
+    console.log('选择服务机构-关闭')
+    this.setData({ showsheet: false });
+  },
+
+  onSelectChange(event) {
+    console.log('选择服务机构-sid',event.detail)
+    this.setData({
+      radio: event.detail,
+    });
+  },
+  onClick(event) {
+    const { name } = event.currentTarget.dataset;
+    console.log('选择服务机构-sid',name)
+    this.setData({
+      radio: name,
+    });
+  },
+  onFwjg(e){
+    console.log('服务机构',e.currentTarget.id)
+
+    var that = this;
+    var loginUserinfo = (wx.getStorageSync('userinfo'));
+    var id = that.data.fwjg_gid;
+    var sid = e.currentTarget.id;
+    console.log('创建分享-id',id)
+    console.log('创建分享-sid',sid)
+
+    //创建分享
+    wx.request({
+      url: config.setShareAdd_url,
+      data:{"source":"wx","token":loginUserinfo.token,"id":that.data.fwjg_gid,"sid":e.currentTarget.id},
+      method: "post",
+      success: function (res) {
+        console.log('分享-res',res.data)
+
+        //获取已选择分享商品列表
+        wx.request({
+          url: config.getShareList_url,
+          data:{"source":"wx","token":loginUserinfo.token},
+          method: "post",
+          success: function (res) {
+            console.log('获取分享列表',res.data)
+            wx.stopPullDownRefresh();
+            that.setData({
+              getShareList: res.data.result.list,
+              selectNum: res.data.result.count,
+            })
+            wx.hideLoading();
+          }
+        });
+
+      }
+    });
+
+    this.setData({ showsheet: false });
+  },
+
+  //跳转分享商品管理
+  onToshare(){
+    console.log('跳转分享商品管理')
+    wx.navigateTo({
+      url: 'myshare'
+    })
   },
 
   /**

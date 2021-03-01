@@ -25,7 +25,9 @@
     "pages/my/address/list",
     "pages/my/address/add",
     "pages/my/activity/list",
-    "pages/my/shop/cheack"
+    "pages/my/shop/cheack",
+    "pages/share/myshare",
+    "pages/share/listshare"
   ],
   "window": {
     "backgroundTextStyle": "light",

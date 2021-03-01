@@ -141,6 +141,7 @@ Page({
     //要想分享后的页面打开先进入首页再跳转到分享的页面
     if(options.url){
       let url = decodeURIComponent(options.url);
+      console.log('外部点击分享',url);
       wx.navigateTo({
         url
       })

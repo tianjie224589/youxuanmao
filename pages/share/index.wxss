@@ -110,6 +110,14 @@ page{
 .xuanzhe{ width: 400rpx;}
 
 
-
-
+.share{width: 100%; padding: 20rpx; box-sizing: border-box;}
+.addbank{
+  width: 100%;
+  padding: 20rpx;
+  text-align: center;
+  box-sizing:border-box;
+}
+.submit{
+  width: 100% !important;
+}
 

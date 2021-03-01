@@ -53,19 +53,41 @@
         </view>
         <view class="list_fx_an">
           <block wx:if="{{vo.type == '1'}}">
-          <button class="list_zx list_bgc" style="padding:0 25rpx;line-height:60rpx;font-size:24rpx;" size="mini">选择服务机构</button>
+          <button class="list_zx list_bgc" style="padding:0 25rpx;line-height:60rpx;font-size:24rpx;" bindtap="onSheet"  id="{{vo.id}}" size="mini">选择服务机构</button>
           </block>
           <block wx:else>
             <text class="list_zx"></text>
             <button class="list_zx" style="color:#7f7f7f; padding:0 25rpx;line-height:60rpx;font-size:24rpx;" size="mini">{{vo.shop_name}}</button>
+          
+            <button class="list_zx list_bgc" bindtap="onShareAdd" id="{{vo.id}}" style="padding:0 25rpx;line-height:60rpx;font-size:24rpx;" size="mini">加入分享专题</button>
           </block>
-          <button class="list_zx list_bgc" bindtap="onShareAdd" id="{{vo.id}}" style="padding:0 25rpx;line-height:60rpx;font-size:24rpx;" size="mini">加入分享专题</button>
         </view>
       </view>
     </block>
   </view>
   <view class="fenxiang">
-    <view class="xuanzhe">已选择：{{selectNum}}份 至少{{selectOverNum - selectNum}}款产品</view>
-    <van-button round size="small" type="info" color="#EB607D" custom-style="width:80px; font-size:28rpx;font-weight: 500;">确认</van-button>
+    <view class="xuanzhe">已选择：{{selectNum}}份 至少{{selectOverNum}}款产品</view>
+    <van-button round size="small" type="info" bindtap="onToshare" color="#EB607D" custom-style="width:80px; font-size:28rpx;font-weight: 500;">确认</van-button>
   </view>
 </view>
+<van-action-sheet show="{{ showsheet }}" title="选择服务机构" bind:close="onShowClose">
+  <view class="share">
+    <van-radio-group value="{{ radio }}" bind:change="onSelectChange">
+      <van-cell-group>
+        <block wx:for="{{getGoodsCheck}}" wx:for-item="vo" wx:for-index="k">
+          <van-cell title="{{vo.shop_name}}" clickable data-name="{{vo.sid}}" bind:click="onClick">
+            <van-radio slot="right-icon" name="{{vo.sid}}" />
+          </van-cell>
+        </block>
+      </van-cell-group>
+    </van-radio-group>
+    <view class="addbank">
+      <block wx:if="{{radio == '0'}}">
+        <van-button custom-class="submit" disabled round color="#EA617B" size="large" type="primary">加入分享</van-button>
+      </block>
+      <block wx:else>
+        <van-button custom-class="submit" round color="#EA617B" size="large" type="primary" bindtap="onFwjg" id="{{radio}}">加入分享</van-button>
+      </block>
+    </view>
+  </view>
+</van-action-sheet>

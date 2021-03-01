@@ -12,7 +12,7 @@ var config = {
   
   getGoodsList_url:host+"v1/Goods/getList",
   getGoodsInfo_url:host+"v1/Goods/getInfo",
-  getGoodsCheck_url:host+"api/Goods/getGoodsCheck",
+  getGoodsCheck_url:host+"api/Goods/getCheckList",
 
   getShopList_url:host+"v1/Shop/getList",
   
@@ -41,7 +41,7 @@ var config = {
 
   getShareList_url:host+"api/Share/getShareList",
   setShareAdd_url:host+"api/Share/setShareAdd",
-
+  setShareDel_url:host+"api/Share/setShareDel",
 
   telephone:"12345678",
 
