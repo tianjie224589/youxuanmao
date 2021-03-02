@@ -9,13 +9,14 @@ var config = {
 
   getAdvert_url:host+"v1/Common/getAdvert",
   getConfig_url:host+"v1/Common/getConfig",
+  qiniuFile_url:host+"api/Upload/qiniuFile",
   
   getGoodsList_url:host+"v1/Goods/getList",
   getGoodsInfo_url:host+"v1/Goods/getInfo",
   getGoodsCheck_url:host+"api/Goods/getCheckList",
 
   getShopList_url:host+"v1/Shop/getList",
-  
+  setShopAdd_url:host+"v1/Shop/setShopAdd",
 
   getUserInfo_url:host+"api/User/getInfo",
   

@@ -137,13 +137,21 @@
         <view class="my-set-tr-tb"><van-icon name="arrow" /></view>
       </view>
 
+      <!--<view class="my-set-tr" bindtap="onshangjia">
+        <view class="my-set-tr-title">
+          <van-icon name="friends-o" />
+          营业执照
+        </view>
+        <view class="my-set-tr-tb"><van-icon name="arrow" /></view>
+      </view>-->
+
     </view>
   </block>
   <van-overlay show="{{ show }}" bind:click="onClickHide">
     <view class="wrapper">
       <view class="block">
         <view class="block-title">颜选喵</view>
-        <image class="block-img" src="{{bigimg}}"></image>
+        <canvas class='canvas' canvas-id='canvas' bindlongtap='save'></canvas>
       </view>
     </view>
   </van-overlay>

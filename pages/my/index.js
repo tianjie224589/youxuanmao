@@ -1,5 +1,7 @@
 const app = getApp()
 var config = (wx.getStorageSync('config'));
+var QRCode = require('../../utils/weapp-qrcode.js')
+
 Page({
 
   /**
@@ -141,6 +143,14 @@ Page({
     })
   },
 
+  onshangjia(){
+    //选择身份
+    wx.navigateTo({
+      url: '/pages/my/info/index'
+    })
+  },
+
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -210,6 +220,23 @@ Page({
       }
     });
 
+    //传入wxml中二维码canvas的canvas-id
+    //单位为px
+    var qrcode = new QRCode('canvas', {
+      // usingIn: this,
+      text: "https://www.yiyoucha.com/ewm/"+that.data.userInfo.id,
+      width: 150,
+      height: 150,
+      padding: 12,
+      colorDark: "#000000",
+      colorLight: "#ffffff",
+      correctLevel: QRCode.CorrectLevel.H,
+      callback: (res) => {
+          // 生成二维码的临时文件
+          console.log(res.path)
+      }
+    });
+    
   },
 
   getUserInfo(e) {

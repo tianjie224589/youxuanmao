@@ -177,7 +177,7 @@ page{
   height: 100%;
 }
 .block {
-  width: 60%;
+  width: 45%;
   padding: 20rpx; box-sizing:border-box;
   background: #fff;
   padding-bottom: 4rpx;

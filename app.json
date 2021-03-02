@@ -27,7 +27,8 @@
     "pages/my/activity/list",
     "pages/my/shop/cheack",
     "pages/share/myshare",
-    "pages/share/listshare"
+    "pages/share/listshare",
+    "pages/my/info/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

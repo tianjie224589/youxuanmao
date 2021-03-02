@@ -1,0 +1,44 @@
+<view class="category">
+  <view class="shuru">
+    <view class="shuru_title shuru_height">营业执照</view>
+    <view class="shuru_body">
+      <van-uploader file-list="{{ license }}" max-count="1" accept="image" deletable="{{ true }}" bind:after-read="afterRead"/>
+    </view>
+  </view>
+  <view class="shuru">
+    <view class="shuru_title shuru_height">身份证</view>
+    <view class="shuru_body">
+      <view class="shuru_body_sfz">
+        <van-uploader file-list="{{ sfz_z }}" max-count="1" accept="image" deletable="{{ true }}" bind:after-read="afterRead_z"/>
+        <view class="shuru_body_note">身份证正面</view>
+      </view>
+      <view class="shuru_body_sfz">
+        <van-uploader file-list="{{ sfz_f }}" max-count="1" accept="image" deletable="{{ true }}" bind:after-read="afterRead_f"/>
+        <view class="shuru_body_note">身份证正面</view>
+      </view>
+    </view>
+  </view>
+  <van-divider />
+  <view class="shuru shuru_body_note font-color">提示：上传营业执照及身份信息以便于用户对你的认可</view>
+  <view class="shuru">
+    <view class="shuru_title shuru_height2">商品店名</view>
+    <view class="shuru_body">
+      <van-field model:value="{{ name }}" placeholder="请输入" error />
+    </view>
+  </view>
+  <view class="shuru">
+    <view class="shuru_title shuru_height2">详细地址</view>
+    <view class="shuru_body">
+      <van-field model:value="{{ address }}" placeholder="请输入" error />
+    </view>
+  </view>
+  <view class="shuru">
+    <view class="shuru_title shuru_height2">联系电话</view>
+    <view class="shuru_body">
+      <van-field model:value="{{ tell }}" placeholder="请输入" error />
+    </view>
+  </view>
+  <view class="addbank">
+    <van-button custom-class="submit" color="#EA617B" size="large" type="primary" bindtap="onAdd">确定</van-button>
+  </view>
+</view>
