@@ -38,13 +38,13 @@
             </view>
             <view class="order-li-c-des-s">
               <block wx:if="{{vo.order_state == '1'}}">
-                <van-button size="small" color="#EA617B" round type="info">待支付</van-button>
+                <van-button size="small" color="#EA617B" round type="info" bindtap="onSubmit" id="{{vo.id}}">待支付</van-button>
               </block>
               <block wx:if="{{vo.order_state == '2'}}">
                 <van-button size="small" color="#EA617B" round type="info">待预约</van-button>
               </block>
               <block wx:if="{{vo.order_state == '3'}}">
-                <van-button size="small" color="#EA617B" round type="info">待核销</van-button>
+                <van-button size="small" color="#EA617B" round type="info" bindtap="onClickShow" id="{{vo.cheack_no}}" >待核销</van-button>
               </block>
               <block wx:if="{{vo.order_state == '4'}}">
                 <van-button size="small" color="#EA617B" round type="info">待收货</van-button>
@@ -59,5 +59,14 @@
     </block>
     
   </view>
+  <van-overlay show="{{ show }}" bind:click="onClickHide">
+    <view class="wrapper">
+      <view class="block">
+        <view class="block-title">扫码核销</view>
+        <canvas class='canvas' canvas-id='canvas' bindlongtap='save'></canvas>
+        <view class="block-title">核销码：{{cheack_no}}</view>
+      </view>
+    </view>
+  </van-overlay>
 </view>
 <van-toast id="van-toast" />

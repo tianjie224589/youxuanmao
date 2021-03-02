@@ -36,9 +36,10 @@ Page({
       method: "post",
       success: function (res) {
         console.log(res)
+        console.log('立即支付')
         wx.navigateTo({
-          url: '../index/success?money='+money
-        });
+          url: '../pay/index?id=' + res.data.result
+        })
       }
     });
 

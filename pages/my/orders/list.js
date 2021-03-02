@@ -1,6 +1,8 @@
 // pages/my/orders/list.js
 import Toast from '../../../dist/toast/toast';
 var config = (wx.getStorageSync('config'));
+var QRCode = require('../../../utils/weapp-qrcode.js')
+
 Page({
 
   /**
@@ -14,6 +16,9 @@ Page({
     list: {},
     page: 1,
     num: 20,
+
+    show: false,
+    cheack_no:0,
   },
 
   onChange(e) {
@@ -68,6 +73,43 @@ Page({
       }
     });
     
+  },
+
+  onClickShow(event) {
+    console.log('邀请注册',event)
+    this.setData({ 
+      show: true,
+      cheack_no: event.currentTarget.id
+    });
+
+    //传入wxml中二维码canvas的canvas-id
+    //单位为px
+    var qrcode = new QRCode('canvas', {
+      // usingIn: this,
+      text: event.currentTarget.id,
+      width: 150,
+      height: 150,
+      padding: 12,
+      colorDark: "#000000",
+      colorLight: "#ffffff",
+      correctLevel: QRCode.CorrectLevel.H,
+      callback: (res) => {
+          // 生成二维码的临时文件
+          console.log(res.path)
+      }
+    });
+  },
+  onClickHide() {
+    console.log('取消放大')
+    this.setData({ show: false });
+  },
+
+
+  onSubmit(e){
+    console.log('立即支付')
+    wx.navigateTo({
+      url: '../../pay/index?id=' + e.currentTarget.id
+    })
   },
 
   /**

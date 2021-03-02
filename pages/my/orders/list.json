@@ -4,7 +4,8 @@
     "van-search": "/dist/search/index",
     "van-tab": "/dist/tab/index",
     "van-tabs": "/dist/tabs/index",
-    "van-button": "/dist/button/index"
+    "van-button": "/dist/button/index",
+    "van-overlay": "/dist/overlay/index"
   },
   "navigationBarTitleText": "我的订单"
 }

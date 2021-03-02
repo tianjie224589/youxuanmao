@@ -13,6 +13,7 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     shenfen:'',
+    show: false,
   },
 
   onBalance(){
@@ -31,10 +32,7 @@ Page({
 
   onClickShow(event) {
     console.log('邀请注册')
-    console.log(event.currentTarget.dataset.src)
-    var img = event.currentTarget.dataset.src;
     this.setData({ show: true });
-    this.setData({ bigimg: img });
   },
   onClickHide() {
     console.log('取消放大')
