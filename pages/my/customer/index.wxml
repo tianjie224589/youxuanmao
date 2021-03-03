@@ -1,20 +1,17 @@
 <view class="category">
-  <van-cell title="总客户数50 总转发数100" title-style="color:#242424;" is-link value="筛选" bind:click="showPopup" />
+  <van-cell title="总客户数{{countNum}} 总转发数0" title-style="color:#242424;" is-link value="筛选" bind:click="showPopup" />
   <view class="list">
+    
+    <block wx:for="{{list}}" wx:for-item="vo" wx:for-index="k">
     <view class="list-li">
       <van-cell-group>
-        <van-cell title="名称" value="张三" />
-        <van-cell title="入驻时间" value="2021.1.1" />
-        <van-cell title="转发数量" value="5" />
+        <van-cell title="名称" value="{{vo.username}}" />
+        <van-cell title="入驻时间" value="{{vo.addtime}}" />
+        <van-cell title="转发数量" value="0" />
       </van-cell-group>
     </view>
-    <view class="list-li">
-      <van-cell-group>
-        <van-cell title="名称" value="张三" />
-        <van-cell title="入驻时间" value="2021.1.1" />
-        <van-cell title="转发数量" value="5" />
-      </van-cell-group>
-    </view>
+    </block>
+    
   </view>
 </view>
 <van-popup show="{{ show }}" position="bottom" bind:close="onClose">

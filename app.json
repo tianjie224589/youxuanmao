@@ -29,7 +29,6 @@
     "pages/share/myshare",
     "pages/share/listshare",
     "pages/my/info/index",
-    "pages/pay",
     "pages/pay/index"
   ],
   "window": {

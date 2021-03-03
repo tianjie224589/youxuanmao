@@ -218,22 +218,7 @@ Page({
       }
     });
 
-    //传入wxml中二维码canvas的canvas-id
-    //单位为px
-    var qrcode = new QRCode('canvas', {
-      // usingIn: this,
-      text: "https://www.yiyoucha.com/ewm/"+that.data.userInfo.id,
-      width: 150,
-      height: 150,
-      padding: 12,
-      colorDark: "#000000",
-      colorLight: "#ffffff",
-      correctLevel: QRCode.CorrectLevel.H,
-      callback: (res) => {
-          // 生成二维码的临时文件
-          console.log(res.path)
-      }
-    });
+    
     
   },
 
@@ -262,7 +247,24 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    var that = this;
+    console.log('2222',that.data.userInfo)
+    //传入wxml中二维码canvas的canvas-id  样式单位为px
+    //扫码二维码跳转到 /pages/my/info/index
+    var qrcode = new QRCode('canvas', {
+      // usingIn: this,
+      text: "https://www.yiyoucha.com/ewm/"+that.data.userInfo.id,
+      width: 150,
+      height: 150,
+      padding: 12,
+      colorDark: "#000000",
+      colorLight: "#ffffff",
+      correctLevel: QRCode.CorrectLevel.H,
+      callback: (res) => {
+          // 生成二维码的临时文件
+          console.log(res.path)
+      }
+    });
   },
 
   /**

@@ -1,4 +1,5 @@
 // pages/my/customer/index.js
+var config = (wx.getStorageSync('config'));
 Page({
 
   /**
@@ -6,6 +7,8 @@ Page({
    */
   data: {
     show: false,
+    list: {},
+    countNum: 0,
 
     currentDate: new Date().getTime(),
     minDate: new Date().getTime(),
@@ -59,6 +62,25 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that = this
+
+    var loginUserinfo = (wx.getStorageSync('userinfo'));
+    console.log('token',loginUserinfo.token)
+
+    wx.request({
+      url: config.getTopUserList_url,
+      data:{"source":"wx","token":loginUserinfo.token},
+      method: "post",
+      success: function (res) {
+        console.log('onLoad-res',res)
+        wx.stopPullDownRefresh();
+        that.setData({
+          list: res.data.result.list,
+          countNum: res.data.result.count,
+        })
+        wx.hideLoading();
+      }
+    });
 
   },
 

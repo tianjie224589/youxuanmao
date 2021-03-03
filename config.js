@@ -19,6 +19,7 @@ var config = {
   setShopAdd_url:host+"v1/Shop/setShopAdd",
 
   getUserInfo_url:host+"api/User/getInfo",
+  getTopUserList_url:host+"api/User/getTopUserList",
   
   getCollectList_url:host+"api/User/getCollectList",
   getCollectInfo_url:host+"api/User/getCollectInfo",

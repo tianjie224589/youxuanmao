@@ -112,7 +112,7 @@ Page({
 
     wx.request({
       url: config.setShopAdd_url,
-      data:{"source":"wx","token":loginUserinfo.token,"license_id":license_id,"sfz_z_id":sfz_z_id,"sfz_f_id":sfz_f_id,"name":name,"address":address,"tell":tell},
+      data:{"source":"wx","token":loginUserinfo.token,"license_id":license_id,"sfz_z_id":sfz_z_id,"sfz_f_id":sfz_f_id,"name":name,"address":address,"tell":tell,"uid":that.data.id},
       method: "post",
       success: function (res) {
         console.log(res)
@@ -134,11 +134,17 @@ Page({
     var loginUserinfo = (wx.getStorageSync('userinfo'));
     console.log('token',loginUserinfo.token)
 
-    var id = options.id;
-    console.log('id',id);
-    this.setData({
-      id: id
-    });
+    if (options.q) {
+      let q = decodeURIComponent(options.q);
+      console.log("url=" + q)
+      var ary = q.split("ewm/");
+      console.log("uid=" + ary[1])
+
+      this.setData({ id: ary[1] });
+    } else {
+      console.log("no q");
+    }
+
   },
 
   /**

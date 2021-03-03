@@ -20,6 +20,7 @@
   </view>
   <van-divider />
   <view class="shuru shuru_body_note font-color">提示：上传营业执照及身份信息以便于用户对你的认可</view>
+  <view class="shuru shuru_body_note font-color">{{id}}</view>
   <view class="shuru">
     <view class="shuru_title shuru_height2">商品店名</view>
     <view class="shuru_body">
