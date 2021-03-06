@@ -10,6 +10,7 @@ Page({
   },
 
   onPayto(){
+    wx.setStorageSync('oid', this.data.id);
     wx.switchTab({
       url: '../index/index'
     })
@@ -22,6 +23,7 @@ Page({
     var id = options.id;
     var money = options.money;
     console.log('id',id);
+    console.log('money',money);
     this.setData({
       id: id,
       money: money

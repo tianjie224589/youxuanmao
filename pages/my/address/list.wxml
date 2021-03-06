@@ -5,7 +5,7 @@
       <van-swipe-cell right-width="{{ 65 }}" left-width="{{ 65 }}" async-close bind:close="onClose" id="{{vo.id}}" data-k="{{k}}">
         <view slot="left" class="van-swipe-cell__left">默认</view>
         <view class="list-li">
-          <view class="list-li-info">
+          <view class="list-li-info" bindtap="goToback" id="{{vo.id}}">
             <view class="title">
               <text>{{vo.name}} {{vo.phone}}</text>
               <block wx:if="{{vo.default == 1}}"> 

@@ -2,7 +2,7 @@
 <view class="container">
   <view class="top">
     <view class="address">
-      <navigator url="map">重庆<van-icon size="14px" name="arrow-down" /></navigator>
+      <navigator url="map">{{location}}<van-icon size="14px" name="arrow-down" /></navigator>
     </view>
     <view class="page_bd">
       <van-search class="search" background="#E8627B" placeholder="搜索" readonly="true" bindtap='onSearch' value="{{ searchvalue }}"></van-search>
@@ -94,7 +94,14 @@
                 <van-button custom-style="width:200rpx;font-weight:500;" bindtap='onGetInfo' data-val="{{vo.id}}" color="#EA617B" size="small" round type="info">分享赚|自购省</van-button>
               </view>
               <view class="yyfy_li_content_note">
-                <view class="yyfy_content_zs">赚{{vo.commission_b}}%/省{{vo.commission_c}}%</view>
+                
+                <block wx:if="{{getUserInfo.identity == '1' || getUserInfo.identity == '2'}}">
+                  <view class="yyfy_content_zs">赚/省{{vo.commission_c}}%</view>
+                </block>
+                <block wx:if="{{getUserInfo.identity == '3' || getUserInfo.identity == '4'}}">
+                  <view class="yyfy_content_zs">省/赚{{vo.commission_b}}%</view>
+                </block>
+                
                 <view class="yyfy_content_ys">已售：{{vo.sales}}</view>
               </view>
             </view>
@@ -104,3 +111,13 @@
     </view>
   </view>
 </view>
+<van-overlay show="{{ orderPopup }}" bind:click="onClickHide">
+  <view class="wrapper">
+    <view class="block">
+      <view class="block-title">
+        <van-button type="default" color="#EB617B" bindtap="onClickHide">继续逛逛</van-button>
+      </view>
+      <view class="block-des" bindtap="onToOrderInfo">查看详细订单 ></view>
+    </view>
+  </view>
+</van-overlay>

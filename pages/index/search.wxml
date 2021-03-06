@@ -13,8 +13,8 @@
     <view style="color:#fff;" slot="action" bind:tap="onClick">搜索</view>
   </van-search>
   <van-dropdown-menu>
-    <van-dropdown-item value="{{ value1 }}" options="{{ option1 }}" />
-    <van-dropdown-item value="{{ value2 }}" options="{{ option2 }}" />
+    <van-dropdown-item value="{{ value1 }}" options="{{ option1 }}" id="{{value1}}" bind:change="onChangeSelect" />
+    <van-dropdown-item value="{{ value2 }}" options="{{ option2 }}" id="{{value2}}" bind:change="onChangeOrderby" />
   </van-dropdown-menu>
   <view class="list">
     <block wx:for="{{getGoodsList}}" wx:for-item="vo" wx:for-index="k">

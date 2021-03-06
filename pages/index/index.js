@@ -5,17 +5,21 @@ var config = (wx.getStorageSync('config'));
 
 Page({
   data: {
+    location:'',
     searchvalue:'',
     background: {},
     notice:'',
     qualityList: {},
     shopList: {},
     getGoodsHotList: {},
+    getUserInfo: {},
 
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+
+    orderPopup: false,
   },
   // 事件处理函数
   bindViewTap() {
@@ -36,8 +40,26 @@ Page({
     })
   },
 
+  onClickHide() {
+    console.log('取消订单弹窗')
+    wx.removeStorageSync('oid')
+    this.setData({ orderPopup: false });
+  },
+  onToOrderInfo(){
+    console.log('查看详细订单')
+    var oid = wx.getStorageSync('oid');
+
+    wx.removeStorageSync('oid')
+    this.setData({ orderPopup: false });
+
+    wx.navigateTo({
+      url: '../my/orders/info?id='+ oid
+    })
+  },
+
   onLoad(options) {
     var that = this;
+    console.log('首页 options',options)
 
     if (app.globalData.userInfo) {console.log('1')
       this.setData({
@@ -136,8 +158,6 @@ Page({
       }
     });
 
-
-
     //要想分享后的页面打开先进入首页再跳转到分享的页面
     if(options.url){
       let url = decodeURIComponent(options.url);
@@ -147,6 +167,8 @@ Page({
       })
     }
 
+    that.getServerUser()
+
   },
   getUserInfo(e) {
     console.log('授权',e)
@@ -155,5 +177,54 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
-  }
+  },
+
+  getServerUser(){
+    //获取服务器端用户信息
+    console.log('获取服务器端用户信息')
+    var that = this;
+    var loginUserinfo = (wx.getStorageSync('userinfo'));
+    wx.request({
+      url: config.getUserInfo_url,
+      data:{"source":"wx","token":loginUserinfo.token},
+      method: "post",
+      success: function (res) {
+        console.log('服务器端用户信息-res',res)
+        wx.stopPullDownRefresh();
+        that.setData({
+          getUserInfo: res.data.result,
+        })
+        wx.hideLoading();
+      }
+    });
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+    console.log('页面返回-渲染');
+    var that = this;
+    console.log(that.data);
+
+    //选择城市返回
+    var location = wx.getStorageSync('location');
+    console.log('城市 location',location)
+    if(location!=""){
+      that.setData({
+        location: location
+      })
+    }
+
+    //订单支付成功后返回
+    var oid = wx.getStorageSync('oid');
+    if(oid!=""){
+      console.log('订单支持成功 id',oid);
+      this.setData({
+        orderPopup: true,
+      });
+    }
+
+  },
+
 })

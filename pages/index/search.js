@@ -12,7 +12,7 @@ Page({
       { text: '全部商品', value: 0 },
       { text: '医美商品', value: 1 },
       { text: '生美商品', value: 2 },
-      { text: '普通商品', value: 2 },
+      { text: '普通商品', value: 3 },
     ],
     option2: [
       { text: '默认排序', value: 'a' },
@@ -37,19 +37,8 @@ Page({
   onSearch(event) {
     console.log('键盘搜索', event.detail)
     var that = this;
-    if(this.data.value != ''){
-      wx.request({
-        url: config.getGoodsList_url,
-        data:{"source":"wx","searchname":event.detail,"page":that.data.page,"num":that.data.num},
-        method: "post",
-        success: function (res) {
-          wx.stopPullDownRefresh();
-          that.setData({
-            getGoodsList: res.data.result,
-          })
-          wx.hideLoading();
-        }
-      });
+    if(that.data.value != ''){
+      that.getSeachGoods();
     }
   },
 
@@ -61,24 +50,49 @@ Page({
   onClick() {
     console.log('按钮搜索', this.data.value);
     var that = this;
-    if(this.data.value != ''){
-      wx.request({
-        url: config.getGoodsList_url,
-        data:{"source":"wx","searchname":this.data.value,"page":that.data.page,"num":that.data.num},
-        method: "post",
-        success: function (res) {
-          wx.stopPullDownRefresh();
-          that.setData({
-            getGoodsList: res.data.result,
-          })
-          wx.hideLoading();
-        }
-      });
+    if(that.data.value != ''){
+      that.getSeachGoods();
     }
   },
-
-  onTabChange(event) {
-    console.log(event.detail.name)
+  getSeachGoods(){
+    var that = this;
+    var searchname = that.data.value;
+    var page = that.data.page;
+    var num = that.data.num;
+    var type = that.data.value1;
+    var orderby = that.data.value2;
+    wx.request({
+      url: config.getGoodsList_url,
+      data:{"source":"wx","searchname":searchname,"page":page,"num":num,'type':type,'orderby':orderby},
+      method: "post",
+      success: function (res) {
+        wx.stopPullDownRefresh();
+        that.setData({
+          getGoodsList: res.data.result,
+        })
+        wx.hideLoading();
+      }
+    });
+  },
+  onChangeSelect(event) {
+    console.log('商品分类 value1',event.detail)
+    var that = this;
+    that.setData({
+      value1: event.detail
+    });
+    if(that.data.value != ''){
+      that.getSeachGoods();
+    }
+  },
+  onChangeOrderby(event) {
+    console.log('排序 value2',event.detail)
+    var that = this;
+    that.setData({
+      value2: event.detail
+    });
+    if(that.data.value != ''){
+      that.getSeachGoods();
+    }
   },
 
   onGetInfo(e){

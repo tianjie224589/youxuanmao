@@ -11,8 +11,15 @@
             <van-button custom-style="width:200rpx;font-weight:500;" color="#EA617B" size="small" round type="info" bindtap='onGetInfo' data-val="{{vo.id}}">分享赚|自购省</van-button>
           </view>
           <view class="yyfy_li_content_note">
-            <view class="yyfy_content_zs">赚{{vo.commission_b}}%/省{{vo.commission_c}}%</view>
-            <view class="yyfy_content_ys">{{vo.sales}}</view>
+            
+            <block wx:if="{{getUserInfo.identity == '1' || getUserInfo.identity == '2'}}">
+              <view class="yyfy_content_zs">赚/省{{vo.commission_c}}%</view>
+            </block>
+            <block wx:if="{{getUserInfo.identity == '3' || getUserInfo.identity == '4'}}">
+              <view class="yyfy_content_zs">省/赚{{vo.commission_b}}%</view>
+            </block>
+            
+            <view class="yyfy_content_ys">已售：{{vo.sales}}</view>
           </view>
         </view>
       </view>

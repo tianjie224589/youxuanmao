@@ -25,11 +25,11 @@
     
     <block wx:for="{{list}}" wx:for-item="vo" wx:for-index="k">
       <view class="order-li">
-        <image class="order-li-img" src="{{vo.goods_thumb_img}}"></image>
+        <image class="order-li-img" src="{{vo.goods_thumb_img}}" bindtap="onToOrderInfo" id="{{vo.id}}"></image>
         <view class="order-li-content">
           <view class="order-li-c-info">
             <view class="order-li-c-info-title">{{vo.goods_name}}</view>
-            <view class="order-li-c-info-money"><text class="order-li-c-info-ico">￥</text>{{vo.buy_money}}</view>
+            <view class="order-li-c-info-money"><text class="order-li-c-info-ico">￥</text>{{vo.pay_money}}</view>
           </view>
           <view class="order-li-c-des">
             <view class="order-li-c-des-note">

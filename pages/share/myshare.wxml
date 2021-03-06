@@ -2,13 +2,13 @@
   <view class="list">
     <block wx:for="{{getShareList}}" wx:for-item="vo" wx:for-index="k">
       <van-swipe-cell right-width="{{ 65 }}" async-close bind:close="onClose" id="{{vo.id}}">
-        <van-card price="{{vo.price}}" origin-price="{{vo.original_price}}" desc="销量：{{vo.sales}}" title="{{vo.name}}" thumb="{{vo.thumb_img}}"/>
+        <van-card price="{{vo.price}}" origin-price="{{vo.original_price}}" desc="销量：{{vo.sales}}" title="{{vo.name}}" thumb="{{vo.thumb_img}}" bindtap="toGoodsInfo" id="{{vo.goods_id}}"/>
         <view slot="right">删除</view>
       </van-swipe-cell>
     </block>
   </view>
   <view class="addbank">
-    <block wx:if="{{selectNum == '0'}}">
+    <block wx:if="{{selectNum < '2'}}">
       <van-button custom-class="submit" disabled round color="#EA617B" size="large" type="primary">分享</van-button>
     </block>
     <block wx:else>

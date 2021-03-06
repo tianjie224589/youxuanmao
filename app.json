@@ -29,8 +29,14 @@
     "pages/share/myshare",
     "pages/share/listshare",
     "pages/my/info/index",
-    "pages/pay/index"
+    "pages/pay/index",
+    "pages/my/orders/info"
   ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#EA617B",

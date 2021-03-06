@@ -23,7 +23,7 @@ Page({
 
     getShareList: {},
     selectNum:0,
-    selectOverNum:3,
+    selectOverNum:2,
     
     getGoodsCheck: {},
     showsheet: false,

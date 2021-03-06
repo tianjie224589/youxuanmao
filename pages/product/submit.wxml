@@ -1,14 +1,31 @@
 <view class="category">
-  <view class="address">
-    <view class="address-ico">
-      <van-icon style="margin-top:10rpx;" name="location" color="#ffffff" />
+  <block wx:if="{{getGoodsInfo.type == '2'}}">
+    <view class="address">
+      <view class="address-ads">
+        <van-panel title="【自提】{{getGoodsInfo.checkShopName}}" desc="{{getGoodsInfo.checkShopMobile}}">
+          <view class="address-ads-info" style="color:#575757">{{getGoodsInfo.checkShopAddress}}</view>
+        </van-panel>
+      </view>
     </view>
-    <view class="address-ads">
-      <van-panel title="{{getCollectInfo.name}}" desc="{{getCollectInfo.phone}}">
-        <view class="address-ads-info">{{getCollectInfo.collect}}</view>
-      </van-panel>
+  </block>
+  <block wx:if="{{getGoodsInfo.type == '3'}}">
+    <view class="address">
+      <view class="address-ico">
+        <van-icon style="margin-top:10rpx;" name="location" color="#ffffff" />
+      </view>
+      <view class="address-ads">
+        <block wx:if="{{collectid != '0'}}">
+          <van-panel title="{{getCollectInfo.name}}" desc="{{getCollectInfo.phone}}">
+            <view class="address-ads-info">{{getCollectInfo.collect}}</view>
+          </van-panel>
+        </block>
+        <block wx:else>
+          <view class="address-ads-info" style="margin-top:60rpx;" bindtap="onSelectAds">选择收货地址 ></view>
+        </block>
+      </view>
     </view>
-  </view>
+  </block>
+  <view class="info">
   <view class="order">
     <image class="order-img" src="{{getGoodsInfo.thumburl}}"></image>
     <view class="order-info">
@@ -21,9 +38,22 @@
       </view>
     </view>
   </view>
+  </view>
   <view class="money">
     <van-cell-group>
-      <van-cell title="商品金额" value="￥{{money}}" />
+      <block wx:if="{{getGoodsInfo.type == '1'}}">
+        <van-cell title="预约金额" value="￥{{getGoodsInfo.advance}}" />
+        <block wx:if="{{getGoodsInfo.advance_double == '1'}}">
+          <van-cell title="尾款金额" value="￥{{ (getGoodsInfo.price - getGoodsInfo.advance * 2)*num }}" />
+        </block>
+        <block wx:if="{{getGoodsInfo.advance_double == '2'}}">
+          <van-cell title="尾款金额" value="￥{{ (getGoodsInfo.price - getGoodsInfo.advance)*num }}" />
+        </block>
+      </block>
+      <block wx:if="{{getGoodsInfo.type == '2'}}"></block>
+      <block wx:if="{{getGoodsInfo.type == '3'}}">
+        <van-cell title="商品金额" value="￥{{money}}" />
+      </block>
       <van-cell title="优惠券" is-link value="暂无可用" />
       <van-cell value="合计：￥{{money}}" border="{{false}}" />
     </van-cell-group>

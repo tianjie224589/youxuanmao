@@ -9,7 +9,8 @@
     "van-cell": "/dist/cell/index",
     "van-cell-group": "/dist/cell-group/index",
     "van-image": "/dist/image/index",
-    "van-button": "/dist/button/index"
+    "van-button": "/dist/button/index",
+    "van-overlay": "/dist/overlay/index"
   },
   "navigationBarTitleText": "颜选喵"
 }

@@ -54,15 +54,14 @@ Page({
     var that = this;
     var loginUserinfo = (wx.getStorageSync('userinfo'));
 
-    let url = encodeURIComponent('/pages/share/listshare?uid=' + that.data.getUserInfo.id);
+    var url = '/pages/share/listshare?uid=' + that.data.getUserInfo.id;
  
     return {
       title: that.data.getShareList[0].name,
-      path:"/pages/index/index?url="+url,
+      path:url,
       imageUrl: that.data.getShareList[0].thumb_img,
       success: (res) => {
         console.log("转发成功", res);
-        console.log("成功了")
       },
       fail: (res) => {
         console.log("转发失败", res);
@@ -71,6 +70,12 @@ Page({
  
   },
 
+  toGoodsInfo(e){
+    console.log('产品详情',e)
+    wx.navigateTo({
+      url: '../product/info?id='+e.currentTarget.id
+    })
+  },
 
   /**
    * 生命周期函数--监听页面加载
@@ -155,10 +160,5 @@ Page({
 
   },
 
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
+  
 })

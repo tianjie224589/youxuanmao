@@ -1,33 +1,4 @@
-/* pages/index/map.wxss */
-page{
-  font-family: SimSun;
-  background-color: #FFFFFF;
+.intro {
+  margin: 30px;
+  text-align: center;
 }
-.category{
-  display: grid;
-}
-
-.sousuo{width: 100%; display: grid;}
-.sousuo_qx{color:#E9698E;}
-.biaoqiao{
-  width: 100%; 
-  display: flex; 
-  padding: 20rpx;
-  box-sizing:border-box;
-  padding-bottom: 20rpx;
-  background-color: #EEEEEE;
-}
-.biaoqian_title{margin: 10rpx; padding: 20rpx 40rpx !important; box-sizing:border-box;}
-
-.van-index-anchor {
-  color: #000000 !important;
-  font-weight: 600 !important;
-  background-color: #EEEEEE !important;
-}
-
-
-
-
-
-
-

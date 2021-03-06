@@ -15,7 +15,7 @@ Page({
 
   onPayto(){
     wx.navigateTo({
-      url: '../index/success?money='+ this.data.getOrderInfo.money
+      url: '../index/success?money='+ this.data.getOrderInfo.money +'&id='+ this.data.id
     })
   },
 

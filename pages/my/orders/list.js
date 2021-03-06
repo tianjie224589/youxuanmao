@@ -21,6 +21,15 @@ Page({
     cheack_no:0,
   },
 
+  onToOrderInfo(e){
+    console.log('查看详细订单',e)
+
+    wx.navigateTo({
+      url: 'info?id='+ e.currentTarget.id
+    })
+  },
+
+
   onChange(e) {
     this.setData({
       value: e.detail,

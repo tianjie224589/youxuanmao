@@ -44,6 +44,7 @@ var config = {
   getShareList_url:host+"api/Share/getShareList",
   setShareAdd_url:host+"api/Share/setShareAdd",
   setShareDel_url:host+"api/Share/setShareDel",
+  setShareBuyAdd_url:host+"api/Share/setShareBuyAdd",
 
   telephone:"12345678",
 

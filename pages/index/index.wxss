@@ -59,4 +59,38 @@ page{
 .yyfy_content_ys{ line-height: 80rpx; font-size: 24rpx; color: #8D8B8C;}
 
 
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+.block {
+  width: 70%;
+  padding: 20rpx; box-sizing:border-box;
+  background: #fff;
+  padding-bottom: 4rpx;
+  text-align: center;
+}
+.block-title{padding-top: 100rpx;}
+.block-des{line-height: 100rpx; font-size: 28rpx;padding-bottom: 100rpx; color: #646464;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

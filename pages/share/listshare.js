@@ -7,8 +7,15 @@ Page({
    * 页面的初始数据
    */
   data: {
-    goods_id:0,
     uid:0,
+    getShareList: {},
+  },
+
+  toGoodsInfo(e){
+    console.log('产品详情',e)
+    wx.navigateTo({
+      url: '../product/info?id='+e.currentTarget.dataset.val +'&shareid='+ e.currentTarget.id
+    })
   },
 
   /**
@@ -19,17 +26,26 @@ Page({
     var loginUserinfo = (wx.getStorageSync('userinfo'));
     console.log('token',loginUserinfo.token)
 
-    //获取商品id
-    var goods_id = options.goods_id;
-    console.log('goods_id',goods_id);
-    this.setData({
-      goods_id: goods_id
-    });
     //获取分享会员uid
     var uid = options.uid;
     console.log('uid',uid);
     this.setData({
       uid: uid
+    });
+
+    //获取已选择分享商品列表
+    wx.request({
+      url: config.getShareList_url,
+      data:{"source":"wx","token":loginUserinfo.token,'uid':uid},
+      method: "post",
+      success: function (res) {
+        console.log('获取分享列表',res.data)
+        wx.stopPullDownRefresh();
+        that.setData({
+          getShareList: res.data.result.list,
+        })
+        wx.hideLoading();
+      }
     });
 
   },
@@ -66,7 +82,23 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
+    console.log('下拉')
+    var that = this
 
+    //获取已选择分享商品列表
+    wx.request({
+      url: config.getShareList_url,
+      data:{"source":"wx","token":loginUserinfo.token,'uid':that.data.uid},
+      method: "post",
+      success: function (res) {
+        console.log('获取分享列表',res.data)
+        wx.stopPullDownRefresh();
+        that.setData({
+          getShareList: res.data.result.list,
+        })
+        wx.hideLoading();
+      }
+    });
   },
 
   /**

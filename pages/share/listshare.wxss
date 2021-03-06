@@ -1,1 +1,40 @@
 /* pages/share/listshare.wxss */
+page{
+  font-family: SimSun;
+  background-color: #EEEEEE;
+}
+.category{
+  display: grid;
+}
+
+.list{
+  width: 100%;
+  padding: 20rpx 0;
+  box-sizing:border-box;
+  padding-bottom: 20rpx;
+  background-color: #fff;
+}
+.van-swipe-cell__right{width: 65px;height: 200rpx; line-height: 200rpx; background-color: #EE0A24; color: white; text-align: center;}
+
+
+.addbank{
+  width: 100%;
+  padding: 20rpx;
+  text-align: center;
+  box-sizing:border-box;
+}
+.submit{
+  width: 100% !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+

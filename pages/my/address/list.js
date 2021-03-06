@@ -9,6 +9,7 @@ Page({
    */
   data: {
     list:{},
+    submit_id:0,
   },
 
   onAdd(){
@@ -119,6 +120,32 @@ Page({
       }
     });
 
+
+    //来源确认订单
+    if(options.oid){
+      this.setData({
+        submit_id: options.oid
+      });
+    }
+    
+
+  },
+
+  goToback(e){
+    console.log(e.currentTarget.id)
+    if(this.data.submit_id !=0){
+      
+      //带参数返回上一页
+      let pages = getCurrentPages(); //获取当前页面js里面的pages里的所有信息。
+      let prevPage = pages[ pages.length - 2 ];
+      //prevPage 是获取上一个页面的js里面的pages的所有信息。 -2 是上一个页面，-3是上上个页面以此类推。
+      prevPage.setData({  // 将我们想要传递的参数在这里直接setData。上个页面就会执行这里的操作。
+        adsid : e.currentTarget.id,
+      })
+
+      wx.navigateBack({ changed: true });//返回上一页
+      
+    }
   },
 
   /**

@@ -1,44 +1,31 @@
-// pages/product/list.js
+// pages/my/orders/info.js
 var config = (wx.getStorageSync('config'));
-
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    id:0,
+    getOrderInfo: {},
     getUserInfo: {},
-    getGoodsList: {},
-    page: 1,
-    num: 20,
   },
 
-  onGetInfo(e){
-    console.log('产品详情',e.currentTarget.dataset.val)
-    wx.navigateTo({
-      url: '../product/info?id='+e.currentTarget.dataset.val
-    })
-  },
-
+  
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log('info页面 options',options);
     var that = this;
     var loginUserinfo = (wx.getStorageSync('userinfo'));
-    console.log('token',loginUserinfo.token)
-    
-    wx.request({
-      url: config.getGoodsList_url,
-      data:{"source":"wx","page":that.data.page,"num":that.data.num},
-      method: "post",
-      success: function (res) {
-        wx.stopPullDownRefresh();
-        that.setData({
-          getGoodsList: res.data.result,
-        })
-        wx.hideLoading();
-      }
+    console.log('info页面 token',loginUserinfo.token)
+
+    //获取商品id
+    var id = options.id;
+    console.log('info页面 id',id);
+    that.setData({
+      id: id
     });
 
     //获取用户信息
@@ -52,6 +39,21 @@ Page({
         that.setData({
           getUserInfo: res.data.result,
         })
+        wx.hideLoading();
+      }
+    });
+
+    //获取订单信息
+    wx.request({
+      url: config.getOrderInfo_url,
+      data:{"source":"wx","token":loginUserinfo.token,"id":id},
+      method: "post",
+      success: function (res) {
+        console.log('获取订单信息',res.data)
+        wx.stopPullDownRefresh();
+        that.setData({
+          getOrderInfo: res.data.result,
+        });
         wx.hideLoading();
       }
     });

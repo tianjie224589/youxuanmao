@@ -1,3 +1,9 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "van-swipe-cell": "/dist/swipe-cell/index",
+    "van-card": "/dist/card/index",
+    "van-button": "/dist/button/index"
+  },
+  "navigationBarTitleText": "分享",
+  "enablePullDownRefresh": true
 }
