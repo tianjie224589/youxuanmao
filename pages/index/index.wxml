@@ -43,8 +43,9 @@
       </block>
     </view>
   </view>
-
+  <!-- -->
   <view class="content">
+
     <view class="yyfy">
       <view class="yyfy_title">
         <view class="yyfy_alt">医院返佣榜单</view>
@@ -74,6 +75,39 @@
       </view>
     </view>
 
+    <block wx:if="{{getUserInfo.identity == '4'}}">
+      <!-- 店销 -->
+      <view class="yyfy">
+        <view class="yyfy_title">
+          <view class="yyfy_alt">店销榜单</view>
+          <view class="yyfy_bq">
+            <navigator url="../yiyuan/list">查看更多<van-icon size="10px" name="arrow" /></navigator>
+          </view>
+        </view>
+        <view class="yyfy_body">
+          <block wx:for="{{shopDxList}}" wx:for-item="vo" wx:for-index="k">
+            <view class="yyfy_li">
+              <image class="yyfy_li_tb" src="../../images/{{k+1}}.png"></image>
+              <image class="yyfy_li_v" src="../../images/v.png"></image>
+              <image class="yyfy_li_img" src="{{vo.thumb_img}}"></image>
+              <view class="yyfy_li_content">
+                <view class="yyfy_li_content_title">{{vo.describe}}</view>
+                <view class="yyfy_li_content_null"></view>
+                <view class="yyfy_li_content_note">
+                  <view class="yyfy_content_des">
+                    <view class="yyfy_content_des_fy">返佣{{vo.commission}}%</view>
+                    <view class="yyfy_content_des_ads">{{vo.address}}</view>
+                  </view>
+                  <button class="yyfy_zx" style="padding:0 25rpx;line-height:60rpx;font-size:24rpx;" size="mini" open-type="contact" >立即咨询</button>
+                </view>
+              </view>
+            </view>
+          </block>
+        </view>
+      </view>
+    </block>
+
+    <!-- 热销 -->
     <view class="yyfy">
       <view class="yyfy_title">
         <view class="yyfy_alt">热销榜单</view>
@@ -109,6 +143,159 @@
         </block>
       </view>
     </view>
+
+    <!-- 特惠 -->
+    <view class="yyfy">
+      <view class="yyfy_title">
+        <view class="yyfy_alt">特惠商品</view>
+        <view class="yyfy_bq">
+          <navigator url="../product/list">查看更多<van-icon size="10px" name="arrow" /></navigator>
+        </view>
+      </view>
+      <view class="yyfy_body">
+        <block wx:for="{{getGoodsThList}}" wx:for-item="vo" wx:for-index="k">
+          <view class="yyfy_li">
+            <image class="yyfy_li_tb" src="../../images/{{k+1}}.png"></image>
+            <image class="yyfy_li_img" src="{{vo.thumb_img}}"></image>
+            <view class="yyfy_li_content">
+              <view class="yyfy_li_content_title">{{vo.name}}</view>
+              <view class="yyfy_li_content_money">
+                <view class="yyfy_money"><text class="yyfy_money_fh">￥</text>{{vo.price}}</view>
+                <view class="yyfy_yuanjia">￥{{vo.original_price}}</view>
+                <van-button custom-style="width:200rpx;font-weight:500;" bindtap='onGetInfo' data-val="{{vo.id}}" color="#EA617B" size="small" round type="info">分享赚|自购省</van-button>
+              </view>
+              <view class="yyfy_li_content_note">
+                
+                <block wx:if="{{getUserInfo.identity == '1' || getUserInfo.identity == '2'}}">
+                  <view class="yyfy_content_zs">赚/省{{vo.commission_c}}%</view>
+                </block>
+                <block wx:if="{{getUserInfo.identity == '3' || getUserInfo.identity == '4'}}">
+                  <view class="yyfy_content_zs">省/赚{{vo.commission_b}}%</view>
+                </block>
+                
+                <view class="yyfy_content_ys">已售：{{vo.sales}}</view>
+              </view>
+            </view>
+          </view>
+        </block>
+      </view>
+    </view>
+
+    <block wx:if="{{getUserInfo.identity == '3' || getUserInfo.identity == '4'}}">
+      <!-- 转诊 -->
+      <view class="yyfy">
+        <view class="yyfy_title">
+          <view class="yyfy_alt">转诊商品</view>
+          <view class="yyfy_bq">
+            <navigator url="../product/list">查看更多<van-icon size="10px" name="arrow" /></navigator>
+          </view>
+        </view>
+        <view class="yyfy_body">
+          <block wx:for="{{getGoodsZzList}}" wx:for-item="vo" wx:for-index="k">
+            <view class="yyfy_li">
+              <image class="yyfy_li_tb" src="../../images/{{k+1}}.png"></image>
+              <image class="yyfy_li_img" src="{{vo.thumb_img}}"></image>
+              <view class="yyfy_li_content">
+                <view class="yyfy_li_content_title">{{vo.name}}</view>
+                <view class="yyfy_li_content_money">
+                  <view class="yyfy_money"><text class="yyfy_money_fh">￥</text>{{vo.price}}</view>
+                  <view class="yyfy_yuanjia">￥{{vo.original_price}}</view>
+                  <van-button custom-style="width:200rpx;font-weight:500;" bindtap='onGetInfo' data-val="{{vo.id}}" color="#EA617B" size="small" round type="info">分享赚|自购省</van-button>
+                </view>
+                <view class="yyfy_li_content_note">
+                  
+                  <block wx:if="{{getUserInfo.identity == '1' || getUserInfo.identity == '2'}}">
+                    <view class="yyfy_content_zs">赚/省{{vo.commission_c}}%</view>
+                  </block>
+                  <block wx:if="{{getUserInfo.identity == '3' || getUserInfo.identity == '4'}}">
+                    <view class="yyfy_content_zs">省/赚{{vo.commission_b}}%</view>
+                  </block>
+                  
+                  <view class="yyfy_content_ys">已售：{{vo.sales}}</view>
+                </view>
+              </view>
+            </view>
+          </block>
+        </view>
+      </view>
+    </block>
+
+    <block wx:if="{{getUserInfo.identity == '1' || getUserInfo.identity == '2'}}">
+      <!-- 效果 -->
+      <view class="yyfy">
+        <view class="yyfy_title">
+          <view class="yyfy_alt">效果商品</view>
+          <view class="yyfy_bq">
+            <navigator url="../product/list">查看更多<van-icon size="10px" name="arrow" /></navigator>
+          </view>
+        </view>
+        <view class="yyfy_body">
+          <block wx:for="{{getGoodsXgList}}" wx:for-item="vo" wx:for-index="k">
+            <view class="yyfy_li">
+              <image class="yyfy_li_tb" src="../../images/{{k+1}}.png"></image>
+              <image class="yyfy_li_img" src="{{vo.thumb_img}}"></image>
+              <view class="yyfy_li_content">
+                <view class="yyfy_li_content_title">{{vo.name}}</view>
+                <view class="yyfy_li_content_money">
+                  <view class="yyfy_money"><text class="yyfy_money_fh">￥</text>{{vo.price}}</view>
+                  <view class="yyfy_yuanjia">￥{{vo.original_price}}</view>
+                  <van-button custom-style="width:200rpx;font-weight:500;" bindtap='onGetInfo' data-val="{{vo.id}}" color="#EA617B" size="small" round type="info">分享赚|自购省</van-button>
+                </view>
+                <view class="yyfy_li_content_note">
+                  
+                  <block wx:if="{{getUserInfo.identity == '1' || getUserInfo.identity == '2'}}">
+                    <view class="yyfy_content_zs">赚/省{{vo.commission_c}}%</view>
+                  </block>
+                  <block wx:if="{{getUserInfo.identity == '3' || getUserInfo.identity == '4'}}">
+                    <view class="yyfy_content_zs">省/赚{{vo.commission_b}}%</view>
+                  </block>
+                  
+                  <view class="yyfy_content_ys">已售：{{vo.sales}}</view>
+                </view>
+              </view>
+            </view>
+          </block>
+        </view>
+      </view>
+    
+      <!-- 好货 -->
+      <view class="yyfy">
+        <view class="yyfy_title">
+          <view class="yyfy_alt">好货商品</view>
+          <view class="yyfy_bq">
+            <navigator url="../product/list">查看更多<van-icon size="10px" name="arrow" /></navigator>
+          </view>
+        </view>
+        <view class="yyfy_body">
+          <block wx:for="{{getGoodsHhList}}" wx:for-item="vo" wx:for-index="k">
+            <view class="yyfy_li">
+              <image class="yyfy_li_tb" src="../../images/{{k+1}}.png"></image>
+              <image class="yyfy_li_img" src="{{vo.thumb_img}}"></image>
+              <view class="yyfy_li_content">
+                <view class="yyfy_li_content_title">{{vo.name}}</view>
+                <view class="yyfy_li_content_money">
+                  <view class="yyfy_money"><text class="yyfy_money_fh">￥</text>{{vo.price}}</view>
+                  <view class="yyfy_yuanjia">￥{{vo.original_price}}</view>
+                  <van-button custom-style="width:200rpx;font-weight:500;" bindtap='onGetInfo' data-val="{{vo.id}}" color="#EA617B" size="small" round type="info">分享赚|自购省</van-button>
+                </view>
+                <view class="yyfy_li_content_note">
+                  
+                  <block wx:if="{{getUserInfo.identity == '1' || getUserInfo.identity == '2'}}">
+                    <view class="yyfy_content_zs">赚/省{{vo.commission_c}}%</view>
+                  </block>
+                  <block wx:if="{{getUserInfo.identity == '3' || getUserInfo.identity == '4'}}">
+                    <view class="yyfy_content_zs">省/赚{{vo.commission_b}}%</view>
+                  </block>
+                  
+                  <view class="yyfy_content_ys">已售：{{vo.sales}}</view>
+                </view>
+              </view>
+            </view>
+          </block>
+        </view>
+      </view>
+    </block>
+
   </view>
 </view>
 <van-overlay show="{{ orderPopup }}" bind:click="onClickHide">

@@ -5,13 +5,18 @@ var config = (wx.getStorageSync('config'));
 
 Page({
   data: {
-    location:'',
+    location:'重庆',
     searchvalue:'',
     background: {},
     notice:'',
     qualityList: {},
-    shopList: {},
-    getGoodsHotList: {},
+    shopList: {},           //医院返佣榜单
+    shopDxList: {},         //店销榜单
+    getGoodsHotList: {},    //热销榜单
+    getGoodsThList: {},     //特惠
+    getGoodsZzList: {},     //转诊
+    getGoodsXgList: {},     //效果
+    getGoodsHhList: {},     //好货
     getUserInfo: {},
 
     motto: 'Hello World',
@@ -144,6 +149,20 @@ Page({
       }
     });
 
+    //店销榜单
+    wx.request({
+      url: config.getShopList_url,
+      data:{"source":"wx","shop_sales":"1","page":"1","num":"3"},
+      method: "post",
+      success: function (res) {
+        wx.stopPullDownRefresh();
+        that.setData({
+          shopDxList: res.data.result,
+        })
+        wx.hideLoading();
+      }
+    });
+
     //热销榜单 商品 推荐
     wx.request({
       url: config.getGoodsList_url,
@@ -153,6 +172,62 @@ Page({
         wx.stopPullDownRefresh();
         that.setData({
           getGoodsHotList: res.data.result,
+        })
+        wx.hideLoading();
+      }
+    });
+
+    //特惠 商品
+    wx.request({
+      url: config.getGoodsList_url,
+      data:{"source":"wx","preferential":"1","page":"1","num":"3"},
+      method: "post",
+      success: function (res) {
+        wx.stopPullDownRefresh();
+        that.setData({
+          getGoodsThList: res.data.result,
+        })
+        wx.hideLoading();
+      }
+    });
+
+    //转诊 商品
+    wx.request({
+      url: config.getGoodsList_url,
+      data:{"source":"wx","referral":"1","page":"1","num":"3"},
+      method: "post",
+      success: function (res) {
+        wx.stopPullDownRefresh();
+        that.setData({
+          getGoodsZzList: res.data.result,
+        })
+        wx.hideLoading();
+      }
+    });
+
+    //效果 商品
+    wx.request({
+      url: config.getGoodsList_url,
+      data:{"source":"wx","effect":"1","page":"1","num":"3"},
+      method: "post",
+      success: function (res) {
+        wx.stopPullDownRefresh();
+        that.setData({
+          getGoodsXgList: res.data.result,
+        })
+        wx.hideLoading();
+      }
+    });
+
+    //好货 商品
+    wx.request({
+      url: config.getGoodsList_url,
+      data:{"source":"wx","superior":"1","page":"1","num":"3"},
+      method: "post",
+      success: function (res) {
+        wx.stopPullDownRefresh();
+        that.setData({
+          getGoodsHhList: res.data.result,
         })
         wx.hideLoading();
       }
