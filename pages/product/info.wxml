@@ -45,7 +45,12 @@
     <view style="width:100%; display:flex;box-sizing: content-box;align-items: center;">
       <van-goods-action-icon icon="chat-o" text="咨询" open-type="contact" style="width:120rpx;" />
       <van-goods-action-icon icon="phone-o" text="电话" bind:click="onTel" style="width:120rpx;" />
-      <van-goods-action-button color="#EB617B" text="分享赚" bind:click="onShare" type="warning" style="text-align: right;" />
+      <block wx:if="{{getGoodsInfo.type == 3}}">
+        <van-goods-action-button color="#EB617B" text="分享赚" open-type='share' type="warning" style="text-align: right;" />
+      </block>
+      <block wx:else>
+        <van-goods-action-button color="#EB617B" text="分享赚" bind:click="onShare" type="warning" style="text-align: right;" />
+      </block>
       <van-goods-action-button color="#D23637" text="自购省" bind:click="onSubmit" />
     </view>
   </van-goods-action>

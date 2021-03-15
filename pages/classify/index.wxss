@@ -50,6 +50,13 @@ page{
   padding: 10rpx;
   box-sizing:border-box;
 }
+.liqueur_title{
+  width: 100%;
+  line-height: 80rpx;
+  display: grid;
+  font-weight: 600;
+  font-size: 28rpx;
+}
 .liqueur{
   width: 100%;
   text-align: center;

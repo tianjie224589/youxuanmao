@@ -38,6 +38,11 @@ Page({
       url: 'search'
     })
   },
+  onTofl(){
+    wx.switchTab({
+      url: '../classify/index'
+    })
+  },
   onGetInfo(e){
     console.log('产品详情',e.currentTarget.dataset.val)
     wx.navigateTo({

@@ -38,8 +38,8 @@ Page({
     console.log('page',that.data.page)
     console.log('num',that.data.num)
     wx.request({
-      url: config.getGoodsList_url,
-      data:{"source":"wx","cid":that.data.id,"page":that.data.page,"num":that.data.num},
+      url: config.getNavGoodsList_url,
+      data:{"source":"wx","cid":that.data.id},
       method: "post",
       success: function (res) {
         that.setData({
@@ -50,26 +50,32 @@ Page({
   },
 
   onLoad: function (options) {
-    var that = this
-    
-    if (options.share_id) {
-      wx.setStorageSync('share_id', options.share_id);
-      this.setData({
-        share_id: options.share_id
-      });
-    } else {
-      this.setData({
-        share_id: wx.getStorageSync('share_id')
-      });
-    }
-    wx.showLoading({ title: "加载中", mask: true });
+    var that = this;
+    var loginUserinfo = (wx.getStorageSync('userinfo'));
+    console.log('info页面 token',loginUserinfo)
+
+    //获取用户信息
+    wx.request({
+      url: config.getUserInfo_url,
+      data:{"source":"wx","token":loginUserinfo.token},
+      method: "post",
+      success: function (res) {
+        console.log('getUserInfo-res',res)
+        wx.stopPullDownRefresh();
+        that.setData({
+          getUserInfo: res.data.result,
+        })
+        wx.hideLoading();
+      }
+    });
 
     //获取分类栏目
     wx.request({
       url: config.getClassify_url,
-      data:{"source":"wx"},
+      data:{"source":"wx","notype":loginUserinfo.identity},
       method: "post",
       success: function (res) {
+        console.log('res',res);
         wx.stopPullDownRefresh();
         that.setData({
           classify: res.data.result,
@@ -81,8 +87,8 @@ Page({
 
      //获取产品
      wx.request({
-      url: config.getGoodsList_url,
-      data:{"source":"wx","cid":32,"page":that.data.page,"num":that.data.num},
+      url: config.getNavGoodsList_url,
+      data:{"source":"wx","cid":32},
       method: "post",
       success: function (res) {
         that.setData({
@@ -95,15 +101,6 @@ Page({
   onShow:function(){
    
   },
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-    let userInfo = wx.getStorageSync('userInfo');
-    return {
-      title: this.data.share.desc,
-      imageUrl: this.data.share.shareImg,
-      path: '/pages/sort/sort?share_id=' + userInfo.uid,
-    }
-  }
+  
+  
 })

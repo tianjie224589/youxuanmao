@@ -89,44 +89,47 @@ Page({
   },
 
   getPhoneNumber (e) {
-    console.log(e.detail.errMsg)
-    console.log(e.detail.iv)
-    console.log(e.detail.encryptedData)
-
-    console.log(e.detail.encryptedData)
-    console.log(e.detail.encryptedData)
+    console.log('授权获取手机号',e)
+    var loginUserinfo = (wx.getStorageSync('userinfo'));
 
     var that = this;
-    console.log(e.detail.errMsg == "getPhoneNumber:ok");
     if (e.detail.errMsg == "getPhoneNumber:ok") {
       wx.request({
         url: config.getUserInfoWx_url,
         data: {
           encryptedData: e.detail.encryptedData,
           iv: e.detail.iv,
-          sessionKey: that.data.userInfo.session_key,
-          token: that.data.userInfo.token,
+          sessionKey: loginUserinfo.session_key,
+          token: loginUserinfo.token,
           "source":"wx",
         },
         method: "post",
-        success: function (res) {
-          console.log(res);
-          /*
-          var loginUserinfo = (wx.getStorageSync('userinfo'));
-          wx.request({
-            url: config.getUserInfo_url,
-            data:{"source":"wx","token":loginUserinfo.token},
-            method: "post",
-            success: function (res) {
-              wx.stopPullDownRefresh();
-              that.setData({
-                getUserInfo: res.data.result,
-              })
-              wx.hideLoading();
+        success: function (rest) {
+          console.log('授权获取手机号-rest',rest);
+          
+          wx.login({
+            success: res => {
+              // 发送 res.code 到后台换取 openId, sessionKey, unionId
+              console.log('重新登录-获取code',res.code);
+              if(res.code){
+                wx.request({
+                  url: config.getCode_url,
+                  data:{"source":"wx","code":res.code},
+                  method:"POST",
+                  success:function(e){
+                    console.log('登录-成功返回',e);
+                    wx.setStorageSync('userinfo', e.data.result);
+      
+                    //刷新
+                    that.onPullDownRefresh();
+
+                  },
+                })
+              }
             }
-          });
-          */
-         that.onPullDownRefresh();
+          })
+
+          
 
         }
       })
@@ -154,6 +157,7 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
+    wx.stopPullDownRefresh() //刷新完成后停止下拉刷新动效
 
     var loginUserinfo = (wx.getStorageSync('userinfo'));
     console.log('userinfo',loginUserinfo)
@@ -223,6 +227,7 @@ Page({
   },
 
   getUserInfo(e) {
+    var that = this;
     console.log(e)
     app.globalData.userInfo = e.detail.userInfo
     this.setData({
@@ -238,6 +243,9 @@ Page({
       method:"POST",
       success:function(rs){
         console.log('头像昵称保存-成功返回',rs);
+
+        //刷新
+        that.onPullDownRefresh();
       },
     });
 
@@ -253,7 +261,7 @@ Page({
     //扫码二维码跳转到 /pages/my/info/index
     var qrcode = new QRCode('canvas', {
       // usingIn: this,
-      text: "https://www.yiyoucha.com/ewm/"+that.data.userInfo.id,
+      text: "https://api.yiyoucha.com/ewm/"+that.data.userInfo.id,
       width: 150,
       height: 150,
       padding: 12,
@@ -301,7 +309,9 @@ Page({
   onPullDownRefresh: function () {
     console.log('下拉')
     var that = this
+    this.onLoad(); //重新加载onLoad()
 
+    /*
     var loginUserinfo = (wx.getStorageSync('userinfo'));
     console.log('token',loginUserinfo.token)
 
@@ -329,14 +339,12 @@ Page({
       method: "post",
       success: function (res) {
         console.log('userinfo-res',res)
-        wx.stopPullDownRefresh();
         that.setData({
           getUserInfo: res.data.result,
         })
-        wx.hideLoading();
       }
     });
-    
+    */
 
   },
 

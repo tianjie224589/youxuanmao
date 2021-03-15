@@ -24,8 +24,8 @@
   <view class="youxuan">
     <view class="youxuan_title">
       <view class="youxuan_alt">为您优选</view>
-      <view class="youxuan_bq">
-        <!--查看更多<van-icon size="10px" name="arrow" />-->
+      <view class="youxuan_bq" bindtap="onTofl">
+        查看更多<van-icon size="10px" name="arrow" />
       </view>
     </view>
     <view class="youxuan_body">

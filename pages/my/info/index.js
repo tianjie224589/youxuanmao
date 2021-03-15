@@ -134,15 +134,18 @@ Page({
     var loginUserinfo = (wx.getStorageSync('userinfo'));
     console.log('token',loginUserinfo.token)
 
-    if (options.q) {
-      let q = decodeURIComponent(options.q);
-      console.log("url=" + q)
-      var ary = q.split("ewm/");
-      console.log("uid=" + ary[1])
+    if(option.q){ 
+      console.log(option.q);
+      var link = decodeURIComponent(option.q);
+      console.log(link);
+      var paramArr = link.split('=');
+      if (paramArr.length == 2){
+        var params = paramArr[1].split('_');
+        console.log(params[0]);
+        console.log(params[1]);
 
-      this.setData({ id: ary[1] });
-    } else {
-      console.log("no q");
+        this.setData({ id: params[1] });
+      }     
     }
 
   },
