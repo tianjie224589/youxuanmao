@@ -3,7 +3,8 @@
     "van-button": "/dist/button/index",
     "van-uploader": "/dist/uploader/index",
     "van-divider": "/dist/divider/index",
-    "van-field": "/dist/field/index"
+    "van-field": "/dist/field/index",
+    "van-toast": "/dist/toast/index"
   },
   "navigationBarTitleText": "营业执照"
 }

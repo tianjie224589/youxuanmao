@@ -253,6 +253,12 @@ Page({
 
   /**
    * 生命周期函数--监听页面初次渲染完成
+   * 小程序扫普通链接二维码打开小程序
+   * 配置：二维码规则 https://api.yiyoucha.com/ewm/
+   * 配置：小程序路径 pages/my/info/index
+   * 配置：测试范围   开发版
+   * 配置：测试链接   https://api.yiyoucha.com/ewm/1
+   * 配置：全网发布   已发布
    */
   onReady: function () {
     var that = this;

@@ -17,7 +17,7 @@ var config = {
   getNavGoodsList_url:host+"api/Goods/getNavGoodsList",
 
   getShopList_url:host+"v1/Shop/getList",
-  setShopAdd_url:host+"v1/Shop/setShopAdd",
+  setShopAdd_url:host+"api/Shop/setShopAdd",
 
   getUserInfo_url:host+"api/User/getInfo",
   getTopUserList_url:host+"api/User/getTopUserList",

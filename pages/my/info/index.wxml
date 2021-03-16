@@ -43,3 +43,4 @@
     <van-button custom-class="submit" color="#EA617B" size="large" type="primary" bindtap="onAdd">确定</van-button>
   </view>
 </view>
+<van-toast id="van-toast" />

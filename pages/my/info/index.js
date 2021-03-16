@@ -1,4 +1,5 @@
 // pages/my/info/index.js
+import Toast from '../../../dist/toast/toast';
 var config = (wx.getStorageSync('config'));
 
 Page({
@@ -103,6 +104,8 @@ Page({
   //提交
   onAdd(){
     var that = this;
+    var loginUserinfo = (wx.getStorageSync('userinfo'));
+
     var license_id = that.data.license_id;
     var sfz_z_id = that.data.sfz_z_id;
     var sfz_f_id = that.data.sfz_f_id;
@@ -115,10 +118,16 @@ Page({
       data:{"source":"wx","token":loginUserinfo.token,"license_id":license_id,"sfz_z_id":sfz_z_id,"sfz_f_id":sfz_f_id,"name":name,"address":address,"tell":tell,"uid":that.data.id},
       method: "post",
       success: function (res) {
-        console.log(res)
-        wx.switchTab({
-          url: '../index/index'
-        })
+        console.log('注册商家返回：',res)
+        if(res.data.status == 200){
+          wx.switchTab({
+            url: '../index'
+          })
+          
+        }else{
+          Toast.fail(res.data.msg);
+        }
+        
       }
     });
 
@@ -128,23 +137,21 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function (option) {
   var that = this
 
     var loginUserinfo = (wx.getStorageSync('userinfo'));
-    console.log('token',loginUserinfo.token)
+    console.log('token',loginUserinfo)
 
-    if(option.q){ 
-      console.log(option.q);
+    console.log('生美/美容-注册：option',option)
+    if(option.q){
       var link = decodeURIComponent(option.q);
-      console.log(link);
-      var paramArr = link.split('=');
+      console.log('生美/美容-注册：url',link);
+      var paramArr = link.split('ewm/');
       if (paramArr.length == 2){
-        var params = paramArr[1].split('_');
-        console.log(params[0]);
-        console.log(params[1]);
+        console.log('绑定销售id',paramArr[1]);
 
-        this.setData({ id: params[1] });
+        this.setData({ id: paramArr[1] });
       }     
     }
 
