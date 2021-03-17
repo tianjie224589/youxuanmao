@@ -111,13 +111,13 @@ Page({
     this.setData({ fwjg: e.currentTarget.id });
   },
 
+  //分享商品到朋友圈
   onShareAppMessage: function () {
     var that = this;
     var loginUserinfo = (wx.getStorageSync('userinfo'));
 
-    var url = '/pages/product/info?id=' + that.data.id +'&shareid='+ that.data.share_id;
+    var url = '/pages/product/info?id=' + that.data.id +'&shareid='+ that.data.share_id+'&uid=' + that.data.getUserInfo.id;
 
-    console.log('分享url',url);
     return {
       title: that.data.getGoodsInfo.name,
       path:url,
@@ -135,7 +135,7 @@ Page({
     }
  
   },
-
+  
   showPopup() {
     this.setData({ showPopup: true });
   },
@@ -175,10 +175,29 @@ Page({
       id: id
     });
 
+    //获取分享商品
     if(options.shareid){
       console.log('来源分享 shareid',options.shareid);
       that.setData({
         share_id: options.shareid
+      });
+    }
+    //获取分享会员uid
+    if(options.uid){
+      var uid = options.uid;
+      console.log('分享会员uid',uid);
+      //绑定分享裂变id
+      wx.request({
+        url: config.getBindInitial_url,
+        data:{"source":"wx","token":loginUserinfo.token,'initial':uid},
+        method: "post",
+        success: function (res) {
+          console.log('绑定返回-res',res)
+        }
+      });
+
+      this.setData({
+        uid: uid
       });
     }
 
@@ -205,7 +224,7 @@ Page({
     //获取详情
     wx.request({
       url: config.getGoodsInfo_url,
-      data:{"source":"wx","id":id},
+      data:{"source":"wx","id":id,"token":loginUserinfo.token},
       method: "post",
       success: function (res) {
         console.log(res)

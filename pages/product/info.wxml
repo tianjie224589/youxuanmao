@@ -32,7 +32,7 @@
   </view>
   <view class="content">
     <view class="content-title"><text class="content-title-tb"></text>商品详情</view>
-    <view class="content-info">
+    <view class="content-info" style="width:{{viewWidth - 20}}px">
       <rich-text nodes="{{nodes}}"></rich-text>
     </view>
   </view>

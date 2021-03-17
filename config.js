@@ -21,6 +21,7 @@ var config = {
 
   getUserInfo_url:host+"api/User/getInfo",
   getTopUserList_url:host+"api/User/getTopUserList",
+  getBindInitial_url:host+"api/User/getBindInitial",
   
   getCollectList_url:host+"api/User/getCollectList",
   getCollectInfo_url:host+"api/User/getCollectInfo",

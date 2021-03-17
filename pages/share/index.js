@@ -266,7 +266,7 @@ Page({
     //获取商品 notype=3 排除普通商品
     wx.request({
       url: config.getGoodsList_url,
-      data:{"source":"wx","notype":"3","page":that.data.page,"num":that.data.num},
+      data:{"source":"wx","notype":"3","page":that.data.page,"num":that.data.num,"token":loginUserinfo.token},
       method: "post",
       success: function (res) {
         console.log('获取商品',res.data)

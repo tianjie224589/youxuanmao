@@ -108,7 +108,7 @@ Page({
     //获取详情
     wx.request({
       url: config.getGoodsInfo_url,
-      data:{"source":"wx","id":id},
+      data:{"source":"wx","id":id,"token":loginUserinfo.token},
       method: "post",
       success: function (res) {
         console.log(res)

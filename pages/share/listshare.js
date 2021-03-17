@@ -27,11 +27,24 @@ Page({
     console.log('token',loginUserinfo.token)
 
     //获取分享会员uid
-    var uid = options.uid;
-    console.log('uid',uid);
-    this.setData({
-      uid: uid
-    });
+    if(options.uid){
+      var uid = options.uid;
+      console.log('分享会员uid',uid);
+      //绑定分享裂变id
+      wx.request({
+        url: config.getBindInitial_url,
+        data:{"source":"wx","token":loginUserinfo.token,'initial':uid},
+        method: "post",
+        success: function (res) {
+          console.log('绑定返回-res',res)
+        }
+      });
+
+      this.setData({
+        uid: uid
+      });
+    }
+    
 
     //获取已选择分享商品列表
     wx.request({
