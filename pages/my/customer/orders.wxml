@@ -9,7 +9,7 @@
   </van-tabs>
   <view class="order-list">
 
-    <block wx:for="{{list}}" wx:for-item="vo" wx:for-index="k">
+    <block wx:for="{{list}}" wx:for-item="vo" wx:key="key" wx:for-index="k">
       <view class="order-li">
         <image class="order-li-img" src="{{vo.goods_thumb_img}}"></image>
         <view class="order-li-content">

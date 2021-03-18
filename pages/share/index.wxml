@@ -35,7 +35,7 @@
   <image src="{{fybanner}}" bindload="imageLoad" mode='aspectFill' style='width:100%;height:{{ images.height }}px;'></image>
 
   <view class="fxcontent">
-    <block wx:for="{{getGoodsList}}" wx:for-item="vo" wx:for-index="k">
+    <block wx:for="{{getGoodsList}}" wx:for-item="vo" wx:key="key" wx:for-index="k">
       <view class="list_fx">
         <view class="list_fx_fy" bindtap='onGetInfo' data-val="{{vo.id}}">
           <image class="list_fx_img" src="{{vo.thumb_img}}"></image>
@@ -74,7 +74,7 @@
   <view class="share">
     <van-radio-group value="{{ radio }}" bind:change="onSelectChange">
       <van-cell-group>
-        <block wx:for="{{getGoodsCheck}}" wx:for-item="vo" wx:for-index="k">
+        <block wx:for="{{getGoodsCheck}}" wx:for-item="vo" wx:key="key" wx:for-index="k">
           <van-cell title="{{vo.shop_name}}" clickable data-name="{{vo.sid}}" bind:click="onClick">
             <van-radio slot="right-icon" name="{{vo.sid}}" />
           </van-cell>

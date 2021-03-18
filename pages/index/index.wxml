@@ -11,7 +11,7 @@
   
   <view class="page-section page-section-spacing swiper">
     <swiper class="swiper-img" indicator-dots="true" autoplay="true" interval="3000">
-      <block wx:for="{{background}}" wx:for-item="vo">
+      <block wx:for="{{background}}" wx:for-item="vo" wx:key="key">
         <swiper-item>
           <image class="swiper-item" src="{{vo.imgUrl}}"></image>
         </swiper-item>
@@ -29,7 +29,7 @@
       </view>
     </view>
     <view class="youxuan_body">
-      <block wx:for="{{qualityList}}" wx:for-item="vo">
+      <block wx:for="{{qualityList}}" wx:for-item="vo" wx:key="key">
         <view class="youxuan_sp" bindtap='onGetInfo' data-val="{{vo.id}}">
           <image class="yx_img" src="{{vo.thumb_img}}"></image>
           <view class="yx_content">
@@ -54,7 +54,7 @@
         </view>
       </view>
       <view class="yyfy_body">
-        <block wx:for="{{shopList}}" wx:for-item="vo" wx:for-index="k">
+        <block wx:for="{{shopList}}" wx:for-item="vo" wx:key="key" wx:for-index="k">
           <view class="yyfy_li">
             <image class="yyfy_li_tb" src="../../images/{{k+1}}.png"></image>
             <image class="yyfy_li_v" src="../../images/v.png"></image>
@@ -85,7 +85,7 @@
           </view>
         </view>
         <view class="yyfy_body">
-          <block wx:for="{{shopDxList}}" wx:for-item="vo" wx:for-index="k">
+          <block wx:for="{{shopDxList}}" wx:for-item="vo" wx:key="key" wx:for-index="k">
             <view class="yyfy_li">
               <image class="yyfy_li_tb" src="../../images/{{k+1}}.png"></image>
               <image class="yyfy_li_v" src="../../images/v.png"></image>
@@ -116,7 +116,7 @@
         </view>
       </view>
       <view class="yyfy_body">
-        <block wx:for="{{getGoodsHotList}}" wx:for-item="vo" wx:for-index="k">
+        <block wx:for="{{getGoodsHotList}}" wx:for-item="vo" wx:key="key" wx:for-index="k">
           <view class="yyfy_li">
             <image class="yyfy_li_tb" src="../../images/{{k+1}}.png"></image>
             <image class="yyfy_li_img" src="{{vo.thumb_img}}"></image>
@@ -153,7 +153,7 @@
         </view>
       </view>
       <view class="yyfy_body">
-        <block wx:for="{{getGoodsThList}}" wx:for-item="vo" wx:for-index="k">
+        <block wx:for="{{getGoodsThList}}" wx:for-item="vo" wx:key="key" wx:for-index="k">
           <view class="yyfy_li">
             <image class="yyfy_li_tb" src="../../images/{{k+1}}.png"></image>
             <image class="yyfy_li_img" src="{{vo.thumb_img}}"></image>
@@ -191,7 +191,7 @@
           </view>
         </view>
         <view class="yyfy_body">
-          <block wx:for="{{getGoodsZzList}}" wx:for-item="vo" wx:for-index="k">
+          <block wx:for="{{getGoodsZzList}}" wx:for-item="vo" wx:key="key" wx:for-index="k">
             <view class="yyfy_li">
               <image class="yyfy_li_tb" src="../../images/{{k+1}}.png"></image>
               <image class="yyfy_li_img" src="{{vo.thumb_img}}"></image>
@@ -230,7 +230,7 @@
           </view>
         </view>
         <view class="yyfy_body">
-          <block wx:for="{{getGoodsXgList}}" wx:for-item="vo" wx:for-index="k">
+          <block wx:for="{{getGoodsXgList}}" wx:for-item="vo" wx:key="key" wx:for-index="k">
             <view class="yyfy_li">
               <image class="yyfy_li_tb" src="../../images/{{k+1}}.png"></image>
               <image class="yyfy_li_img" src="{{vo.thumb_img}}"></image>
@@ -267,7 +267,7 @@
           </view>
         </view>
         <view class="yyfy_body">
-          <block wx:for="{{getGoodsHhList}}" wx:for-item="vo" wx:for-index="k">
+          <block wx:for="{{getGoodsHhList}}" wx:for-item="vo" wx:key="key" wx:for-index="k">
             <view class="yyfy_li">
               <image class="yyfy_li_tb" src="../../images/{{k+1}}.png"></image>
               <image class="yyfy_li_img" src="{{vo.thumb_img}}"></image>

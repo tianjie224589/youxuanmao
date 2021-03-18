@@ -2,7 +2,7 @@
   <van-cell title="总客户数{{countNum}} 总转发数0" title-style="color:#242424;" is-link value="筛选" bind:click="showPopup" />
   <view class="list">
     
-    <block wx:for="{{list}}" wx:for-item="vo" wx:for-index="k">
+    <block wx:for="{{list}}" wx:for-item="vo" wx:key="key" wx:for-index="k">
     <view class="list-li">
       <van-cell-group>
         <van-cell title="名称" value="{{vo.username}}" />

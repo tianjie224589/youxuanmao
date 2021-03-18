@@ -16,7 +16,7 @@
     <van-tab title="已提金额">
     </van-tab>
   </van-tabs>
-  <block wx:for="{{list}}" wx:for-item="vo" wx:for-index="k">
+  <block wx:for="{{list}}" wx:for-item="vo" wx:key="key" wx:for-index="k">
     <van-cell title="{{vo.name}}" value="{{vo.money_str}}" label="{{vo.addtime_str}}" />
   </block>
 </view>

@@ -7,7 +7,7 @@
   <view class="right_value">
     <block wx:for="{{goodslist}}" wx:key="key" wx:for-item="vo">
       <view class="liqueur_title">{{vo.name}}</view>
-      <block wx:for="{{vo.voo}}" wx:for-item="val">
+      <block wx:for="{{vo.voo}}" wx:for-item="val" wx:key="key">
         <view class="liqueur_box">
           <navigator url="../product/info?id={{val.id}}"> 
             <view class="liqueur">

@@ -1,6 +1,6 @@
 <view class="category">
   <view class="list">
-    <block wx:for="{{getShareList}}" wx:for-item="vo" wx:for-index="k">
+    <block wx:for="{{getShareList}}" wx:for-item="vo" wx:key="key" wx:for-index="k">
       <van-swipe-cell right-width="{{ 65 }}" async-close bind:close="onClose" id="{{vo.id}}">
         <van-card price="{{vo.price}}" origin-price="{{vo.original_price}}" desc="销量：{{vo.sales}}" title="{{vo.name}}" thumb="{{vo.thumb_img}}" bindtap="toGoodsInfo" id="{{vo.goods_id}}"/>
         <view slot="right">删除</view>

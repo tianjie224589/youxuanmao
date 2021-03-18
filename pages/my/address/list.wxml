@@ -1,6 +1,6 @@
 <view class="category">
   <view class="list">
-    <block wx:for="{{list}}" wx:for-item="vo" wx:for-index="k">
+    <block wx:for="{{list}}" wx:for-item="vo" wx:key="key" wx:for-index="k">
 
       <van-swipe-cell right-width="{{ 65 }}" left-width="{{ 65 }}" async-close bind:close="onClose" id="{{vo.id}}" data-k="{{k}}">
         <view slot="left" class="van-swipe-cell__left">默认</view>

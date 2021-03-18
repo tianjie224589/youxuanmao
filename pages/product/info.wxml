@@ -74,7 +74,7 @@
     <view class="fwjg">
       <view class="fwjg-title">服务机构</view>
       <view class="fwjg-list">
-        <block wx:for="{{getGoodsCheck}}" wx:for-item="vo" wx:for-index="k">
+        <block wx:for="{{getGoodsCheck}}" wx:for-item="vo" wx:key="key" wx:for-index="k">
           <view class="fwjg-list-li {{fwjg == vo.sid ? 'active' : ''}}" bindtap="onFwjg" id="{{vo.sid}}">{{vo.shop_name}}</view>
         </block>
         <!--<view class="fwjg-list-li {{fwjg ==1 ? 'active' : ''}}" bindtap="onFwjg" id="1">腾美整形美容医院</view>
