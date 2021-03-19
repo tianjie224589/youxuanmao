@@ -1,4 +1,5 @@
 // pages/product/info.js
+import Toast from '../../dist/toast/toast';
 var config = (wx.getStorageSync('config'));
 
 Page({
@@ -7,17 +8,18 @@ Page({
    * 页面的初始数据
    */
   data: {
-    identity:'',
-    id:0,
-    sharebuyid:0,
-    share_id:0,
-    uid:0,
+    identity:'',      //当前用户身份
+    id:0,             //商品id
+    share_id:0,       //分享id
+    uid:0,            //分享会员id
+    sharebuyid:0,     //
+
     viewWidth:0,
     viewHeight:0,
     nodes:'',
     getGoodsInfo: {},
     getUserInfo: {},
-    phone: '12345678',
+    phone: '15683088738',
 
     show: false,
     fwjg:0,
@@ -29,7 +31,13 @@ Page({
   onSubmit(e){
     console.log('自购')
     var that = this;
-    that.setShareBuyAdd();
+    if(that.data.share_id != 0){
+      that.setShareBuyAdd();
+    }else{
+      wx.navigateTo({
+        url: 'submit?id='+ that.data.id +'&sharebuyid='+ that.data.sharebuyid
+      })
+    }
   },
 
   onTel(){
@@ -44,9 +52,17 @@ Page({
     var loginUserinfo = (wx.getStorageSync('userinfo'));
     console.log('分享赚')
 
+    //验证：如果是普通会员且vip为0时，禁止分享
+    if(that.data.getUserInfo.vip==0 && that.data.getUserInfo.identity==1){
+      console.log('vip为0级的普通会员请先购买后再分享')
+      Toast.fail('请先升级Vip');
+      return false;
+    }
+
     var getGoodsInfo = that.data.getGoodsInfo;
 
     if(getGoodsInfo.type==1){
+      console.log('医院(医美)产品:[弹窗]-获取核销机构')
       //医院:选择匹配医院-直接分享
       //获取核销机构
       wx.request({
@@ -54,7 +70,7 @@ Page({
         data:{"source":"wx","token":loginUserinfo.token,"id":that.data.id},
         method: "post",
         success: function (res) {
-          console.log('分享赚-res',res.data)
+          console.log('分享赚:加入分享库返回-res',res.data)
           if(res.data.status==200){
             that.setData({
               getGoodsCheck: res.data.result,
@@ -65,6 +81,7 @@ Page({
 
       this.setData({ show: true });
     }else if(getGoodsInfo.type==2){
+      console.log('美容(生美)产品:加入分享库-跳转到省赚页面')
       //美容:加入分享库-跳转到省赚页面
 
       //创建分享
@@ -91,7 +108,7 @@ Page({
   },
 
   onFwjg(e){
-    console.log('服务机构-加入核销商家',e.currentTarget.id)
+    console.log('医院(医美)产品:[弹窗]-核销机构-选择核销商家',e.currentTarget.id)
 
     var that = this;
     var loginUserinfo = (wx.getStorageSync('userinfo'));
@@ -101,7 +118,7 @@ Page({
       data:{"source":"wx","token":loginUserinfo.token,"id":that.data.id,"sid":e.currentTarget.id},
       method: "post",
       success: function (res) {
-        console.log('服务机构-加入核销商家-res',res.data)
+        console.log('医院(医美)产品:[弹窗]-核销机构-选择核销商家-res',res.data)
         that.setData({
           share_id: res.data.result
         })
@@ -112,6 +129,7 @@ Page({
   },
 
   //分享商品到朋友圈
+  //医院(医美)产品:[弹窗]-核销机构-核销商家-点击分享[按钮]
   onShareAppMessage: function () {
     var that = this;
     var loginUserinfo = (wx.getStorageSync('userinfo'));
@@ -148,6 +166,7 @@ Page({
    */
   onLoad: function (options) {
     console.log('info页面 options',options);
+
     var that = this;
     var loginUserinfo = (wx.getStorageSync('userinfo'));
     console.log('info页面 token',loginUserinfo.token)
@@ -170,14 +189,14 @@ Page({
 
     //获取商品id
     var id = options.id;
-    console.log('info页面 id',id);
+    console.log('info页面 商品id',id);
     that.setData({
       id: id
     });
 
-    //获取分享商品
+    //获取分享id
     if(options.shareid){
-      console.log('来源分享 shareid',options.shareid);
+      console.log('来源分享id(shareid)',options.shareid);
       that.setData({
         share_id: options.shareid
       });
@@ -185,7 +204,7 @@ Page({
     //获取分享会员uid
     if(options.uid){
       var uid = options.uid;
-      console.log('分享会员uid',uid);
+      console.log('来源分享会员uid',uid);
       //绑定分享裂变id
       wx.request({
         url: config.getBindInitial_url,
@@ -265,6 +284,7 @@ Page({
         that.setData({
           sharebuyid: res.data.result
         });
+
         wx.navigateTo({
           url: 'submit?id='+ that.data.id +'&sharebuyid='+ res.data.result
         })

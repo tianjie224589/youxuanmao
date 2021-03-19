@@ -19,16 +19,16 @@
     <view class="info-title">{{getGoodsInfo.name}}</view>
     <view class="info-note">
       <block wx:if="{{getUserInfo.identity == '1' || getUserInfo.identity == '2'}}">
-        <view class="">省/赚{{getGoodsInfo.commission_c}}%</view>
+        <view class="info-note-sz">省/赚 {{getGoodsInfo.commission_c}}%</view>
       </block>
       <block wx:if="{{getUserInfo.identity == '3' || getUserInfo.identity == '4'}}">
-        <view class="">省/赚{{getGoodsInfo.commission_b}}%</view>
+        <view class="info-note-sz">省/赚 {{getGoodsInfo.commission_b}}%</view>
       </block>
       <view class="">已售:{{getGoodsInfo.sales}}</view>
     </view>
   </view>
   <view class="baozhang">
-    <image src="../../images/p.jpg" bindload="imageLoad" mode='aspectFill' style='width:{{viewWidth}}px;height:100rpx;'></image>
+    <image src="../../images/p.jpg" bindload="imageLoad" mode='aspectFill' style='width:{{viewWidth - 20}}px;height:100rpx;'></image>
   </view>
   <view class="content">
     <view class="content-title"><text class="content-title-tb"></text>商品详情</view>
@@ -65,7 +65,7 @@
             <text class="info-money-tb">￥</text>{{getGoodsInfo.price}}
           </view>
           <view class="info-money-jg">
-            <text class="info-money-tb">省</text>{{getGoodsInfo.commission_b}}<text class="info-money-tb">%</text>
+            <text class="info-money-tb">赚</text>{{getGoodsInfo.commission_b}}<text class="info-money-tb">%</text>
           </view>
         </view>
         <view class="info-yy">预约金：￥ {{getGoodsInfo.advance}}</view>
@@ -77,8 +77,6 @@
         <block wx:for="{{getGoodsCheck}}" wx:for-item="vo" wx:key="key" wx:for-index="k">
           <view class="fwjg-list-li {{fwjg == vo.sid ? 'active' : ''}}" bindtap="onFwjg" id="{{vo.sid}}">{{vo.shop_name}}</view>
         </block>
-        <!--<view class="fwjg-list-li {{fwjg ==1 ? 'active' : ''}}" bindtap="onFwjg" id="1">腾美整形美容医院</view>
-        <view class="fwjg-list-li {{fwjg ==2 ? 'active' : ''}}" bindtap="onFwjg" id="2">腾美整形美容医院</view>-->
       </view>
     </view>
     <view class="addbank">
@@ -94,3 +92,4 @@
 <van-popup show="{{ showPopup }}" bind:close="onClosePopup">
   <image style="width:300px;height:300px;" src="../../images/yyj.jpg"></image>
 </van-popup>
+<van-toast id="van-toast" />

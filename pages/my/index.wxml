@@ -6,7 +6,7 @@
         <image bindtap="bindViewTap" class="userinfo-avatar" src="{{getUserInfo.imageUrl}}" mode="cover"></image>
         <view class="userinfo-top">
           <block wx:if="{{shenfen == 'myuser'}}"><view class="userinfo-duanwei">赚钱喵VIP{{getUserInfo.vip}}</view></block>
-          <view class="userinfo-nickname">{{getUserInfo.nickName}}</view>
+          <view class="userinfo-nickname">{{getUserInfo.nickname}}</view>
           <block wx:if="{{getUserInfo.mobile == ''}}">
             <button style="width: 250rpx;font-size: 28rpx;" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">获取手机号</button>
           </block>

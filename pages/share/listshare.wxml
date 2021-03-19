@@ -2,7 +2,7 @@
   <view class="list">
     <block wx:for="{{getShareList}}" wx:for-item="vo" wx:key="key" wx:for-index="k">
       <van-swipe-cell async-close bind:close="onClose" id="{{vo.id}}">
-        <van-card price="{{vo.price}}" origin-price="{{vo.original_price}}" desc="销量：{{vo.sales}}" title="{{vo.name}}" thumb="{{vo.thumb_img}}" bindtap="toGoodsInfo" id="{{vo.share_id}}" data-val="{{vo.goods_id}}"/>
+        <van-card price="{{vo.price}}" origin-price="{{vo.original_price}}" desc="销量：{{vo.sales}}" title="{{vo.name}}" thumb="{{vo.thumb_img}}" bindtap="toGoodsInfo" id="{{vo.goods_id}}" data-val="{{vo.share_id}}"/>
       </van-swipe-cell>
     </block>
   </view>

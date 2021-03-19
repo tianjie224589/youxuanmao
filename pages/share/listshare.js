@@ -14,7 +14,7 @@ Page({
   toGoodsInfo(e){
     console.log('产品详情',e)
     wx.navigateTo({
-      url: '../product/info?id='+e.currentTarget.dataset.val +'&shareid='+ e.currentTarget.id
+      url: '../product/info?id='+e.currentTarget.id +'&shareid='+ e.currentTarget.dataset.val
     })
   },
 
