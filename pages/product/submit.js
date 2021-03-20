@@ -108,10 +108,10 @@ Page({
     //获取详情
     wx.request({
       url: config.getGoodsInfo_url,
-      data:{"source":"wx","id":id,"token":loginUserinfo.token},
+      data:{"source":"wx","id":id,"token":loginUserinfo.token,"sharebuyid":that.data.sharebuyid},
       method: "post",
       success: function (res) {
-        console.log(res)
+        console.log('获取详情',res)
         
         var money = res.data.result.price;
         if(res.data.result.type==1){
@@ -133,7 +133,7 @@ Page({
       data:{"source":"wx","token":loginUserinfo.token},
       method: "post",
       success: function (res) {
-        console.log('userinfo-res',res)
+        console.log('获取用户信息 userinfo-res',res)
         wx.stopPullDownRefresh();
         that.setData({
           getUserInfo: res.data.result,
@@ -145,7 +145,7 @@ Page({
           data:{"source":"wx","token":loginUserinfo.token,'id':res.data.result.collectid},
           method: "post",
           success: function (resObj) {
-            console.log('CollectInfo-res',resObj)
+            console.log('收货地址CollectInfo-res',resObj)
             that.setData({
               getCollectInfo: resObj.data.result,
               collectid: resObj.data.result.id,
@@ -181,7 +181,7 @@ Page({
         data:{"source":"wx","token":loginUserinfo.token,'id':that.data.adsid},
         method: "post",
         success: function (resObj) {
-          console.log('CollectInfo-res',resObj)
+          console.log('重载 收货地址 CollectInfo-res',resObj)
           wx.stopPullDownRefresh();
           that.setData({
             getCollectInfo: resObj.data.result,

@@ -30,7 +30,8 @@
     "pages/share/listshare",
     "pages/my/info/index",
     "pages/pay/index",
-    "pages/my/orders/info"
+    "pages/my/orders/info",
+    "pages/my/yuyue/yuyue"
   ],
   "permission": {
     "scope.userLocation": {

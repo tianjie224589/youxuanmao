@@ -3,7 +3,7 @@
     <view class="content">
       <image style="height:{{viewHeight}}px" class="order-img" src="{{getGoodsInfo.thumburl}}"></image>
       <view class="content-info">
-        <rich-text nodes="{{nodes}}"></rich-text>
+        
       </view>
     </view>
     <view class="submit-button">

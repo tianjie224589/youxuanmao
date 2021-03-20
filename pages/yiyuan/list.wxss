@@ -39,7 +39,7 @@ page{
 }
 
 .block-img{width: 100%;}
-
+.block-des{color: #8D8B8C; line-height: 50rpx; font-size: 24rpx;}
 
 
 

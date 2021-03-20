@@ -8,7 +8,8 @@
     "van-cell-group": "/dist/cell-group/index",
     "van-radio": "/dist/radio/index",
     "van-radio-group": "/dist/radio-group/index",
-    "van-button": "/dist/button/index"
+    "van-button": "/dist/button/index",
+    "van-toast": "/dist/toast/index"
   },
   "navigationBarTitleText": "省赚"
 }

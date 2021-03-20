@@ -33,7 +33,7 @@ swiper{height: auto;}
 .content{ width: 100%; background-color: #ffffff; padding: 20rpx; margin-top: 20rpx; margin-bottom: 160rpx; box-sizing: border-box;}
 .content-title{ width: 100%; line-height: 50rpx; font-size: 36rpx; color: #0B0B0B; font-weight: 600;}
 .content-title-tb{width: 10rpx;height: 40rpx;background-color: #E9617D;display: flex;float: left;margin-right: 5rpx;}
-.content-info{ width: 100%; font-size: 24rpx;line-height: 26rpx; padding: 20rpx 0; box-sizing: border-box;}
+.content-info{ width: 100%; font-size: 24rpx;line-height: 26rpx; padding: 20rpx 0; box-sizing: border-box; overflow: hidden;}
 
 
 button{width: auto !important;}

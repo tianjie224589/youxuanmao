@@ -34,11 +34,11 @@ Page({
       onlyFromCamera: true,
       success: (res) => {
         var result = res.result;
-        console.log('result',result)
+        console.log('二维码内容：result',result)
         
         //跳转页面-订单核销详情页
         wx.navigateTo({
-          url: 'cheack?num='+ that.data.value
+          url: 'cheack?num='+ result
         })
 
       }

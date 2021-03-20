@@ -55,15 +55,15 @@ Page({
     wx.removeStorageSync('oid')
     this.setData({ orderPopup: false });
   },
-  onToOrderInfo(){
-    console.log('查看详细订单')
+  onToOrderList(){
+    console.log('查看订单')
     var oid = wx.getStorageSync('oid');
 
     wx.removeStorageSync('oid')
     this.setData({ orderPopup: false });
 
     wx.navigateTo({
-      url: '../my/orders/info?id='+ oid
+      url: '../my/orders/list'
     })
   },
 

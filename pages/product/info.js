@@ -47,6 +47,10 @@ Page({
     })
   },
 
+  sharerro(){
+    Toast.fail('请先升级Vip');
+  },
+
   onShare(){
     var that = this;
     var loginUserinfo = (wx.getStorageSync('userinfo'));
@@ -134,7 +138,7 @@ Page({
     var that = this;
     var loginUserinfo = (wx.getStorageSync('userinfo'));
 
-    var url = '/pages/product/info?id=' + that.data.id +'&shareid='+ that.data.share_id+'&uid=' + that.data.getUserInfo.id;
+    var url = '/pages/product/info?id=' + that.data.id +'&shareid='+ that.data.share_id +'&uid=' + that.data.getUserInfo.id;
 
     return {
       title: that.data.getGoodsInfo.name,
@@ -252,7 +256,7 @@ Page({
           getGoodsInfo: res.data.result,
         });
         that.setData({
-          nodes: res.data.result.content.replace(/\<img/gi, '<img style="max-width:100%;height:auto"')
+          nodes: res.data.result.content.replace(/\<img/gi, '<img style="max-width:100%;height:auto;float:left;display:block"').replace(/\<section/g, '<div').replace(/\/section>/g, '\div>')
         });
         wx.hideLoading();
       }

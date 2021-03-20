@@ -19,7 +19,7 @@
     </swiper>
   </view>
 
-  <van-notice-bar style="width:100%;" color="#242424" background="#E2E2E2" left-icon="volume-o" text="{{notice}}"/>
+  <van-notice-bar style="width:100%;" speed="10" color="#242424" background="#E2E2E2" left-icon="volume-o" text="{{notice}}"/>
   
   <view class="youxuan">
     <view class="youxuan_title">
@@ -304,7 +304,7 @@
       <view class="block-title">
         <van-button type="default" color="#EB617B" bindtap="onClickHide">继续逛逛</van-button>
       </view>
-      <view class="block-des" bindtap="onToOrderInfo">查看详细订单 ></view>
+      <view class="block-des" bindtap="onToOrderList">查看订单 ></view>
     </view>
   </view>
 </van-overlay>

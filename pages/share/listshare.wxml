@@ -1,4 +1,5 @@
 <view class="category">
+  <image src="{{fybanner}}" bindload="imageLoad" mode='aspectFill' style='width:100%;height:{{ images.height }}px;'></image>
   <view class="list">
     <block wx:for="{{getShareList}}" wx:for-item="vo" wx:key="key" wx:for-index="k">
       <van-swipe-cell async-close bind:close="onClose" id="{{vo.id}}">

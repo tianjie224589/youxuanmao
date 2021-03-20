@@ -1,4 +1,5 @@
 // pages/share/index.js
+import Toast from '../../dist/toast/toast';
 var config = (wx.getStorageSync('config'));
 
 Page({
@@ -221,6 +222,12 @@ Page({
   //跳转分享商品管理
   onToshare(){
     console.log('跳转分享商品管理')
+    var that = this;
+    if(that.data.selectNum < that.data.selectOverNum){
+      console.log('选择产品数量不足')
+      Toast.fail('选择产品数量不足');
+      return false;
+    }
     wx.navigateTo({
       url: 'myshare'
     })

@@ -29,6 +29,13 @@ Page({
     })
   },
 
+  yuyue(e){
+    console.log('预约',e)
+    wx.navigateTo({
+      url: '../yuyue/yuyue?id='+ e.currentTarget.id
+    })
+  },
+
 
   onChange(e) {
     this.setData({

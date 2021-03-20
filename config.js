@@ -17,6 +17,7 @@ var config = {
   getNavGoodsList_url:host+"api/Goods/getNavGoodsList",
 
   getShopList_url:host+"v1/Shop/getList",
+  getShopInfo_url:host+"api/Shop/getInfo",
   setShopAdd_url:host+"api/Shop/setShopAdd",
 
   getUserInfo_url:host+"api/User/getInfo",
@@ -48,7 +49,11 @@ var config = {
   setShareDel_url:host+"api/Share/setShareDel",
   setShareBuyAdd_url:host+"api/Share/setShareBuyAdd",
 
-  telephone:"12345678",
+  setPay_url:host+"api/Order/setPay",
+
+  setYuyue_url:host+"api/Order/setYuyue",
+
+  telephone:"15683088738",
 
 }
 module.exports = config;

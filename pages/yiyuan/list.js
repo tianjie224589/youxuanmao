@@ -11,15 +11,33 @@ Page({
     page: 1,
     num: 20,
     show: false,
-    bigimg:''
+
+    bigimg:'',
+    infoshop:{},
   },
 
   onClickShow(event) {
     console.log('图片放大')
-    console.log(event.currentTarget.dataset.src)
-    var img = event.currentTarget.dataset.src;
-    this.setData({ show: true });
-    this.setData({ bigimg: img });
+    console.log(event.currentTarget.id)
+
+    var that = this;
+    var id = event.currentTarget.id;
+
+    wx.request({
+      url: config.getShopInfo_url,
+      data:{"source":"wx","id":id},
+      method: "post",
+      success: function (res) {
+        console.log('医美(医院)信息',res.data)
+        wx.stopPullDownRefresh();
+        that.setData({
+          show: true,
+          infoshop: res.data.result,
+        })
+        wx.hideLoading();
+      }
+    });
+    
   },
 
   onClickHide() {

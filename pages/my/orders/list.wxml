@@ -41,7 +41,7 @@
                 <van-button size="small" color="#EA617B" round type="info" bindtap="onSubmit" id="{{vo.id}}">待支付</van-button>
               </block>
               <block wx:if="{{vo.order_state == '2'}}">
-                <van-button size="small" color="#EA617B" round type="info">待预约</van-button>
+                <van-button size="small" color="#EA617B" round type="info" bindtap="yuyue" id="{{vo.id}}">待预约</van-button>
               </block>
               <block wx:if="{{vo.order_state == '3'}}">
                 <van-button size="small" color="#EA617B" round type="info" bindtap="onClickShow" id="{{vo.cheack_no}}" >待核销</van-button>

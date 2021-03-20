@@ -3,7 +3,7 @@
     <block wx:for="{{shopList}}" wx:for-item="vo" wx:key="key" wx:for-index="k">
     <view class="yyfy_li">
       <image class="yyfy_li_v" src="../../images/v.png"></image>
-      <image class="yyfy_li_img" bindtap="onClickShow" data-src="{{vo.thumb_img}}" src="{{vo.thumb_img}}"></image>
+      <image class="yyfy_li_img" bindtap="onClickShow" id="{{vo.id}}" src="{{vo.thumb_img}}"></image>
       <view class="yyfy_li_content">
         <view class="yyfy_li_content_title">{{vo.describe}}</view>
         <view class="yyfy_li_content_null"></view>
@@ -21,7 +21,8 @@
   <van-overlay show="{{ show }}" bind:click="onClickHide">
     <view class="wrapper">
       <view class="block">
-        <image class="block-img" src="{{bigimg}}"></image>
+        <image class="block-img" src="{{infoshop.thumburl}}"></image>
+        <view class="block-des">{{infoshop.describe}}</view>
       </view>
     </view>
   </van-overlay>

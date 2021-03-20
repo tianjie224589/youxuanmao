@@ -13,10 +13,27 @@ Page({
     getUserInfo: {},
   },
 
+  //拉取支付
   onPayto(){
-    wx.navigateTo({
-      url: '../index/success?money='+ this.data.getOrderInfo.money +'&id='+ this.data.id
-    })
+    console.log('拉取支付')
+    var that = this;
+    var loginUserinfo = (wx.getStorageSync('userinfo'));
+
+    console.log('拉取支付-假支付')
+    wx.request({
+      url: config.setPay_url,
+      data:{"source":"wx","token":loginUserinfo.token,"id":that.data.id},
+      method: "post",
+      success: function (res) {
+        console.log('支付返回',res)
+        
+        wx.navigateTo({
+          url: '../index/success?money='+ that.data.getOrderInfo.money +'&id='+ that.data.id
+        })
+
+      }
+    });
+    
   },
 
   /**

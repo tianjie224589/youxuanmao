@@ -18,7 +18,7 @@ Page({
     var loginUserinfo = (wx.getStorageSync('userinfo'));
 
     var num = that.data.num;
-    console.log('核销码',value)
+    console.log('核销码',num)
 
     wx.request({
       url: config.setHexiaoma_url,
@@ -73,7 +73,7 @@ Page({
             getGoodsInfo: res.data.result,
           });
           that.setData({
-            nodes: res.data.result.content.replace(/\<img/gi, '<img style="max-width:100%;height:auto"')
+            nodes: res.data.result.content.replace(/\<img/gi, '<img style="max-width:100%;height:auto;float:left;display:block"').replace(/\<section/g, '<div').replace(/\/section>/g, '\div>')
           });
           wx.hideLoading();
         }else{

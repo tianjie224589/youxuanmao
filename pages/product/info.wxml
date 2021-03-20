@@ -32,7 +32,7 @@
   </view>
   <view class="content">
     <view class="content-title"><text class="content-title-tb"></text>商品详情</view>
-    <view class="content-info" style="width:{{viewWidth - 20}}px">
+    <view class="content-info" style="width:{{viewWidth - 20}}px;">
       <rich-text nodes="{{nodes}}"></rich-text>
     </view>
   </view>
@@ -46,7 +46,12 @@
       <van-goods-action-icon icon="chat-o" text="咨询" open-type="contact" style="width:120rpx;" />
       <van-goods-action-icon icon="phone-o" text="电话" bind:click="onTel" style="width:120rpx;" />
       <block wx:if="{{getGoodsInfo.type == 3}}">
-        <van-goods-action-button color="#EB617B" text="分享赚" open-type='share' type="warning" style="text-align: right;" />
+        <block wx:if="{{getUserInfo.vip == 0 && getUserInfo.identity == 1}}">
+          <van-goods-action-button color="#EB617B" text="分享赚" bindtap='sharerro' type="warning" style="text-align: right;" />
+        </block>
+        <block wx:else>
+          <van-goods-action-button color="#EB617B" text="分享赚" open-type='share' type="warning" style="text-align: right;" />
+        </block>
       </block>
       <block wx:else>
         <van-goods-action-button color="#EB617B" text="分享赚" bind:click="onShare" type="warning" style="text-align: right;" />
