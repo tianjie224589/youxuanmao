@@ -1,9 +1,13 @@
 <view class="category">
   <van-cell-group>
     <van-field label="预约表" />
-    <van-field label="姓名" model:value="{{ yy_name }}" placeholder="" error />
-    <van-field label="手机号" model:value="{{ yy_mobile }}" placeholder="" error />
-    <van-field label="预约时间" model:value="{{ yy_time }}"  bind:change="showPopup" />
+    <van-field label="姓名" model:value="{{ yy_name }}" placeholder="姓名" error />
+    <van-field label="手机号" model:value="{{ yy_mobile }}" placeholder="手机号" error />
+    <van-field label="预约时间" model:value="{{ yy_time }}" use-button-slot >
+      <van-button slot="button" size="small" type="primary" bindtap="showPopup"  custom-class="seltime" >
+        选择时间
+      </van-button>
+    </van-field>
     <van-cell title="立即预约">
       <van-switch slot="right-icon" size="24px" checked="{{ checked }}" bind:change="onChange" />
     </van-cell>

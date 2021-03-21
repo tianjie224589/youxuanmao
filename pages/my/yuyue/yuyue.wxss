@@ -21,4 +21,6 @@ page{
   width: 100% !important;
 }
 
-
+.seltime{
+  width: 100px !important;
+}

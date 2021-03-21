@@ -20,6 +20,11 @@ Page({
     var value = that.data.value;
     console.log('提现',value)
 
+    if(that.data.getUserInfo.bankid==0){
+      Toast.fail('请添加默认银行卡');
+      return false;
+    }
+
     wx.request({
       url: config.getCashOut_url,
       data:{"source":"wx","token":loginUserinfo.token,"apply_money":value,"bankid":that.data.getUserInfo.bankid},

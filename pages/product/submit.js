@@ -1,4 +1,5 @@
 // pages/product/submit.js
+import Toast from '../../dist/toast/toast';
 var config = (wx.getStorageSync('config'));
 
 Page({
@@ -35,6 +36,7 @@ Page({
 
     if(that.data.getGoodsInfo.type==3 && collectid == 0){
       console.log('请添加收货地址');
+      Toast.fail('请添加收货地址');
       return false;
     }
 

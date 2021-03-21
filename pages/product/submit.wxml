@@ -77,3 +77,4 @@
   bind:submit="onSubmit"
   data-val="{{money*100}}"
 />
+<van-toast id="van-toast" />

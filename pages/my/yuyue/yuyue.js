@@ -43,7 +43,7 @@ Page({
     console.log('确定',event)
     var timeValue = this.timeFormat(new Date(event.detail), "yyyy-MM-dd hh:mm");
     console.log('确定',timeValue)
-    this.setData({ picktime: timeValue, show: false });
+    this.setData({ picktime: timeValue,yy_time: timeValue, show: false });
   },
   timeFormat(date, fmt) {
     var o = {
