@@ -52,6 +52,7 @@ var config = {
   setPay_url:host+"api/Order/setPay",
 
   setYuyue_url:host+"api/Order/setYuyue",
+  setConfirm_url:host+"api/Order/setConfirm",
 
   telephone:"15683088738",
 

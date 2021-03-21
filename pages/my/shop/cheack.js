@@ -27,7 +27,7 @@ Page({
       success: function (res) {
         console.log('res',res)
         if(res.data.status == 200){
-          Toast.success(res.data.msg);
+          wx.navigateBack()
         }else{
           Toast.fail(res.data.msg);
         }

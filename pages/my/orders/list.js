@@ -36,6 +36,26 @@ Page({
     })
   },
 
+  confirm(e){
+    var that = this
+    var loginUserinfo = (wx.getStorageSync('userinfo'));
+
+    console.log('确认收货',e)
+
+    wx.request({
+      url: config.setConfirm_url,
+      data:{"source":"wx","token":loginUserinfo.token,"id":e.currentTarget.id},
+      method: "post",
+      success: function (res) {
+        console.log('确认收货-res',res.data)
+        if(res.data.status==200){
+          that.onPullDownRefresh();   //刷新
+        }else{
+          Toast('搜索' + res.data.msg);
+        }
+      }
+    });
+  },
 
   onChange(e) {
     this.setData({
@@ -116,8 +136,11 @@ Page({
     });
   },
   onClickHide() {
+    var that = this
     console.log('取消放大')
-    this.setData({ show: false });
+    
+    that.setData({ show: false });
+    that.onPullDownRefresh();   //刷新
   },
 
 
@@ -187,7 +210,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    this.onLoad(); //重新加载onLoad()
   },
 
   /**

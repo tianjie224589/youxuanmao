@@ -8,6 +8,7 @@ Page({
   data: {
     id:0,
     getUserInfo: {},
+    getOrderInfo: {},
 
     yy_name: '',
     yy_mobile: '',
@@ -121,6 +122,24 @@ Page({
         that.setData({
           getUserInfo: res.data.result,
         })
+        wx.hideLoading();
+      }
+    });
+
+    //获取订单信息
+    wx.request({
+      url: config.getOrderInfo_url,
+      data:{"source":"wx","token":loginUserinfo.token,"id":id},
+      method: "post",
+      success: function (res) {
+        console.log('获取订单信息',res.data)
+        wx.stopPullDownRefresh();
+        that.setData({
+          getOrderInfo: res.data.result,
+          yy_name: res.data.result.yy_name,
+          yy_mobile:  res.data.result.yy_mobile,
+          yy_time:  res.data.result.yy_time,
+        });
         wx.hideLoading();
       }
     });

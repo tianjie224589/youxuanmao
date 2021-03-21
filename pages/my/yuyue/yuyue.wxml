@@ -13,7 +13,12 @@
     </van-cell>
   </van-cell-group>
   <view class="addbank">
-    <van-button custom-class="submit" color="#EA617B" size="large" type="primary" bindtap="submit">保存</van-button>
+    <block wx:if="{{getOrderInfo.yy_confirm == 1}}">
+      <van-button custom-class="submit" disabled color="#EA617B" size="large" type="primary">保存</van-button>
+    </block>
+    <block wx:else>
+      <van-button custom-class="submit" color="#EA617B" size="large" type="primary" bind:click="submit">保存</van-button>
+    </block>
   </view>
 </view>
 <van-popup show="{{ show }}" position="bottom" bind:close="onClose">

@@ -49,6 +49,9 @@
               <block wx:if="{{vo.order_state == '4'}}">
                 <van-button size="small" color="#EA617B" round type="info">待收货</van-button>
               </block>
+              <block wx:if="{{vo.order_state == '6'}}">
+                <van-button size="small" color="#EA617B" round type="info" bindtap="confirm" id="{{vo.id}}">收货</van-button>
+              </block>
               <block wx:if="{{vo.order_state == '5'}}">
                 <van-button size="small" color="#EA617B" round type="info">完成</van-button>
               </block>
