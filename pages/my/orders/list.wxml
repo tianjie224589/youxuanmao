@@ -27,7 +27,7 @@
       <view class="order-li">
         <image class="order-li-img" src="{{vo.goods_thumb_img}}" bindtap="onToOrderInfo" id="{{vo.id}}"></image>
         <view class="order-li-content">
-          <view class="order-li-c-info">
+          <view class="order-li-c-info" bindtap="onToOrderInfo" id="{{vo.id}}">
             <view class="order-li-c-info-title">{{vo.goods_name}}</view>
             <view class="order-li-c-info-money"><text class="order-li-c-info-ico">￥</text>{{vo.pay_money}}</view>
           </view>

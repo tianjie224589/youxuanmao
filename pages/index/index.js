@@ -80,6 +80,7 @@ Page({
       // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
       // 所以此处加入 callback 以防止这种情况
       app.userInfoReadyCallback = res => {
+        console.log('2-res',res.userInfo)
         this.setData({
           userInfo: res.userInfo,
           hasUserInfo: true
@@ -264,19 +265,28 @@ Page({
     console.log('获取服务器端用户信息')
     var that = this;
     var loginUserinfo = (wx.getStorageSync('userinfo'));
-    wx.request({
-      url: config.getUserInfo_url,
-      data:{"source":"wx","token":loginUserinfo.token},
-      method: "post",
-      success: function (res) {
-        console.log('服务器端用户信息-res',res)
-        wx.stopPullDownRefresh();
-        that.setData({
-          getUserInfo: res.data.result,
-        })
-        wx.hideLoading();
-      }
-    });
+    console.log('获取服务器端用户信息 loginUserinfo:',loginUserinfo)
+
+    if(loginUserinfo){
+      wx.request({
+        url: config.getUserInfo_url,
+        data:{"source":"wx","token":loginUserinfo.token},
+        method: "post",
+        success: function (res) {
+          console.log('服务器端用户信息-res',res)
+          wx.stopPullDownRefresh();
+          that.setData({
+            getUserInfo: res.data.result,
+          })
+          wx.hideLoading();
+        }
+      });
+    }else{
+      console.log('获取服务器端用户信息 loginUserinfo 不存在！')
+      app.onLaunch()
+      this.getServerUser()
+    }
+    
   },
 
   /**

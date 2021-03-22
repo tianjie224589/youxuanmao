@@ -2,6 +2,7 @@
 var config = require("./config.js");
 App({
   onLaunch() {
+    console.log('初始化 app.onLaunch 异步')
     // 展示本地存储能力
     wx.setStorageSync('config', config);
 
@@ -32,7 +33,8 @@ App({
           })
         }
       }
-    })
+    });
+
     // 获取用户信息
     wx.getSetting({
       success: res => {

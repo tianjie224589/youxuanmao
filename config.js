@@ -53,6 +53,7 @@ var config = {
 
   setYuyue_url:host+"api/Order/setYuyue",
   setConfirm_url:host+"api/Order/setConfirm",
+  getOrderShopList_url:host+"api/Order/getOrderShopList",
 
   telephone:"15683088738",
 

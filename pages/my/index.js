@@ -315,42 +315,20 @@ Page({
   onPullDownRefresh: function () {
     console.log('下拉')
     var that = this
-    this.onLoad(); //重新加载onLoad()
-
-    /*
     var loginUserinfo = (wx.getStorageSync('userinfo'));
-    console.log('token',loginUserinfo.token)
+    console.log('下拉 loginUserinfo',loginUserinfo)
 
-    //身份
-    var identity = wx.getStorageSync('identity');
-    console.log('身份 identity',identity)
-    if(identity!=""){
-      that.setData({
-        shenfen: identity
+    if(loginUserinfo){
+      that.onLoad(); //重新加载onLoad()
+    }else{
+      app.onLaunch()
+      wx.switchTab({
+        url: '../index/index'
       })
     }
+    
 
-    if(loginUserinfo.avatarUrl!=""){
-      that.setData({
-        userInfo: loginUserinfo,
-        hasUserInfo: true
-      })
-    }
-
-    //保存登录信息
-    //获取用户信息
-    wx.request({
-      url: config.getUserInfo_url,
-      data:{"source":"wx","token":loginUserinfo.token},
-      method: "post",
-      success: function (res) {
-        console.log('userinfo-res',res)
-        that.setData({
-          getUserInfo: res.data.result,
-        })
-      }
-    });
-    */
+    
 
   },
 

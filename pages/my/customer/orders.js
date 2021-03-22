@@ -8,7 +8,7 @@ Page({
   data: {
     list: {},
     page: 1,
-    num: 20,
+    num: 30,
   },
 
   onClick(event) {
@@ -20,7 +20,7 @@ Page({
 
     var loginUserinfo = (wx.getStorageSync('userinfo'));
     wx.request({
-      url: config.getOrderList_url,
+      url: config.getOrderShopList_url,
       data:{"source":"wx","token":loginUserinfo.token,"cheack_status":type,"page":that.data.page,"num":that.data.num},
       method: "post",
       success: function (res) {
@@ -45,7 +45,7 @@ Page({
     console.log('token',loginUserinfo.token)
 
     wx.request({
-      url: config.getOrderList_url,
+      url: config.getOrderShopList_url,
       data:{"source":"wx","token":loginUserinfo.token,"cheack_status":1,"page":that.data.page,"num":that.data.num},
       method: "post",
       success: function (res) {
