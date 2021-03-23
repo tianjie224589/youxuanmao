@@ -139,7 +139,11 @@ Page({
     var that = this
     console.log('取消放大')
     
-    that.setData({ show: false });
+    that.setData({ 
+      show: false,
+      order_type: 'all',
+      order_state: 'all',
+    });
     that.onPullDownRefresh();   //刷新
   },
 

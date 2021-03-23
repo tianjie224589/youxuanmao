@@ -17,6 +17,9 @@ Page({
     sharebuyid:0,
     collectid:0,
     getCollectInfo: {},
+    adsid:0,
+    couponid:0,
+    face_value:0,
   },
 
   onSubmit(e){
@@ -26,6 +29,7 @@ Page({
     var num = that.data.num;
     var sharebuyid = that.data.sharebuyid;    //是否是分享商品 0不是 其他数字为分享者的会员id
     var collectid = that.data.collectid;      //收货地址id
+    var couponid = that.data.couponid;
 
     var loginUserinfo = (wx.getStorageSync('userinfo'));
     var token = loginUserinfo.token;
@@ -49,7 +53,7 @@ Page({
     //创建订单
     wx.request({
       url: config.setOrderAdd_url,
-      data:{"source":"wx","token":token,"gid":id,"num":num,"sharebuyid":sharebuyid,"collectid":collectid},
+      data:{"source":"wx","token":token,"gid":id,"num":num,"sharebuyid":sharebuyid,"collectid":collectid,"couponid":couponid},
       method: "post",
       success: function (res) {
         console.log(res)
@@ -74,6 +78,7 @@ Page({
     that.setData({
       num: event.detail,
       money: price * event.detail,
+      face_value:0,
     });
   },
 
@@ -81,6 +86,13 @@ Page({
     console.log('选择收货地址')
     wx.navigateTo({
       url: '../my/address/list?oid='+this.data.id
+    })
+  },
+
+  onSelectCoupon(){
+    console.log('选择选择优惠券')
+    wx.navigateTo({
+      url: '../my/coupon/list?oid='+this.data.id+'&money='+this.data.money
     })
   },
 
@@ -193,6 +205,15 @@ Page({
         }
       });
     }
+
+    if(that.data.couponid != 0){
+      that.setData({
+        couponid: that.data.couponid,
+        face_value: that.data.face_value,
+        money: that.data.money - that.data.face_value,
+      })
+    }
+
   },
 
   /**

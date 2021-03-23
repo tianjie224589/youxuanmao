@@ -16,10 +16,40 @@ Page({
     show: false,
   },
 
+  getScancode: function() {
+    var that = this;
+    // 只允许从相机扫码
+    wx.scanCode({
+      onlyFromCamera: true,
+      success: (res) => {
+        var result = res.result;
+        console.log('二维码内容：result',result)
+        
+        var paramArr = result.split('ewm/');
+        //跳转页面-订单核销详情页
+        if (paramArr.length == 2){
+          console.log('绑定销售id',paramArr[1]);
+  
+          wx.navigateTo({
+            url: 'info/index?id='+ paramArr[1]
+          })
+        }
+
+      }
+    })
+  },
+
   onBalance(){
     console.log('余额');
     wx.navigateTo({
       url: 'balance/list'
+    })
+  },
+
+  onCoupon(){
+    console.log('优惠券');
+    wx.navigateTo({
+      url: 'coupon/list'
     })
   },
 
@@ -129,8 +159,6 @@ Page({
             }
           })
 
-          
-
         }
       })
     }
@@ -144,10 +172,11 @@ Page({
     })
   },
 
-  onshangjia(){
-    //选择身份
+  onshanglist(){
+    //测试跳转分享
+    var loginUserinfo = (wx.getStorageSync('userinfo'));
     wx.navigateTo({
-      url: '/pages/my/info/index'
+      url: '/pages/share/listshare?uid=' + loginUserinfo.id
     })
   },
 
@@ -262,12 +291,14 @@ Page({
    */
   onReady: function () {
     var that = this;
-    console.log('2222',that.data.userInfo)
+    var loginUserinfo = (wx.getStorageSync('userinfo'));
+
+    console.log('2222',loginUserinfo.id)
     //传入wxml中二维码canvas的canvas-id  样式单位为px
     //扫码二维码跳转到 /pages/my/info/index
     var qrcode = new QRCode('canvas', {
       // usingIn: this,
-      text: "https://api.yiyoucha.com/ewm/"+that.data.userInfo.id,
+      text: "https://api.yiyoucha.com/ewm/"+loginUserinfo.id,
       width: 150,
       height: 150,
       padding: 12,

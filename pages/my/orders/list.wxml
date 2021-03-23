@@ -33,8 +33,14 @@
           </view>
           <view class="order-li-c-des">
             <view class="order-li-c-des-note">
-              <view class="order-li-c-des-tel">电话:{{vo.collect_phone}}</view>
-              <view class="order-li-c-des-ads">地址:{{vo.collect_ads}}</view>
+              <block wx:if="{{vo.order_type == '2'}}">
+                <view class="order-li-c-des-tel">{{vo.shop_name}}</view>
+                <view class="order-li-c-des-ads">{{vo.shop_address}}</view>
+              </block>
+              <block wx:if="{{vo.order_type == '3'}}">
+                <view class="order-li-c-des-tel">电话:{{vo.collect_phone}}</view>
+                <view class="order-li-c-des-ads">地址:{{vo.collect_ads}}</view>
+              </block>
             </view>
             <view class="order-li-c-des-s">
               <block wx:if="{{vo.order_state == '1'}}">

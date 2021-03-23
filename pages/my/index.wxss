@@ -30,6 +30,13 @@ page{
   line-height: 50rpx;
 }
 
+.saoyisao{
+  width: 60px;
+  position: absolute;
+  right: 0;
+  top:30px;
+}
+
 .userinfo-duanwei{
   font-size: 28rpx;
 }

@@ -2,7 +2,9 @@
   "usingComponents": {
     "van-swipe-cell": "/dist/swipe-cell/index",
     "van-card": "/dist/card/index",
-    "van-button": "/dist/button/index"
+    "van-button": "/dist/button/index",
+    "van-popup": "/dist/popup/index",
+    "van-toast": "/dist/toast/index"
   },
   "navigationBarTitleText": "分享",
   "enablePullDownRefresh": true

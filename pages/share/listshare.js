@@ -1,4 +1,5 @@
 // pages/share/listshare.js
+import Toast from '../../dist/toast/toast';
 var config = (wx.getStorageSync('config'));
 
 Page({
@@ -10,6 +11,10 @@ Page({
     uid:0,
     getShareList: {},
     fybanner: '',
+
+    couponList: {},
+    show: false,
+
   },
 
   toGoodsInfo(e){
@@ -35,6 +40,34 @@ Page({
     this.setData({
         images:image
     })
+  },
+
+  showPopup(){
+    console.log('领取新人礼包')
+
+    var that = this;
+    var loginUserinfo = (wx.getStorageSync('userinfo'));
+    console.log('loginUserinfo:',loginUserinfo)
+
+    //领取新人礼包
+    wx.request({
+      url: config.setCouponAdd_url,
+      data:{"source":"wx","token":loginUserinfo.token},
+      method: "post",
+      success: function (res) {
+        console.log('领取新人礼包 返回-res',res)
+        if(res.data.status == 200){
+          that.setData({
+            show: true
+          })
+        }else{
+          Toast.fail(res.data.msg);
+        }
+      }
+    });
+  },
+  onClose() {
+    this.setData({ show: false });
   },
 
   /**
@@ -91,6 +124,19 @@ Page({
           fybanner: res.data.result[0].imgUrl,
         })
         wx.hideLoading();
+      }
+    });
+
+    //获取礼包列表
+    wx.request({
+      url: config.getCouponList_url,
+      data:{"source":"wx","token":loginUserinfo.token},
+      method: "post",
+      success: function (res) {
+        console.log('获取礼包列表 返回-res',res)
+        that.setData({
+          couponList: res.data.result.list,
+        })
       }
     });
 

@@ -55,6 +55,11 @@ var config = {
   setConfirm_url:host+"api/Order/setConfirm",
   getOrderShopList_url:host+"api/Order/getOrderShopList",
 
+  getCouponList_url:host+"api/Coupon/getCouponList",
+  setCouponAdd_url:host+"api/Coupon/setCouponAdd",
+  getMyCouponList_url:host+"api/Coupon/getMyCouponList",
+  setMyCouponUse_url:host+"api/Order/setMyCouponUse",
+
   telephone:"15683088738",
 
 }

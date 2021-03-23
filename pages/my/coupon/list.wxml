@@ -1,0 +1,20 @@
+<view class="category">
+  <view class="list">
+    <block wx:for="{{list}}" wx:for-item="vo" wx:key="key" wx:for-index="k">
+
+      <view class="list-li">
+        <view class="list-li-info" bindtap="goToback" id="{{vo.id}}" data-val="{{vo.face_value}}" data-full="{{vo.full}}">
+          <view class="title">
+            <text>{{vo.name}}</text>
+          </view>
+          <view class="address-info">￥{{vo.face_value}} 满{{vo.full}}可用</view>
+          <view class="address-info">{{vo.start_time}} - {{vo.end_time}}</view>
+        </view>
+        <view class="list-li-edit" bindtap="isuse" id="{{vo.id}}" data-val="{{vo.type}}">使用</view>
+      </view>
+    
+    </block>
+  </view>
+</view>
+<van-dialog id="van-dialog"/>
+<van-toast id="van-toast" />

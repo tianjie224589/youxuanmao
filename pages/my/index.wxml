@@ -14,6 +14,11 @@
             <view class="userinfo-mobile">{{getUserInfo.mobile}}</view>
           </block>
         </view>
+        <block wx:if="{{shenfen == 'myuser' && getUserInfo.identity == 1}}">
+          <view class="saoyisao">
+            <van-icon name="scan" color="#FFF" size="40px" bindtap="getScancode" />
+          </view>
+        </block>
     </view>
     <block wx:if="{{shenfen == 'myuser'}}">
       <view class="my-money">
@@ -27,8 +32,8 @@
               <view class="my-money-x">
                 <view class="my-money-xbg"></view>
               </view>
-              <view class="my-money-title">
-                <view>0</view>
+              <view class="my-money-title" bindtap="onCoupon">
+                <view>{{getUserInfo.nunCoupon}}</view>
                 <view>优惠券</view>
               </view>
             </view>
@@ -137,10 +142,10 @@
         <view class="my-set-tr-tb"><van-icon name="arrow" /></view>
       </view>
 
-      <!--<view class="my-set-tr" bindtap="onshangjia">
+      <!--<view class="my-set-tr" bindtap="onshanglist">
         <view class="my-set-tr-title">
           <van-icon name="friends-o" />
-          营业执照
+          分享
         </view>
         <view class="my-set-tr-tb"><van-icon name="arrow" /></view>
       </view>-->

@@ -154,6 +154,11 @@ Page({
         this.setData({ id: paramArr[1] });
       }     
     }
+    
+    if(option.id){
+      console.log('绑定销售id',option.id);
+      this.setData({ id: option.id});   
+    }
 
   },
 

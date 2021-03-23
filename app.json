@@ -31,7 +31,8 @@
     "pages/my/info/index",
     "pages/pay/index",
     "pages/my/orders/info",
-    "pages/my/yuyue/yuyue"
+    "pages/my/yuyue/yuyue",
+    "pages/my/coupon/list"
   ],
   "permission": {
     "scope.userLocation": {

@@ -30,6 +30,54 @@ page{
 
 
 
+.coupon{
+  width: 280px;
+  text-align: center;
+}
+.coupon_title{width: 100%; line-height: 80rpx; color: #EA617B; font-size: 44rpx; text-align: center; padding-top: 50rpx;}
+.coupon_list{
+  width: 100%; 
+  display: grid;
+  padding: 20rpx;
+  box-sizing:border-box;
+}
+.coupon_li{
+  width: 100%;
+  height: 100rpx;
+  border: 2px #EA617B solid;
+  box-sizing:border-box;
+  margin-bottom: 20rpx;
+}
+
+.coupon_left{
+  width: 25%;
+  height: 100rpx;
+  float: left;
+  font-size: 20rpx;
+}
+.coupon_right{
+  width: 75%;
+  height: 100rpx;
+  float: left;
+  font-size: 28rpx;
+  text-align: left;
+  padding-left: 20rpx;
+  box-sizing:border-box;
+}
+.coupon_face_value{width: 100%;color: #EA617B; line-height: 50rpx;}
+.coupon_face_value text{font-size: 32rpx;}
+.coupon_full{width: 100%;}
+
+.coupon_name{line-height: 60rpx}
+.coupon_time{font-size: 20rpx;}
+
+
+
+
+
+
+
+
 
 
 
