@@ -4,27 +4,39 @@ page{
   background-color: #EEEEEE;
 }
 .category{
+  width: 100%;
   display: grid;
 }
 
 .list{
   width: 100%;
-  padding: 20rpx 0;
-  box-sizing:border-box;
-  padding-bottom: 20rpx;
-  background-color: #fff;
-}
-.van-swipe-cell__right{width: 65px;height: 200rpx; line-height: 200rpx; background-color: #EE0A24; color: white; text-align: center;}
-
-
-.addbank{
-  width: 100%;
   padding: 20rpx;
-  text-align: center;
   box-sizing:border-box;
+  display: grid;
 }
+.list_li{width: 100%; padding: 10px; box-sizing:border-box; background-color: #fff; display: flex; margin-bottom: 10px; border-radius: 5px;}
+.list_img{ width: 88px; height: 88px; float: left;}
+.list_content{width:calc(100% - 88px);}
+.list_body{width: 100%; padding-left: 10px; box-sizing:border-box;}
+.list_left{width: 70%;float: left; display: grid;}
+.list_right{width: 30%;float: left; text-align: right; padding-top: 10px;}
+.list_title{width: 100%; max-height: 52px; padding:6px 0; line-height: 26px; overflow: hidden;}
+.list_xl{line-height: 24px; color: slategrey; font-size: 24rpx;}
+.list_price{font-size: 24rpx;}
+.list_price text{font-size: 40rpx; font-weight: 600;}
+.list_sl{ color: slategrey;}
+
+
+
 .submit{
-  width: 100% !important;
+  width: 80px !important;
+  padding:0 25rpx;
+  line-height:60rpx;
+  font-size:24rpx !important;
+  background-color: #EB607D;
+  color: #EEEEEE;
+  border-radius: 100px;
+  margin-top: 10px;
 }
 
 

@@ -12,5 +12,5 @@
     "van-button": "/dist/button/index",
     "van-overlay": "/dist/overlay/index"
   },
-  "navigationBarTitleText": "颜选喵"
+  "navigationBarTitleText": ""
 }

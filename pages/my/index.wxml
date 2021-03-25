@@ -20,49 +20,49 @@
           </view>
         </block>
     </view>
-    <block wx:if="{{shenfen == 'myuser'}}">
-      <view class="my-money">
-        <view class="my-money-bg"></view>
-        <view class="my-money-body">
-            <view class="my-money-content">
-              <view class="my-money-title" bindtap="onBalance">
-                <view>{{getUserInfo.capital.money}}</view>
-                <view>余额</view>
-              </view>
-              <view class="my-money-x">
-                <view class="my-money-xbg"></view>
-              </view>
-              <view class="my-money-title" bindtap="onCoupon">
-                <view>{{getUserInfo.nunCoupon}}</view>
-                <view>优惠券</view>
-              </view>
+    
+    <view class="my-money">
+      <view class="my-money-bg"></view>
+      <view class="my-money-body">
+          <view class="my-money-content">
+            <view class="my-money-title" bindtap="onBalance">
+              <view>{{getUserInfo.capital.money}}</view>
+              <view>余额</view>
             </view>
-        </view>
-      </view>
-      <view class="my-orders">
-        <view class="my-orders-body">
-          <view class="my-orders-title">
-            <view class="my-orders-bt">我的订单</view>
-            <view class="my-orders-more" bindtap="orderList">查看全部订单></view>
-          </view>
-          <view class="my-order-tb">
-            <view class="my-order-tbnav">
-              <image class="my-order-img" src="../../images/my-order-dfk.jpg"></image>
-              <view>代付款</view>
+            <view class="my-money-x">
+              <view class="my-money-xbg"></view>
             </view>
-            <view class="my-order-tbnav">
-              <image class="my-order-img" src="../../images/my-order-dfh.jpg"></image>
-              <view>代发货</view>
-            </view>
-            <view class="my-order-tbnav">
-              <image class="my-order-img" src="../../images/my-order-dsh.jpg"></image>
-              <view>待收货</view>
+            <view class="my-money-title" bindtap="onCoupon">
+              <view>{{getUserInfo.nunCoupon}}</view>
+              <view>优惠券</view>
             </view>
           </view>
+      </view>
+    </view>
+    
+    <view class="my-orders">
+      <view class="my-orders-body">
+        <view class="my-orders-title">
+          <view class="my-orders-bt">我的订单</view>
+          <view class="my-orders-more" bindtap="orderList">查看全部订单></view>
+        </view>
+        <view class="my-order-tb">
+          <view class="my-order-tbnav">
+            <image class="my-order-img" src="../../images/my-order-dfk.jpg"></image>
+            <view>代付款</view>
+          </view>
+          <view class="my-order-tbnav">
+            <image class="my-order-img" src="../../images/my-order-dfh.jpg"></image>
+            <view>代发货</view>
+          </view>
+          <view class="my-order-tbnav">
+            <image class="my-order-img" src="../../images/my-order-dsh.jpg"></image>
+            <view>待收货</view>
+          </view>
         </view>
       </view>
-    </block>
-
+    </view>
+    
     <view class="my-set">
 
       <block wx:if="{{shenfen == 'myuser' && getUserInfo.identity == 2}}">
@@ -82,7 +82,7 @@
       </view>
       </block>
 
-      <block wx:if="{{shenfen == 'myshop'}}">
+      <block wx:if="{{shenfen == 'myshop' && getUserInfo.identity == '3' || getUserInfo.identity == '4'}}">
         <view class="my-set-tr" bindtap="customerOrder">
           <view class="my-set-tr-title">
             <van-icon name="orders-o" />
@@ -110,7 +110,7 @@
         </block>
       </block>
 
-      <block wx:if="{{shenfen == 'myuser'}}">
+      
       <view class="my-set-tr" bindtap="onBank">
         <view class="my-set-tr-title">
           <van-icon name="idcard" />
@@ -132,7 +132,7 @@
         </view>
         <view class="my-set-tr-tb"><van-icon name="arrow" /></view>
       </view>
-      </block>
+      
 
       <view class="my-set-tr" bindtap="onIdentity">
         <view class="my-set-tr-title">
@@ -141,21 +141,21 @@
         </view>
         <view class="my-set-tr-tb"><van-icon name="arrow" /></view>
       </view>
-
-      <!--<view class="my-set-tr" bindtap="onshanglist">
+      <!--
+      <view class="my-set-tr" bindtap="onshanglist">
         <view class="my-set-tr-title">
           <van-icon name="friends-o" />
           分享
         </view>
         <view class="my-set-tr-tb"><van-icon name="arrow" /></view>
-      </view>-->
-
+      </view>
+      -->
     </view>
   </block>
   <van-overlay show="{{ show }}" bind:click="onClickHide">
     <view class="wrapper">
       <view class="block">
-        <view class="block-title">颜选喵</view>
+        <view class="block-title">邀请注册码</view>
         <canvas class='canvas' canvas-id='canvas' bindlongtap='save'></canvas>
       </view>
     </view>

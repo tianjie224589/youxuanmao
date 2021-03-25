@@ -5,14 +5,15 @@
       <image class="yyfy_li_v" src="../../images/v.png"></image>
       <image class="yyfy_li_img" bindtap="onClickShow" id="{{vo.id}}" src="{{vo.thumb_img}}"></image>
       <view class="yyfy_li_content">
-        <view class="yyfy_li_content_title">{{vo.describe}}</view>
+        <view class="yyfy_li_content_title" bindtap="onClickShow" id="{{vo.id}}" src="{{vo.thumb_img}}">{{vo.name}}</view>
+        <view class="yyfy_li_content_des" bindtap="onClickShow" id="{{vo.id}}" src="{{vo.thumb_img}}">{{vo.describe}}</view>
         <view class="yyfy_li_content_null"></view>
         <view class="yyfy_li_content_note">
           <view class="yyfy_content_des">
             <view class="yyfy_content_des_fy">返佣{{vo.commission}}%</view>
             <view class="yyfy_content_des_ads">{{vo.address}}</view>
           </view>
-          <button class="yyfy_zx" style="padding:0 25rpx;line-height:60rpx;font-size:24rpx;" size="mini" open-type="contact" >立即咨询</button>
+          <button class="yyfy_zx" style="" size="mini" open-type="contact" >立即咨询</button>
         </view>
       </view>
     </view>
@@ -27,3 +28,4 @@
     </view>
   </van-overlay>
 </view>
+<van-toast id="van-toast" />

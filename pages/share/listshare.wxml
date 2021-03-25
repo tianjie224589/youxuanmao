@@ -2,9 +2,28 @@
   <image src="{{fybanner}}" bindload="imageLoad" mode='aspectFill' bindtap="showPopup" style='width:100%;height:{{ images.height }}px;'></image>
   <view class="list">
     <block wx:for="{{getShareList}}" wx:for-item="vo" wx:key="key" wx:for-index="k">
+      <view class="list_li" bindtap="toGoodsInfo" id="{{vo.goods_id}}" data-val="{{vo.share_id}}">
+        <image class="list_img" src="{{vo.thumb_img}}"></image>
+        <view class="list_content">
+          <view class="list_body">
+            <view class="list_left">
+              <view class="list_title">{{vo.name}}</view>
+              <view class="list_xl">销量：{{vo.sales}}</view>
+            </view>
+            <view class="list_right">
+              <view class="list_price">￥<text>{{vo.price}}</text></view>
+              <view class="list_sl">x1</view>
+              <button class="submit" size="mini">立即购买</button>
+            </view>
+          </view>
+          <view></view>
+        </view>
+      </view>
+
+<!--
       <van-swipe-cell async-close bind:close="onClose" id="{{vo.id}}">
         <van-card price="{{vo.price}}" origin-price="{{vo.original_price}}" desc="销量：{{vo.sales}}" title="{{vo.name}}" thumb="{{vo.thumb_img}}" bindtap="toGoodsInfo" id="{{vo.goods_id}}" data-val="{{vo.share_id}}"/>
-      </van-swipe-cell>
+      </van-swipe-cell>-->
     </block>
   </view>
 </view>

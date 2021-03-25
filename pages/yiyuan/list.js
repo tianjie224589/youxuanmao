@@ -1,4 +1,5 @@
 // pages/yiyuan/list.js
+import Toast from '../../dist/toast/toast';
 var config = (wx.getStorageSync('config'));
 
 Page({
@@ -7,9 +8,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    shopList: {},
+    shopList: [],
     page: 1,
-    num: 20,
+    num: 10,
     show: false,
 
     bigimg:'',
@@ -45,25 +46,34 @@ Page({
     this.setData({ show: false });
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
+  getShopList(){
     var that = this;
-    
     wx.request({
       url: config.getShopList_url,
       data:{"source":"wx","page":that.data.page,"num":that.data.num},
       method: "post",
       success: function (res) {
-        wx.stopPullDownRefresh();
-        that.setData({
-          shopList: res.data.result,
-        })
-        wx.hideLoading();
+        console.log('res',res)
+        
+        if(res.data.status==200){
+          wx.stopPullDownRefresh();
+          that.setData({
+            shopList: that.data.shopList.concat(res.data.result),
+          })
+          wx.hideLoading();
+        }else{
+          Toast.fail(res.data.msg);
+        }
+        
       }
     });
+  },
 
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    this.getShopList();
   },
 
   /**
@@ -98,14 +108,20 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    this.onLoad();
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
+    var that = this;
 
+    that.setData({
+      page: that.data.page + 1,
+    })
+
+    this.getShopList();
   },
 
   /**

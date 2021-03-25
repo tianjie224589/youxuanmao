@@ -1,6 +1,8 @@
 {
   "usingComponents": {
-    "van-button": "/dist/button/index"
+    "van-button": "/dist/button/index",
+    "van-toast": "/dist/toast/index"
   },
-  "navigationBarTitleText": "热销榜单"
+  "navigationBarTitleText": "热销榜单",
+  "enablePullDownRefresh": true
 }

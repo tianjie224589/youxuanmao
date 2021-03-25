@@ -25,6 +25,9 @@ Page({
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
 
     orderPopup: false,
+
+    viewHeight:240,
+    
   },
   // 事件处理函数
   bindViewTap() {
@@ -39,6 +42,7 @@ Page({
     })
   },
   onTofl(){
+    console.log('优选')
     wx.switchTab({
       url: '../classify/index'
     })
@@ -67,9 +71,53 @@ Page({
     })
   },
 
+  onTehui(){
+    console.log('特惠')
+    wx.navigateTo({
+      url: '../product/list'
+    })
+  },
+  onZhuanzhen(){
+    console.log('转诊')
+    wx.navigateTo({
+      url: '../product/list'
+    })
+  },
+  onFanyong(){
+    console.log('返佣')
+    wx.navigateTo({
+      url: '../yiyuan/list'
+    })
+  },
+  onRexiao(){
+    console.log('热销')
+    wx.navigateTo({
+      url: '../product/list'
+    })
+  },
+  onXiaoguo(){
+    console.log('效果')
+    wx.navigateTo({
+      url: '../product/list'
+    })
+  },
+  onHaohui(){
+    console.log('好货')
+    wx.navigateTo({
+      url: '../product/list'
+    })
+  },
+
   onLoad(options) {
     var that = this;
     console.log('首页 options',options)
+
+    var viewWidth = wx.getSystemInfoSync().windowWidth;   //设置图片显示宽度为当前屏幕宽度，banner
+    //计算的高度值 banner
+    that.setData({
+      viewHeight: viewWidth/(750/274),
+    })
+
 
     if (app.globalData.userInfo) {console.log('1')
       this.setData({
@@ -113,15 +161,15 @@ Page({
       }
     });
 
-    //获取系统配置
+    //获取公告
     wx.request({
-      url: config.getConfig_url,
-      data:{"source":"wx","pid":"4"},
+      url: config.getArticle_url,
+      data:{"source":"wx","navid":"4"},
       method: "post",
       success: function (res) {
         wx.stopPullDownRefresh();
         that.setData({
-          notice: res.data.result.notice,
+          notice: res.data.result,
         })
         wx.hideLoading();
       }

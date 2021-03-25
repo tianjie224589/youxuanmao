@@ -1,4 +1,5 @@
 // pages/product/list.js
+import Toast from '../../dist/toast/toast';
 var config = (wx.getStorageSync('config'));
 
 Page({
@@ -8,9 +9,9 @@ Page({
    */
   data: {
     getUserInfo: {},
-    getGoodsList: {},
+    getGoodsList: [],
     page: 1,
-    num: 20,
+    num: 10,
   },
 
   onGetInfo(e){
@@ -20,6 +21,29 @@ Page({
     })
   },
 
+  getGoodsList(){
+    var that = this;
+    wx.request({
+      url: config.getGoodsList_url,
+      data:{"source":"wx","page":that.data.page,"num":that.data.num},
+      method: "post",
+      success: function (res) {
+        console.log('res',res)
+        
+        if(res.data.status==200){
+          wx.stopPullDownRefresh();
+          that.setData({
+            getGoodsList: that.data.getGoodsList.concat(res.data.result),
+          })
+          wx.hideLoading();
+        }else{
+          Toast.fail(res.data.msg);
+        }
+        
+      }
+    });
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -27,19 +51,6 @@ Page({
     var that = this;
     var loginUserinfo = (wx.getStorageSync('userinfo'));
     console.log('token',loginUserinfo.token)
-    
-    wx.request({
-      url: config.getGoodsList_url,
-      data:{"source":"wx","page":that.data.page,"num":that.data.num},
-      method: "post",
-      success: function (res) {
-        wx.stopPullDownRefresh();
-        that.setData({
-          getGoodsList: res.data.result,
-        })
-        wx.hideLoading();
-      }
-    });
 
     //获取用户信息
     wx.request({
@@ -55,6 +66,8 @@ Page({
         wx.hideLoading();
       }
     });
+
+    this.getGoodsList();
 
   },
 
@@ -90,14 +103,20 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    this.onLoad();
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
+    var that = this;
 
+    that.setData({
+      page: that.data.page + 1,
+    })
+
+    this.getGoodsList();
   },
 
   /**
