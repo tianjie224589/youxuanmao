@@ -5,6 +5,8 @@
     </block>
   </view>
   <view class="right_value">
+    <image src="{{fybanner}}" style='width:100%;height:{{ viewHeight }}px;'></image>
+    
     <block wx:for="{{goodslist}}" wx:key="key" wx:for-item="vo">
       <view class="liqueur_title">{{vo.name}}</view>
       <block wx:for="{{vo.voo}}" wx:for-item="val" wx:key="key">

@@ -10,6 +10,8 @@ Page({
 
     page:1,
     num:10,
+
+    viewHeight:240,
   },
   imageLoad: function(e) {console.log(e)
     var $width=e.detail.width,    //获取图片真实宽度
@@ -53,6 +55,26 @@ Page({
     var that = this;
     var loginUserinfo = (wx.getStorageSync('userinfo'));
     console.log('info页面 token',loginUserinfo)
+
+    var viewWidth = wx.getSystemInfoSync().windowWidth;   //设置图片显示宽度为当前屏幕宽度，banner
+    //计算的高度值 banner
+    that.setData({
+      viewHeight: (viewWidth*0.75 - 20)/(750/274),
+    })
+
+    //获取banner
+    wx.request({
+      url: config.getAdvert_url,
+      data:{"source":"wx","pid":"7"},
+      method: "post",
+      success: function (res) {
+        wx.stopPullDownRefresh();
+        that.setData({
+          fybanner: res.data.result[0].imgUrl,
+        })
+        wx.hideLoading();
+      }
+    });
 
     //获取用户信息
     wx.request({

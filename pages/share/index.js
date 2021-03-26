@@ -16,7 +16,6 @@ Page({
       success: true,
     },
     fybanner: '',
-    images:{},
 
     getGoodsList: {},
     page: 1,
@@ -31,6 +30,7 @@ Page({
     fwjg_gid:0,
     radio: 0,
     
+    viewHeight:240,
   },
 
   onChange(e) {
@@ -71,24 +71,6 @@ Page({
         wx.hideLoading();
       }
     });
-  },
-
-  imageLoad: function(e) {
-    var $width=e.detail.width,    //获取图片真实宽度
-        $height=e.detail.height,
-        ratio=$width/$height;    //图片的真实宽高比例
-    var viewWidth=wx.getSystemInfoSync().windowWidth,           //设置图片显示宽度为当前屏幕宽度，
-        viewHeight=viewWidth/ratio;    //计算的高度值
-        
-    var image=this.data.images; 
-     //将图片的datadata-index作为image对象的key,然后存储图片的宽高值
-    image={
-        width:viewWidth,
-        height:viewHeight
-     }
-    this.setData({
-        images:image
-    })
   },
 
   onClose(event) {
@@ -240,6 +222,12 @@ Page({
     var that = this;
     var loginUserinfo = (wx.getStorageSync('userinfo'));
     console.log('userinfo',loginUserinfo)
+
+    var viewWidth = wx.getSystemInfoSync().windowWidth;   //设置图片显示宽度为当前屏幕宽度，banner
+    //计算的高度值 banner
+    that.setData({
+      viewHeight: viewWidth/(750/274),
+    })
 
     //获取用户信息
     wx.request({

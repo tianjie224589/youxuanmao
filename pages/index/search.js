@@ -1,4 +1,5 @@
 // pages/index/search.js
+import Toast from '../../dist/toast/toast';
 var config = (wx.getStorageSync('config'));
 
 Page({
@@ -23,9 +24,10 @@ Page({
     ],
     value1: 0,
     value2: 'a',
-    getGoodsList: {},
+
+    getGoodsList: [],
     page: 1,
-    num: 20,
+    num: 10,
   },
 
   onChange(e) {
@@ -66,11 +68,18 @@ Page({
       data:{"source":"wx","searchname":searchname,"page":page,"num":num,'type':type,'orderby':orderby},
       method: "post",
       success: function (res) {
-        wx.stopPullDownRefresh();
-        that.setData({
-          getGoodsList: res.data.result,
-        })
-        wx.hideLoading();
+        console.log('res',res)
+        
+        if(res.data.status==200){
+          wx.stopPullDownRefresh();
+          that.setData({
+            getGoodsList: that.data.getGoodsList.concat(res.data.result),
+          })
+          wx.hideLoading();
+        }else{
+          Toast.fail(res.data.msg);
+        }
+        
       }
     });
   },
@@ -78,7 +87,8 @@ Page({
     console.log('商品分类 value1',event.detail)
     var that = this;
     that.setData({
-      value1: event.detail
+      value1: event.detail,
+      getGoodsList: []
     });
     if(that.data.value != ''){
       that.getSeachGoods();
@@ -88,7 +98,8 @@ Page({
     console.log('排序 value2',event.detail)
     var that = this;
     that.setData({
-      value2: event.detail
+      value2: event.detail,
+      getGoodsList: []
     });
     if(that.data.value != ''){
       that.getSeachGoods();
@@ -148,7 +159,13 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
+    var that = this;
 
+    that.setData({
+      page: that.data.page + 1,
+    })
+
+    this.getSeachGoods();
   },
 
   /**

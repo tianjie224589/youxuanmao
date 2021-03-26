@@ -8,7 +8,7 @@
     bind:search="onSearch"
     bind:clear="onCancel" />
   </view>
-  <!--<view class="biaoqiao">
+  <view class="biaoqiao">
     <van-tag
       wx:if="{{ show.primary }}"
       closeable
@@ -31,8 +31,8 @@
       bind:close="onClose"
       custom-class="biaoqian_title"
     >标签</van-tag>
-  </view>-->
-  <image src="{{fybanner}}" bindload="imageLoad" mode='aspectFill' style='width:100%;height:{{ images.height }}px;'></image>
+  </view>
+  <image src="{{fybanner}}" style='width:100%;height:{{ viewHeight }}px;'></image>
 
   <view class="fxcontent">
     <block wx:for="{{getGoodsList}}" wx:for-item="vo" wx:key="key" wx:for-index="k">

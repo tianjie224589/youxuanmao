@@ -15,6 +15,9 @@ page{
   width: 25%; 
   background: #fff;
   text-align: center;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 .btn{
   height: 97rpx;

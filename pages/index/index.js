@@ -331,8 +331,8 @@ Page({
       });
     }else{
       console.log('获取服务器端用户信息 loginUserinfo 不存在！')
-      app.onLaunch()
-      this.getServerUser()
+      //app.onLaunch()
+      //this.getServerUser()
     }
     
   },

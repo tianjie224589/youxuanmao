@@ -10,7 +10,7 @@
   </view>
   
   <view class="page-section page-section-spacing swiper">
-    <swiper class="swiper-img" indicator-dots="true" autoplay="true" interval="3000">
+    <swiper class="swiper-img" indicator-dots="true" autoplay="true" interval="3000" style="height:{{viewHeight}}px;">
       <block wx:for="{{background}}" wx:for-item="vo" wx:key="key">
         <swiper-item>
           <image class="swiper-item" style="height:{{viewHeight}}px;" src="{{vo.imgUrl}}"></image>
