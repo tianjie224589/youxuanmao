@@ -5,7 +5,7 @@
     <view class="userinfo">
         <image bindtap="bindViewTap" class="userinfo-avatar" src="{{getUserInfo.imageUrl}}" mode="cover"></image>
         <view class="userinfo-top">
-          <block wx:if="{{shenfen == 'myuser'}}"><view class="userinfo-duanwei">赚钱喵VIP{{getUserInfo.vip}}</view></block>
+          <block wx:if="{{shenfen == 'myuser'}}"><view class="userinfo-duanwei">VIP{{getUserInfo.vip}}</view></block>
           <view class="userinfo-nickname">{{getUserInfo.nickname}}</view>
           <block wx:if="{{getUserInfo.mobile == ''}}">
             <button style="width: 250rpx;font-size: 28rpx;" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">获取手机号</button>
@@ -46,14 +46,14 @@
           <view class="my-orders-bt">我的订单</view>
           <view class="my-orders-more" bindtap="orderList">查看全部订单></view>
         </view>
-        <view class="my-order-tb">
+        <view class="my-order-tb" bindtap="orderList">
           <view class="my-order-tbnav">
             <image class="my-order-img" src="../../images/my-order-dfk.jpg"></image>
-            <view>代付款</view>
+            <view>待付款</view>
           </view>
           <view class="my-order-tbnav">
             <image class="my-order-img" src="../../images/my-order-dfh.jpg"></image>
-            <view>代发货</view>
+            <view>待发货</view>
           </view>
           <view class="my-order-tbnav">
             <image class="my-order-img" src="../../images/my-order-dsh.jpg"></image>

@@ -146,9 +146,9 @@
             <view class="yyfy_li">
               <image class="yyfy_li_tb" src="../../images/{{k+1}}.png"></image>
               <image class="yyfy_li_v" src="../../images/v.png"></image>
-              <image class="yyfy_li_img" src="{{vo.thumb_img}}"></image>
+              <image class="yyfy_li_img" src="{{vo.thumb_img}}" bindtap="showPopupShop" id="{{vo.id}}"></image>
               <view class="yyfy_li_content">
-                <view class="yyfy_li_content_title title_w">{{vo.describe}}</view>
+                <view class="yyfy_li_content_title title_w" bindtap="showPopupShop" id="{{vo.id}}">{{vo.describe}}</view>
                 <view class="yyfy_li_content_null"></view>
                 <view class="yyfy_li_content_note">
                   <view class="yyfy_content_des">
@@ -322,3 +322,11 @@
     </view>
   </view>
 </van-overlay>
+<van-popup show="{{ showShop }}" bind:close="onCloseShop">
+  <view class="wrapperShop">
+    <view class="blockShop">
+      <image class="blockShop-img" style="width:{{viewWidth*0.6 - 40}}px;height:{{viewWidth*0.6 - 40}}px;" src="{{infoshop.thumburl}}"></image>
+      <view class="blockShop-des">{{infoshop.describe}}</view>
+    </view>
+  </view>
+</van-popup>

@@ -10,6 +10,7 @@ var config = {
   getAdvert_url:host+"v1/Common/getAdvert",
   getConfig_url:host+"v1/Common/getConfig",
   getArticle_url:host+"api/Common/getArticle",
+  getLableHot_url:host+"api/Common/getLableHot",
   qiniuFile_url:host+"api/Upload/qiniuFile",
   
   getGoodsList_url:host+"v1/Goods/getList",

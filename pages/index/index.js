@@ -26,6 +26,10 @@ Page({
 
     orderPopup: false,
 
+    infoshop: {},
+    showShop: false,
+
+    viewWidth: 375,
     viewHeight:240,
     
   },
@@ -69,6 +73,31 @@ Page({
     wx.navigateTo({
       url: '../my/orders/list'
     })
+  },
+
+  showPopupShop(e){
+    console.log('商家详情弹窗 id',e.currentTarget.id)
+    var that = this;
+    var id = e.currentTarget.id;
+
+    wx.request({
+      url: config.getShopInfo_url,
+      data:{"source":"wx","id":id},
+      method: "post",
+      success: function (res) {
+        console.log('医美(医院)信息',res.data)
+        wx.stopPullDownRefresh();
+        that.setData({
+          showShop: true,
+          infoshop: res.data.result,
+        })
+        wx.hideLoading();
+      }
+    });
+  },
+  onCloseShop() {
+    console.log('取消商家详情弹窗')
+    this.setData({ showShop: false });
   },
 
   onTehui(){
@@ -115,6 +144,7 @@ Page({
     var viewWidth = wx.getSystemInfoSync().windowWidth;   //设置图片显示宽度为当前屏幕宽度，banner
     //计算的高度值 banner
     that.setData({
+      viewWidth: viewWidth,
       viewHeight: viewWidth/(750/274),
     })
 

@@ -1,4 +1,5 @@
 // pages/share/myshare.js
+import Toast from '../../dist/toast/toast';
 var config = (wx.getStorageSync('config'));
 
 Page({
@@ -44,6 +45,7 @@ Page({
           }
         });
 
+        Toast.success('删除成功');
       }
     })
 

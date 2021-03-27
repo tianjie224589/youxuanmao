@@ -10,7 +10,8 @@
     "van-cell-group": "/dist/cell-group/index",
     "van-image": "/dist/image/index",
     "van-button": "/dist/button/index",
-    "van-overlay": "/dist/overlay/index"
+    "van-overlay": "/dist/overlay/index",
+    "van-popup": "/dist/popup/index"
   },
   "navigationBarTitleText": ""
 }

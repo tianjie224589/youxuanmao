@@ -38,7 +38,7 @@
   </view>
   <block wx:if="{{getGoodsInfo.type == '1'}}">
     <view class="fenxiang"  bindtap="showPopup">
-      <view class="xuanzhe"><van-icon custom-style="position:relative;left:0;top:3px" size="15px" name="warning-o" /> 在线预约金:<text class="note-money">￥{{getGoodsInfo.advance}}</text> 到院再付:<text class="note-money">￥{{getGoodsInfo.price - getGoodsInfo.advance}}</text></view>
+      <view class="xuanzhe"><van-icon custom-style="position:relative;left:0;top:3px" size="15px" name="warning-o" /> 在线预约金:<text class="note-money">￥{{getGoodsInfo.advance}}</text> 到院再付:<text class="note-money">￥{{getGoodsInfo.price - getGoodsInfo.advance * getGoodsInfo.advance_double}}</text></view>
     </view>
   </block>
   <van-goods-action>

@@ -7,13 +7,20 @@ page{
   display: grid;
 }
 
-.list{
-  width: 100%;
-  padding: 20rpx 0;
-  box-sizing:border-box;
-  padding-bottom: 20rpx;
-  background-color: #fff;
-}
+.list{ width: 100%; padding-top: 20rpx; box-sizing:border-box;}
+.yyfy_li{ width: 100%; padding: 20rpx; margin-bottom: 20rpx; position: relative; display:flex; justify-content: space-around;  background-color: #FFFFFF; box-sizing:border-box;}
+.yyfy_li_tb{ height: 60rpx; width: 46rpx; position: absolute; top: 0;left: 0;}
+.yyfy_li_v{ height: 39rpx; width: 32rpx; position: absolute; top: 20rpx;right: 30rpx;}
+.yyfy_li_img{ height: 200rpx; width: 200rpx;border-radius:10px;}
+.yyfy_li_content{ width: 450rpx; padding:0 10rpx; box-sizing:border-box;}
+.yyfy_li_content_title{ height: 80rpx; line-height: 40rpx; font-size: 28rpx; overflow: hidden;}
+.yyfy_li_content_money{width: 100%; line-height: 60rpx; display:flex; justify-content: space-between; background-color:#fff;}
+.yyfy_money{ width: 140rpx; color: #EB607D; font-size: 28rpx;}
+.yyfy_money_fh{ font-size: 24rpx;}
+.yyfy_yuanjia{ width: 150rpx; color: #AAA7A6; font-size: 24rpx; text-align: right; text-decoration:line-through;}
+.yyfy_li_content_note{ width: 100%; line-height: 50rpx; display:flex; justify-content: space-between;}
+.yyfy_content_zs{ font-size: 24rpx; color: #EA617B;}
+.yyfy_content_ys{ font-size: 24rpx; color: #8D8B8C;}
 .van-swipe-cell__right{width: 65px;height: 200rpx; line-height: 200rpx; background-color: #EE0A24; color: white; text-align: center;}
 
 

@@ -55,8 +55,8 @@ page{
 .yyfy_li_content_note{ width: 100%; display:flex; justify-content: space-between;}
 .yyfy_content_des{ width: 280rpx; font-size: 24rpx;}
 .yyfy_content_des_fy{ line-height: 40rpx; color: #EA617B;}
-.yyfy_content_des_ads{ height: 60rpx; line-height: 30rpx; overflow: hidden; color: #8D8B8C;}
-.yyfy_zx{ border-radius:20px; height: 60rpx; background-color: #EA617B; color: white; font-size: 24rpx; font-weight: 500;}
+.yyfy_content_des_ads{ height: 60rpx; line-height: 50rpx; overflow: hidden; color: #8D8B8C;}
+.yyfy_zx{ border-radius:20px; height: 60rpx; margin-top: 10px; background-color: #EA617B; color: white; font-size: 24rpx; font-weight: 500;}
 .yyfy_content_zs{ font-size: 24rpx; color: #EA617B;}
 .yyfy_content_ys{ font-size: 24rpx; color: #8D8B8C;}
 
@@ -114,8 +114,20 @@ page{
 }
 
 
-
-
+/* 医美(医院)信息弹窗 */
+.wrapperShop {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+.blockShop {
+  padding: 20px;
+  background: #fff;
+  padding-bottom: 4rpx;
+}
+.blockShop-img{}
+.blockShop-des{color: #8D8B8C; line-height: 50rpx; font-size: 24rpx;}
 
 
 

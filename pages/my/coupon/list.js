@@ -12,6 +12,8 @@ Page({
     list:{},
     submit_id:0,
     money:0,
+
+    type:0,
   },
 
   isuse(e){
@@ -68,6 +70,26 @@ Page({
     }
   },
 
+  getMyCouponList(){
+    var that = this
+    var loginUserinfo = (wx.getStorageSync('userinfo'));
+
+    wx.request({
+      url: config.getMyCouponList_url,
+      data:{"source":"wx","token":loginUserinfo.token,"usetype":that.data.usetype},
+      method: "post",
+      success: function (res) {
+        console.log('res',res)
+        wx.stopPullDownRefresh();
+        that.setData({
+          list: res.data.result,
+        })
+        wx.hideLoading();
+      }
+    });
+    
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -77,27 +99,17 @@ Page({
     var loginUserinfo = (wx.getStorageSync('userinfo'));
     console.log('token',loginUserinfo.token)
 
-    //获取我的优惠券-列表
-    wx.request({
-      url: config.getMyCouponList_url,
-      data:{"source":"wx","token":loginUserinfo.token},
-      method: "post",
-      success: function (res) {
-        wx.stopPullDownRefresh();
-        that.setData({
-          list: res.data.result,
-        })
-        wx.hideLoading();
-      }
-    });
-
     //来源确认订单
     if(options.oid){
-      this.setData({
+      that.setData({
         submit_id: options.oid,
-        money: options.money
+        money: options.money,
+        usetype: options.type
       });
     }
+
+    //获取我的优惠券-列表
+    that.getMyCouponList();
 
   },
 

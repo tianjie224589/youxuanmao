@@ -8,59 +8,45 @@
     bind:search="onSearch"
     bind:clear="onCancel" />
   </view>
+
   <view class="biaoqiao">
-    <van-tag
-      wx:if="{{ show.primary }}"
-      closeable
-      round
-      color="#EB607D"
-      size="large"
-      type="primary"
-      id="primary"
-      bind:close="onClose"
-      custom-class="biaoqian_title"
-    >标签</van-tag>
-    <van-tag
-      wx:if="{{ show.success }}"
-      closeable
-      round
-      color="#EB607D"
-      size="large"
-      type="primary"
-      id="success"
-      bind:close="onClose"
-      custom-class="biaoqian_title"
-    >标签</van-tag>
+    <block wx:for="{{lablelist}}" wx:for-item="vo" wx:key="key" wx:for-index="k">
+      <view class="bq_title">
+        <text bindtap="onClickLabel" id="{{vo.id}}" data-val="{{vo.name}}">{{vo.name}}</text>
+      </view>
+    </block>
   </view>
   <image src="{{fybanner}}" style='width:100%;height:{{ viewHeight }}px;'></image>
 
   <view class="fxcontent">
     <block wx:for="{{getGoodsList}}" wx:for-item="vo" wx:key="key" wx:for-index="k">
-      <view class="list_fx">
+      <view class="list_li">
         <view class="list_fx_fy" bindtap='onGetInfo' data-val="{{vo.id}}">
-          <image class="list_fx_img" src="{{vo.thumb_img}}"></image>
-          <view class="list_fx_nr">
-            <view class="fy_nr_left">
-              <view class="fy_nr_left_title">{{vo.name}}</view>
-              <view class="fy_nr_left_xl">销量:{{vo.sales}}</view>
+          <image class="list_img" src="{{vo.thumb_img}}"></image>
+          <view class="list_content">
+            <view class="list_body">
+              <view class="list_left_title">{{vo.name}}</view>
+              <view class="list_right">
+                <view class="list_right_price"><text class="price_tb">￥</text>{{vo.price}}</view>
+                <vieW class="list_right_num">x1</vieW>
+              </view>
             </view>
-            <view class="fy_nr_right">
-              <view class="fy_nr_right_price">￥<text class="right_money">{{vo.price}}</text></view>
-              <vieW class="fy_nr_right_num">x1</vieW>
-              <vieW class="fy_nr_right_fy">返佣:{{vo.commission_b}}%</vieW>
+            <view class="list_num">
+              <view class="list_num_xl">销量:{{vo.sales}}</view>
+              <vieW class="list_num_fy">返佣:{{vo.commission_b}}%</vieW>
+            </view>
+            <view class="list_fx_an">
+              <block wx:if="{{vo.type == '1'}}">
+              <button class="list_zx list_bgc" style="padding:0 25rpx;line-height:60rpx;font-size:24rpx;" bindtap="onSheet"  id="{{vo.id}}" size="mini">选择服务机构</button>
+              </block>
+              <block wx:else>
+                <text class="list_zx"></text>
+                <button class="list_zx" style="color:#7f7f7f; padding:0 25rpx;line-height:60rpx;font-size:24rpx;" size="mini">{{vo.shop_name}}</button>
+              
+                <button class="list_zx list_bgc" bindtap="onShareAdd" id="{{vo.id}}" style="padding:0 25rpx;line-height:60rpx;font-size:24rpx;" size="mini">加入分享专题</button>
+              </block>
             </view>
           </view>
-        </view>
-        <view class="list_fx_an">
-          <block wx:if="{{vo.type == '1'}}">
-          <button class="list_zx list_bgc" style="padding:0 25rpx;line-height:60rpx;font-size:24rpx;" bindtap="onSheet"  id="{{vo.id}}" size="mini">选择服务机构</button>
-          </block>
-          <block wx:else>
-            <text class="list_zx"></text>
-            <button class="list_zx" style="color:#7f7f7f; padding:0 25rpx;line-height:60rpx;font-size:24rpx;" size="mini">{{vo.shop_name}}</button>
-          
-            <button class="list_zx list_bgc" bindtap="onShareAdd" id="{{vo.id}}" style="padding:0 25rpx;line-height:60rpx;font-size:24rpx;" size="mini">加入分享专题</button>
-          </block>
         </view>
       </view>
     </block>
@@ -75,9 +61,27 @@
     <van-radio-group value="{{ radio }}" bind:change="onSelectChange">
       <van-cell-group>
         <block wx:for="{{getGoodsCheck}}" wx:for-item="vo" wx:key="key" wx:for-index="k">
-          <van-cell title="{{vo.shop_name}}" clickable data-name="{{vo.sid}}" bind:click="onClick">
-            <van-radio slot="right-icon" name="{{vo.sid}}" />
-          </van-cell>
+
+          <view class="yyfy_li">
+            <view class="yyfy_left">
+              <van-radio name="{{vo.sid}}" />
+            </view>
+            <view class="yyfy_right">
+              <image class="yyfy_li_v" src="../../images/v.png"></image>
+              <image class="yyfy_li_img" src="{{vo.shop_thumb_img}}"></image>
+              <view class="yyfy_li_content">
+                <view class="yyfy_li_content_title">{{vo.shop_name}}</view>
+                <view class="yyfy_li_content_des">{{vo.shop_describe}}</view>
+                <view class="yyfy_li_content_note">
+                  <view class="yyfy_content_des">
+                    <view class="yyfy_content_des_fy">返佣{{vo.shop_commission}}%</view>
+                    <view class="yyfy_content_des_ads">{{vo.shop_address}}</view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+
         </block>
       </van-cell-group>
     </van-radio-group>

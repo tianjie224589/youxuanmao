@@ -1,10 +1,32 @@
 <view class="category">
   <view class="list">
     <block wx:for="{{getShareList}}" wx:for-item="vo" wx:key="key" wx:for-index="k">
+
       <van-swipe-cell right-width="{{ 65 }}" async-close bind:close="onClose" id="{{vo.id}}">
-        <van-card price="{{vo.price}}" origin-price="{{vo.original_price}}" desc="销量：{{vo.sales}}" title="{{vo.name}}" thumb="{{vo.thumb_img}}" bindtap="toGoodsInfo" id="{{vo.goods_id}}"/>
+
+        <view class="yyfy_li" bindtap='toGoodsInfo' id="{{vo.goods_id}}">
+          <image class="yyfy_li_img" src="{{vo.thumb_img}}"></image>
+          <view class="yyfy_li_content">
+            <view class="yyfy_li_content_title">{{vo.name}}</view>
+            <view class="yyfy_li_content_money">
+              <view class="yyfy_money"><text class="yyfy_money_fh">￥</text>{{vo.price}}</view>
+              <view class="yyfy_yuanjia">￥{{vo.original_price}}</view>
+            </view> 
+            <view class="yyfy_li_content_note">
+              <block wx:if="{{getUserInfo.identity == '1' || getUserInfo.identity == '2'}}">
+                <view class="yyfy_content_zs">赚/省{{vo.commission_c}}%</view>
+              </block>
+              <block wx:if="{{getUserInfo.identity == '3' || getUserInfo.identity == '4'}}">
+                <view class="yyfy_content_zs">省/赚{{vo.commission_b}}%</view>
+              </block>
+              <view class="yyfy_content_ys">已售：{{vo.sales}}</view>
+            </view>
+          </view>
+        </view>
+
         <view slot="right">删除</view>
       </van-swipe-cell>
+
     </block>
   </view>
   <view class="addbank">
@@ -16,3 +38,4 @@
     </block>
   </view>
 </view>
+<van-toast id="van-toast" />

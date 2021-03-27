@@ -92,7 +92,7 @@ Page({
   onSelectCoupon(){
     console.log('选择选择优惠券')
     wx.navigateTo({
-      url: '../my/coupon/list?oid='+this.data.id+'&money='+this.data.money
+      url: '../my/coupon/list?oid='+this.data.id+'&money='+this.data.money+'&type='+this.data.getGoodsInfo.type
     })
   },
 

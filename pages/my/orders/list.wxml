@@ -29,7 +29,10 @@
         <view class="order-li-content">
           <view class="order-li-c-info" bindtap="onToOrderInfo" id="{{vo.id}}">
             <view class="order-li-c-info-title">{{vo.goods_name}}</view>
-            <view class="order-li-c-info-money"><text class="order-li-c-info-ico">￥</text>{{vo.pay_money}}</view>
+            <view class="order-li-c-info-money">
+              <view class="order-li-money"><text class="order-li-c-info-ico">￥</text>{{vo.money}}</view>
+              <view class="order-li-num">x1</view>
+            </view>
           </view>
           <view class="order-li-c-des">
             <view class="order-li-c-des-note">
@@ -38,8 +41,9 @@
                 <view class="order-li-c-des-ads">{{vo.shop_address}}</view>
               </block>
               <block wx:if="{{vo.order_type == '3'}}">
-                <view class="order-li-c-des-tel">电话:{{vo.collect_phone}}</view>
-                <view class="order-li-c-des-ads">地址:{{vo.collect_ads}}</view>
+                <block wx:if="{{vo.order_state == '6'}}">
+                  <button class="putong" style="width:80px" bindtap="onToOrderInfo" id="{{vo.id}}">查看物流</button>
+                </block>
               </block>
             </view>
             <view class="order-li-c-des-s">
@@ -53,10 +57,10 @@
                 <van-button size="small" color="#EA617B" round type="info" bindtap="onClickShow" id="{{vo.cheack_no}}" >待核销</van-button>
               </block>
               <block wx:if="{{vo.order_state == '4'}}">
-                <van-button size="small" color="#EA617B" round type="info">待收货</van-button>
+                <van-button size="small" color="#EA617B" round type="info">待发货</van-button>
               </block>
               <block wx:if="{{vo.order_state == '6'}}">
-                <van-button size="small" color="#EA617B" round type="info" bindtap="confirm" id="{{vo.id}}">收货</van-button>
+                <van-button size="small" color="#EA617B" round type="info" bindtap="confirm" id="{{vo.id}}">待收货</van-button>
               </block>
               <block wx:if="{{vo.order_state == '5'}}">
                 <van-button size="small" color="#EA617B" round type="info">完成</van-button>

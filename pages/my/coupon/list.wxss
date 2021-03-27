@@ -1,7 +1,7 @@
 @import '/dist/common/index.wxss';
 page{
   font-family: SimSun;
-  background-color: #F0F0F0;
+  background-color: #EEEEEE;
 }
 .category{
   display: grid;
@@ -13,28 +13,35 @@ page{
   width: 100%; 
   height: 200rpx; 
   margin-bottom: 20rpx; 
-  background-color: #fdcece; 
+  background-color: #fff; 
   color: #555553; 
   padding: 20rpx; 
   box-sizing:border-box;
   display:flex;
   justify-content: space-between;
+  border-radius: 10px;
+  border: 2px #EA617B solid;
+  box-sizing:border-box;
 }
 
-.list-li-info{}
-.title{font-size: 32rpx; font-weight: 600; line-height: 100rpx;}
-.title text{ margin-right: 100rpx;}
-.address-info{font-size: 28rpx;}
+.list-li-info{ text-align: left;}
+.list-li-title{font-size: 32rpx; font-weight: 600; line-height: 60rpx;}
+.list-li-title text{ margin-right: 100rpx;}
+.list-li-info{font-size: 24rpx; line-height: 40rpx; color: #777;}
+.list-li-info .money{ font-size: 28rpx; color: #EA617B; margin-right: 20rpx;}
+.list-li-info .man{ color: #999;}
+.list-li-time{font-size: 24rpx; color: #999;}
 .default{width: auto !important;}
 
-.list-li-edit{ width: 100rpx; text-align: center; padding-top: 80rpx; box-sizing:border-box;}
-
-
-
-.van-swipe-cell__left{width: 65px; height: 200rpx; line-height: 200rpx; background-color: #07C160; color: white; text-align: center;}
-.van-swipe-cell__right{width: 65px;height: 200rpx; line-height: 200rpx; background-color: #EE0A24; color: white; text-align: center;}
-
-
+.list-li-edit{ width: 80px; text-align: center; padding-top: 60rpx; box-sizing:border-box;}
+.submit{
+  width: 60px !important;
+  padding:0 10rpx;
+  font-size:24rpx !important;
+  background-color: #EB607D;
+  color: #EEEEEE;
+  border-radius: 100px;
+}
 
 
 

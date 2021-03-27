@@ -20,6 +20,7 @@ Page({
     getGoodsList: {},
     page: 1,
     num: 20,
+    notype: 3,
 
     getShareList: {},
     selectNum:0,
@@ -42,42 +43,30 @@ Page({
     console.log('键盘搜索', event.detail)
     var that = this;
     if(that.value != ''){
-      wx.request({
-        url: config.getGoodsList_url,
-        data:{"source":"wx","notype":"1","searchname":event.detail,"page":that.data.page,"num":that.data.num},
-        method: "post",
-        success: function (res) {
-          wx.stopPullDownRefresh();
-          that.setData({
-            getGoodsList: res.data.result,
-          })
-          wx.hideLoading();
-        }
-      });
+      that.getGoodsList();
     }
   },
   onCancel(event) {
     console.log('搜索-取消')
     var that = this;
-    wx.request({
-      url: config.getGoodsList_url,
-      data:{"source":"wx","notype":"1","page":that.data.page,"num":that.data.num},
-      method: "post",
-      success: function (res) {
-        wx.stopPullDownRefresh();
-        that.setData({
-          getGoodsList: res.data.result,
-        })
-        wx.hideLoading();
-      }
+    that.setData({
+      value: '',
     });
+    that.getGoodsList();
   },
 
-  onClose(event) {
-    console.log('关闭标签')
-    this.setData({
-      [`show.${event.target.id}`]: false,
+  onClickLabel(e){
+    var that = this;
+    console.log('点击标签',e.currentTarget)
+    var id = e.currentTarget.id;
+    var value = e.currentTarget.dataset.val;
+
+    that.setData({
+      value: value,
     });
+
+    that.getGoodsList();
+
   },
 
   onGetInfo(e){
@@ -115,6 +104,8 @@ Page({
               wx.hideLoading();
             }
           });
+
+          Toast.success('加入成功');
         }
       }
     });
@@ -195,6 +186,7 @@ Page({
           }
         });
 
+        Toast.success('加入成功');
       }
     });
 
@@ -213,6 +205,25 @@ Page({
     wx.navigateTo({
       url: 'myshare'
     })
+  },
+
+  getGoodsList(){
+    var that = this;
+    var loginUserinfo = (wx.getStorageSync('userinfo'));
+
+    wx.request({
+      url: config.getGoodsList_url,
+      data:{"source":"wx","notype":that.data.notype,"page":that.data.page,"num":that.data.num,"searchname":that.data.value},
+      method: "post",
+      success: function (res) {
+        console.log('获取商品',res.data)
+        wx.stopPullDownRefresh();
+        that.setData({
+          getGoodsList: res.data.result,
+        })
+        wx.hideLoading();
+      }
+    });
   },
 
   /**
@@ -258,20 +269,23 @@ Page({
       }
     });
 
-    //获取商品 notype=3 排除普通商品
+    //获取热门标签
     wx.request({
-      url: config.getGoodsList_url,
-      data:{"source":"wx","notype":"3","page":that.data.page,"num":that.data.num,"token":loginUserinfo.token},
+      url: config.getLableHot_url,
+      data:{"source":"wx","limit":"2"},
       method: "post",
       success: function (res) {
-        console.log('获取商品',res.data)
+        console.log('标签 res',res)
         wx.stopPullDownRefresh();
         that.setData({
-          getGoodsList: res.data.result,
+          lablelist: res.data.result,
         })
         wx.hideLoading();
       }
     });
+
+    //获取商品 notype=3 排除普通商品
+    that.getGoodsList();
 
     //获取已选择分享商品列表
     wx.request({
@@ -323,7 +337,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    this.onLoad()
   },
 
   /**

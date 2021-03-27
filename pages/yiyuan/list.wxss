@@ -34,14 +34,12 @@ page{
   justify-content: center;
   height: 100%;
 }
-
 .block {
   width: 60%;
   padding: 20rpx; box-sizing:border-box;
   background: #fff;
   padding-bottom: 4rpx;
 }
-
 .block-img{width: 100%;}
 .block-des{color: #8D8B8C; line-height: 50rpx; font-size: 24rpx;}
 

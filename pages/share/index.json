@@ -11,5 +11,6 @@
     "van-button": "/dist/button/index",
     "van-toast": "/dist/toast/index"
   },
-  "navigationBarTitleText": "省赚"
+  "navigationBarTitleText": "省赚",
+  "enablePullDownRefresh": true
 }

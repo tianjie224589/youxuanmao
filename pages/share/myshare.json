@@ -2,7 +2,8 @@
   "usingComponents": {
     "van-swipe-cell": "/dist/swipe-cell/index",
     "van-card": "/dist/card/index",
-    "van-button": "/dist/button/index"
+    "van-button": "/dist/button/index",
+    "van-toast": "/dist/toast/index"
   },
   "navigationBarTitleText": "我的分享管理"
 }
