@@ -1,6 +1,7 @@
 // pages/my/info/index.js
 import Toast from '../../../dist/toast/toast';
 var config = (wx.getStorageSync('config'));
+var replace = require('../../../utils/replace.js');
 
 Page({
 
@@ -19,6 +20,18 @@ Page({
     name:'',
     address:'',
     tell:'',
+
+    infoArticle:{},
+    nodes:'',
+
+    showpopup: false,
+  },
+
+  showPopup() {
+    this.setData({ showpopup: true });
+  },
+  onClosePopup() {
+    this.setData({ showpopup: false });
   },
 
   afterRead(event) {
@@ -131,14 +144,35 @@ Page({
       }
     });
 
+  },
 
+  //获取《商家入驻协议》
+  getShopRegInfo(){
+    var that = this
+    wx.request({
+      url: config.getArticleInfo_url,
+      data:{"source":"wx","id":14},
+      method: "post",
+      success: function (res) {
+        console.log('商家入驻协议 返回：',res)
+        if(res.data.status == 200){
+          that.setData({
+            infoArticle: res.data.result,
+            nodes: replace.convertHtmlToText(res.data.result.content)
+          });
+        }else{
+          Toast.fail(res.data.msg);
+        }
+        
+      }
+    });
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (option) {
-  var that = this
+    var that = this
 
     var loginUserinfo = (wx.getStorageSync('userinfo'));
     console.log('token',loginUserinfo)
@@ -159,6 +193,8 @@ Page({
       console.log('绑定销售id',option.id);
       this.setData({ id: option.id});   
     }
+
+    that.getShopRegInfo();
 
   },
 

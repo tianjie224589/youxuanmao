@@ -30,6 +30,6 @@ page{
   width: 100% !important;
 }
 
-
+.shopres{font-size: 28rpx; color: #999; padding: 10px; line-height: 50rpx;}
 
 

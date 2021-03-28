@@ -172,6 +172,12 @@ Page({
     })
   },
 
+  onShopReg(){
+    //商家注册
+    wx.navigateTo({
+      url: 'info/index'
+    })
+  },
   onshanglist(){
     //测试跳转分享
     var loginUserinfo = (wx.getStorageSync('userinfo'));

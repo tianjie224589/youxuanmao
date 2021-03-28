@@ -142,6 +142,13 @@
         <view class="my-set-tr-tb"><van-icon name="arrow" /></view>
       </view>
       <!--
+      <view class="my-set-tr" bindtap="onShopReg">
+        <view class="my-set-tr-title">
+          <van-icon name="friends-o" />
+          商家注册
+        </view>
+        <view class="my-set-tr-tb"><van-icon name="arrow" /></view>
+      </view>
       <view class="my-set-tr" bindtap="onshanglist">
         <view class="my-set-tr-title">
           <van-icon name="friends-o" />

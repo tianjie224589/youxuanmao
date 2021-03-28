@@ -21,7 +21,7 @@
   <van-divider />
   <view class="shuru shuru_body_note font-color">提示：上传营业执照及身份信息以便于用户对你的认可</view>
   <view class="shuru">
-    <view class="shuru_title shuru_height2">商品店名</view>
+    <view class="shuru_title shuru_height2">商家店名</view>
     <view class="shuru_body">
       <van-field model:value="{{ name }}" placeholder="请输入" error />
     </view>
@@ -38,8 +38,14 @@
       <van-field model:value="{{ tell }}" placeholder="请输入" error />
     </view>
   </view>
+  <view class="shuru">
+    <text class="shopres" bindtap="showPopup">《商家入驻协议》</text>
+  </view>
   <view class="addbank">
     <van-button custom-class="submit" color="#EA617B" size="large" type="primary" bindtap="onAdd">确定</van-button>
   </view>
 </view>
+<van-popup show="{{ showpopup }}" position="bottom" custom-style="max-height:80%;min-height:30%" bind:close="onClosePopup">
+  <rich-text nodes="{{nodes}}"></rich-text>
+</van-popup>
 <van-toast id="van-toast" />
