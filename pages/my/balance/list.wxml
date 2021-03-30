@@ -17,6 +17,7 @@
     </van-tab>
   </van-tabs>
   <block wx:for="{{list}}" wx:for-item="vo" wx:key="key" wx:for-index="k">
-    <van-cell title="{{vo.name}}" value="{{vo.money_str}}" label="{{vo.addtime_str}}" />
+    <van-cell title="{{vo.name}} {{vo.addtime_str}}" value="{{vo.money_str}}" label="{{vo.note}}" />
   </block>
 </view>
+<van-toast id="van-toast" />

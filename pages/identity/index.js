@@ -1,18 +1,55 @@
 // pages/identity/index.js
+var config = (wx.getStorageSync('config'));
+var replace = require('../../utils/replace.js');
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    infoArticle:{},
+    nodes:'',
 
+    showpopup: false,
+  },
+
+  showPopup() {
+    this.setData({ showpopup: true });
+  },
+  onClosePopup() {
+    this.setData({ showpopup: false });
+  },
+
+  //获取《用户协议》
+  getShopRegInfo(){
+    var that = this
+    wx.request({
+      url: config.getArticleInfo_url,
+      data:{"source":"wx","id":13},
+      method: "post",
+      success: function (res) {
+        console.log('用户协议 返回：',res)
+        if(res.data.status == 200){
+          that.setData({
+            infoArticle: res.data.result,
+            nodes: replace.convertHtmlToText(res.data.result.content)
+          });
+        }else{
+          Toast.fail(res.data.msg);
+        }
+        
+      }
+    });
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that = this;
 
+    that.getShopRegInfo();
   },
 
   /**

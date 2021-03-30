@@ -10,7 +10,7 @@
           <view class="list-li-info">面值：￥<text class="money">{{vo.face_value}}</text> <text class="man">满{{vo.full}}可用</text></view>
           <view class="list-li-time">限时：{{vo.start_time}} - {{vo.end_time}}</view>
         </view>
-        <view class="list-li-edit" bindtap="isuse" id="{{vo.id}}" data-val="{{vo.type}}">
+        <view class="list-li-edit" bindtap="isuse" id="{{vo.id}}" data-val="{{vo.face_value}}" data-full="{{vo.full}}" data-type="{{vo.type}}">
           <button class="submit" size="mini">使用</button>
         </view>
       </view>

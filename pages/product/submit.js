@@ -91,6 +91,13 @@ Page({
 
   onSelectCoupon(){
     console.log('选择选择优惠券')
+    var that = this;
+    var face_value = that.data.face_value;
+    var money = that.data.money;
+    that.setData({
+      face_value: 0,
+      money: money + face_value,
+    })
     wx.navigateTo({
       url: '../my/coupon/list?oid='+this.data.id+'&money='+this.data.money+'&type='+this.data.getGoodsInfo.type
     })

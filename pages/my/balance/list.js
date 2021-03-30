@@ -1,4 +1,5 @@
 // pages/my/balance/list.js
+import Toast from '../../../dist/toast/toast';
 var config = (wx.getStorageSync('config'));
 
 Page({
@@ -16,9 +17,13 @@ Page({
 
   cashout(){
     console.log('提现')
-    wx.navigateTo({
-      url: 'cashout'
-    })
+    if(this.data.getUserInfo.bankid==0){
+      Toast.fail('请设置默认银行卡');
+    }else{
+      wx.navigateTo({
+        url: 'cashout'
+      })
+    }
   },
 
   onClick(event) {
@@ -105,22 +110,8 @@ Page({
   onShow: function () {
     var that = this
 
-    var loginUserinfo = (wx.getStorageSync('userinfo'));
-
     //获取用户信息
-    wx.request({
-      url: config.getUserInfo_url,
-      data:{"source":"wx","token":loginUserinfo.token},
-      method: "post",
-      success: function (res) {
-        console.log('userinfo-res',res)
-        wx.stopPullDownRefresh();
-        that.setData({
-          getUserInfo: res.data.result,
-        })
-        wx.hideLoading();
-      }
-    });
+    that.onLoad()
   },
 
   /**

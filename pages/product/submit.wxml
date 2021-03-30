@@ -52,12 +52,7 @@
     <van-cell-group>
       <block wx:if="{{getGoodsInfo.type == '1'}}">
         <van-cell title="预约金额" value="￥{{getGoodsInfo.advance}}" />
-        <block wx:if="{{getGoodsInfo.advance_double == '1'}}">
-          <van-cell title="尾款金额" value="￥{{ (getGoodsInfo.price - getGoodsInfo.advance * 2)*num }}" />
-        </block>
-        <block wx:if="{{getGoodsInfo.advance_double == '2'}}">
-          <van-cell title="尾款金额" value="￥{{ (getGoodsInfo.price - getGoodsInfo.advance)*num }}" />
-        </block>
+        <van-cell title="尾款金额" value="￥{{ (getGoodsInfo.price - getGoodsInfo.advance * getGoodsInfo.advance_double)*num }}" />
       </block>
       <block wx:if="{{getGoodsInfo.type == '2'}}">
       </block>

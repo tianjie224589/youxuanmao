@@ -56,8 +56,8 @@ page{
 }
 
 
-
-
+.shuru{width: 100%; margin-top: 30px;}
+.shopres{font-size: 24rpx; color: #999; padding: 10px; line-height: 50rpx;}
 
 
 

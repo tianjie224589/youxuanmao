@@ -10,7 +10,9 @@ Page({
    */
   data: {
     list:{},
+
     submit_id:0,
+    usetype:0,
     money:0,
 
     type:0,
@@ -23,25 +25,28 @@ Page({
     var loginUserinfo = (wx.getStorageSync('userinfo'));
 
     var id = e.currentTarget.id;
-    var type = e.currentTarget.dataset.val;
+    var type = e.currentTarget.dataset.type;
 
-    if(type==1){
-      wx.switchTab({
-        url: '../../classify/index'
-      })
+    if(that.data.submit_id != 0){
+      //返回确认订单页面
+      that.goToback(e)
     }else{
-      console.log('使用 优惠券id:',id)
-
-      wx.request({
-        url: config.setMyCouponUse_url,
-        data:{"source":"wx","token":loginUserinfo.token,"id":id},
-        method: "post",
-        success: function (res) {
-          console.log('使用 res',res)
-
-        }
-      });
-
+      if(type==1){
+        wx.switchTab({
+          url: '../../classify/index'
+        })
+      }else{
+        console.log('使用 优惠券id:',id)
+        wx.request({
+          url: config.setMyCouponUse_url,
+          data:{"source":"wx","token":loginUserinfo.token,"id":id},
+          method: "post",
+          success: function (res) {
+            console.log('使用 res',res)
+  
+          }
+        });
+      }
     }
 
   },

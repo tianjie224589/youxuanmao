@@ -285,7 +285,19 @@ Page({
     });
 
     //获取商品 notype=3 排除普通商品
-    that.getGoodsList();
+    wx.request({
+      url: config.getGoodsList_url,
+      data:{"source":"wx","type":1,"page":that.data.page,"num":that.data.num,"searchname":that.data.value},
+      method: "post",
+      success: function (res) {
+        console.log('获取商品',res.data)
+        wx.stopPullDownRefresh();
+        that.setData({
+          getGoodsList: res.data.result,
+        })
+        wx.hideLoading();
+      }
+    });
 
     //获取已选择分享商品列表
     wx.request({

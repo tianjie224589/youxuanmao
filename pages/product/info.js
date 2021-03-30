@@ -8,29 +8,31 @@ Page({
    * 页面的初始数据
    */
   data: {
-    identity:'',      //当前用户身份
-    id:0,             //商品id
-    share_id:0,       //分享id
-    uid:0,            //分享会员id
-    sharebuyid:0,     //
+    identity: '',      //当前用户身份
+    id: 0,             //商品id
+    share_id: 0,       //分享id
+    uid: 0,            //分享会员id
+    sharebuyid: 0,     //
 
-    viewWidth:0,
-    viewHeight:0,
-    nodes:'',
+    viewWidth: 0,
+    viewHeight: 0,
+    nodes: '',
     getGoodsInfo: {},
     getUserInfo: {},
     phone: '15683088738',
 
     show: false,
-    fwjg:0,
+    fwjg: 0,
     
     showPopup: false,
+    typePopup: 1,    //医美商品时生效 1为分享，2未自购
     getGoodsCheck: {},
   },
 
-  onSubmit(e){
-    console.log('自购')
+  onSubmit(){
     var that = this;
+    console.log('自购 share_id',that.data.share_id)
+    
     if(that.data.share_id != 0){
       that.setShareBuyAdd();
     }else{
@@ -51,6 +53,19 @@ Page({
     Toast.fail('请先升级Vip');
   },
 
+  onService(){
+    var that = this;
+    var loginUserinfo = (wx.getStorageSync('userinfo'));
+    console.log('自购 非分享医美(医院)商品')
+
+    that.getGoodsCheck();
+
+    that.setData({
+      typePopup: 2,
+      show: true
+    });
+  },
+
   onShare(){
     var that = this;
     var loginUserinfo = (wx.getStorageSync('userinfo'));
@@ -59,7 +74,7 @@ Page({
     //验证：如果是普通会员且vip为0时，禁止分享
     if(that.data.getUserInfo.vip==0 && that.data.getUserInfo.identity==1){
       console.log('vip为0级的普通会员请先购买后再分享')
-      Toast.fail('请先升级Vip');
+      Toast.fail('购买后即可分享');
       return false;
     }
 
@@ -68,47 +83,62 @@ Page({
     if(getGoodsInfo.type==1){
       console.log('医院(医美)产品:[弹窗]-获取核销机构')
       //医院:选择匹配医院-直接分享
-      //获取核销机构
-      wx.request({
-        url: config.getGoodsCheck_url,
-        data:{"source":"wx","token":loginUserinfo.token,"id":that.data.id},
-        method: "post",
-        success: function (res) {
-          console.log('分享赚:加入分享库返回-res',res.data)
-          if(res.data.status==200){
-            that.setData({
-              getGoodsCheck: res.data.result,
-            })
-          }
-        }
-      });
+      that.getGoodsCheck();
 
-      this.setData({ show: true });
+      that.setData({ show: true });
     }else if(getGoodsInfo.type==2){
       console.log('美容(生美)产品:加入分享库-跳转到省赚页面')
       //美容:加入分享库-跳转到省赚页面
-
       //创建分享
-      wx.request({
-        url: config.setShareAdd_url,
-        data:{"source":"wx","token":loginUserinfo.token,"id":that.data.id},
-        method: "post",
-        success: function (res) {
-          console.log('分享赚-res',res.data.status)
-          if(res.data.status==200){
-            wx.switchTab({
-              url: '../share/index'
-            })
-          }
-        }
-      });
+      that.setShareAdd()
 
     }else{
-      console.log('商品类型错误')
+      console.log('物流商品(调省赚页面+组合分享)')
+      //创建分享
+      that.setShareAdd()
     }
   },
   onShowClose() {
     this.setData({ show: false });
+  },
+
+  setShareAdd(){
+    var that = this;
+    var loginUserinfo = (wx.getStorageSync('userinfo'));
+    //创建分享
+    wx.request({
+      url: config.setShareAdd_url,
+      data:{"source":"wx","token":loginUserinfo.token,"id":that.data.id},
+      method: "post",
+      success: function (res) {
+        console.log('分享赚-res',res.data)
+        if(res.data.status==200){
+          wx.switchTab({
+            url: '../share/index'
+          })
+        }
+      }
+    });
+  },
+
+  getGoodsCheck(){
+    var that = this;
+    var loginUserinfo = (wx.getStorageSync('userinfo'));
+    console.log('医美商品 获取核销机构')
+
+    wx.request({
+      url: config.getGoodsCheck_url,
+      data:{"source":"wx","token":loginUserinfo.token,"id":that.data.id},
+      method: "post",
+      success: function (res) {
+        console.log('分享赚:加入分享库返回-res',res.data)
+        if(res.data.status==200){
+          that.setData({
+            getGoodsCheck: res.data.result,
+          })
+        }
+      }
+    });
   },
 
   onFwjg(e){
@@ -179,7 +209,7 @@ Page({
     console.log('viewHeight',viewWidth);
     that.setData({
       viewWidth:viewWidth,
-      viewHeight:viewWidth
+      viewHeight:viewWidth/(750/850)
     })
 
     //身份
