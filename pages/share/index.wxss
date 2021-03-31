@@ -53,7 +53,7 @@ page{
 }
 
 .list_img{
-  height: 200rpx;
+  height: 220rpx;
   width: 200rpx;
   border-radius: 20rpx;
 }

@@ -15,7 +15,7 @@ page{
   display: grid;
 }
 .list_li{width: 100%; padding: 10px; box-sizing:border-box; background-color: #fff; display: flex; margin-bottom: 10px; border-radius: 5px;}
-.list_img{ width: 88px; height: 88px; float: left;}
+.list_img{ width: 88px; height: 100px; float: left;}
 .list_content{width:calc(100% - 88px);}
 .list_body{width: 100%; padding-left: 10px; box-sizing:border-box;}
 .list_left{width: 70%;float: left; display: grid;}
