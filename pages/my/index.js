@@ -178,14 +178,19 @@ Page({
       url: 'info/index'
     })
   },
-  onshanglist(){
+  onListShare(){
     //测试跳转分享
     var loginUserinfo = (wx.getStorageSync('userinfo'));
     wx.navigateTo({
       url: '/pages/share/listshare?uid=' + loginUserinfo.id
     })
   },
-
+  onShopCheack(){
+    //商家注册
+    wx.navigateTo({
+      url: 'shop/cheack?num=276284'
+    })
+  },
 
   /**
    * 生命周期函数--监听页面加载

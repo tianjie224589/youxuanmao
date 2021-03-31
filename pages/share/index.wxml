@@ -21,10 +21,10 @@
   <view class="fxcontent">
     <block wx:for="{{getGoodsList}}" wx:for-item="vo" wx:key="key" wx:for-index="k">
       <view class="list_li">
-        <view class="list_fx_fy" bindtap='onGetInfo' data-val="{{vo.id}}">
-          <image class="list_img" src="{{vo.thumb_img}}"></image>
+        <view class="list_fx_fy">
+          <image class="list_img" src="{{vo.thumb_img}}" bindtap='onGetInfo' data-val="{{vo.id}}"></image>
           <view class="list_content">
-            <view class="list_body">
+            <view class="list_body" bindtap='onGetInfo' data-val="{{vo.id}}">
               <view class="list_left_title">{{vo.name}}</view>
               <view class="list_right">
                 <view class="list_right_price"><text class="price_tb">￥</text>{{vo.price}}</view>

@@ -1,10 +1,25 @@
 <view class="category">
-  <block wx:if="{{getGoodsInfo.name}}">
+  <block wx:if="{{orderInfo.goodsinfo}}">
     <view class="content">
-      <image style="height:{{viewHeight}}px" class="order-img" src="{{getGoodsInfo.thumburl}}"></image>
+      <image style="height:{{viewHeight - 20}}px" class="order-img" src="{{orderInfo.goodsinfo.thumburl}}"></image>
       <view class="content-info">
+        <view class="goods_title">{{orderInfo.goodsinfo.name}}</view>
         
       </view>
+      <van-divider contentPosition="center">订单信息</van-divider>
+      <van-cell-group>
+        <van-cell title="订单号" value="{{orderInfo.out_trade_no}}" size="large" />
+        <van-cell title="已支付" value="{{orderInfo.money}}" size="large" label="{{orderInfo.paytime}}" />
+        <van-cell title="到付" value="{{orderInfo.rest_money}}" size="large" />
+      </van-cell-group>
+      <block wx:if="{{orderInfo.order_type == 1}}">
+        <van-divider contentPosition="center">预约信息</van-divider>
+        <van-cell-group>
+          <van-cell title="预约姓名" value="{{orderInfo.yy_name}}" size="large" />
+          <van-cell title="预约手机号" value="{{orderInfo.yy_mobile}}" size="large"/>
+          <van-cell title="预约时间" value="{{orderInfo.yy_time}}" size="large" />
+        </van-cell-group>
+      </block>
     </view>
     <view class="submit-button">
       <van-button custom-class="submit" round color="#EA617B" size="large" type="primary" bindtap="onSubmit">提交</van-button>

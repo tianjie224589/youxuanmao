@@ -51,7 +51,7 @@ Page({
         if(res.data.status==200){
           that.onPullDownRefresh();   //刷新
         }else{
-          Toast('搜索' + res.data.msg);
+          Toast.fail(res.data.msg);
         }
       }
     });
@@ -193,6 +193,13 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    var that = this;
+    var loginUserinfo = (wx.getStorageSync('userinfo'));
+
+    if(that.data.yystatus == 1){
+      console.log('预约成功返回 刷新')
+      that.onPullDownRefresh()
+    }
 
   },
 

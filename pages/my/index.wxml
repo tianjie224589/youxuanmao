@@ -152,14 +152,21 @@
         </view>
         <view class="my-set-tr-tb"><van-icon name="arrow" /></view>
       </view>
-      <view class="my-set-tr" bindtap="onshanglist">
+      <view class="my-set-tr" bindtap="onListShare">
         <view class="my-set-tr-title">
           <van-icon name="friends-o" />
           分享
         </view>
         <view class="my-set-tr-tb"><van-icon name="arrow" /></view>
+      </view>-->
+      <view class="my-set-tr" bindtap="onShopCheack">
+        <view class="my-set-tr-title">
+          <van-icon name="friends-o" />
+          核销订单
+        </view>
+        <view class="my-set-tr-tb"><van-icon name="arrow" /></view>
       </view>
-      -->
+      
     </view>
   </block>
   <van-overlay show="{{ show }}" bind:click="onClickHide">

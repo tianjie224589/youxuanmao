@@ -1,4 +1,5 @@
 // pages/my/yuyue/yuyue.js
+import Toast from '../../../dist/toast/toast';
 var config = (wx.getStorageSync('config'));
 Page({
 
@@ -88,8 +89,19 @@ Page({
       data:{"source":"wx","token":loginUserinfo.token,'id':that.data.id,"yy_name":yy_name,"yy_mobile":yy_mobile,"yy_time":yy_time,"yy_type":yy_type},
       method: "post",
       success: function (res) {
-        console.log(res)
-        wx.navigateBack()
+        console.log('预约返回：',res)
+        if(res.data.status==200){
+          //带参数返回上一页
+          let pages = getCurrentPages(); //获取当前页面js里面的pages里的所有信息。
+          let prevPage = pages[ pages.length - 2 ];
+          //prevPage 是获取上一个页面的js里面的pages的所有信息。 -2 是上一个页面，-3是上上个页面以此类推。
+          prevPage.setData({  // 将我们想要传递的参数在这里直接setData。上个页面就会执行这里的操作。
+            yystatus: 1,
+          })
+          wx.navigateBack({ changed: true });//返回上一页
+        }else{
+          Toast.fail(res.data.msg);
+        }
       }
     });
     

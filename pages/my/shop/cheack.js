@@ -8,9 +8,11 @@ Page({
    */
   data: {
     num:'',
-    viewHeight:0,
-    getGoodsInfo:{},
-    nodes:'',
+
+    viewWidth: 0,
+    viewHeight: 0,
+
+    orderInfo:{},
   },
 
   onSubmit(){
@@ -55,8 +57,9 @@ Page({
 
     var viewWidth=wx.getSystemInfoSync().windowWidth;           //设置图片显示宽度为当前屏幕宽度，
     console.log('viewHeight',viewWidth);
-    this.setData({
-      viewHeight:viewWidth - 20
+    that.setData({
+      viewWidth:viewWidth,
+      viewHeight:viewWidth/(750/850)
     })
 
     //根据核销码 查询订单信息
@@ -70,10 +73,7 @@ Page({
           console.log(res)
           wx.stopPullDownRefresh();
           that.setData({
-            getGoodsInfo: res.data.result,
-          });
-          that.setData({
-            nodes: res.data.result.content.replace(/\<img/gi, '<img style="max-width:100%;height:auto;float:left;display:block"').replace(/\<section/g, '<div').replace(/\/section>/g, '\div>')
+            orderInfo: res.data.result,
           });
           wx.hideLoading();
         }else{

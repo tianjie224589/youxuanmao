@@ -17,7 +17,8 @@ page{
 }
 
 .order-img{width: 100%;}
-.content-info{ width: 100%; font-size: 24rpx;line-height: 26rpx; padding: 20rpx; box-sizing: border-box;}
+.content-info{ width: 100%; font-size: 24rpx;line-height: 26rpx; padding: 20rpx; box-sizing: border-box; display: grid;}
+.goods_title{font-size: 28rpx;}
 
 
 .submit-button{
