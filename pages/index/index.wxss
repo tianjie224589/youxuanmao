@@ -25,7 +25,7 @@ page{
 .youxuan_bq{ width: 300rpx; text-align: right; font-size: 28rpx;}
 .youxuan_body{ width: 100%; background-color:#EA617B; display:flex; justify-content: space-around;}
 .youxuan_sp{ width: 340rpx; margin: 10rpx; border-radius:10px; overflow: hidden; justify-content: space-around; box-sizing: border-box; background-color:#fff;}
-.yx_img{ width: 100%; height:300rpx; border-radius:10px; }
+.yx_img{ width: 100%; height:250rpx; border-radius:10px; }
 .yx_content{ text-align: center; font-size:24rpx; padding: 10rpx; box-sizing:border-box;}
 .yx_content-title{width: 100%; height: 80rpx; font-size: 28rpx;color: #353535;line-height: 40rpx;overflow: hidden;}
 .yx_content_jg{width: 100%; display:flex; justify-content: space-around;}
@@ -45,7 +45,7 @@ page{
 .yyfy_li_v{ height: 39rpx; width: 32rpx; position: absolute; top: 20rpx;right: 30rpx;}
 .yyfy_li_img{ width: 200rpx; height: 220rpx; border-radius:10px;}
 .yyfy_li_content{ width: 450rpx; padding: 10rpx; box-sizing:border-box;}
-.yyfy_li_content_title{ height: 80rpx; line-height: 40rpx; overflow: hidden;}
+.yyfy_li_content_title{ height: 80rpx; line-height: 40rpx; overflow: hidden; font-size: 28rpx;}
 .title_w{ width: 360rpx;}
 .yyfy_li_content_null{height: 10rpx; width: 100%; }
 .yyfy_li_content_money{height: 80rpx; width: 100%; line-height: 80rpx; display:flex; justify-content: space-around; background-color:#fff;}
@@ -119,15 +119,17 @@ page{
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100%;
+  
 }
 .blockShop {
   padding: 20px;
   background: #fff;
-  padding-bottom: 4rpx;
+  
+  max-height: 400px;
+  box-sizing: border-box; 
 }
 .blockShop-img{}
-.blockShop-des{color: #8D8B8C; line-height: 50rpx; font-size: 24rpx;}
+.blockShop-des{color: #8D8B8C; line-height: 50rpx; font-size: 28rpx;padding-bottom: 20rpx;}
 
 
 

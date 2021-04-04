@@ -325,7 +325,7 @@
 <van-popup show="{{ showShop }}" bind:close="onCloseShop">
   <view class="wrapperShop">
     <view class="blockShop">
-      <image class="blockShop-img" style="width:{{viewWidth*0.6 - 40}}px;height:{{viewWidth*0.6 - 40}}px;" src="{{infoshop.thumburl}}"></image>
+      <image class="blockShop-img" style="width:{{viewWidth*0.6 - 40}}px;height:{{viewWidth*0.6 - 20}}px;" src="{{infoshop.thumburl}}"></image>
       <view class="blockShop-des">{{infoshop.describe}}</view>
     </view>
   </view>
