@@ -128,6 +128,7 @@
           </view>
           <view class="my-set-tr-tb"><van-icon name="arrow" /></view>
         </view>
+        <!--
         <view class="my-set-tr" bindtap="onActivity">
           <view class="my-set-tr-title">
             <van-icon name="point-gift-o" />
@@ -135,7 +136,7 @@
           </view>
           <view class="my-set-tr-tb"><van-icon name="arrow" /></view>
         </view>
-        
+        -->
         <view class="my-set-tr" bindtap="onIdentity">
           <view class="my-set-tr-title">
             <van-icon name="friends-o" />

@@ -63,7 +63,10 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    var that = this;
+    if(that.data.checktype != 0){
+      Toast('核销成功');
+    }
   },
 
   /**

@@ -20,6 +20,8 @@ Page({
     adsid:0,
     couponid:0,
     face_value:0,
+
+    maxstepper:0,
   },
 
   onSubmit(e){
@@ -142,11 +144,16 @@ Page({
         if(res.data.result.type==1){
           money = res.data.result.advance;
         }
+        var maxstepper = 100;
+        if(res.data.result.month_sales!=0){
+          maxstepper = res.data.result.month_sales
+        }
 
         wx.stopPullDownRefresh();
         that.setData({
           getGoodsInfo: res.data.result,
           money: money,
+          maxstepper:maxstepper,
         });
         wx.hideLoading();
       }

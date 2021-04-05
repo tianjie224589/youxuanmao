@@ -19,11 +19,14 @@
           </view>
           <view class="order-li-c-des">
             <view class="order-li-c-des-note">
-              <view class="order-li-c-des-tel">电话:{{vo.collect_phone}}</view>
-              <view class="order-li-c-des-ads">地址:{{vo.collect_ads}}</view>
             </view>
             <view class="order-li-c-des-s">
-              <van-button size="small" color="#EA617B" round type="info">等待核销</van-button>
+              <block wx:if="{{vo.order_state == '4'}}">
+                <van-button size="small" color="#EA617B" round type="info">待核销</van-button>
+              </block>
+              <block wx:if="{{vo.order_state == '5'}}">
+                <van-button size="small" color="#EA617B" round plain>完成</van-button>
+              </block>
             </view>
           </view>
         </view>

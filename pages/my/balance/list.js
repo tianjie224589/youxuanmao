@@ -19,6 +19,9 @@ Page({
     console.log('提现')
     if(this.data.getUserInfo.bankid==0){
       Toast.fail('请设置默认银行卡');
+      wx.navigateTo({
+        url: '../bank/list'
+      })
     }else{
       wx.navigateTo({
         url: 'cashout'

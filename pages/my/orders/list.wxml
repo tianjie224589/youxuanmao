@@ -58,7 +58,7 @@
                 <van-button size="small" color="#999" round plain>待审核</van-button>
               </block>
               <block wx:if="{{vo.order_state == '4'}}">
-                <van-button size="small" color="#EA617B" round type="info" bindtap="onClickShow" id="{{vo.cheack_no}}">待核销</van-button>
+                <van-button size="small" color="#EA617B" round type="info" bindtap="onClickShow" id="{{vo.cheack_no}}">核销码</van-button>
               </block>
               <block wx:if="{{vo.order_state == '5'}}">
                 <van-button size="small" color="#EA617B" round plain>完成</van-button>

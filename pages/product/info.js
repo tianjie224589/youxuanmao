@@ -50,7 +50,7 @@ Page({
   },
 
   sharerro(){
-    Toast.fail('请先升级Vip');
+    Toast.fail('购买后即可分享');
   },
 
   onService(){

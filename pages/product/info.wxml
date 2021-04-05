@@ -72,7 +72,12 @@
             <text class="info-money-tb">￥</text>{{getGoodsInfo.price}}
           </view>
           <view class="info-money-jg">
-            <text class="info-money-tb">赚</text>{{getGoodsInfo.commission_b}}<text class="info-money-tb">%</text>
+            <block wx:if="{{getUserInfo.identity == '1' || getUserInfo.identity == '2'}}">
+              <text class="info-money-tb">赚</text>{{getGoodsInfo.commission_c}}<text class="info-money-tb">%</text>
+            </block>
+            <block wx:else>
+              <text class="info-money-tb">赚</text>{{getGoodsInfo.commission_b}}<text class="info-money-tb">%</text>
+            </block>
           </view>
         </view>
         <view class="info-yy">预约金：￥ {{getGoodsInfo.advance}}</view>

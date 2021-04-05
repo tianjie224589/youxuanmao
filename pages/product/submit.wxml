@@ -22,7 +22,7 @@
       <view class="address-ico">
         <van-icon style="margin-top:10rpx;" name="location" color="#ffffff" />
       </view>
-      <view class="address-ads">
+      <view class="address-ads" bindtap="onSelectAds">
         <block wx:if="{{collectid != '0'}}">
           <van-panel title="{{getCollectInfo.name}}" desc="{{getCollectInfo.phone}}">
             <view class="address-ads-info">{{getCollectInfo.collect}}</view>
@@ -42,7 +42,7 @@
       <view class="order-info-des">
         <view class="order-info-des-jg"><text class="order-info-des-jg-tb">￥</text>{{getGoodsInfo.price}}</view>
         <view class="order-info-des-num">
-          <van-stepper value="{{ 1 }}" bind:change="onChange" />
+          <van-stepper value="{{ 1 }}" max="{{maxstepper}}" bind:change="onChange" />
         </view>
       </view>
     </view>
