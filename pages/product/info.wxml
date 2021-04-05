@@ -1,0 +1,112 @@
+<view class="category">
+  <view class="page-section page-section-spacing swiper">
+    <swiper style="height:{{viewHeight}}px" class="swiper-img" indicator-dots="true" autoplay="true" interval="3000">
+      <block wx:for="{{getGoodsInfo.pictureidlist}}" wx:for-item="vo" wx:for-index="k" wx:key="*this">
+        <swiper-item>
+          <image style="height:{{viewHeight}}px" class="swiper-item" src="{{vo.picurl}}"></image>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <view class="info">
+    <view class="info-xj">￥<text class="info-xj-money">{{getGoodsInfo.price}}</text></view>
+    <view class="info-yj">
+      原价：<text class="info-yj-money">￥{{getGoodsInfo.original_price}}</text>
+      <block wx:if="{{getGoodsInfo.type == '1'}}">
+      <text class="info-yyj">预约金:{{getGoodsInfo.advance}}</text>
+      </block>
+    </view>
+    <view class="info-title">{{getGoodsInfo.name}}</view>
+    <view class="info-note">
+      <block wx:if="{{getUserInfo.identity == '1' || getUserInfo.identity == '2'}}">
+        <view class="info-note-sz">省/赚 {{getGoodsInfo.commission_c}}%</view>
+      </block>
+      <block wx:if="{{getUserInfo.identity == '3' || getUserInfo.identity == '4'}}">
+        <view class="info-note-sz">省/赚 {{getGoodsInfo.commission_b}}%</view>
+      </block>
+      <view class="">已售:{{getGoodsInfo.sales}}</view>
+    </view>
+  </view>
+  <view class="baozhang">
+    <image src="../../images/p.jpg" bindload="imageLoad" mode='aspectFill' style='width:{{viewWidth - 20}}px;height:100rpx;'></image>
+  </view>
+  <view class="content">
+    <view class="content-title"><text class="content-title-tb"></text>商品详情</view>
+    <view class="content-info" style="width:{{viewWidth - 20}}px;">
+      <rich-text nodes="{{nodes}}"></rich-text>
+    </view>
+  </view>
+  <block wx:if="{{getGoodsInfo.type == '1'}}">
+    <view class="fenxiang"  bindtap="showPopup">
+      <view class="xuanzhe"><van-icon custom-style="position:relative;left:0;top:3px" size="15px" name="warning-o" /> 在线预约金:<text class="note-money">￥{{getGoodsInfo.advance}}</text> 到院再付:<text class="note-money">￥{{getGoodsInfo.price - getGoodsInfo.advance * getGoodsInfo.advance_double}}</text></view>
+    </view>
+  </block>
+  <van-goods-action>
+    <view style="width:100%; display:flex;box-sizing: content-box;align-items: center;">
+      <van-goods-action-icon icon="chat-o" text="咨询" open-type="contact" style="width:120rpx;" />
+      <van-goods-action-icon icon="phone-o" text="电话" bind:click="onTel" style="width:120rpx;" />
+      
+      <block wx:if="{{getUserInfo.vip == 0 && (getUserInfo.identity == 1 || getUserInfo.identity == 2)}}">
+        <van-goods-action-button color="#EB617B" text="分享赚" bindtap='sharerro' type="warning" style="text-align: right;" />
+      </block>
+      <block wx:else>
+        <van-goods-action-button color="#EB617B" text="分享赚" bindtap='onShare' type="warning" style="text-align: right;" />
+      </block>
+      
+      <block wx:if="{{getGoodsInfo.type == 1 && share_id == 0}}">
+        <van-goods-action-button color="#D23637" text="自购省" bind:click="onService" />
+      </block>
+      <block wx:else>
+        <van-goods-action-button color="#D23637" text="自购省" bind:click="onSubmit" />
+      </block>
+    </view>
+  </van-goods-action>
+</view>
+<van-action-sheet show="{{ show }}" title="选择服务机构" bind:close="onShowClose">
+  <view class="share">
+    <view class="share-goods">
+      <image class="goods-img" src="{{getGoodsInfo.thumburl}}"></image>
+      <view class="goods-info">
+        <view class="info-money">
+          <view class="info-money-jg">
+            <text class="info-money-tb">￥</text>{{getGoodsInfo.price}}
+          </view>
+          <view class="info-money-jg">
+            <text class="info-money-tb">赚</text>{{getGoodsInfo.commission_b}}<text class="info-money-tb">%</text>
+          </view>
+        </view>
+        <view class="info-yy">预约金：￥ {{getGoodsInfo.advance}}</view>
+      </view>
+    </view>
+    <view class="fwjg">
+      <view class="fwjg-title">服务机构</view>
+      <view class="fwjg-list">
+        <block wx:for="{{getGoodsCheck}}" wx:for-item="vo" wx:key="key" wx:for-index="k">
+          <view class="fwjg-list-li {{fwjg == vo.sid ? 'active' : ''}}" bindtap="onFwjg" id="{{vo.sid}}">{{vo.shop_name}}</view>
+        </block>
+      </view>
+    </view>
+    <view class="addbank">
+      <block wx:if="{{fwjg == '0'}}">
+        <block wx:if="{{typePopup == 1}}">
+          <van-button custom-class="submit" disabled round color="#EA617B" size="large" type="primary">分享</van-button>
+        </block>
+        <block wx:else>
+          <van-button custom-class="submit" disabled round color="#EA617B" size="large" type="primary">自购</van-button>
+        </block>
+      </block>
+      <block wx:else>
+        <block wx:if="{{typePopup == 1}}">
+          <van-button custom-class="submit" round color="#EA617B" size="large" type="primary" open-type='share'>分享</van-button>
+        </block>
+        <block wx:else>
+          <van-button custom-class="submit" round color="#EA617B" size="large" type="primary" bind:click="onSubmit">自购</van-button>
+        </block>
+      </block>
+    </view>
+  </view>
+</van-action-sheet>
+<van-popup show="{{ showPopup }}" bind:close="onClosePopup">
+  <image style="width:300px;height:300px;" src="../../images/yyj.jpg"></image>
+</van-popup>
+<van-toast id="van-toast" />

@@ -1,0 +1,112 @@
+/* pages/classify/index.wxss */
+page{
+  font-family: SimSun;
+  background-color: #EEEEEE;
+}
+.category{
+  position: relative; 
+  width: 100%; 
+  height: 100%; 
+  color: #939393; 
+}
+
+.left_btn{
+  display: inline-block; 
+  width: 25%; 
+  background: #fff;
+  text-align: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+.btn{
+  height: 97rpx;
+  line-height: 97rpx;
+  font-size: 28rpx;
+  font-weight: 500;
+}
+.active{
+  font-weight: 600;
+  color: #EB607D;
+  background: #EEEEEE;
+  border-left: 5rpx solid red
+}
+
+.right_value{
+  /*右侧盒子使用了绝对定位*/ 
+  position: absolute; 
+  top: 0; 
+  right: 0; 
+  flex: 1; 
+  /*宽度75%，高度占满，并使用百分比布局*/ 
+  width: 75%; 
+  height: 1000px; 
+  padding: 10px; 
+  box-sizing: border-box; 
+  background: #EEEEEE;
+  margin-bottom: 40rpx;
+}
+
+.liqueur_box{
+  float: left; 
+  width: 50%;
+  padding: 10rpx;
+  box-sizing:border-box;
+}
+.liqueur_title{
+  width: 100%;
+  line-height: 80rpx;
+  display: grid;
+  font-weight: 600;
+  font-size: 28rpx;
+}
+.liqueur{
+  width: 100%;
+  text-align: center;
+  background-color: white;
+  border-radius:10px;
+}
+.liqueur image{
+  width: 100%;
+  border-radius:10px;
+}
+.name{
+  font-size: 28rpx;
+  margin-top: 14rpx;
+}
+.name_title{
+  font-size: 28rpx;
+  height: 40rpx;
+  width: 100%;
+  line-height: 40rpx;
+  display: grid;
+  overflow: hidden;
+}
+.name_money{
+  font-size: 24rpx;
+  width: 100%;
+  line-height: 50rpx;
+  margin-bottom: 10rpx;
+  display:flex; justify-content: space-around;
+}
+.name_price{
+  color: #EB607D;
+}
+.name_advance{
+  font-size: 20rpx;
+  color:#7f7f7f;
+}
+
+.clear{
+  clear: both;
+}
+
+
+
+
+
+
+
+
+
+

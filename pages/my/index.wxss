@@ -1,0 +1,208 @@
+/* pages/my/index.wxss */
+@import '/dist/common/index.wxss';
+
+page{
+  font-family: SimSun;
+  background-color: #EEEEEE;
+}
+.getwxgrant{
+  margin: 100rpx;
+}
+
+.userinfo {
+  width: 100%;
+  background-color: #EA617B;
+  display:flex;
+  box-sizing: border-box;
+}
+
+.userinfo-avatar {
+  width: 188rpx;
+  height: 188rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+  margin: 40rpx;
+}
+
+.userinfo-top{
+  padding: 40rpx 0;
+  color: white;
+  line-height: 50rpx;
+}
+
+.saoyisao{
+  width: 60px;
+  position: absolute;
+  right: 0;
+  top:30px;
+}
+
+.userinfo-duanwei{
+  font-size: 28rpx;
+}
+
+.userinfo-nickname {
+  font-size: 32rpx;
+}
+
+.userinfo-mobile{
+  font-size: 28rpx;
+}
+
+.my-money{
+  width: 100%;
+  height: 200rpx;
+  background-color: #EEEEEE;
+  position: relative;
+}
+.my-money-bg{
+  width: 100%;
+  height: 90rpx;
+  background-color: #EA617B;
+}
+.my-money-body{
+  height: 200rpx;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0 40rpx;
+  box-sizing: border-box;
+}
+
+.my-money-content{
+  width: 100%;
+  height: 150rpx;
+  background-color: #F9F9F9;
+  border-radius: 20rpx;
+  display:flex; justify-content: space-around;
+}
+
+.my-money-x{
+  width: 10rpx;
+  height: 150rpx;
+}
+.my-money-xbg{
+  width: 5rpx;
+  height: 60rpx;
+  background-color: #E9E9E9;
+  margin-top: 40rpx;
+}
+
+.my-money-title{
+  width: 300rpx;
+  height: 130rpx;
+  text-align: center;
+  color: #434342;
+  padding-top: 20rpx;
+}
+
+.my-orders{
+  width: 100%;
+  height: 250rpx;
+  background-color: #EEEEEE;
+  padding: 0 40rpx;
+  box-sizing: border-box;
+  font-size: 28rpx;
+}
+.my-orders-body{
+  width: 100%;
+  height: 250rpx;
+  background-color: #F9F9F9;
+  border-radius: 20rpx;
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+.my-orders-title{
+  width: 100%;
+  height: 70rpx;
+  line-height: 70rpx;
+  border-bottom: 1px #DBDBDB solid;
+  display:flex; justify-content: space-between;
+}
+.my-orders-bt{
+  width: 180rpx;
+  text-align: center;
+}
+.my-orders-more{
+  font-size: 24rpx;
+}
+.my-order-tb{
+  width: 100%;
+  height: 128rpx;
+  display:flex;
+  justify-content: space-between;
+}
+.my-order-tbnav{
+  width: 128rpx;
+  height: 128rpx;
+  text-align: center;
+  color: #EB617B;
+}
+.my-order-img{
+  width: 36rpx;
+  height: 36rpx;
+  margin-top: 30rpx;
+}
+
+.my-set{
+  width: 100%;
+  background-color: #EEEEEE;
+  padding: 40rpx;
+  box-sizing: border-box;
+  font-size: 28rpx;
+  color: #535351;
+  display: grid;
+}
+
+.my-set-tr{
+  width: 100%;
+  height: 80rpx;
+  background-color: #F9F9F9;
+  margin-bottom: 2px;
+  display:flex;
+  justify-content: space-between;
+}
+.my-set-tr-title{
+  width: 250rpx;
+  line-height: 80rpx;
+  padding-left: 40rpx;
+}
+.my-set-tr-tb{
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+.my-set-tr-mb{
+  margin-bottom: 20rpx;
+}
+
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+.block {
+  width: 45%;
+  padding: 20rpx; box-sizing:border-box;
+  background: #fff;
+  padding-bottom: 4rpx;
+  text-align: center;
+}
+.block-title{width: 100%; line-height: 50rpx; font-size: 28rpx;}
+.block-img{width: 300rpx;height: 300rpx;}
+.canvas{width: 150px !important; margin: 0 auto;}
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,38 @@
+<view class="category">
+  <van-search
+    shape="round" 
+    background="#EA617B"
+    value="{{ value }}"
+    placeholder="请输入搜索关键词"
+    use-action-slot
+    bind:change="onChange"
+    bind:search="onSearch"
+    bind:cancel="onCancel"
+    show-action="false"
+  >
+    <view style="color:#fff;" slot="action" bind:tap="onClick">搜索</view>
+  </van-search>
+  <van-dropdown-menu>
+    <van-dropdown-item value="{{ value1 }}" options="{{ option1 }}" id="{{value1}}" bind:change="onChangeSelect" />
+    <van-dropdown-item value="{{ value2 }}" options="{{ option2 }}" id="{{value2}}" bind:change="onChangeOrderby" />
+  </van-dropdown-menu>
+  <view class="list">
+    <block wx:for="{{getGoodsList}}" wx:for-item="vo" wx:key="key" wx:for-index="k">
+      <view class="yyfy_li" bindtap='onGetInfo' data-val="{{vo.id}}">
+        <image class="yyfy_li_img" src="{{vo.thumb_img}}"></image>
+        <view class="yyfy_li_content">
+          <view class="yyfy_li_content_title">{{vo.name}}</view>
+          <view class="yyfy_li_content_money">
+            <view class="yyfy_money"><text class="yyfy_money_fh">￥</text>{{vo.price}}</view>
+            <view class="yyfy_yuanjia">￥{{vo.original_price}}</view>
+            <van-button custom-style="width:200rpx;font-weight:500;" color="#EA617B" size="small" round type="info">立即抢购</van-button>
+          </view>
+          <view class="yyfy_li_content_note">            
+            <view class="yyfy_content_ys">已售：{{vo.sales}}</view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>
+<van-toast id="van-toast" />

@@ -1,0 +1,34 @@
+/* pages/my/balance/cashout.wxss */
+page{
+  font-family: SimSun;
+  background-color: #EEEEEE;
+}
+.category{
+  width: 100%;
+  display: grid;
+  padding: 20rpx;
+  box-sizing:border-box;
+}
+
+.content{width: 100%;display: grid; background-color: #FFFFFF;}
+.info{width: 100%; padding-left: 30rpx; padding-top: 20rpx; box-sizing:border-box; font-size:28rpx; color: #7B7B7A;}
+
+.note{width: 100%; padding-left: 30rpx; margin-bottom: 20rpx; box-sizing:border-box; font-size: 24rpx; color: #7B7B7A;}
+
+.cash{
+  width: 100%;
+  padding: 20rpx;
+  text-align: center;
+  box-sizing:border-box;
+}
+
+.cash-submit{
+  width: 100% !important;
+}
+
+
+.tixian{line-height: 80rpx; font-size: 28rpx; width: 100%; text-align: center; color: #232323;}
+
+.txgz{width: 100%; padding: 20rpx; box-sizing:border-box; display: grid;}
+
+

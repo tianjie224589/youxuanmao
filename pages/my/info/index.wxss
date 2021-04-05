@@ -1,0 +1,35 @@
+/* pages/my/info/index.wxss */
+page{
+  font-family: SimSun;
+  background-color: #FFFFFF;
+}
+.category{
+  width: 100%;
+  display: grid;
+  padding: 20rpx;
+  box-sizing:border-box;
+}
+
+.shuru{width: 100%;}
+.shuru_title{width: 25%; float: left;}
+.shuru_height{ line-height: 160rpx;}
+.shuru_height2{ line-height: 90rpx;}
+.shuru_body{width: 75%;float: left;}
+.shuru_body_sfz{width: 30%; float: left; margin-right: 40rpx;}
+.shuru_body_note{font-size: 24rpx; text-align: center; line-height: 50rpx;}
+.font-color{color: #B7B7B7;}
+
+.addbank{
+  width: 100%;
+  padding: 20rpx;
+  text-align: center;
+  box-sizing:border-box;
+}
+
+.submit{
+  width: 100% !important;
+}
+
+.shopres{font-size: 28rpx; color: #999; padding: 10px; line-height: 50rpx;}
+
+

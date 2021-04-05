@@ -1,0 +1,23 @@
+<view class="category">
+  <view class="top">
+    <view class="top-balance">
+      <view class="top-balance-title">总金额（元）</view>
+      <view class="top-balance-money">{{getUserInfo.capital.money}}</view>
+    </view>
+    <view class="cashout">
+      <van-button color="#EB617B" size="small" round type="info" bindtap="cashout">提现</van-button>
+    </view>
+  </view>
+  <van-tabs bind:click="onClick" data-type="{{pay_type}}">
+    <van-tab title="全部">
+    </van-tab>
+    <van-tab title="收入">
+    </van-tab>
+    <van-tab title="已提金额">
+    </van-tab>
+  </van-tabs>
+  <block wx:for="{{list}}" wx:for-item="vo" wx:key="key" wx:for-index="k">
+    <van-cell title="{{vo.name}} {{vo.addtime_str}}" value="{{vo.money_str}}" label="{{vo.note}}" />
+  </block>
+</view>
+<van-toast id="van-toast" />

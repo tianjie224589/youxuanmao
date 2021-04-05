@@ -1,0 +1,33 @@
+<view class="category">
+  <view class="left_btn">
+    <block wx:for="{{classify}}" wx:for-item="vo" wx:key="currentTab">
+      <view class="btn {{currentTab ==vo.id ? 'active' : ''}}" bindtap="clickTab" data-id="{{vo.id}}">{{vo.name}}</view>
+    </block>
+  </view>
+  <view class="right_value">
+    <scroll-view scroll-y="true" scroll-with-animation='true' scroll-top='{{ scrollTop }}'>
+    <image src="{{fybanner}}" style='width:100%;height:{{ viewHeight }}px;'></image>
+    
+    <block wx:for="{{goodslist}}" wx:key="key" wx:for-item="vo">
+      <view class="liqueur_title">{{vo.name}}</view>
+      <block wx:for="{{vo.voo}}" wx:for-item="val" wx:key="key">
+        <view class="liqueur_box">
+          <navigator url="../product/info?id={{val.id}}"> 
+            <view class="liqueur">
+              <image src="{{val.thumb_img}}" bindload="imageLoad" data-index="{{ index }}" mode='aspectFill' style='height:{{ images[index].height }}rpx;' lazy-load></image>
+              <view class="name">
+                <view class="name_title">{{val.short_title}}</view>
+                <view class="name_money">
+                  <view class="name_price">￥{{val.price}}</view>
+                  <view class="name_advance">预约金:{{val.advance}}</view>
+                </view>
+              </view>
+            </view>
+          </navigator>
+        </view>
+      </block>
+    </block>
+    <view class="clear"></view>
+    </scroll-view>
+  </view>
+</view>

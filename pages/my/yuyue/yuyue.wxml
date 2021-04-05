@@ -1,0 +1,33 @@
+<view class="category">
+  <van-cell-group>
+    <van-field label="预约表" />
+    <van-field label="姓名" model:value="{{ yy_name }}" placeholder="姓名" error />
+    <van-field label="手机号" model:value="{{ yy_mobile }}" placeholder="手机号" error />
+    <van-field label="预约时间" model:value="{{ yy_time }}" use-button-slot >
+      <van-button slot="button" size="small" type="primary" bindtap="showPopup"  custom-class="seltime" >
+        选择时间
+      </van-button>
+    </van-field>
+    <van-cell title="立即预约">
+      <van-switch slot="right-icon" size="24px" checked="{{ checked }}" bind:change="onChange" />
+    </van-cell>
+  </van-cell-group>
+  <view class="addbank">
+    <block wx:if="{{getOrderInfo.yy_confirm == 1}}">
+      <van-button custom-class="submit" disabled color="#EA617B" size="large" type="primary">保存</van-button>
+    </block>
+    <block wx:else>
+      <van-button custom-class="submit" color="#EA617B" size="large" type="primary" bind:click="submit">保存</van-button>
+    </block>
+  </view>
+</view>
+<van-popup show="{{ show }}" position="bottom" bind:close="onClose">
+  <van-datetime-picker
+    type="date"
+    value="{{ currentDate }}"
+    bind:confirm="onInput"
+    bind:cancel="onClose"
+    min-date="{{ minDate }}"
+    formatter="{{ formatter }}"
+  />
+</van-popup>

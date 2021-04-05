@@ -1,0 +1,23 @@
+<view class="category">
+  <view class="list">
+    <block wx:for="{{list}}" wx:for-item="vo" wx:key="key" wx:for-index="k">
+
+    <van-swipe-cell right-width="{{ 65 }}" left-width="{{ 65 }}" async-close bind:close="onClose" id="{{vo.id}}" data-k="{{k}}">
+      <view slot="left" class="van-swipe-cell__left">默认</view>
+      <view class="list-li">
+        <view>{{vo.bank_name}}</view>
+        <view>卡号：{{vo.bank_num}}</view>
+        <block wx:if="{{vo.default == 1}}">
+          <image class="list-li-tb" src="../../../images/bank.jpg"></image>
+        </block>
+      </view>
+      <view slot="right" class="van-swipe-cell__right">删除</view>
+    </van-swipe-cell>
+
+    </block>
+  </view>
+  <view class="addbank">
+    <van-button custom-class="submit" color="#EA617B" size="large" type="primary" bindtap="onAdd">添加银行卡</van-button>
+  </view>
+</view>
+<van-dialog id="van-dialog"/>

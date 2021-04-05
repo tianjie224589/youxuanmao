@@ -1,0 +1,59 @@
+/* pages/my/shop/list.wxss */
+@import '/dist/common/index.wxss';
+page{
+  font-family: SimSun;
+  background-color: #F0F0F0;
+}
+.category{
+  display: grid;
+  width: 100%;
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+
+.saoyisao{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20rpx;
+  background-color: #FFFFFF;
+}
+
+.saoyisao-title{ width: 100%; line-height: 100rpx; font-size: 32rpx; color: #515151; font-weight: 600;}
+
+.saoyisao-sys{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20rpx;
+  text-align: center;
+}
+
+
+.hexiaoma{
+  margin-top: 60rpx;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20rpx;
+  background-color: #FFFFFF;
+}
+
+
+.submit-button{
+  width: 100%;
+  padding: 20rpx;
+  text-align: center;
+  box-sizing:border-box;
+}
+
+.submit{
+  width: 100% !important;
+}
+
+
+
+
+
+
+
+
+
+

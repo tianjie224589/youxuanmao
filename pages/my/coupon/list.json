@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "van-button": "/dist/button/index",
+    "van-icon": "/dist/icon/index",
+    "van-swipe-cell": "/dist/swipe-cell/index",
+    "van-dialog": "/dist/dialog/index",
+    "van-toast": "/dist/toast/index"
+  },
+  "navigationBarTitleText": "我的优惠券"
+}

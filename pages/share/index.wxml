@@ -1,0 +1,94 @@
+<view class="category">
+  <view class="sousuo">
+    <van-search style="width:100%" 
+    shape="round" 
+    value="{{ value }}" 
+    placeholder="请输入搜索关键词" 
+    bind:change="onChange"
+    bind:search="onSearch"
+    bind:clear="onCancel" />
+  </view>
+
+  <view class="biaoqiao">
+    <block wx:for="{{lablelist}}" wx:for-item="vo" wx:key="key" wx:for-index="k">
+      <text class="bq_title" bindtap="onClickLabel" id="{{vo.id}}" data-val="{{vo.name}}">{{vo.name}}</text>
+    </block>
+  </view>
+  <image src="{{fybanner}}" style='width:100%;height:{{ viewHeight }}px;'></image>
+
+  <view class="fxcontent">
+    <block wx:for="{{getGoodsList}}" wx:for-item="vo" wx:key="key" wx:for-index="k">
+      <view class="list_li">
+        <view class="list_fx_fy">
+          <image class="list_img" src="{{vo.thumb_img}}" bindtap='onGetInfo' data-val="{{vo.id}}"></image>
+          <view class="list_content">
+            <view class="list_body" bindtap='onGetInfo' data-val="{{vo.id}}">
+              <view class="list_left_title">{{vo.name}}</view>
+              <view class="list_right">
+                <view class="list_right_price"><text class="price_tb">￥</text>{{vo.price}}</view>
+                <vieW class="list_right_num">x1</vieW>
+              </view>
+            </view>
+            <view class="list_num">
+              <view class="list_num_xl">销量:{{vo.sales}}</view>
+              <vieW class="list_num_fy">返佣:{{vo.commission_b}}%</vieW>
+            </view>
+            <view class="list_fx_an">
+              <block wx:if="{{vo.type == '1'}}">
+              <button class="list_zx list_bgc" style="padding:0 25rpx;line-height:60rpx;font-size:24rpx;" bindtap="onSheet"  id="{{vo.id}}" size="mini">选择服务机构</button>
+              </block>
+              <block wx:else>
+                <text class="list_zx"></text>
+                <button class="list_zx list_bgc" bindtap="onShareAdd" id="{{vo.id}}" style="padding:0 25rpx;line-height:60rpx;font-size:24rpx;" size="mini">加入分享专题</button>
+              </block>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+  <view class="fenxiang">
+    <view class="xuanzhe">已选择：{{selectNum}}份 至少{{selectOverNum}}款产品</view>
+    <van-button round size="small" type="info" bindtap="onToshare" color="#EB607D" custom-style="width:80px; font-size:28rpx;font-weight: 500;">确认</van-button>
+  </view>
+</view>
+<van-action-sheet show="{{ showsheet }}" title="选择服务机构" bind:close="onShowClose">
+  <view class="share">
+    <van-radio-group value="{{ radio }}" bind:change="onSelectChange">
+      <van-cell-group>
+        <block wx:for="{{getGoodsCheck}}" wx:for-item="vo" wx:key="key" wx:for-index="k">
+
+          <view class="yyfy_li">
+            <view class="yyfy_left">
+              <van-radio name="{{vo.sid}}" />
+            </view>
+            <view class="yyfy_right">
+              <image class="yyfy_li_v" src="../../images/v.png"></image>
+              <image class="yyfy_li_img" src="{{vo.shop_thumb_img}}"></image>
+              <view class="yyfy_li_content">
+                <view class="yyfy_li_content_title">{{vo.shop_name}}</view>
+                <view class="yyfy_li_content_des">{{vo.shop_describe}}</view>
+                <view class="yyfy_li_content_note">
+                  <view class="yyfy_content_des">
+                    <view class="yyfy_content_des_fy">返佣{{vo.shop_commission}}%</view>
+                    <view class="yyfy_content_des_ads">{{vo.shop_address}}</view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+
+        </block>
+      </van-cell-group>
+    </van-radio-group>
+    <view class="addbank">
+      <block wx:if="{{radio == '0'}}">
+        <van-button custom-class="submit" disabled round color="#EA617B" size="large" type="primary">加入分享</van-button>
+      </block>
+      <block wx:else>
+        <van-button custom-class="submit" round color="#EA617B" size="large" type="primary" bindtap="onFwjg" id="{{radio}}">加入分享</van-button>
+      </block>
+    </view>
+  </view>
+</van-action-sheet>
+<van-toast id="van-toast" />

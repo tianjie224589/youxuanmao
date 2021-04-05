@@ -1,0 +1,26 @@
+<view class="category">
+  <image src="{{fybanner}}" bindload="imageLoad" mode='aspectFill' bindtap="showPopup" style='width:100%;height:{{ images.height }}px;'></image>
+</view>
+<van-popup show="{{ show }}" bind:close="onClose">
+  <view class="coupon">
+    <view class="coupon_title">领取成功</view>
+    <image src="https://www.yiyoucha.com/static/libao.png" style='width:66px;height:55px;'></image>
+    <view class="coupon_list">
+      
+      <block wx:for="{{couponList}}" wx:for-item="vo" wx:key="key" wx:for-index="k">
+        <view class="coupon_li">
+          <view class="coupon_left">
+            <view class="coupon_face_value">￥<text>{{vo.face_value}}</text></view>
+            <view class="coupon_full">满{{vo.full}}可用</view>
+          </view>
+          <view class="coupon_right">
+            <view class="coupon_name">{{vo.name}}</view>
+            <view class="coupon_time">{{vo.start_time}} - {{vo.end_time}}</view>
+          </view>
+        </view>
+      </block>
+
+    </view>
+  </view>
+</van-popup>
+<van-toast id="van-toast" />

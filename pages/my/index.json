@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "van-icon": "/dist/icon/index",
+    "van-overlay": "/dist/overlay/index"
+  },
+  "navigationBarTitleText": "我的",
+  "enablePullDownRefresh": true
+}

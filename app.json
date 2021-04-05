@@ -1,13 +1,82 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/classify/index",
+    "pages/share/index",
+    "pages/my/index",
+    "pages/identity/index",
+    "pages/index/map",
+    "pages/index/search",
+    "pages/yiyuan/list",
+    "pages/product/list",
+    "pages/product/info",
+    "pages/product/submit",
+    "pages/index/success",
+    "pages/my/orders/list",
+    "pages/my/customer/index",
+    "pages/my/customer/orders",
+    "pages/my/shop/list",
+    "pages/my/yiyuan/list",
+    "pages/my/balance/list",
+    "pages/my/balance/cashout",
+    "pages/my/bank/list",
+    "pages/my/bank/addbank",
+    "pages/my/address/list",
+    "pages/my/address/add",
+    "pages/my/activity/list",
+    "pages/my/shop/cheack",
+    "pages/share/myshare",
+    "pages/share/listshare",
+    "pages/my/info/index",
+    "pages/pay/index",
+    "pages/my/orders/info",
+    "pages/my/yuyue/yuyue",
+    "pages/my/coupon/list",
+    "pages/index/info"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "Weixin",
-    "navigationBarTextStyle":"black"
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#EA617B",
+    "navigationBarTitleText": "",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#fff",
+    "selectedColor": "#fff",
+    "backgroundColor": "#EA617B",
+    "borderStyle": "black",
+    "list": [
+      {
+        "selectedIconPath": "images/sy1.png",
+        "iconPath": "images/sy.png",
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "selectedIconPath": "images/fl1.png",
+        "iconPath": "images/fl.png",
+        "pagePath": "pages/classify/index",
+        "text": "分类"
+      },
+      {
+        "selectedIconPath": "images/fy1.png",
+        "iconPath": "images/fy.png",
+        "pagePath": "pages/share/index",
+        "text": "省/赚"
+      },
+      {
+        "selectedIconPath": "images/my1.png",
+        "iconPath": "images/my.png",
+        "pagePath": "pages/my/index",
+        "text": "我的"
+      }
+    ]
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"

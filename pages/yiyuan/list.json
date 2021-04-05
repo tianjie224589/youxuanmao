@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "van-button": "/dist/button/index",
+    "van-overlay": "/dist/overlay/index",
+    "van-toast": "/dist/toast/index"
+  },
+  "navigationBarTitleText": "医院榜单",
+  "enablePullDownRefresh": true
+}

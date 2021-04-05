@@ -1,0 +1,13 @@
+/* pages/my/activity/list.wxss */
+page{
+  font-family: SimSun;
+  background-color: #F0F0F0;
+}
+.category{
+  display: grid;
+}
+
+
+
+
+

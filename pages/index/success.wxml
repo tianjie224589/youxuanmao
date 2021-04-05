@@ -1,0 +1,13 @@
+<view class="category">
+  <view class="pay-ico">
+    <van-icon name="checked" color="#EB617B" style="font-size:100rpx" />
+    <view class="pay-ico-text">支付成功</view>
+  </view>
+  <vie class="pay-msg">
+    <view class="pay-msg-title">美业商户联盟</view>
+    <view class="pay-msg-jg">￥<text class="info-xj-money">{{money}}</text></view>
+  </vie>
+  <view class="pay-go">
+    <van-button type="warning" color="#EB617B" custom-style="color: white;" bindtap='onPayto'>返回首页</van-button>
+  </view>
+</view>

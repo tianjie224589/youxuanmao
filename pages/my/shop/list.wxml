@@ -1,0 +1,16 @@
+<view class="category">
+  <view class="saoyisao">
+    <view class="saoyisao-title">扫码核销：</view>
+    <view class="saoyisao-sys">
+      <van-icon size="200px" name="scan" bindtap="getScancode" />
+    </view>
+  </view>
+  <view class="hexiaoma">
+    <view class="saoyisao-title">输入核销码：</view>
+    <van-field model:value="{{ value }}" placeholder="请输入核销码" />
+  </view>
+  <view class="submit-button">
+    <van-button custom-class="submit" round color="#EA617B" size="large" type="primary" bindtap="onSubmit">提交</van-button>
+  </view>
+</view>
+<van-toast id="van-toast" />

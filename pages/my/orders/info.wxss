@@ -1,0 +1,34 @@
+page{
+  font-family: SimSun;
+  background-color: #EEEEEE;
+}
+.category{
+  display: grid;
+  padding: 20rpx;
+  width: 100%;
+  box-sizing:border-box;
+}
+
+.content{width: 100%; padding: 0 20rpx; box-sizing:border-box; background-color: #FFFFFF; display: grid;}
+.content-title{ line-height: 80rpx;width: 100%;font-size: 28rpx; color: #000000;}
+.content-body{widows: 100%; padding: 20rpx 0; margin-bottom: 20rpx; border-radius: 20rpx; background-color: #ffffff; box-sizing: border-box;}
+
+.order{ padding:0 20rpx; box-sizing: border-box; display:flex; justify-content: space-between;}
+.order-img{height: 220rpx; width: 200rpx;border-radius:10px;}
+.order-info{width:450rpx; padding: 20rpx;box-sizing: border-box;}
+.order-info-title{width: 100%; height: 80rpx; color: #484848; font-size: 28rpx; line-height: 40rpx; overflow: hidden;}
+.order-info-des{ width: 100%;height: 120rpx; overflow: hidden; display:flex; justify-content: space-between;}
+.order-info-des-jg{width: 200rpx;padding-top: 30rpx; font-size: 40rpx; color: #FF000B; font-weight: 600;}
+.order-info-des-jg-tb{font-size: 28rpx;font-weight: 500;}
+.order-info-des-num{width: 500rpx;text-align: right;padding-top: 30rpx; box-sizing: border-box; }
+
+
+
+
+
+
+
+
+
+
+

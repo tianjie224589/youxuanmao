@@ -1,0 +1,26 @@
+/* pages/my/yuyue/yuyue.wxss */
+page{
+  font-family: SimSun;
+  background-color: #EEEEEE;
+}
+.category{
+  display: grid;
+}
+
+
+
+
+.addbank{
+  width: 100%;
+  padding: 20rpx;
+  text-align: center;
+  box-sizing:border-box;
+}
+
+.submit{
+  width: 100% !important;
+}
+
+.seltime{
+  width: 100px !important;
+}

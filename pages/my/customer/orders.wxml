@@ -1,0 +1,34 @@
+<view class="category">
+  <van-tabs bind:click="onClick">
+    <van-tab title="已核销">
+      
+    </van-tab>
+    <van-tab title="未核销">
+      
+    </van-tab>
+  </van-tabs>
+  <view class="order-list">
+
+    <block wx:for="{{list}}" wx:for-item="vo" wx:key="key" wx:for-index="k">
+      <view class="order-li">
+        <image class="order-li-img" src="{{vo.goods_thumb_img}}"></image>
+        <view class="order-li-content">
+          <view class="order-li-c-info">
+            <view class="order-li-c-info-title">{{vo.goods_name}}</view>
+            <view class="order-li-c-info-money"><text class="order-li-c-info-ico">￥</text>{{vo.buy_money}}</view>
+          </view>
+          <view class="order-li-c-des">
+            <view class="order-li-c-des-note">
+              <view class="order-li-c-des-tel">电话:{{vo.collect_phone}}</view>
+              <view class="order-li-c-des-ads">地址:{{vo.collect_ads}}</view>
+            </view>
+            <view class="order-li-c-des-s">
+              <van-button size="small" color="#EA617B" round type="info">等待核销</van-button>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+
+  </view>
+</view>

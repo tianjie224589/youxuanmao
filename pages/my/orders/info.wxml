@@ -1,0 +1,43 @@
+<view class="category">
+  <view class="content">
+    <view class="content-title">商品信息</view>
+    <view class="content-body">
+      <view class="order">
+        <image class="order-img" src="{{getOrderInfo.thumburl}}"></image>
+        <view class="order-info">
+          <view class="order-info-title">{{getOrderInfo.goods_name}}</view>
+          <view class="order-info-des">
+            <view class="order-info-des-jg"><text class="order-info-des-jg-tb">￥</text>{{getOrderInfo.money}}</view>
+            <view class="order-info-des-num">
+
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="content">
+    <van-cell-group>
+      <block wx:if="{{getOrderInfo.order_type == '1' || getOrderInfo.order_type == '2'}}">
+        <van-cell title="商家名称" value="{{getOrderInfo.infoShop.name}}" />
+        <van-cell title="商家电话" value="{{getOrderInfo.infoShop.tell}}" />
+        <van-cell title="商家地址" value="{{getOrderInfo.infoShop.address}}" />
+        <van-cell title="商家手机" value="{{getOrderInfo.infoShop.mobile}}" />
+      </block>
+      <block wx:if="{{getOrderInfo.order_type == '1'}}">
+        <van-cell title="预约姓名" value="{{getOrderInfo.yy_name}}" />
+        <van-cell title="预约电话" value="{{getOrderInfo.yy_mobile}}" />
+        <van-cell title="预约时间" value="{{getOrderInfo.yy_time}}" />
+      </block>
+      
+      <block wx:if="{{getOrderInfo.order_type == '3'}}">
+        <van-cell title="运单号" value="{{getOrderInfo.logistics_no}}" />
+        <van-cell title="物流" value="{{getOrderInfo.logistics_name}}" />
+        <van-cell title="发货时间" value="{{getOrderInfo.logistics_time}}" />
+      </block>
+      <van-cell title="订单号" value="{{getOrderInfo.trade_no}}" />
+      <van-cell title="下单时间" value="{{getOrderInfo.addtime}}" />
+      <van-cell title="订单状态" value="{{getOrderInfo.orderstate}}" />
+    </van-cell-group>
+  </view>
+</view>

@@ -1,0 +1,26 @@
+/* pages/my/balance/list.wxss */
+page{
+  font-family: SimSun;
+  background-color: #F0F0F0;
+}
+.category{
+  display: grid;
+}
+
+
+.top{width: 100%; height: 200rpx; background-color: #EB617B; box-sizing:border-box; display:flex; justify-content: space-between; color: white;}
+
+.top-balance{ width: 250rpx; height: 150rpx; padding-top: 50rpx; padding-left: 50rpx;}
+.top-balance-title{width: 100%; line-height: 30rpx; font-size: 28rpx;}
+.top-balance-money{width: 100%; line-height: 100rpx; font-size: 60rpx; font-weight: 600;}
+
+.cashout{ width: 200rpx; height: 100rpx; padding-top: 100rpx; text-align: center;}
+.cashout button{width: auto !important; border: 5rpx #fff solid !important; padding-left:30rpx; padding-right:30rpx;}
+
+
+
+
+
+
+
+

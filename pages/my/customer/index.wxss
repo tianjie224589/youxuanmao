@@ -1,0 +1,25 @@
+/* pages/my/customer/index.wxss */
+page{
+  font-family: SimSun;
+  background-color: #F0F0F0;
+}
+.category{
+  display: grid;
+}
+
+.list{width: 100%;}
+.list-li{width: 100%;margin-top: 20rpx;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

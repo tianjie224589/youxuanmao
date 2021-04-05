@@ -1,0 +1,30 @@
+<view class="category">
+  <view class="list">
+    <block wx:for="{{list}}" wx:for-item="vo" wx:key="key" wx:for-index="k">
+
+      <van-swipe-cell right-width="{{ 65 }}" left-width="{{ 65 }}" async-close bind:close="onClose" id="{{vo.id}}" data-k="{{k}}">
+        <view slot="left" class="van-swipe-cell__left">默认</view>
+        <view class="list-li">
+          <view class="list-li-info" bindtap="goToback" id="{{vo.id}}">
+            <view class="title">
+              <text>{{vo.name}} {{vo.phone}}</text>
+              <block wx:if="{{vo.default == 1}}"> 
+              <van-button custom-class="default" round color="#EA617A" size="small" type="primary">默认</van-button>
+              </block> 
+            </view>
+            <view class="address-info">{{vo.collect}}</view>
+          </view>
+          <view class="list-li-edit">
+            <van-icon name="edit" size="20px" bindtap="onAdsEdit" id="{{vo.id}}" />
+          </view>
+        </view>
+        <view slot="right" class="van-swipe-cell__right">删除</view>
+      </van-swipe-cell>
+    
+    </block>
+  </view>
+  <view class="addbank">
+    <van-button custom-class="submit" color="#EA617B" size="large" type="primary" bindtap="onAdd">添加地址</van-button>
+  </view>
+</view>
+<van-dialog id="van-dialog"/>

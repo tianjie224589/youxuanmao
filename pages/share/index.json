@@ -1,0 +1,16 @@
+{
+  "usingComponents": {
+    "van-search": "/dist/search/index",
+    "van-tag": "/dist/tag/index",
+    "van-popup": "/dist/popup/index",
+    "van-action-sheet": "/dist/action-sheet/index",
+    "van-cell": "/dist/cell/index",
+    "van-cell-group": "/dist/cell-group/index",
+    "van-radio": "/dist/radio/index",
+    "van-radio-group": "/dist/radio-group/index",
+    "van-button": "/dist/button/index",
+    "van-toast": "/dist/toast/index"
+  },
+  "navigationBarTitleText": "省赚",
+  "enablePullDownRefresh": true
+}

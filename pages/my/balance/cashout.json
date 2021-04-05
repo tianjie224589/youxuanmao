@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "van-button": "/dist/button/index",
+    "van-field": "/dist/field/index",
+    "van-divider": "/dist/divider/index",
+    "van-popup": "/dist/popup/index",
+    "van-toast": "/dist/toast/index"
+  },
+  "navigationBarTitleText": "提现"
+}

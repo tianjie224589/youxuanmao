@@ -1,0 +1,180 @@
+<!--pages/my/index.wxml-->
+<view class="container">
+  <button class="getwxgrant" wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+  <block wx:else>
+    <view class="userinfo">
+        <image bindtap="bindViewTap" class="userinfo-avatar" src="{{getUserInfo.imageUrl}}" mode="cover"></image>
+        <view class="userinfo-top">
+          <block wx:if="{{getUserInfo.identity != 4 && shenfen == 'myuser'}}">
+            <view class="userinfo-duanwei">VIP{{getUserInfo.vip}}</view>
+          </block>
+          <view class="userinfo-nickname">{{getUserInfo.nickname}}</view>
+          <block wx:if="{{getUserInfo.mobile == ''}}">
+            <button style="width: 250rpx;font-size: 28rpx;" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">获取手机号</button>
+          </block>
+          <block wx:else>
+            <view class="userinfo-mobile">{{getUserInfo.mobile}}</view>
+          </block>
+        </view>
+        <block wx:if="{{shenfen == 'myuser' && getUserInfo.identity == 1}}">
+          <view class="saoyisao">
+            <van-icon name="scan" color="#FFF" size="40px" bindtap="getScancode" />
+          </view>
+        </block>
+    </view>
+    
+    <block wx:if="{{getUserInfo.identity != 4}}">
+      <view class="my-money">
+        <view class="my-money-bg"></view>
+        <view class="my-money-body">
+            <view class="my-money-content">
+              <view class="my-money-title" bindtap="onBalance">
+                <view>{{getUserInfo.capital.money}}</view>
+                <view>余额</view>
+              </view>
+              <view class="my-money-x">
+                <view class="my-money-xbg"></view>
+              </view>
+              <view class="my-money-title" bindtap="onCoupon">
+                <view>{{getUserInfo.nunCoupon}}</view>
+                <view>优惠券</view>
+              </view>
+            </view>
+        </view>
+      </view>
+      <view class="my-orders">
+        <view class="my-orders-body">
+          <view class="my-orders-title">
+            <view class="my-orders-bt">我的订单</view>
+            <view class="my-orders-more" bindtap="orderList">查看全部订单></view>
+          </view>
+          <view class="my-order-tb" bindtap="orderList">
+            <view class="my-order-tbnav">
+              <image class="my-order-img" src="../../images/my-order-dfk.jpg"></image>
+              <view>待付款</view>
+            </view>
+            <view class="my-order-tbnav">
+              <image class="my-order-img" src="../../images/my-order-dfh.jpg"></image>
+              <view>待发货</view>
+            </view>
+            <view class="my-order-tbnav">
+              <image class="my-order-img" src="../../images/my-order-dsh.jpg"></image>
+              <view>待收货</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </block>
+    
+    <view class="my-set">
+
+      <block wx:if="{{shenfen == 'myuser' && getUserInfo.identity == 2}}">
+        <view class="my-set-tr my-set-tr-mb" bindtap="onClickShow" data-src="../../images/ewm.jpg">
+          <view class="my-set-tr-title">
+            <van-icon name="qr" />
+            邀请注册码
+          </view>
+          <view class="my-set-tr-tb"><van-icon name="arrow" /></view>
+        </view>
+        <view class="my-set-tr" bindtap="customer">
+          <view class="my-set-tr-title">
+            <van-icon name="friends-o" />
+            客户管理
+          </view>
+          <view class="my-set-tr-tb"><van-icon name="arrow" /></view>
+        </view>
+      </block>
+
+      <block wx:if="{{getUserInfo.identity == '3' || getUserInfo.identity == '4'}}">
+        <view class="my-set-tr" bindtap="customerOrder">
+          <view class="my-set-tr-title">
+            <van-icon name="orders-o" />
+            客户订单
+          </view>
+          <view class="my-set-tr-tb"><van-icon name="arrow" /></view>
+        </view>
+        <block wx:if="{{getUserInfo.identity == '3'}}">
+          <view class="my-set-tr" bindtap="shopList">
+            <view class="my-set-tr-title">
+              <van-icon name="scan" />
+              商家核销
+            </view>
+            <view class="my-set-tr-tb"><van-icon name="arrow" /></view>
+          </view>
+        </block>
+        <block wx:if="{{getUserInfo.identity == '4'}}">
+          <view class="my-set-tr" bindtap="shopList">
+            <view class="my-set-tr-title">
+              <van-icon name="scan" />
+              医院核销
+            </view>
+            <view class="my-set-tr-tb"><van-icon name="arrow" /></view>
+          </view>
+        </block>
+      </block>
+      
+      <block wx:if="{{getUserInfo.identity != 4}}">
+        <view class="my-set-tr" bindtap="onBank">
+          <view class="my-set-tr-title">
+            <van-icon name="idcard" />
+            银行卡
+          </view>
+          <view class="my-set-tr-tb"><van-icon name="arrow" /></view>
+        </view>
+        <view class="my-set-tr" bindtap="onAddress">
+          <view class="my-set-tr-title">
+            <van-icon name="location-o" />
+            收货地址
+          </view>
+          <view class="my-set-tr-tb"><van-icon name="arrow" /></view>
+        </view>
+        <view class="my-set-tr" bindtap="onActivity">
+          <view class="my-set-tr-title">
+            <van-icon name="point-gift-o" />
+            活动中心
+          </view>
+          <view class="my-set-tr-tb"><van-icon name="arrow" /></view>
+        </view>
+        
+        <view class="my-set-tr" bindtap="onIdentity">
+          <view class="my-set-tr-title">
+            <van-icon name="friends-o" />
+            切换身份
+          </view>
+          <view class="my-set-tr-tb"><van-icon name="arrow" /></view>
+        </view>
+      </block>
+      <!--
+      <view class="my-set-tr" bindtap="onShopReg">
+        <view class="my-set-tr-title">
+          <van-icon name="friends-o" />
+          商家注册
+        </view>
+        <view class="my-set-tr-tb"><van-icon name="arrow" /></view>
+      </view>
+      <view class="my-set-tr" bindtap="onListShare">
+        <view class="my-set-tr-title">
+          <van-icon name="friends-o" />
+          分享
+        </view>
+        <view class="my-set-tr-tb"><van-icon name="arrow" /></view>
+      </view>
+      <view class="my-set-tr" bindtap="onShopCheack">
+        <view class="my-set-tr-title">
+          <van-icon name="friends-o" />
+          核销订单
+        </view>
+        <view class="my-set-tr-tb"><van-icon name="arrow" /></view>
+      </view>
+      -->
+    </view>
+  </block>
+  <van-overlay show="{{ show }}" bind:click="onClickHide">
+    <view class="wrapper">
+      <view class="block">
+        <view class="block-title">邀请注册码</view>
+        <canvas class='canvas' canvas-id='canvas' bindlongtap='save'></canvas>
+      </view>
+    </view>
+  </van-overlay>
+</view>

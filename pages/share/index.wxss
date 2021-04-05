@@ -1,0 +1,141 @@
+/* pages/share/index.wxss */
+page{
+  font-family: SimSun;
+  background-color: #EEEEEE;
+}
+.category{
+  display: grid;
+}
+.sousuo{width: 100%; display: grid;}
+.biaoqiao{
+  width: 100%; 
+  padding: 0 20rpx;
+  box-sizing:border-box;
+  padding-bottom: 20rpx;
+  background-color: #fff;
+}
+.bq_title{
+  padding:5px 20px;
+  line-height: 40rpx; 
+  background-color: #E9617C; 
+  margin-right: 10px; 
+  margin-bottom: 10px; 
+  font-size: 28rpx;
+  color: #fff;
+  border-radius: 30px;
+  display: block;
+  float: left;
+}
+
+.fxcontent{
+  width: 100%;
+  box-sizing: border-box;
+  background: #f7f6f5;
+  padding:20rpx;
+  display: grid;
+  margin-bottom: 100rpx;
+}
+
+
+.list_li{
+  width: 100%;
+  background: #fff;
+  margin-bottom:20rpx;
+  border-radius: 20rpx;
+  padding:20rpx;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.list_fx_fy{
+  width: 100%;
+  display:flex;
+  justify-content: space-around;
+  box-sizing: border-box;
+}
+
+.list_img{
+  height: 220rpx;
+  width: 200rpx;
+  border-radius: 20rpx;
+}
+
+.list_content{
+  width: calc(100% - 200rpx);
+  padding-left: 20rpx;
+  box-sizing: border-box;
+}
+.list_body{
+  width: 100%;
+  height: 80rpx;
+  overflow: hidden;
+}
+.list_left_title{
+  width: 70%;
+  height: 80rpx;
+  line-height: 40rpx;
+  font-size: 28rpx;
+  overflow: hidden;
+  float: left;
+}
+.list_right{
+  width: 30%;
+  text-align: right;
+  float: left;
+}
+.list_right_price{
+  line-height: 50rpx;
+  font-size: 36rpx;
+}
+.price_tb{font-size: 24rpx;}
+.list_right_num{
+  line-height: 30rpx;
+  font-size: 24rpx;
+  color: #7f7f7f;
+}
+
+.list_num{width: 100%; line-height: 50rpx; font-size: 28rpx; display: flex; justify-content: space-between;}
+.list_num_xl{color: #7f7f7f;}
+.list_num_fy{color: #E9607A;}
+
+
+
+
+.list_fx_an{
+  width: 100%;
+  height: 70rpx;
+  text-align: right;
+}
+.list_zx{ border-radius:20px; height: 60rpx; color: white; font-size: 24rpx; font-weight: 500; margin-left: 20rpx;}
+.list_bgc{ background-color: #EA617B;}
+
+
+.fenxiang{height: 100rpx;width: 100%; line-height: 100rpx; position: fixed; bottom: 0; background-color:#E2E2E2;display:flex; justify-content: space-around; font-size: 28rpx;}
+.xuanzhe{ width: 400rpx;}
+
+
+.share{width: 100%; padding: 20rpx; box-sizing: border-box;}
+.addbank{
+  width: 100%;
+  padding: 20rpx;
+  text-align: center;
+  box-sizing:border-box;
+}
+.submit{
+  width: 100% !important;
+}
+
+
+.yyfy_li{ width: 100%; padding: 20rpx; margin-bottom: 20rpx; background-color: #FFFFFF; box-sizing:border-box; display:flex;}
+.yyfy_left{ width: 10%; padding-top: 80rpx; float: left;}
+.yyfy_right{ width: 90%; float: left; display:flex; position: relative;}
+.yyfy_li_v{ height: 39rpx; width: 32rpx; position: absolute; top: 0;right: 0;}
+.yyfy_li_img{ height: 200rpx; width: 200rpx; border-radius:10px; float: left;}
+.yyfy_li_content{ width:calc(100% - 200rpx); padding-left: 20rpx; box-sizing:border-box; float: left;}
+.yyfy_li_content_title{ width: 410rpx; height: 40rpx; line-height: 40rpx; overflow: hidden;}
+.yyfy_li_content_des{ max-height: 80rpx; width: 400rpx; line-height: 40rpx; overflow: hidden; font-size: 24rpx; color: #666;}
+.yyfy_li_content_money{height: 80rpx; width: 100%; line-height: 80rpx; display:flex; justify-content: space-around; background-color:#fff;}
+.yyfy_li_content_note{ height: 80rpx; width: 100%; line-height: 60rpx; display:flex; justify-content: space-between;}
+.yyfy_content_des{ width: 280rpx; font-size: 24rpx;}
+.yyfy_content_des_fy{ line-height: 40rpx; color: #EA617B;}
+.yyfy_content_des_ads{ height: 30rpx; line-height: 30rpx; overflow: hidden; color: #8D8B8C;}
