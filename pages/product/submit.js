@@ -57,10 +57,14 @@ Page({
       method: "post",
       success: function (res) {
         console.log(res)
-        console.log('立即支付')
-        wx.navigateTo({
-          url: '../pay/index?id=' + res.data.result
-        })
+        if(res.data.status==200){
+          console.log('立即支付')
+          wx.navigateTo({
+            url: '../pay/index?id=' + res.data.result
+          })
+        }else{
+          Toast.fail(res.data.msg);
+        }
       }
     });
 

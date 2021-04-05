@@ -1,6 +1,6 @@
 <!--pages/my/index.wxml-->
 <view class="container">
-  <button class="getwxgrant" wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+  <button class="getwxgrant" wx:if="{{!hasUserInfo && canIUse}}" bindtap="getUserInfo"> 获取头像昵称 </button>
   <block wx:else>
     <view class="userinfo">
         <image bindtap="bindViewTap" class="userinfo-avatar" src="{{getUserInfo.imageUrl}}" mode="cover"></image>

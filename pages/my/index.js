@@ -268,28 +268,39 @@ Page({
 
   getUserInfo(e) {
     var that = this;
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
-    });
+    console.log('获取授权')
 
-    //把头像昵称保存到数据库表
-    var loginUserinfo = (wx.getStorageSync('userinfo'));
-    wx.request({
-      url: config.setUserEdit_url,
-      data:{"source":"wx","token":loginUserinfo.token,"nickname":e.detail.userInfo.nickName,"imageUrl":e.detail.userInfo.avatarUrl},
-      method:"POST",
-      success:function(rs){
-        console.log('头像昵称保存-成功返回',rs);
+    wx.getUserProfile({
+      desc:'正在获取',//不写不弹提示框
+      success:function(res){
+        console.log('获取成功: ',res.userInfo)
 
-        //刷新
-        that.onPullDownRefresh();
+        that.setData({
+          userInfo: res.userInfo,
+          hasUserInfo: true
+        });
+        //把头像昵称保存到数据库表
+        var loginUserinfo = (wx.getStorageSync('userinfo'));
+        wx.request({
+          url: config.setUserEdit_url,
+          data:{"source":"wx","token":loginUserinfo.token,"nickname":res.userInfo.nickName,"imageUrl":res.userInfo.avatarUrl},
+          method:"POST",
+          success:function(rs){
+            console.log('头像昵称保存-成功返回',rs);
+            //刷新
+            that.onPullDownRefresh();
+          },
+        });
+
       },
-    });
+      fail:function(err){
+        console.log("获取失败: ",err)
+      }
+    })
 
   },
+
+
 
   /**
    * 生命周期函数--监听页面初次渲染完成
